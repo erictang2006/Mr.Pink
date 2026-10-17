@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/pianocanvas.tsx","./src/piano/audioengine.ts","./src/piano/keyboardinput.ts","./src/piano/notemapping.ts"],"version":"5.9.3"}
