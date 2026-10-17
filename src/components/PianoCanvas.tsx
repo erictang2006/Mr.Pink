@@ -47,8 +47,8 @@ export default function PianoCanvas({ active, map, transpose, showLabels = false
         if (showLabels && label) {
           ctx.textAlign = 'center';
           ctx.fillStyle = pressed ? '#092e34' : '#3c4855';
-          ctx.font = `700 ${Math.max(11, Math.min(18, whiteWidth * .38))}px Inter, system-ui, sans-serif`;
-          ctx.fillText(label, x + whiteWidth / 2, height - 21, whiteWidth - 5);
+          ctx.font = `700 ${Math.max(15, Math.min(23, whiteWidth * .55))}px Inter, system-ui, sans-serif`;
+          ctx.fillText(label, x + whiteWidth / 2, height - 27, whiteWidth - 5);
         }
         if (showLabels && label && map.id !== 'interstellar-roblox-aligned' && midi % 12 === 0) {
           ctx.textAlign = 'center';
@@ -79,8 +79,8 @@ export default function PianoCanvas({ active, map, transpose, showLabels = false
         if (showLabels && label) {
           ctx.textAlign = 'center';
           ctx.fillStyle = pressed ? '#09343b' : '#d5e0e5';
-          ctx.font = `700 ${Math.max(10, Math.min(14, blackWidth * .48))}px Inter, system-ui, sans-serif`;
-          ctx.fillText(label, x + blackWidth / 2, blackHeight - 14, blackWidth - 3);
+          ctx.font = `700 ${Math.max(12, Math.min(18, blackWidth * .58))}px Inter, system-ui, sans-serif`;
+          ctx.fillText(label, x + blackWidth / 2, blackHeight - 19, blackWidth - 3);
         }
       }
     };
