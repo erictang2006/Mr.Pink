@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { labelForMidi, midiToName, type KeyboardMap } from '../piano/noteMapping';
+import { pianoGeometry, pianoRange, isBlack } from '../piano/geometry';
 
-type Props = { active: number[]; map: KeyboardMap; transpose: number };
-const isBlack = (midi: number) => [1, 3, 6, 8, 10].includes(midi % 12);
+type Props = { active: number[]; map: KeyboardMap; transpose: number; showLabels?: boolean };
 
-export default function PianoCanvas({ active, map, transpose }: Props) {
+export default function PianoCanvas({ active, map, transpose, showLabels = false }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -18,11 +18,10 @@ export default function PianoCanvas({ active, map, transpose }: Props) {
       ctx.scale(dpr, dpr);
       const width = rect.width;
       const height = rect.height;
-      const start = 48 + transpose;
-      const end = 84 + transpose;
-      const whites = Array.from({ length: end - start + 1 }, (_, i) => i + start).filter(midi => !isBlack(midi));
-      const whiteWidth = width / whites.length;
-      const blackWidth = Math.min(whiteWidth * .64, 31);
+      const range = pianoRange(map.bindings);
+      const start = range.low + transpose;
+      const end = range.high + transpose;
+      const { whites, whiteWidth, blackWidth, keys } = pianoGeometry(width, transpose, range.low, range.high);
       const blackHeight = height * .62;
       const activeSet = new Set(active);
 
@@ -45,13 +44,13 @@ export default function PianoCanvas({ active, map, transpose }: Props) {
         ctx.stroke();
 
         const label = labelForMidi(map, midi, transpose);
-        if (label) {
+        if (showLabels && label) {
           ctx.textAlign = 'center';
           ctx.fillStyle = pressed ? '#092e34' : '#3c4855';
-          ctx.font = `600 ${Math.max(9, Math.min(13, whiteWidth * .32))}px Inter, system-ui, sans-serif`;
-          ctx.fillText(label, x + whiteWidth / 2, height - 20);
+          ctx.font = `700 ${Math.max(11, Math.min(18, whiteWidth * .38))}px Inter, system-ui, sans-serif`;
+          ctx.fillText(label, x + whiteWidth / 2, height - 21, whiteWidth - 5);
         }
-        if (midi % 12 === 0) {
+        if (showLabels && label && map.id !== 'interstellar-roblox-aligned' && midi % 12 === 0) {
           ctx.textAlign = 'center';
           ctx.fillStyle = pressed ? '#0b454a' : '#7a8994';
           ctx.font = '10px Inter, system-ui, sans-serif';
@@ -61,9 +60,9 @@ export default function PianoCanvas({ active, map, transpose }: Props) {
 
       for (let midi = start; midi <= end; midi++) {
         if (!isBlack(midi)) continue;
-        const previousWhite = whites.filter(note => note < midi).length;
-        if (previousWhite === 0 || previousWhite === whites.length) continue;
-        const x = previousWhite * whiteWidth - blackWidth / 2;
+        const key = keys.get(midi);
+        if (!key) continue;
+        const x = key.x;
         const pressed = activeSet.has(midi);
         const fill = ctx.createLinearGradient(0, 0, 0, blackHeight);
         fill.addColorStop(0, pressed ? '#7de7df' : '#323b49');
@@ -77,11 +76,11 @@ export default function PianoCanvas({ active, map, transpose }: Props) {
         ctx.roundRect(x, 0, blackWidth, blackHeight, [0, 0, 4, 4]);
         ctx.fill();
         const label = labelForMidi(map, midi, transpose);
-        if (label) {
+        if (showLabels && label) {
           ctx.textAlign = 'center';
           ctx.fillStyle = pressed ? '#09343b' : '#d5e0e5';
-          ctx.font = `600 ${Math.max(8, Math.min(11, blackWidth * .43))}px Inter, system-ui, sans-serif`;
-          ctx.fillText(label, x + blackWidth / 2, blackHeight - 14);
+          ctx.font = `700 ${Math.max(10, Math.min(14, blackWidth * .48))}px Inter, system-ui, sans-serif`;
+          ctx.fillText(label, x + blackWidth / 2, blackHeight - 14, blackWidth - 3);
         }
       }
     };
@@ -89,7 +88,7 @@ export default function PianoCanvas({ active, map, transpose }: Props) {
     observer.observe(canvas);
     draw();
     return () => observer.disconnect();
-  }, [active, map, transpose]);
+  }, [active, map, transpose, showLabels]);
 
-  return <canvas ref={ref} className="piano-canvas" role="img" aria-label="Three octave piano keyboard showing physical keyboard labels and active notes" />;
+  return <canvas ref={ref} className="piano-canvas" role="img" aria-label={`Piano keyboard for ${map.name}, showing active notes${showLabels ? ' and physical key labels' : ''}`} />;
 }

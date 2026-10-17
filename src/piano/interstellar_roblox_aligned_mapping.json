@@ -1,0 +1,104 @@
+{
+  "name": "Interstellar \u2014 Roblox-aligned shift-free",
+  "description": "Same base physical key-to-pitch mapping as Roblox/Virtual Piano, using 24 natural pitches in Interstellar bars 1\u201330. No Shift required for these notes.",
+  "source": "Interstellar pitch inventory from prior extracted file; standard virtual piano white-key pitch map",
+  "shiftBehavior": "ignoreForPitch",
+  "mapping": {
+    "Digit4": {
+      "pitch": "F2",
+      "midi": 41
+    },
+    "Digit5": {
+      "pitch": "G2",
+      "midi": 43
+    },
+    "Digit6": {
+      "pitch": "A2",
+      "midi": 45
+    },
+    "Digit7": {
+      "pitch": "B2",
+      "midi": 47
+    },
+    "Digit8": {
+      "pitch": "C3",
+      "midi": 48
+    },
+    "Digit9": {
+      "pitch": "D3",
+      "midi": 50
+    },
+    "Digit0": {
+      "pitch": "E3",
+      "midi": 52
+    },
+    "KeyQ": {
+      "pitch": "F3",
+      "midi": 53
+    },
+    "KeyW": {
+      "pitch": "G3",
+      "midi": 55
+    },
+    "KeyE": {
+      "pitch": "A3",
+      "midi": 57
+    },
+    "KeyR": {
+      "pitch": "B3",
+      "midi": 59
+    },
+    "KeyT": {
+      "pitch": "C4",
+      "midi": 60
+    },
+    "KeyY": {
+      "pitch": "D4",
+      "midi": 62
+    },
+    "KeyU": {
+      "pitch": "E4",
+      "midi": 64
+    },
+    "KeyI": {
+      "pitch": "F4",
+      "midi": 65
+    },
+    "KeyO": {
+      "pitch": "G4",
+      "midi": 67
+    },
+    "KeyP": {
+      "pitch": "A4",
+      "midi": 69
+    },
+    "KeyA": {
+      "pitch": "B4",
+      "midi": 71
+    },
+    "KeyS": {
+      "pitch": "C5",
+      "midi": 72
+    },
+    "KeyD": {
+      "pitch": "D5",
+      "midi": 74
+    },
+    "KeyF": {
+      "pitch": "E5",
+      "midi": 76
+    },
+    "KeyH": {
+      "pitch": "G5",
+      "midi": 79
+    },
+    "KeyJ": {
+      "pitch": "A5",
+      "midi": 81
+    },
+    "KeyK": {
+      "pitch": "B5",
+      "midi": 83
+    }
+  }
+}
