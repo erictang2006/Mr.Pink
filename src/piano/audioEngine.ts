@@ -1,5 +1,5 @@
 import * as Tone from 'tone';
-import { midiToName } from './noteMapping';
+import { midiToToneName } from './noteMapping';
 
 const sampleBase = '/samples/';
 const sampleUrls = {
@@ -48,14 +48,14 @@ export class PianoAudioEngine {
     if (!this.ready) return;
     const count = this.active.get(midi) ?? 0;
     this.active.set(midi, count + 1);
-    if (count === 0) this.sampler.triggerAttack(midiToName(midi), Tone.now(), 0.88);
+    if (count === 0) this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88);
   }
 
   noteOff(midi: number): void {
     const count = this.active.get(midi) ?? 0;
     if (count <= 1) {
       this.active.delete(midi);
-      if (count === 1 && this.ready) this.sampler.triggerRelease(midiToName(midi), Tone.now());
+      if (count === 1 && this.ready) this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
     } else this.active.set(midi, count - 1);
   }
 

@@ -26,6 +26,10 @@ export function midiToName(midi: number): string {
   return `${names[((midi % 12) + 12) % 12]}${Math.floor(midi / 12) - 1}`;
 }
 
+export function midiToToneName(midi: number): string {
+  return midiToName(midi).replace('♯', '#');
+}
+
 export function labelForMidi(map: KeyboardMap, midi: number, transpose = 0): string {
   const direct = map.bindings.find(binding => binding.midi + transpose === midi);
   if (direct) return direct.label;
