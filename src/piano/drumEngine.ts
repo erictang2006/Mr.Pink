@@ -49,15 +49,23 @@ export class DrumEngine {
       }).toDestination();
     });
     this.eventId = Tone.Transport.scheduleRepeat(time => this.tick(time), "8n");
-    this.setMix(defaultDrumMix);
   }
 
-  async load(): Promise<void> { await this.loaded; this.ready = true; }
+  async load(): Promise<void> {
+    await this.loaded;
+    if (!this.ready) {
+      this.ready = true;
+      this.setMix(this.mix);
+    }
+  }
   isReady(): boolean { return this.ready; }
   snapshot(): DrumSnapshot { return copy(this.state); }
 
   setMix(mix: DrumMix): void {
     this.mix = mix;
+    // Creating a Player before its ToneAudioBuffer loads replaces the buffer's
+    // onload callback, leaving Tone.Players' shared load promise pending.
+    if (!this.ready) return;
     for (const name of [...layers, "fill", "riser"] as DrumName[])
       this.players.player(name).volume.rampTo(this.db(this.master * mix[name]), .04);
   }
