@@ -1068,6 +1068,23 @@ input:focus-visible {
 .performance-profile span {
   color: #769591;
 }
+.performance-measure {
+  position: absolute;
+  top: 46px;
+  left: 18px;
+  z-index: 2;
+  color: #d2eeed;
+  background: #061016ab;
+  border: 1px solid #3c66645c;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font: 10px "DM Mono", monospace;
+  pointer-events: none;
+}
+.performance-measure span { color: #769591; margin-left: 7px; }
+.performance-start-bar { display: inline-flex; align-items: center; gap: 7px; color: #94abb6; font-size: 11px; }
+.performance-start-bar input { width: 52px; color: #e8f5f5; background: #17212b; border: 1px solid #40515c; border-radius: 5px; padding: 5px; }
+.performance-start-bar small { color: #6f8b94; }
 @media (max-width: 600px) {
   .piano-adjustments {
     align-items: flex-start;

@@ -19,6 +19,7 @@ import {
 } from "./piano/keyboardInput";
 import { midiToName, standardMap, type KeyboardMap } from "./piano/noteMapping";
 import { LiveNotes } from "./piano/liveNotes";
+import { PedalInput } from "./piano/pedalInput";
 import { pianoRange } from "./piano/geometry";
 import {
   duplicatePitches,
@@ -31,7 +32,7 @@ import {
 } from "./piano/profiles";
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
-import { defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
+import { defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -91,25 +92,33 @@ export default function App() {
   const [performanceLabels, setPerformanceLabels] = useState(false);
   const [keyboardHeight, setKeyboardHeight] = useState(330);
   const [sustainSettings, setSustainSettings] = useState<SustainSettingsValue>(() => {
-    const defaults: SustainSettingsValue = { mode: "toggle", shortcut: "Space", releaseSeconds: 0.55, autoStart: 9, autoEnd: 13, showIndicator: true };
-    try { return { ...defaults, ...JSON.parse(localStorage.getItem("stage-piano-sustain-settings") || "{}") }; }
-    catch { return defaults; }
+    try {
+      const saved = JSON.parse(localStorage.getItem("stage-piano-sustain-settings") || "{}");
+      return { releaseSeconds: Number.isFinite(saved.releaseSeconds) ? saved.releaseSeconds : 0.55, showIndicator: saved.showIndicator !== false };
+    } catch { return { releaseSeconds: 0.55, showIndicator: true }; }
   });
   const [sustainActive, setSustainActive] = useState(false);
   const [showAssistedNotes, setShowAssistedNotes] = useState(false);
-  const [practiceMeasure, setPracticeMeasure] = useState(1);
+  const [performanceMeasure, setPerformanceMeasure] = useState(1);
   const [interstellarMix, setInterstellarMix] = useState<InterstellarMix>(() => {
-    try { return { ...defaultInterstellarMix, ...JSON.parse(localStorage.getItem("stage-piano-interstellar-mix") || "{}") }; }
-    catch { return defaultInterstellarMix; }
+    try {
+      const current = localStorage.getItem("stage-piano-interstellar-mix-v2");
+      if (current) return { ...defaultInterstellarMix, ...JSON.parse(current) };
+      const previous = JSON.parse(localStorage.getItem("stage-piano-interstellar-mix") || "{}");
+      return { ...defaultInterstellarMix, accompaniment: previous.accompaniment ?? defaultInterstellarMix.accompaniment,
+        melody: previous.melody ?? defaultInterstellarMix.melody, assisted: previous.assisted ?? defaultInterstellarMix.assisted };
+    } catch { return defaultInterstellarMix; }
   });
   const mixRef = useRef(interstellarMix);
-  const measureRef = useRef(practiceMeasure);
+  const measureRef = useRef(1);
+  const performanceMeasureRef = useRef(performanceMeasure);
+  const profileRef = useRef(profileId);
   const viewRef = useRef(view);
   mixRef.current = interstellarMix;
   viewRef.current = view;
   const doubledByCode = useRef(new Map<string, number>());
   const sustainRef = useRef(false);
-  const pedalKeyHeld = useRef(false);
+  const pedalInput = useRef<PedalInput | null>(null);
   const assistedTimers = useRef(new Map<number, { timer: number; midi: number; code: string }>());
   const assistedNextId = useRef(1);
   const audio = useRef<PianoAudioEngine | null>(null);
@@ -130,12 +139,16 @@ export default function App() {
     const input = new KeyboardInputManager(standardMap, {
       noteOn: (midi, code, at) => {
         const inStudio = viewRef.current === "studio";
-        const measure = measureRef.current;
-        const gain = inStudio ? practiceNoteGain(measure, midi, mixRef.current) : 1;
+        const inPerformance = viewRef.current === "performance";
+        const interstellarProfile = profileRef.current === interstellarMap.id || profileRef.current === assistedInterstellarMap.id;
+        const measure = inStudio ? measureRef.current : performanceMeasureRef.current;
+        const gain = inStudio ? practiceNoteGain(measure, midi, mixRef.current)
+          : inPerformance && interstellarProfile ? sectionGain(measure) : 1;
         if (engine.noteOn(midi, gain)) liveNotes.current.dampPitch(midi, at);
-        if (inStudio && shouldDoubleHighE(measure, code, midi, mixRef.current.octaveEnabled)) {
-          engine.noteOn(highEOctaveMidi, gain * mixRef.current.octave);
+        if ((inStudio || inPerformance) && interstellarProfile && shouldDoubleHighE(measure, code, midi, mixRef.current.octaveEnabled)) {
+          if (engine.noteOn(highEOctaveMidi, gain * mixRef.current.octave)) liveNotes.current.dampPitch(highEOctaveMidi, at);
           doubledByCode.current.set(code, highEOctaveMidi);
+          liveNotes.current.on(`octave:${code}`, highEOctaveMidi, at, false, true);
         }
         liveNotes.current.on(code, midi, at);
         practiceNote.current?.(midi, code, at);
@@ -143,7 +156,11 @@ export default function App() {
       noteOff: (midi, code, at) => {
         engine.noteOff(midi);
         const doubled = doubledByCode.current.get(code);
-        if (doubled !== undefined) { engine.noteOff(doubled); doubledByCode.current.delete(code); }
+        if (doubled !== undefined) {
+          engine.noteOff(doubled);
+          liveNotes.current.off(`octave:${code}`, at, sustainRef.current);
+          doubledByCode.current.delete(code);
+        }
         liveNotes.current.off(code, at, sustainRef.current);
       },
       change: setSnapshot,
@@ -176,37 +193,19 @@ export default function App() {
     try { localStorage.setItem("stage-piano-sustain-settings", JSON.stringify(sustainSettings)); } catch { /* storage unavailable */ }
   }, [sustainSettings]);
   useEffect(() => {
-    try { localStorage.setItem("stage-piano-interstellar-mix", JSON.stringify(interstellarMix)); } catch { /* storage unavailable */ }
+    try { localStorage.setItem("stage-piano-interstellar-mix-v2", JSON.stringify(interstellarMix)); } catch { /* storage unavailable */ }
   }, [interstellarMix]);
   useEffect(() => {
-    if (sustainSettings.mode === "automatic")
-      setPedal(view === "studio" && practiceMeasure >= sustainSettings.autoStart && practiceMeasure <= sustainSettings.autoEnd);
-    else if (sustainRef.current && sustainSettings.mode === "hold" && !pedalKeyHeld.current) setPedal(false);
-  }, [sustainSettings.mode, sustainSettings.autoStart, sustainSettings.autoEnd, practiceMeasure, view]);
-  useEffect(() => {
-    const code = sustainSettings.shortcut;
-    const onDown = (event: KeyboardEvent) => {
-      if (event.code !== code) return;
-      const target = event.target as HTMLElement | null;
-      if (target?.closest('input, textarea, select, [contenteditable="true"]') || event.metaKey || event.ctrlKey || event.altKey) return;
-      event.preventDefault();
-      if (event.repeat || pedalKeyHeld.current) return;
-      pedalKeyHeld.current = true;
-      if (sustainSettings.mode === "hold") setPedal(true);
-      if (sustainSettings.mode === "toggle") setPedal(!sustainRef.current);
-    };
-    const onUp = (event: KeyboardEvent) => {
-      if (event.code !== code) return;
-      event.preventDefault();
-      pedalKeyHeld.current = false;
-      if (sustainSettings.mode === "hold") setPedal(false);
-    };
+    const input = new PedalInput(() => setPedal(!sustainRef.current));
+    pedalInput.current = input;
+    const onDown = (event: KeyboardEvent) => input.keydown(event);
+    const onUp = (event: KeyboardEvent) => input.keyup(event);
     window.addEventListener("keydown", onDown, true);
     window.addEventListener("keyup", onUp, true);
-    return () => { window.removeEventListener("keydown", onDown, true); window.removeEventListener("keyup", onUp, true); };
-  }, [sustainSettings.mode, sustainSettings.shortcut]);
+    return () => { window.removeEventListener("keydown", onDown, true); window.removeEventListener("keyup", onUp, true); pedalInput.current = null; };
+  }, []);
   useEffect(() => {
-    const onBlur = () => { pedalKeyHeld.current = false; panic(); };
+    const onBlur = () => { pedalInput.current?.reset(); panic(); };
     window.addEventListener("blur", onBlur);
     return () => window.removeEventListener("blur", onBlur);
   }, []);
@@ -216,14 +215,15 @@ export default function App() {
   useEffect(() => {
     keyboard.current?.setReservedCodes(
       view === "performance"
-        ? [themeShortcut, "F7", "F8", "F9", "Escape", sustainSettings.shortcut]
-        : ["F9", sustainSettings.shortcut],
+        ? [themeShortcut, "F7", "F8", "F9", "Escape", "Space", "ArrowLeft", "ArrowRight"]
+        : ["F9", "Space"],
     );
-  }, [view, themeShortcut, sustainSettings.shortcut]);
+  }, [view, themeShortcut]);
   const activeProfile =
     profiles.find((profile) => profile.id === profileId) ??
     profiles[0] ??
     standardMap;
+  profileRef.current = activeProfile.id;
   const isBundledInterstellar = activeProfile.id === interstellarMap.id || activeProfile.id === assistedInterstellarMap.id;
   const keyboardRange = pianoRange(activeProfile.bindings);
   useEffect(() => {
@@ -289,6 +289,9 @@ export default function App() {
       if (event.code === "Escape") {
         event.preventDefault();
         exitPerformance();
+      } else if (isBundledInterstellar && (event.code === "ArrowLeft" || event.code === "ArrowRight")) {
+        event.preventDefault();
+        if (!event.repeat) setPerformanceBar(performanceMeasureRef.current + (event.code === "ArrowRight" ? 1 : -1));
       } else if (event.code === "F7") {
         event.preventDefault();
         if (!event.repeat) setPerformanceLabels((value) => !value);
@@ -304,7 +307,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
-  }, [view, themeShortcut]);
+  }, [view, themeShortcut, isBundledInterstellar]);
 
   useEffect(() => {
     if (view !== "performance") return;
@@ -325,7 +328,10 @@ export default function App() {
 
   const activePitches = useMemo(
     () =>
-      [...new Set(snapshot.pressed.map((key) => key.midi))].sort(
+      [...new Set(snapshot.pressed.flatMap((key) => {
+        const upper = doubledByCode.current.get(key.code);
+        return upper === undefined ? [key.midi] : [key.midi, upper];
+      }))].sort(
         (a, b) => a - b,
       ),
     [snapshot],
@@ -347,14 +353,16 @@ export default function App() {
     (code) => !snapshot.detected.includes(code),
   );
 
-  function panic() {
+  function panic(preservePedal = false) {
+    const pedalWasActive = sustainRef.current;
     for (const voice of assistedTimers.current.values()) window.clearTimeout(voice.timer);
     assistedTimers.current.clear();
     doubledByCode.current.clear();
     keyboard.current?.releaseAll();
     audio.current?.releaseAll();
     liveNotes.current.clear();
-    setPedal(false);
+    if (preservePedal && pedalWasActive) audio.current?.setSustain(true);
+    else setPedal(false);
   }
   function setPedal(enabled: boolean) {
     if (sustainRef.current === enabled) return;
@@ -363,6 +371,11 @@ export default function App() {
     if (!enabled) liveNotes.current.pedalUp(performance.now());
     setSustainActive(enabled);
   }
+  function setPerformanceBar(value: number) {
+    const next = Math.max(1, Math.min(importedSong.measureCount, Math.round(value) || 1));
+    performanceMeasureRef.current = next;
+    setPerformanceMeasure(next);
+  }
   function triggerAssisted(event: AssistedEvent) {
     if (!audio.current?.isReady()) return;
     const bpm = importedSong.measures[event.bar - 1].tempoBpm;
@@ -370,7 +383,7 @@ export default function App() {
       const id = assistedNextId.current++;
       const code = `assisted:${id}`;
       const at = performance.now();
-      if (audio.current.noteOn(midi, mixRef.current.assisted)) liveNotes.current.dampPitch(midi, at);
+      if (audio.current.noteOn(midi, mixRef.current.assisted * sectionGain(event.bar))) liveNotes.current.dampPitch(midi, at);
       liveNotes.current.on(code, midi, at, true);
       const timer = window.setTimeout(() => {
         audio.current?.noteOff(midi);
@@ -381,9 +394,7 @@ export default function App() {
     }
   }
   function resetAssistedSection() {
-    panic();
-    if (sustainSettings.mode === "automatic" && view === "studio" && practiceMeasure >= sustainSettings.autoStart && practiceMeasure <= sustainSettings.autoEnd)
-      setPedal(true);
+    panic(true);
   }
   function selectProfile(id: string) {
     const next = profiles.find((profile) => profile.id === id);
@@ -392,21 +403,19 @@ export default function App() {
       keyboard.current?.setTranspose(0);
       setTranspose(0);
     }
-    panic();
+    panic(true);
     keyboard.current?.setMap(next);
-    if (sustainSettings.mode === "automatic" && view === "studio" && practiceMeasure >= sustainSettings.autoStart && practiceMeasure <= sustainSettings.autoEnd)
-      setPedal(true);
     liveNotes.current.clear();
     setProfileId(next.id);
   }
   function exitPerformance() {
-    panic();
+    panic(true);
     setView("practice");
     if (document.fullscreenElement)
       void document.exitFullscreen().catch(() => {});
   }
   function enterStudio() {
-    panic();
+    panic(true);
     previousTranspose.current = transpose;
     keyboard.current?.setTranspose(0);
     setTranspose(0);
@@ -414,7 +423,7 @@ export default function App() {
     setView("studio");
   }
   function exitStudio() {
-    panic();
+    panic(true);
     if (activeProfile.id === assistedInterstellarMap.id) selectProfile(interstellarMap.id);
     keyboard.current?.setTranspose(previousTranspose.current);
     setTranspose(previousTranspose.current);
@@ -530,7 +539,7 @@ export default function App() {
   }
 
   if (view === "studio")
-    return <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; setPracticeMeasure(measure); }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} />;
+    return <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} />;
 
   if (view === "performance")
     return (
@@ -551,6 +560,7 @@ export default function App() {
           {activeProfile.name}{" "}
           <span>· F7 LABELS {performanceLabels ? "ON" : "OFF"}</span>
         </div>
+        {isBundledInterstellar && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>← / →</span></div>}
         <div className="performance-piano">
           <PianoCanvas
             active={activePitches}
@@ -650,6 +660,7 @@ export default function App() {
           >
             Enter Performance Mode <span className="arrow">↗</span>
           </button>
+          {isBundledInterstellar && <label className="performance-start-bar">Interstellar bar <input type="number" min="1" max={importedSong.measureCount} value={performanceMeasure} onChange={event => setPerformanceBar(Number(event.target.value))} /> <small>← / → on stage</small></label>}
           <button className="start-button performance-enter" onClick={enterStudio}>
             Open Practice Studio <span className="arrow">↗</span>
           </button>

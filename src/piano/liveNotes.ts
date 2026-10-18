@@ -1,4 +1,4 @@
-export type LiveNote = { id: number; code: string; midi: number; startMs: number; physicalEndMs: number | null; endMs: number | null; assisted: boolean };
+export type LiveNote = { id: number; code: string; midi: number; startMs: number; physicalEndMs: number | null; endMs: number | null; assisted: boolean; octave: boolean };
 
 export class LiveNotes {
   private nextId = 1;
@@ -6,9 +6,9 @@ export class LiveNotes {
   private sustained: LiveNote[] = [];
   private released: LiveNote[] = [];
 
-  on(code: string, midi: number, startMs: number, assisted = false): void {
+  on(code: string, midi: number, startMs: number, assisted = false, octave = false): void {
     if (this.active.has(code)) return;
-    this.active.set(code, { id: this.nextId++, code, midi, startMs, physicalEndMs: null, endMs: null, assisted });
+    this.active.set(code, { id: this.nextId++, code, midi, startMs, physicalEndMs: null, endMs: null, assisted, octave });
   }
 
   off(code: string, endMs: number, sustain = false): void {

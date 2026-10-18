@@ -99,11 +99,12 @@ test('switching to the Standard preset releases held Interstellar notes and clea
 
 test('visualizer and piano share the same Interstellar key geometry at projector widths', () => {
   const range = pianoRange(interstellarMap.bindings);
-  assert.deepEqual(range, { low: 41, high: 84 });
+  assert.deepEqual(range, { low: 41, high: 96 });
   for (const width of [960, 1920]) {
     const { keys, whites } = pianoGeometry(width, 0, range.low, range.high);
     assert.equal(whites[0], 41);
     assert.ok(keys.has(83));
+    assert.ok(keys.has(88));
     assert.ok(keys.get(60).x < keys.get(62).x);
     assert.ok(Math.abs(keys.get(60).width * whites.length - width) < 0.001);
   }

@@ -87,7 +87,8 @@ export default function PianoCanvas({
         ctx.stroke();
 
         const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
-        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${computer || "?"} · ${midiToName(midi)}` : computer;
+        const displayComputer = computer || (midi > range.high - 12 + transpose ? midiToName(midi) : "");
+        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${displayComputer} · ${midiToName(midi)}` : displayComputer;
         if (mode !== "none" && label) {
           ctx.textAlign = "center";
           ctx.fillStyle = pressed ? "#092e34" : "#3c4855";
@@ -127,7 +128,8 @@ export default function PianoCanvas({
         ctx.roundRect(x, 0, blackWidth, blackHeight, [0, 0, 4, 4]);
         ctx.fill();
         const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
-        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${computer || "?"}·${midiToName(midi)}` : computer;
+        const displayComputer = computer || (midi > range.high - 12 + transpose ? midiToName(midi) : "");
+        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${displayComputer}·${midiToName(midi)}` : displayComputer;
         if (mode !== "none" && label) {
           ctx.textAlign = "center";
           ctx.fillStyle = pressed ? "#09343b" : "#d5e0e5";

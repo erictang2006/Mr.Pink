@@ -86,6 +86,7 @@ export default function PerformanceVisualizer({
           ];
         ctx.save();
         if (note.assisted) ctx.globalAlpha = 0.5;
+        else if (note.octave) ctx.globalAlpha = 0.58;
         ctx.shadowColor = color;
         ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : 8;
         const gradient = ctx.createLinearGradient(0, top, 0, bottom);
