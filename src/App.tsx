@@ -443,6 +443,7 @@ export default function App() {
   }
   function setPerformanceBar(value: number, sequential = false) {
     const next = Math.max(1, Math.min(songId === "levels" ? levelsSong.measureCount : importedSong.measureCount, Math.round(value) || 1));
+    if (songId === "levels" && sequential && performanceMeasureRef.current >= 9 && performanceMeasureRef.current <= 11 && drums.current?.snapshot().status === "running") return;
     if (songId === "levels" && sequential && performanceMeasureRef.current === 11 && next === 12 && drums.current?.snapshot().status !== "roses-ready") return;
     performanceMeasureRef.current = next;
     setPerformanceMeasure(next);
