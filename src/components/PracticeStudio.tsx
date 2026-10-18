@@ -16,6 +16,7 @@ import {
   secondsAtBeat,
 } from "../piano/practiceSong";
 import type { InputSnapshot } from "../piano/keyboardInput";
+import type { SongId } from "./SandboxMode";
 
 const song = interstellarSong;
 type NoteHandler = (midi: number, code: string, at: number) => void;
@@ -40,7 +41,8 @@ type Props = {
   resetAssisted: () => void;
   interstellarMix: InterstellarMix;
   setInterstellarMix: (value: InterstellarMix) => void;
-  onSongChange: (song: "interstellar" | "levels") => void;
+  onSongChange: (song: SongId) => void;
+  onSandbox: () => void;
 };
 type Mode = "step" | "timed";
 type Labels = "computer" | "piano" | "both" | "none";
@@ -69,7 +71,7 @@ export default function PracticeStudio(props: Props) {
     : <RegularPractice {...props} onEnterAssisted={enterAssisted} />;
 }
 
-function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile, profiles, onNoteRef, onExit, onEnterAssisted, sustainSettings, setSustainSettings, sustainActive, onMeasureChange, triggerAssisted, resetAssisted, showAssistedNotes, setShowAssistedNotes, interstellarMix, setInterstellarMix, onSongChange }: Props & { onEnterAssisted: () => void }) {
+function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile, profiles, onNoteRef, onExit, onEnterAssisted, sustainSettings, setSustainSettings, sustainActive, onMeasureChange, triggerAssisted, resetAssisted, showAssistedNotes, setShowAssistedNotes, interstellarMix, setInterstellarMix, onSongChange, onSandbox }: Props & { onEnterAssisted: () => void }) {
   const [mode, setMode] = useState<Mode>(() => preference("mode", "step") === "timed" ? "timed" : "step");
   const [speed, setSpeed] = useState(() => clamp(Number(preference("speed", "75")) || 75, 25, 125));
   const [tolerance, setTolerance] = useState(() => clamp(Number(preference("tolerance", "180")) || 180, 50, 500));
@@ -351,9 +353,9 @@ function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile,
     </section>
     <section className="practice-controls" aria-label="Practice controls">
       <div className="practice-control-row">
-        <label>Song<select value="interstellar" onChange={event => onSongChange(event.target.value as "interstellar" | "levels")}><option value="interstellar">Interstellar — imported score</option><option value="levels">Levels — Avicii</option></select></label>
+        <label>Song<select value="interstellar" onChange={event => onSongChange(event.target.value as SongId)}><option value="interstellar">Interstellar — imported score</option><option value="levels">Levels — Avicii</option><option value="rush-e">Rush E — piano preset</option><option value="roses">Roses — The Chainsmokers</option></select></label>
         <label>Mapping<select value={map.id} onChange={event => selectProfile(event.target.value)} disabled={!!current?.assistedEvent}>{profiles.filter(profile => profile.id !== assistedInterstellarMap.id || !!current?.assistedEvent).map(profile => <option value={profile.id} key={profile.id}>{profile.name}</option>)}</select></label>
-        <div className="practice-segment"><button className={mode === "step" ? "selected" : ""} onClick={() => switchMode("step")}>Step</button><button className={mode === "timed" ? "selected" : ""} onClick={() => switchMode("timed")}>Timed</button></div>
+        <div className="practice-segment"><button className={mode === "step" ? "selected" : ""} onClick={() => switchMode("step")}>Step</button><button className={mode === "timed" ? "selected" : ""} onClick={() => switchMode("timed")}>Timed</button><button onClick={onSandbox}>Sandbox</button></div>
         {mode === "timed" && <button className="practice-primary" onClick={toggleTimed} disabled={!audioReady || unmapped.length > 0}>{playing ? "Pause" : "Start"}</button>}
         <button onClick={restart}>Restart measure</button><button onClick={reset}>Reset session</button>
       </div>

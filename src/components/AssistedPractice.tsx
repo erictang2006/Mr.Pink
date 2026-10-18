@@ -19,6 +19,7 @@ type Props = {
   onUnmappedRef: MutableRefObject<((code: string, at: number) => void) | null>;
   onExit: () => void;
   onExitAssisted: () => void;
+  onSandbox: () => void;
   triggerAssisted: (event: AssistedEvent) => void;
   resetAssisted: () => void;
   sustainSettings: SustainSettingsValue;
@@ -32,7 +33,7 @@ type Props = {
   setInterstellarMix: (value: InterstellarMix) => void;
 };
 
-export default function AssistedPractice({ map, snapshot, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange, interstellarMix, setInterstellarMix }: Props) {
+export default function AssistedPractice({ map, snapshot, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, onSandbox, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange, interstellarMix, setInterstellarMix }: Props) {
   const [index, setIndex] = useState(0);
   const [wrong, setWrong] = useState<number[]>([]);
   const [wrongCode, setWrongCode] = useState("");
@@ -111,7 +112,7 @@ export default function AssistedPractice({ map, snapshot, audioReady, startAudio
   }
 
   return <main className="practice-studio assisted-studio">
-    <header className="practice-header"><div><span className="practice-overline">STAGE PIANO / ASSISTED PRACTICE</span><h1>Interstellar · Bars 9–13</h1><span>Right hand: physical keys · left hand: follows each correct press</span></div><div className="practice-header-actions">{!audioReady && <button className="practice-primary" onClick={startAudio}>Enable piano audio</button>}<button onClick={onExitAssisted}>Full score</button><button onClick={onExit}>Back to piano</button></div></header>
+    <header className="practice-header"><div><span className="practice-overline">STAGE PIANO / ASSISTED PRACTICE</span><h1>Interstellar · Bars 9–13</h1><span>Right hand: physical keys · left hand: follows each correct press</span></div><div className="practice-header-actions">{!audioReady && <button className="practice-primary" onClick={startAudio}>Enable piano audio</button>}<button onClick={onExitAssisted}>Full score</button><button onClick={onSandbox}>Sandbox</button><button onClick={onExit}>Back to piano</button></div></header>
     <section className="practice-sheet" aria-label="Assisted keyboard sheet"><div className="practice-sheet-top"><div><strong>ASSISTED FINGERING</strong><span>Bar {measure} / 13 · Event {Math.min(index + 1, 60)} / 60</span></div><span>Accompaniment follows your keys</span></div><div className="practice-measures" ref={sheetRef}>
       {assistedSource.bars.map(bar => <div className={`practice-measure ${bar.bar === measure ? "is-current" : ""} ${bar.bar < measure ? "is-past" : ""}`} data-measure={bar.bar} key={bar.bar}>
         <button className="practice-measure-head" onClick={() => chooseBar(bar.bar)}><b>{String(bar.bar).padStart(2, "0")}</b><span>3/4 · 12 events</span></button>

@@ -729,6 +729,35 @@ input:focus-visible {
 .levels-drum-controls small { color: #f3d58d; }
 .performance-drum-pulse { position: absolute; right: 20px; bottom: calc(29dvh + 16px); z-index: 4; width: 7px; height: 7px; border-radius: 50%; background: #f3d58d; box-shadow: 0 0 16px #f3d58d; animation: drum-pulse .24s ease-out both; pointer-events: none; }
 @keyframes drum-pulse { from { opacity: .8; transform: scale(2); } to { opacity: .2; transform: scale(1); } }
+.sandbox-mode { width: 100%; height: 100vh; height: 100dvh; min-height: 560px; display: grid; grid-template-rows: auto minmax(90px, 1fr) minmax(280px, 1.55fr) auto; overflow: hidden; background: #090b12; color: #ebedf5; }
+.sandbox-mode:fullscreen { min-height: 0; }
+.sandbox-mode button, .sandbox-mode select { border: 1px solid #465161; border-radius: 6px; padding: 7px 10px; background: #1a1e2b; color: #ecedf4; font: inherit; }
+.sandbox-mode button:hover { border-color: #dc97d8; }
+.sandbox-mode input[type="range"], .sandbox-mode input[type="checkbox"] { accent-color: #d992dc; }
+.sandbox-header { min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 20px; border-bottom: 1px solid #403348; }
+.sandbox-header h1 { display: inline; margin: 0 12px 0 0; font-size: clamp(18px, 2.1vw, 27px); }
+.sandbox-header small { color: #aeb0c5; }
+.sandbox-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 7px; }
+.sandbox-actions label, .sandbox-control-line label { display: inline-flex; align-items: center; gap: 6px; color: #b4aec4; font-size: 11px; white-space: nowrap; }
+.sandbox-mode-pill { padding: 7px 10px; border: 1px solid #795678; border-radius: 6px; color: #eba6dd; font: 700 10px "DM Mono", monospace; }
+.sandbox-trails { display: flex; min-height: 0; }
+.sandbox-roses .sandbox-trails { border-bottom: 1px solid #854d7a; }
+.sandbox-keyboard { min-height: 0; display: flex; flex-direction: column; background: #0d1019; }
+.sandbox-keyboard-head { display: flex; justify-content: space-between; gap: 10px; padding: 7px 20px; color: #b2a6bc; font: 10px "DM Mono", monospace; }
+.sandbox-keyboard .piano-canvas { display: block; width: 100%; height: 100%; min-height: 0; flex: 1; }
+.sandbox-controls { max-height: min(27vh, 230px); min-height: 46px; overflow-y: auto; border-top: 1px solid #443448; padding: 9px 18px; background: #11121d; }
+.sandbox-control-line { display: flex; align-items: center; flex-wrap: wrap; gap: 9px 18px; }
+.sandbox-control-line output { color: #f1bfeb; font: 10px "DM Mono", monospace; }
+.sandbox-control-line input[type="range"] { width: clamp(75px, 8vw, 140px); }
+.sandbox-details { margin-top: 7px; border-top: 1px solid #343244; padding-top: 6px; color: #aeb0c5; font-size: 11px; }
+.sandbox-details summary { cursor: pointer; color: #e5afdf; }
+.sandbox-details .sandbox-control-line { margin-top: 10px; }
+.sandbox-details p { margin: 7px 0 0; }
+.sandbox-phrase { display: flex; gap: 5px; overflow-x: auto; padding: 8px 0; }
+.sandbox-phrase span { flex: 0 0 auto; display: grid; gap: 3px; min-width: 76px; padding: 5px 7px; border: 1px solid #4d4055; border-radius: 5px; }
+.sandbox-phrase b { color: #f4c0e9; font: 700 15px "DM Mono", monospace; }
+.sandbox-phrase small { max-width: 130px; color: #a9a9bb; font-size: 9px; }
+@media (max-width: 900px) { .sandbox-header { align-items: flex-start; flex-direction: column; } .sandbox-actions { justify-content: flex-start; } .sandbox-mode { grid-template-rows: auto minmax(65px, 1fr) minmax(230px, 1.55fr) auto; } }
 .practice-studio button, .practice-studio select {
   color: #d9e8ec;
   background: #17212b;
@@ -1013,6 +1042,7 @@ input:focus-visible {
   border-top-color: #cbd6d8;
   box-shadow: none;
 }
+.theme-roses .performance-piano { border-top-color: #d98dcb; box-shadow: 0 -4px 18px #af569044; }
 @media (max-width: 700px) {
   .performance-hud {
     gap: 7px;

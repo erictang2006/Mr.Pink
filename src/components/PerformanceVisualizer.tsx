@@ -3,7 +3,7 @@ import { pianoGeometry, pianoRange } from "../piano/geometry";
 import { type LiveNotes } from "../piano/liveNotes";
 import { type KeyboardMap } from "../piano/noteMapping";
 
-export type Theme = "rush" | "cosmic" | "minimal";
+export type Theme = "rush" | "cosmic" | "minimal" | "roses";
 type Props = {
   notes: LiveNotes;
   map: KeyboardMap;
@@ -17,6 +17,7 @@ const colors: Record<Theme, string[]> = {
   rush: ["#61f4ef", "#f664d2", "#538cff", "#a987ff"],
   cosmic: ["#90bfff", "#b4a9ff", "#e4ebff", "#6bd2ea"],
   minimal: ["#e7f0f2", "#66d8d1"],
+  roses: ["#f59bcc", "#d891f2", "#b99bff", "#eb87b6"],
 };
 
 export default function PerformanceVisualizer({
@@ -57,7 +58,7 @@ export default function PerformanceVisualizer({
       const speed = height / travelMs;
       const visibleRange = range ?? pianoRange(map.bindings);
       const geometry = pianoGeometry(width, transpose, visibleRange.low, visibleRange.high);
-      ctx.fillStyle = theme === "cosmic" ? "#070c19" : "#05070b";
+      ctx.fillStyle = theme === "cosmic" ? "#070c19" : theme === "roses" ? "#100b18" : "#05070b";
       ctx.fillRect(0, 0, width, height);
       if (theme === "cosmic") {
         ctx.fillStyle = "#d4e4ff";
@@ -90,7 +91,7 @@ export default function PerformanceVisualizer({
         if (note.assisted) ctx.globalAlpha = 0.5;
         else if (note.octave) ctx.globalAlpha = 0.58;
         ctx.shadowColor = color;
-        ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : 8;
+        ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : theme === "roses" ? 5 : 8;
         const gradient = ctx.createLinearGradient(0, top, 0, bottom);
         gradient.addColorStop(0, color);
         gradient.addColorStop(1, theme === "minimal" ? color : `${color}99`);
