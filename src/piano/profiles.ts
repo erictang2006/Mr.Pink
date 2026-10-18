@@ -1,5 +1,6 @@
 import { midiToToneName, standardMap, type KeyboardMap } from "./noteMapping";
 import interstellarSource from "./interstellar_roblox_aligned_mapping.json";
+import assistedSource from "./interstellar_assisted_bars_9_13.json";
 
 const storageKey = "stage-piano-profiles-v2";
 export const physicalCodes = [
@@ -86,6 +87,18 @@ function convertInterstellarSource(): KeyboardMap {
 }
 
 export const interstellarMap = convertInterstellarSource();
+export const assistedInterstellarMap = validateProfile({
+  id: "interstellar-assisted-9-13",
+  name: "Interstellar Assisted (Bars 9–13)",
+  bindings: [
+    ...interstellarMap.bindings,
+    ...Object.entries(assistedSource.keyboardMapping).map(([code, note]) => {
+      if (midiToToneName(note.midi) !== note.pitch)
+        throw Error(`Invalid assisted Interstellar note: ${code}`);
+      return { code, label: note.label, midi: note.midi };
+    }),
+  ],
+});
 export const defaultProfiles: KeyboardMap[] = [
   {
     ...standardMap,
@@ -100,6 +113,7 @@ export const defaultProfiles: KeyboardMap[] = [
     bindings: standardMap.bindings.map((binding) => ({ ...binding })),
   },
   interstellarMap,
+  assistedInterstellarMap,
 ];
 
 export function loadProfiles(): KeyboardMap[] {
@@ -110,7 +124,7 @@ export function loadProfiles(): KeyboardMap[] {
       if (Array.isArray(maps) && maps.length <= 40) {
         const saved = maps
           .map(validateProfile)
-          .filter((map) => map.id !== interstellarMap.id);
+          .filter((map) => map.id !== interstellarMap.id && map.id !== assistedInterstellarMap.id);
         const preserved = saved.map((map) =>
           map.id === "interstellar" && map.name === "Interstellar"
             ? { ...map, name: "Interstellar (previous mapping)" }

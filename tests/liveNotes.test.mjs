@@ -24,6 +24,28 @@ test('live notes keep independent key instances and accurate release times', () 
   assert.equal(notes.visible(5100, 4000).length, 0);
 });
 
+test('sustain extends audible trail after physical release and pedal up ends it', () => {
+  const notes = new LiveNotes();
+  notes.on('KeyC', 60, 100);
+  notes.off('KeyC', 200, true);
+  notes.on('KeyC', 60, 250);
+  let visible = notes.visible(300, 4000);
+  assert.equal(visible.length, 2);
+  assert.deepEqual(visible.map(note => [note.physicalEndMs, note.endMs]), [[200, null], [null, null]]);
+  notes.pedalUp(320);
+  visible = notes.visible(330, 4000);
+  assert.deepEqual(visible.map(note => [note.physicalEndMs, note.endMs]), [[200, 320], [null, null]]);
+});
+
+test('retriggering a sustained pitch ends its old trail while the new note stays active', () => {
+  const notes = new LiveNotes();
+  notes.on('KeyC', 60, 100);
+  notes.off('KeyC', 150, true);
+  notes.dampPitch(60, 200);
+  notes.on('KeyC', 60, 200);
+  assert.deepEqual(notes.visible(250, 4000).map(note => [note.startMs, note.endMs]), [[100, 200], [200, null]]);
+});
+
 test('black note bar geometry centers over the matching black key', () => {
   const { keys } = pianoGeometry(1080, 0);
   const c = keys.get(48), sharp = keys.get(49), d = keys.get(50);

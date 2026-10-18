@@ -1,0 +1,918 @@
+{
+  "title": "Interstellar assisted practice bars 9\u201313",
+  "keyboardMapping": {
+    "KeyZ": {
+      "label": "z",
+      "pitch": "G4",
+      "midi": 67
+    },
+    "KeyC": {
+      "label": "c",
+      "pitch": "A4",
+      "midi": 69
+    },
+    "KeyV": {
+      "label": "v",
+      "pitch": "B4",
+      "midi": 71
+    },
+    "KeyB": {
+      "label": "b",
+      "pitch": "C5",
+      "midi": 72
+    },
+    "KeyN": {
+      "label": "n",
+      "pitch": "D5",
+      "midi": 74
+    },
+    "KeyM": {
+      "label": "m",
+      "pitch": "E5",
+      "midi": 76
+    },
+    "Comma": {
+      "label": ",",
+      "pitch": "G5",
+      "midi": 79
+    },
+    "Slash": {
+      "label": "/",
+      "pitch": "A5",
+      "midi": 81
+    },
+    "Period": {
+      "label": ".",
+      "pitch": "B5",
+      "midi": 83
+    }
+  },
+  "bars": [
+    {
+      "bar": 9,
+      "events": [
+        {
+          "beat": "1",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "2",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "9/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "11/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "13/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "15/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        }
+      ]
+    },
+    {
+      "bar": 10,
+      "events": [
+        {
+          "beat": "1",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "2",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "9/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "11/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "13/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "15/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        }
+      ]
+    },
+    {
+      "bar": 11,
+      "events": [
+        {
+          "beat": "1",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "2",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "9/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "11/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "13/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "15/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        }
+      ]
+    },
+    {
+      "bar": 12,
+      "events": [
+        {
+          "beat": "1",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "2",
+          "physicalKey": "KeyZ",
+          "displayKey": "z",
+          "livePitch": "G4",
+          "liveMidi": 67,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "9/4",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "11/4",
+          "physicalKey": "Comma",
+          "displayKey": ",",
+          "livePitch": "G5",
+          "liveMidi": 79,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "13/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "15/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        }
+      ]
+    },
+    {
+      "bar": 13,
+      "events": [
+        {
+          "beat": "1",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/4",
+          "physicalKey": "KeyN",
+          "displayKey": "n",
+          "livePitch": "D5",
+          "liveMidi": 74,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/4",
+          "physicalKey": "Period",
+          "displayKey": ".",
+          "livePitch": "B5",
+          "liveMidi": 83,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "2",
+          "physicalKey": "KeyC",
+          "displayKey": "c",
+          "livePitch": "A4",
+          "liveMidi": 69,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "9/4",
+          "physicalKey": "KeyB",
+          "displayKey": "b",
+          "livePitch": "C5",
+          "liveMidi": 72,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "5/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "11/4",
+          "physicalKey": "Slash",
+          "displayKey": "/",
+          "livePitch": "A5",
+          "liveMidi": 81,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "3",
+          "physicalKey": "KeyZ",
+          "displayKey": "z",
+          "livePitch": "G4",
+          "liveMidi": 67,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "13/4",
+          "physicalKey": "KeyV",
+          "displayKey": "v",
+          "livePitch": "B4",
+          "liveMidi": 71,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "7/2",
+          "physicalKey": "KeyM",
+          "displayKey": "m",
+          "livePitch": "E5",
+          "liveMidi": 76,
+          "assistedPitches": [
+            "E4"
+          ],
+          "assistedMidi": [
+            64
+          ],
+          "durationBeats": "1/4"
+        },
+        {
+          "beat": "15/4",
+          "physicalKey": "Comma",
+          "displayKey": ",",
+          "livePitch": "G5",
+          "liveMidi": 79,
+          "assistedPitches": [
+            "F4"
+          ],
+          "assistedMidi": [
+            65
+          ],
+          "durationBeats": "1/4"
+        }
+      ]
+    }
+  ],
+  "notes": "All notes and beat positions extracted from supplied CSV; assisted notes play per correct physical key event, no autoplay."
+}

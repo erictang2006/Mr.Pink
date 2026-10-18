@@ -1,5 +1,6 @@
 import * as Tone from 'tone';
 import { midiToToneName } from './noteMapping';
+import { SustainVoices } from './sustainVoices';
 
 const sampleBase = '/samples/';
 const sampleUrls = {
@@ -14,7 +15,7 @@ const sampleUrls = {
 export class PianoAudioEngine {
   private sampler!: Tone.Sampler;
   private gain: Tone.Volume;
-  private active = new Map<number, number>();
+  private voices = new SustainVoices();
   private loadPromise: Promise<void>;
   private ready = false;
 
@@ -44,23 +45,32 @@ export class PianoAudioEngine {
     this.gain.volume.rampTo(value <= 0 ? -60 : 20 * Math.log10(value), 0.04);
   }
 
-  noteOn(midi: number): void {
-    if (!this.ready) return;
-    const count = this.active.get(midi) ?? 0;
-    this.active.set(midi, count + 1);
-    if (count === 0) this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88);
+  noteOn(midi: number): boolean {
+    if (!this.ready) return false;
+    const dampedPrior = this.voices.attack(midi);
+    if (dampedPrior) {
+      this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
+    }
+    this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88);
+    return dampedPrior;
   }
 
   noteOff(midi: number): void {
-    const count = this.active.get(midi) ?? 0;
-    if (count <= 1) {
-      this.active.delete(midi);
-      if (count === 1 && this.ready) this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
-    } else this.active.set(midi, count - 1);
+    if (this.voices.release(midi) && this.ready)
+      this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
+  }
+
+  setSustain(enabled: boolean): void {
+    for (const midi of this.voices.setPedal(enabled))
+      if (this.ready) this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
+  }
+
+  setRelease(seconds: number): void {
+    this.sampler.release = Math.max(0.05, Math.min(3, seconds));
   }
 
   releaseAll(): void {
-    this.active.clear();
+    this.voices.clear();
     if (this.ready) this.sampler.releaseAll(Tone.now());
   }
 

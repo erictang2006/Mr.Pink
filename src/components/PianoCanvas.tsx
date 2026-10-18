@@ -8,16 +8,28 @@ import { pianoGeometry, pianoRange, isBlack } from "../piano/geometry";
 
 type Props = {
   active: number[];
+  expected?: number[];
+  wrong?: number[];
+  completed?: number[];
   map: KeyboardMap;
   transpose: number;
   showLabels?: boolean;
+  labelMode?: "computer" | "piano" | "both" | "none";
+  practicePalette?: boolean;
+  preferredLabels?: Record<number, string>;
 };
 
 export default function PianoCanvas({
   active,
+  expected = [],
+  wrong = [],
+  completed = [],
   map,
   transpose,
   showLabels = false,
+  labelMode,
+  practicePalette = false,
+  preferredLabels = {},
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -43,6 +55,17 @@ export default function PianoCanvas({
       );
       const blackHeight = height * 0.62;
       const activeSet = new Set(active);
+      const expectedSet = new Set(expected);
+      const wrongSet = new Set(wrong);
+      const completedSet = new Set(completed);
+      const mode = labelMode ?? (showLabels ? "computer" : "none");
+      const keyColors = (midi: number, black: boolean): [string, string] => {
+        if (wrongSet.has(midi)) return ["#fb7886", "#bc3349"];
+        if (activeSet.has(midi)) return practicePalette ? ["#d7a3ff", "#8a54c7"] : ["#7de7df", black ? "#1e8b91" : "#3aa8a5"];
+        if (completedSet.has(midi)) return ["#a0e9ba", "#48a773"];
+        if (expectedSet.has(midi)) return ["#9bf4ff", "#3aafc0"];
+        return black ? ["#323b49", "#0b111b"] : ["#f5f4f0", "#c9d0d4"];
+      };
 
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = "#0d111a";
@@ -51,9 +74,10 @@ export default function PianoCanvas({
       whites.forEach((midi, i) => {
         const x = i * whiteWidth;
         const pressed = activeSet.has(midi);
+        const [top, bottom] = keyColors(midi, false);
         const fill = ctx.createLinearGradient(0, 0, 0, height);
-        fill.addColorStop(0, pressed ? "#7de7df" : "#f5f4f0");
-        fill.addColorStop(1, pressed ? "#3aa8a5" : "#c9d0d4");
+        fill.addColorStop(0, top);
+        fill.addColorStop(1, bottom);
         ctx.fillStyle = fill;
         ctx.beginPath();
         ctx.roundRect(x + 1, 2, whiteWidth - 2, height - 5, [3, 3, 7, 7]);
@@ -62,17 +86,19 @@ export default function PianoCanvas({
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        const label = labelForMidi(map, midi, transpose);
-        if (showLabels && label) {
+        const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
+        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${computer || "?"} · ${midiToName(midi)}` : computer;
+        if (mode !== "none" && label) {
           ctx.textAlign = "center";
           ctx.fillStyle = pressed ? "#092e34" : "#3c4855";
           ctx.font = `700 ${Math.max(15, Math.min(23, whiteWidth * 0.55))}px Inter, system-ui, sans-serif`;
           ctx.fillText(label, x + whiteWidth / 2, height - 27, whiteWidth - 5);
         }
         if (
-          showLabels &&
-          label &&
+          mode === "computer" &&
+          computer &&
           map.id !== "interstellar-roblox-aligned" &&
+          map.id !== "interstellar-assisted-9-13" &&
           midi % 12 === 0
         ) {
           ctx.textAlign = "center";
@@ -88,9 +114,10 @@ export default function PianoCanvas({
         if (!key) continue;
         const x = key.x;
         const pressed = activeSet.has(midi);
+        const [top, bottom] = keyColors(midi, true);
         const fill = ctx.createLinearGradient(0, 0, 0, blackHeight);
-        fill.addColorStop(0, pressed ? "#7de7df" : "#323b49");
-        fill.addColorStop(1, pressed ? "#1e8b91" : "#0b111b");
+        fill.addColorStop(0, top);
+        fill.addColorStop(1, bottom);
         ctx.fillStyle = "#090d14";
         ctx.beginPath();
         ctx.roundRect(x - 2, 0, blackWidth + 4, blackHeight + 3, [0, 0, 5, 5]);
@@ -99,8 +126,9 @@ export default function PianoCanvas({
         ctx.beginPath();
         ctx.roundRect(x, 0, blackWidth, blackHeight, [0, 0, 4, 4]);
         ctx.fill();
-        const label = labelForMidi(map, midi, transpose);
-        if (showLabels && label) {
+        const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
+        const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${computer || "?"}·${midiToName(midi)}` : computer;
+        if (mode !== "none" && label) {
           ctx.textAlign = "center";
           ctx.fillStyle = pressed ? "#09343b" : "#d5e0e5";
           ctx.font = `700 ${Math.max(12, Math.min(18, blackWidth * 0.58))}px Inter, system-ui, sans-serif`;
@@ -117,7 +145,7 @@ export default function PianoCanvas({
     observer.observe(canvas);
     draw();
     return () => observer.disconnect();
-  }, [active, map, transpose, showLabels]);
+  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels]);
 
   return (
     <canvas

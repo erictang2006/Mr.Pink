@@ -10,6 +10,7 @@ type Props = {
   transpose: number;
   theme: Theme;
   notesPerSecond: number;
+  showAssisted?: boolean;
 };
 const colors: Record<Theme, string[]> = {
   rush: ["#61f4ef", "#f664d2", "#538cff", "#a987ff"],
@@ -23,10 +24,11 @@ export default function PerformanceVisualizer({
   transpose,
   theme,
   notesPerSecond,
+  showAssisted = false,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const values = useRef({ transpose, theme, notesPerSecond, map });
-  values.current = { transpose, theme, notesPerSecond, map };
+  const values = useRef({ transpose, theme, notesPerSecond, map, showAssisted });
+  values.current = { transpose, theme, notesPerSecond, map, showAssisted };
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -48,7 +50,7 @@ export default function PerformanceVisualizer({
     resize();
     const draw = () => {
       const now = performance.now();
-      const { transpose, theme, notesPerSecond, map } = values.current;
+      const { transpose, theme, notesPerSecond, map, showAssisted } = values.current;
       const travelMs = 4400;
       const speed = height / travelMs;
       const range = pianoRange(map.bindings);
@@ -67,6 +69,7 @@ export default function PerformanceVisualizer({
       }
       const palette = colors[theme];
       for (const note of notes.visible(now, travelMs)) {
+        if (note.assisted && !showAssisted) continue;
         const key = geometry.keys.get(note.midi);
         if (!key) continue;
         const top = height - (now - note.startMs) * speed;
@@ -77,11 +80,12 @@ export default function PerformanceVisualizer({
         const inset = key.black ? 2 : Math.max(2, key.width * 0.12);
         const x = key.x + inset;
         const w = Math.max(2, key.width - inset * 2);
-        const color =
-          palette[
+        const color = note.assisted ? "#d8ad65" : palette[
             ((note.midi % palette.length) + palette.length) % palette.length
           ];
         ctx.save();
+        if (note.assisted) ctx.globalAlpha = 0.5;
+        else if (note.physicalEndMs !== null && note.endMs === null) ctx.globalAlpha = 0.42;
         ctx.shadowColor = color;
         ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : 8;
         const gradient = ctx.createLinearGradient(0, top, 0, bottom);

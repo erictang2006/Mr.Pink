@@ -1,0 +1,3896 @@
+{
+  "id": "interstellar",
+  "title": "Interstellar",
+  "sourceTitle": "Midnight Orbit \u2014 original cinematic piano sketch",
+  "sourceFile": "cornfield_chase_inspired_original_build_template.mscz",
+  "measureCount": 30,
+  "totalBeats": 90,
+  "pitches": [
+    41,
+    43,
+    45,
+    47,
+    48,
+    50,
+    52,
+    53,
+    55,
+    57,
+    59,
+    60,
+    62,
+    64,
+    65,
+    67,
+    69,
+    71,
+    72,
+    74,
+    76,
+    79,
+    81,
+    83
+  ],
+  "measures": [
+    {
+      "number": 1,
+      "startBeat": 0,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [
+        {
+          "beat": 0,
+          "bpm": 100.0
+        }
+      ],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 41,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 48,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 57,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 2,
+      "startBeat": 3,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 41,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 48,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 57,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 3,
+      "startBeat": 6,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 50,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 4,
+      "startBeat": 9,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 43,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 50,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 59,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 5,
+      "startBeat": 12,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 45,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 52,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 6,
+      "startBeat": 15,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 45,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 52,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 7,
+      "startBeat": 18,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 50,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": true
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 8,
+      "startBeat": 21,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 1,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.5,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 43,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 50,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left",
+          "midi": 59,
+          "tieFromPrevious": true,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 9,
+      "startBeat": 24,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 10,
+      "startBeat": 27,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 11,
+      "startBeat": 30,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 12,
+      "startBeat": 33,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 79,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 13,
+      "startBeat": 36,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 83,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 81,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "right",
+          "midi": 79,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 14,
+      "startBeat": 39,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 41,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 53,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 15,
+      "startBeat": 42,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 41,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 53,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 16,
+      "startBeat": 45,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 55,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 17,
+      "startBeat": 48,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 55,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 18,
+      "startBeat": 51,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 45,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 57,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 19,
+      "startBeat": 54,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 45,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 57,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 20,
+      "startBeat": 57,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 47,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 21,
+      "startBeat": 60,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 47,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 22,
+      "startBeat": 63,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 41,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 53,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 23,
+      "startBeat": 66,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 41,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 53,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 69,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 24,
+      "startBeat": 69,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 55,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 25,
+      "startBeat": 72,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 43,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 55,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 71,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 65,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 26,
+      "startBeat": 75,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 45,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 57,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 27,
+      "startBeat": 78,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 45,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 57,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 72,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 60,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 28,
+      "startBeat": 81,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 47,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 29,
+      "startBeat": 84,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 47,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 1,
+          "hand": "right",
+          "midi": 59,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 2,
+          "hand": "right",
+          "midi": 76,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 0.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 74,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 1.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.25,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 62,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.5,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 64,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        },
+        {
+          "beat": 2.75,
+          "duration": 0.25,
+          "hand": "left",
+          "midi": 67,
+          "tieFromPrevious": false,
+          "tieToNext": false
+        }
+      ],
+      "rests": []
+    },
+    {
+      "number": 30,
+      "startBeat": 87,
+      "beats": 3,
+      "timeSignature": [
+        3,
+        4
+      ],
+      "tempoBpm": 100.0,
+      "tempoChanges": [],
+      "notes": [],
+      "rests": [
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "right"
+        },
+        {
+          "beat": 0,
+          "duration": 3,
+          "hand": "left"
+        }
+      ]
+    }
+  ],
+  "unsupportedFeatures": []
+}

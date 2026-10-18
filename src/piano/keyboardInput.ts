@@ -10,6 +10,7 @@ type Callbacks = {
   noteOn: (midi: number, code: string, at: number) => void;
   noteOff: (midi: number, code: string, at: number) => void;
   change: (snapshot: InputSnapshot) => void;
+  unmappedKeyDown?: (code: string, at: number) => void;
 };
 
 export class KeyboardInputManager {
@@ -63,6 +64,8 @@ export class KeyboardInputManager {
     this.shift = event.shiftKey || event.code.startsWith("Shift");
     const midi = getPitch(this.map, event.code, event.shiftKey, this.transpose);
     if (midi === null) {
+      if (!event.repeat && !event.code.startsWith("Shift"))
+        this.callbacks.unmappedKeyDown?.(event.code, performance.now());
       this.emit();
       return;
     }
