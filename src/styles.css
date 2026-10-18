@@ -711,6 +711,24 @@ input:focus-visible {
 .levels-practice .levels-mapping summary { cursor: pointer; color: #83dce7; }
 .levels-practice .levels-mapping .practice-control-row { margin-top: 8px; }
 .levels-practice .practice-controls { max-height: min(30vh, 255px); overflow-y: auto; }
+.levels-practice { grid-template-rows: 68px minmax(260px, 1fr) auto minmax(220px, 32vh); }
+.levels-practice .levels-lane { flex: 0 0 68px; min-height: 68px; margin-top: 4px; }
+.levels-drum-grid { display: grid; gap: 1px; margin: 0 14px 0 12px; }
+.levels-drum-row { display: grid; grid-template-columns: 54px 1fr 66px; align-items: center; min-height: 18px; color: #8098a3; font: 9px "DM Mono", monospace; }
+.levels-drum-row.is-on { color: #8ce3ea; }
+.levels-drum-name { font-weight: 700; }
+.levels-drum-track { position: relative; height: 12px; margin: 0 12px; border-bottom: 1px solid #31505c; background: repeating-linear-gradient(to right, #49606c55 0 1px, transparent 1px 25%); }
+.levels-drum-track i { position: absolute; top: 3px; width: 4px; height: 4px; border-radius: 50%; background: #587786; }
+.levels-drum-track i.is-cue, .levels-drum-row.is-on .levels-drum-track i { background: #79dfe7; }
+.levels-drum-track b { position: absolute; top: -5px; transform: translateX(-4px); padding: 0 2px; color: #f3d58d; background: #16222c; font-size: 11px; }
+.levels-drum-playhead { position: absolute; top: 0; bottom: -2px; width: 2px; background: #f3d58d; box-shadow: 0 0 5px #f3d58d; }
+.levels-drum-state { text-align: right; }
+.levels-drum-controls { border-top: 1px solid #273640; padding-top: 5px; color: #91aab4; font: 10px "DM Mono", monospace; }
+.levels-drum-controls strong { color: #78dce5; }
+.levels-drum-controls span { padding: 3px 5px; border: 1px solid #37505c; border-radius: 4px; }
+.levels-drum-controls small { color: #f3d58d; }
+.performance-drum-pulse { position: absolute; right: 20px; bottom: calc(29dvh + 16px); z-index: 4; width: 7px; height: 7px; border-radius: 50%; background: #f3d58d; box-shadow: 0 0 16px #f3d58d; animation: drum-pulse .24s ease-out both; pointer-events: none; }
+@keyframes drum-pulse { from { opacity: .8; transform: scale(2); } to { opacity: .2; transform: scale(1); } }
 .practice-studio button, .practice-studio select {
   color: #d9e8ec;
   background: #17212b;

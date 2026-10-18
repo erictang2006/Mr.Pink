@@ -34,7 +34,8 @@ import {
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
 import { climaxStart, defaultInterstellarMix, highEOctaveMidi, liveNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
-import { levelsChordDefaults, levelsTransitionChords, levelsMap, levelsSong, validatedLevelsChords, type LevelsSection } from "./piano/levels";
+import { levelsChordDefaults, levelsTransitionChords, levelsRosesChords, levelsMap, levelsSong, validatedLevelsChords, drumCodeToLayer, type LevelsSection } from "./piano/levels";
+import { DrumEngine, defaultDrumMix, type DrumMix, type DrumSnapshot } from "./piano/drumEngine";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -65,6 +66,8 @@ export default function App() {
   const [songId, setSongId] = useState<"interstellar" | "levels">(() => savedValue("stage-piano-song", "interstellar") === "levels" ? "levels" : "interstellar");
   const [levelsSection, setLevelsSection] = useState<LevelsSection>("main");
   const [levelsGain, setLevelsGain] = useState(() => Math.max(0.1, Math.min(1, Number(savedValue("stage-piano-levels-transition-gain", "0.4")) || 0.4)));
+  const [drumMix, setDrumMix] = useState<DrumMix>(() => { try { return { ...defaultDrumMix, ...JSON.parse(localStorage.getItem("stage-piano-drum-mix") || "{}") }; } catch { return defaultDrumMix; } });
+  const [drumSnapshot, setDrumSnapshot] = useState<DrumSnapshot | null>(null);
   const [levelsChords, setLevelsChords] = useState<Record<string, number[]>>(() => {
     try { return validatedLevelsChords(JSON.parse(localStorage.getItem("stage-piano-levels-chords") || "null"));
     } catch { return levelsChordDefaults; }
@@ -138,6 +141,8 @@ export default function App() {
   const assistedTimers = useRef(new Map<number, { timer: number; midi: number; code: string }>());
   const assistedNextId = useRef(1);
   const audio = useRef<PianoAudioEngine | null>(null);
+  const drums = useRef<DrumEngine | null>(null);
+  const drumMode = useRef<"performance" | "step" | "timed">("performance");
   const keyboard = useRef<KeyboardInputManager | null>(null);
   const liveNotes = useRef(new LiveNotes());
   const stage = useRef<HTMLElement | null>(null);
@@ -152,20 +157,29 @@ export default function App() {
     const engine = new PianoAudioEngine();
     audio.current = engine;
     engine.setVolume(volume / 100);
+    const drumEngine = new DrumEngine(setDrumSnapshot, bar => {
+      if (viewRef.current === "performance") {
+        performanceMeasureRef.current = bar;
+        setPerformanceMeasure(bar);
+        setLevelsSection(bar <= 8 ? "main" : bar <= 11 ? "transition" : "roses");
+      }
+    });
+    drums.current = drumEngine;
     const input = new KeyboardInputManager(standardMap, {
       noteOn: (midi, code, at) => {
         if (songRef.current === "levels") {
           const measure = viewRef.current === "studio" ? measureRef.current : performanceMeasureRef.current;
-          const chords = measure <= 8 ? levelsChordsRef.current : levelsTransitionChords;
+          const chords = measure <= 8 ? levelsChordsRef.current : measure <= 11 ? levelsTransitionChords : levelsRosesChords;
           const pitches = chords[code] ?? [midi];
           levelsHeld.current.set(code, pitches);
-          const gain = measure >= 9 && measure <= 12 ? levelsGainRef.current : 1;
+          const gain = measure >= 9 && measure <= 11 ? levelsGainRef.current : 1;
           pitches.forEach((pitch, index) => {
             const source = `levels:${code}:${pitch}`;
             if (engine.noteOnSource(source, pitch, gain)) liveNotes.current.dampPitch(pitch, at);
             liveNotes.current.on(source, pitch, at, index > 0);
           });
           practiceNote.current?.(midi, code, at);
+          if (measure >= 9 && measure <= 11 && drumMode.current === "step") drumEngine.noteStepInput(measure);
           return;
         }
         const inStudio = viewRef.current === "studio";
@@ -203,6 +217,15 @@ export default function App() {
       },
       change: setSnapshot,
       unmappedKeyDown: (code, at) => practiceUnmapped.current?.(code, at),
+      controlKeyDown: code => {
+        if (songRef.current !== "levels" || !drumEngine.isReady()) return false;
+        const bar = viewRef.current === "studio" ? measureRef.current : performanceMeasureRef.current;
+        if (bar < 9 || bar > 11 || !drumCodeToLayer[code]) return false;
+        const layer = drumCodeToLayer[code];
+        if (layer === "fill" || layer === "riser") drumEngine.oneShot(layer, bar, drumMode.current);
+        else drumEngine.toggle(layer, bar, drumMode.current);
+        return true;
+      },
     });
     keyboard.current = input;
     return () => {
@@ -213,6 +236,8 @@ export default function App() {
       doubledByCode.current.clear();
       levelsHeld.current.clear();
       engine.dispose();
+      drumEngine.dispose();
+      drums.current = null;
       if (testTimer.current !== null) window.clearTimeout(testTimer.current);
       keyboard.current = null;
       audio.current = null;
@@ -226,7 +251,9 @@ export default function App() {
   }, [audioState, captureEnabled, view]);
   useEffect(() => {
     audio.current?.setVolume(volume / 100);
+    drums.current?.setMaster(volume / 100);
   }, [volume]);
+  useEffect(() => { drums.current?.setMix(drumMix); try { localStorage.setItem("stage-piano-drum-mix", JSON.stringify(drumMix)); } catch { /* storage unavailable */ } }, [drumMix]);
   useEffect(() => {
     audio.current?.setRelease(sustainSettings.releaseSeconds);
     try { localStorage.setItem("stage-piano-sustain-settings", JSON.stringify(sustainSettings)); } catch { /* storage unavailable */ }
@@ -245,8 +272,10 @@ export default function App() {
   }, []);
   useEffect(() => {
     const onBlur = () => { pedalInput.current?.reset(); panic(); };
+    const onHidden = () => { if (document.hidden) { pedalInput.current?.reset(); panic(); } };
     window.addEventListener("blur", onBlur);
-    return () => window.removeEventListener("blur", onBlur);
+    document.addEventListener("visibilitychange", onHidden);
+    return () => { window.removeEventListener("blur", onBlur); document.removeEventListener("visibilitychange", onHidden); };
   }, []);
   useEffect(() => {
     keyboard.current?.setTranspose(transpose);
@@ -329,7 +358,7 @@ export default function App() {
         exitPerformance();
       } else if ((isBundledInterstellar || songId === "levels") && (event.code === "ArrowLeft" || event.code === "ArrowRight")) {
         event.preventDefault();
-        if (!event.repeat) setPerformanceBar(performanceMeasureRef.current + (event.code === "ArrowRight" ? 1 : -1));
+        if (!event.repeat) setPerformanceBar(performanceMeasureRef.current + (event.code === "ArrowRight" ? 1 : -1), true);
       } else if (event.code === "F7") {
         event.preventDefault();
         if (!event.repeat) setPerformanceLabels((value) => !value);
@@ -393,6 +422,7 @@ export default function App() {
   );
 
   function panic(preservePedal = false) {
+    drums.current?.reset();
     const pedalWasActive = sustainRef.current;
     for (const voice of assistedTimers.current.values()) window.clearTimeout(voice.timer);
     assistedTimers.current.clear();
@@ -411,15 +441,16 @@ export default function App() {
     if (!enabled) liveNotes.current.pedalUp(performance.now());
     setSustainActive(enabled);
   }
-  function setPerformanceBar(value: number) {
+  function setPerformanceBar(value: number, sequential = false) {
     const next = Math.max(1, Math.min(songId === "levels" ? levelsSong.measureCount : importedSong.measureCount, Math.round(value) || 1));
+    if (songId === "levels" && sequential && performanceMeasureRef.current === 11 && next === 12 && drums.current?.snapshot().status !== "roses-ready") return;
     performanceMeasureRef.current = next;
     setPerformanceMeasure(next);
-    if (songId === "levels") setLevelsSection(next <= 8 ? "main" : "transition");
+    if (songId === "levels") { if (next >= 12) drums.current?.startAt(12); else drums.current?.reset(); setLevelsSection(next <= 8 ? "main" : next <= 11 ? "transition" : "roses"); }
   }
   function setLevelsMeasure(measure: number) {
     measureRef.current = measure;
-    setLevelsSection(measure <= 8 ? "main" : "transition");
+    setLevelsSection(measure <= 8 ? "main" : measure <= 11 ? "transition" : "roses");
   }
   function selectSong(next: "interstellar" | "levels") {
     if (next === songId) return;
@@ -488,6 +519,7 @@ export default function App() {
   }
   async function enterPerformance() {
     if (audioState !== "ready") return;
+    drumMode.current = "performance";
     liveNotes.current.clear();
     setStartedAt(performance.now());
     setElapsed(0);
@@ -573,7 +605,7 @@ export default function App() {
     if (!audio.current || audioState === "loading") return;
     setAudioState("loading");
     try {
-      await audio.current.start();
+      await Promise.all([audio.current.start(), drums.current?.load()]);
       setAudioState("ready");
     } catch {
       setAudioState("error");
@@ -597,7 +629,7 @@ export default function App() {
 
   if (view === "studio")
     return songId === "levels"
-      ? <LevelsPractice map={activeProfile} range={keyboardRange} snapshot={snapshot} pressedPitches={activePitches} audioReady={audioState === "ready"} startAudio={startAudio} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} onMeasureChange={setLevelsMeasure} resetVoices={() => panic(true)} transitionGain={levelsGain} setTransitionGain={setLevelsGain} chords={levelsChords} setChords={setLevelsChords} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} onSongChange={selectSong} />
+      ? <LevelsPractice map={activeProfile} range={keyboardRange} snapshot={snapshot} pressedPitches={activePitches} audioReady={audioState === "ready"} startAudio={startAudio} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} onMeasureChange={setLevelsMeasure} resetVoices={() => panic(true)} transitionGain={levelsGain} setTransitionGain={setLevelsGain} chords={levelsChords} setChords={setLevelsChords} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} onSongChange={selectSong} drums={drums.current} drumSnapshot={drumSnapshot} drumMix={drumMix} setDrumMix={setDrumMix} setDrumMode={mode => { drumMode.current = mode; }} />
       : <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} onSongChange={selectSong} />;
 
   if (view === "performance")
@@ -620,7 +652,8 @@ export default function App() {
           {activeProfile.name}{" "}
           <span>· F7 LABELS {performanceLabels ? "ON" : "OFF"}</span>
         </div>
-        {(isBundledInterstellar || songId === "levels") && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>{songId === "levels" ? performanceMeasure <= 8 ? "LEVELS" : "ROSES TRANSITION" : `E6 ${interstellarMix.octaveEnabled ? "ON" : "OFF"}`} · ← / →</span></div>}
+        {(isBundledInterstellar || songId === "levels") && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>{songId === "levels" ? performanceMeasure <= 8 ? "LEVELS" : performanceMeasure <= 11 ? "ROSES TRANSITION" : "ROSES ENTRY" : `E6 ${interstellarMix.octaveEnabled ? "ON" : "OFF"}`} · ← / →</span></div>}
+        {songId === "levels" && performanceMeasure >= 9 && performanceMeasure <= 11 && <div className="performance-drum-pulse" key={drumSnapshot?.pulse} />}
         <div className="performance-piano">
           <PianoCanvas
             active={activePitches}
@@ -632,6 +665,7 @@ export default function App() {
         </div>
         {showHud && (
           <div className="performance-hud">
+            {songId === "levels" && performanceMeasure >= 9 && <><span>Bar {performanceMeasure} · beat {drumSnapshot?.beat ?? 1} · {Math.round(drumSnapshot?.tempo ?? 126)} BPM</span><span>Z {drumSnapshot?.active.kick ? "ON" : "OFF"} · X {drumSnapshot?.active.clap ? "ON" : "OFF"} · C {drumSnapshot?.active.hat ? "ON" : "OFF"}</span><span>{drumSnapshot?.nextAction ?? "Press Z for kick"}</span><span>Pedal {sustainActive ? "ON" : "OFF"}</span></>}
             <span>{snapshot.notesPerSecond} notes/s</span>
             <span>{snapshot.pressed.length} active</span>
             <span>

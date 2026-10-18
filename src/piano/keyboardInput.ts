@@ -11,10 +11,12 @@ type Callbacks = {
   noteOff: (midi: number, code: string, at: number) => void;
   change: (snapshot: InputSnapshot) => void;
   unmappedKeyDown?: (code: string, at: number) => void;
+  controlKeyDown?: (code: string, at: number) => boolean;
 };
 
 export class KeyboardInputManager {
   private held = new Map<string, { label: string; midi: number }>();
+  private heldControls = new Set<string>();
   private detected = new Set<string>();
   private shift = false;
   private recentAttacks: number[] = [];
@@ -62,6 +64,13 @@ export class KeyboardInputManager {
     if (this.reservedCodes.has(event.code)) return;
     this.detected.add(event.code);
     this.shift = event.shiftKey || event.code.startsWith("Shift");
+    if (this.heldControls.has(event.code)) { event.preventDefault(); return; }
+    if (!event.repeat && this.callbacks.controlKeyDown?.(event.code, performance.now())) {
+      event.preventDefault();
+      this.heldControls.add(event.code);
+      this.emit();
+      return;
+    }
     const midi = getPitch(this.map, event.code, event.shiftKey, this.transpose);
     if (midi === null) {
       if (!event.repeat && !event.code.startsWith("Shift"))
@@ -82,6 +91,7 @@ export class KeyboardInputManager {
   private onKeyUp = (event: KeyboardEvent): void => {
     this.detected.delete(event.code);
     this.shift = event.shiftKey && !event.code.startsWith("Shift");
+    if (this.heldControls.delete(event.code)) { event.preventDefault(); this.emit(); return; }
     const held = this.held.get(event.code);
     if (!held) {
       this.emit();
@@ -102,6 +112,7 @@ export class KeyboardInputManager {
     for (const [code, held] of this.held)
       this.callbacks.noteOff(held.midi, code, at);
     this.held.clear();
+    this.heldControls.clear();
     this.detected.clear();
     this.shift = false;
     this.emit();
