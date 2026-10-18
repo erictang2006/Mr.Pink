@@ -39,7 +39,6 @@ export function practiceNoteGain(measure: number, midi: number, mix: Interstella
   return runningAccompaniment ? mix.accompaniment : mix.melody;
 }
 
-export function shouldDoubleHighE(measure: number, code: string, midi: number, enabled: boolean): boolean {
-  return enabled && measure >= climaxStart && measure <= song.measureCount && code === "KeyF" && midi === highEMidi &&
-    song.measures[measure - 1].notes.some(note => note.hand === "right" && note.midi === highEMidi);
+export function shouldDoubleHighE(code: string, midi: number, enabled: boolean): boolean {
+  return enabled && code === "KeyF" && midi === highEMidi;
 }

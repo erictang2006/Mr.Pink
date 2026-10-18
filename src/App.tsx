@@ -32,7 +32,7 @@ import {
 } from "./piano/profiles";
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
-import { defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
+import { climaxStart, defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -99,7 +99,7 @@ export default function App() {
   });
   const [sustainActive, setSustainActive] = useState(false);
   const [showAssistedNotes, setShowAssistedNotes] = useState(false);
-  const [performanceMeasure, setPerformanceMeasure] = useState(1);
+  const [performanceMeasure, setPerformanceMeasure] = useState(climaxStart);
   const [interstellarMix, setInterstellarMix] = useState<InterstellarMix>(() => {
     try {
       const current = localStorage.getItem("stage-piano-interstellar-mix-v2");
@@ -145,7 +145,7 @@ export default function App() {
         const gain = inStudio ? practiceNoteGain(measure, midi, mixRef.current)
           : inPerformance && interstellarProfile ? sectionGain(measure) : 1;
         if (engine.noteOn(midi, gain)) liveNotes.current.dampPitch(midi, at);
-        if ((inStudio || inPerformance) && interstellarProfile && shouldDoubleHighE(measure, code, midi, mixRef.current.octaveEnabled)) {
+        if (interstellarProfile && shouldDoubleHighE(code, midi, mixRef.current.octaveEnabled)) {
           if (engine.noteOn(highEOctaveMidi, gain * mixRef.current.octave)) liveNotes.current.dampPitch(highEOctaveMidi, at);
           doubledByCode.current.set(code, highEOctaveMidi);
           liveNotes.current.on(`octave:${code}`, highEOctaveMidi, at, false, true);
@@ -560,7 +560,7 @@ export default function App() {
           {activeProfile.name}{" "}
           <span>· F7 LABELS {performanceLabels ? "ON" : "OFF"}</span>
         </div>
-        {isBundledInterstellar && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>← / →</span></div>}
+        {isBundledInterstellar && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>E6 {interstellarMix.octaveEnabled ? "ON" : "OFF"} · ← / →</span></div>}
         <div className="performance-piano">
           <PianoCanvas
             active={activePitches}
@@ -660,7 +660,7 @@ export default function App() {
           >
             Enter Performance Mode <span className="arrow">↗</span>
           </button>
-          {isBundledInterstellar && <label className="performance-start-bar">Interstellar bar <input type="number" min="1" max={importedSong.measureCount} value={performanceMeasure} onChange={event => setPerformanceBar(Number(event.target.value))} /> <small>← / → on stage</small></label>}
+          {isBundledInterstellar && <><label className="performance-start-bar">Interstellar bar <input type="number" min="1" max={importedSong.measureCount} value={performanceMeasure} onChange={event => setPerformanceBar(Number(event.target.value))} /> <small>← / → on stage</small></label><label className="performance-start-bar"><input type="checkbox" checked={interstellarMix.octaveEnabled} onChange={event => setInterstellarMix({ ...interstellarMix, octaveEnabled: event.target.checked })} /> F → E5 + E6</label></>}
           <button className="start-button performance-enter" onClick={enterStudio}>
             Open Practice Studio <span className="arrow">↗</span>
           </button>
@@ -1171,7 +1171,7 @@ export default function App() {
               {keyboardRange.high - keyboardRange.low}{" "}
               SEMITONES · POLYPHONIC
             </span>
-            <span>CURRENT PROFILE: {activeProfile.name.toUpperCase()}</span>
+            <span>{isBundledInterstellar ? "UPPER OCTAVE: E6 VISIBLE · " : ""}CURRENT PROFILE: {activeProfile.name.toUpperCase()}</span>
           </div>
           <PianoCanvas
             active={activePitches}

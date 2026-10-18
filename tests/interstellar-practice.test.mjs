@@ -43,10 +43,9 @@ test('bar 14 running sixteenths are quieter while KeyF keeps the E5 lead', () =>
   assert.equal(highEOctaveMidi, 88);
   assert.equal(mix.octaveEnabled, true);
   assert.equal(mix.octave, 0.45);
-  assert.equal(shouldDoubleHighE(14, 'KeyF', 76, true), true);
-  assert.equal(shouldDoubleHighE(13, 'KeyF', 76, true), false);
-  assert.equal(shouldDoubleHighE(14, 'KeyM', 76, true), false);
-  assert.equal(shouldDoubleHighE(14, 'KeyF', 76, false), false);
+  assert.equal(shouldDoubleHighE('KeyF', 76, true), true);
+  assert.equal(shouldDoubleHighE('KeyM', 76, true), false);
+  assert.equal(shouldDoubleHighE('KeyF', 76, false), false);
   assert.equal(assistedInterstellarMap.bindings.find(binding => binding.code === 'KeyM').midi, 76);
 });
 

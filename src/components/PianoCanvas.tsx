@@ -59,6 +59,7 @@ export default function PianoCanvas({
       const wrongSet = new Set(wrong);
       const completedSet = new Set(completed);
       const mode = labelMode ?? (showLabels ? "computer" : "none");
+      const interstellarKeys = map.id === "interstellar-roblox-aligned" || map.id === "interstellar-assisted-9-13";
       const keyColors = (midi: number, black: boolean): [string, string] => {
         if (wrongSet.has(midi)) return ["#fb7886", "#bc3349"];
         if (activeSet.has(midi)) return practicePalette ? ["#d7a3ff", "#8a54c7"] : ["#7de7df", black ? "#1e8b91" : "#3aa8a5"];
@@ -89,11 +90,12 @@ export default function PianoCanvas({
         const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
         const displayComputer = computer || (midi > range.high - 12 + transpose ? midiToName(midi) : "");
         const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${displayComputer} · ${midiToName(midi)}` : displayComputer;
-        if (mode !== "none" && label) {
+        const visibleLabel = mode === "none" && interstellarKeys && midi === 88 + transpose ? "E6" : mode === "none" ? "" : label;
+        if (visibleLabel) {
           ctx.textAlign = "center";
           ctx.fillStyle = pressed ? "#092e34" : "#3c4855";
           ctx.font = `700 ${Math.max(15, Math.min(23, whiteWidth * 0.55))}px Inter, system-ui, sans-serif`;
-          ctx.fillText(label, x + whiteWidth / 2, height - 27, whiteWidth - 5);
+          ctx.fillText(visibleLabel, x + whiteWidth / 2, height - 27, whiteWidth - 5);
         }
         if (
           mode === "computer" &&
@@ -140,6 +142,21 @@ export default function PianoCanvas({
             blackHeight - 19,
             blackWidth - 3,
           );
+        }
+      }
+      if (interstellarKeys) {
+        const c6 = keys.get(84 + transpose);
+        const c7 = keys.get(96 + transpose);
+        if (c6 && c7) {
+          const span = c7.x + c7.width - c6.x;
+          ctx.fillStyle = "#081a23d9";
+          ctx.fillRect(c6.x, 0, span, 20);
+          ctx.fillStyle = "#6ddfe8";
+          ctx.fillRect(c6.x + 2, 0, span - 4, 3);
+          ctx.fillStyle = "#8beaf1";
+          ctx.font = "700 10px Inter, system-ui, sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("C6–C7 UPPER OCTAVE", c6.x + span / 2, 16, span - 8);
         }
       }
     };
