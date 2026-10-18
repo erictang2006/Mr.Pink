@@ -14,7 +14,7 @@ await build({ entryPoints: [
 ], bundle: true, platform: 'node', format: 'esm', outdir });
 const imported = async name => import(pathToFileURL(`${outdir}/${name}.js`).href);
 const { interstellarPracticeGroups: groups, interstellarSong: song } = await imported('interstellarPractice');
-const { defaultInterstellarMix: mix, practiceNoteGain, sectionGain, shouldDoubleHighE, highEOctaveMidi } = await imported('interstellarMix');
+const { defaultInterstellarMix: mix, practiceNoteGain, liveNoteGain, sectionGain, shouldDoubleHighE, highEOctaveMidi } = await imported('interstellarMix');
 const { interstellarMap, assistedInterstellarMap } = await imported('profiles');
 const { LiveNotes } = await imported('liveNotes');
 const { PedalInput } = await imported('pedalInput');
@@ -39,7 +39,7 @@ test('bar 14 running sixteenths are quieter while KeyF keeps the E5 lead', () =>
   assert.ok(song.measures[13].notes.some(note => note.hand === 'right' && note.midi === keyF.midi));
   assert.equal(practiceNoteGain(14, 69, mix), 0.35);
   assert.equal(practiceNoteGain(14, keyF.midi, mix), 1);
-  assert.equal(practiceNoteGain(13, 69, mix), 1);
+  assert.equal(practiceNoteGain(13, 69, mix), 0.4);
   assert.equal(highEOctaveMidi, 88);
   assert.equal(mix.octaveEnabled, true);
   assert.equal(mix.octave, 0.45);
@@ -49,15 +49,22 @@ test('bar 14 running sixteenths are quieter while KeyF keeps the E5 lead', () =>
   assert.equal(assistedInterstellarMap.bindings.find(binding => binding.code === 'KeyM').midi, 76);
 });
 
-test('only Interstellar bars 9–12 use the section multiplier', () => {
+test('Interstellar bars 9–13 soften live and assisted notes in both views', () => {
   assert.equal(sectionGain(8), 1);
   assert.equal(sectionGain(9), 0.4);
   assert.equal(sectionGain(12), 0.4);
-  assert.equal(sectionGain(13), 1);
+  assert.equal(sectionGain(13), 0.4);
+  assert.equal(sectionGain(14), 1);
   assert.equal(practiceNoteGain(9, 69, mix), 0.4);
-  assert.equal(practiceNoteGain(13, 69, mix), 1);
+  assert.equal(practiceNoteGain(13, 69, mix), 0.4);
   assert.equal(mix.assisted * sectionGain(9), 0.2);
-  assert.equal(mix.assisted * sectionGain(13), 0.5);
+  assert.equal(mix.assisted * sectionGain(13), 0.2);
+  assert.equal(liveNoteGain(13, 69, 'KeyC', assistedInterstellarMap.id, true, mix), 0.4);
+  assert.equal(liveNoteGain(13, 69, 'KeyC', assistedInterstellarMap.id, false, mix), 0.4);
+  assert.equal(liveNoteGain(14, 69, 'KeyC', assistedInterstellarMap.id, false, mix), 0.4);
+  assert.equal(liveNoteGain(13, 76, 'KeyF', interstellarMap.id, false, mix), 0.4);
+  assert.equal(liveNoteGain(14, 76, 'KeyF', interstellarMap.id, false, mix), 1);
+  assert.equal(liveNoteGain(13, 69, 'KeyC', 'rush-e', false, mix), 1);
 });
 
 test('the upper E has a key and aligned note column in the expanded octave', () => {

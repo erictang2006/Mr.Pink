@@ -32,7 +32,7 @@ import {
 } from "./piano/profiles";
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
-import { climaxStart, defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
+import { climaxStart, defaultInterstellarMix, highEOctaveMidi, liveNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -139,11 +139,9 @@ export default function App() {
     const input = new KeyboardInputManager(standardMap, {
       noteOn: (midi, code, at) => {
         const inStudio = viewRef.current === "studio";
-        const inPerformance = viewRef.current === "performance";
         const interstellarProfile = profileRef.current === interstellarMap.id || profileRef.current === assistedInterstellarMap.id;
         const measure = inStudio ? measureRef.current : performanceMeasureRef.current;
-        const gain = inStudio ? practiceNoteGain(measure, midi, mixRef.current)
-          : inPerformance && interstellarProfile ? sectionGain(measure) : 1;
+        const gain = liveNoteGain(measure, midi, code, profileRef.current, inStudio, mixRef.current);
         if (engine.noteOn(midi, gain)) liveNotes.current.dampPitch(midi, at);
         if (interstellarProfile && shouldDoubleHighE(code, midi, mixRef.current.octaveEnabled)) {
           if (engine.noteOn(highEOctaveMidi, gain * mixRef.current.octave)) liveNotes.current.dampPitch(highEOctaveMidi, at);
