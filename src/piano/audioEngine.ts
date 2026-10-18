@@ -11,11 +11,14 @@ const sampleUrls = {
   C6: 'C6.mp3',
   'D#6': 'Ds6.mp3', 'F#6': 'Fs6.mp3', A6: 'A6.mp3', C7: 'C7.mp3',
 };
+type SampleVoice = { stop: (time?: number) => unknown };
 
 export class PianoAudioEngine {
   private sampler!: Tone.Sampler;
   private gain: Tone.Volume;
   private voices = new SustainVoices();
+  private sourceVoices = new Map<string, { voice: SampleVoice; held: boolean }>();
+  private pedal = false;
   private loadPromise: Promise<void>;
   private ready = false;
 
@@ -62,9 +65,40 @@ export class PianoAudioEngine {
       this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
   }
 
+  /** A physical assisted trigger owns its sample voice, even when chords share a pitch. */
+  noteOnSource(source: string, midi: number, linearGain = 1): boolean {
+    if (!this.ready) return false;
+    this.stopSource(source);
+    this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88 * Math.max(0, Math.min(1, linearGain)));
+    // Tone Sampler keeps the ToneBufferSource it just created in this table.
+    // Retaining that instance lets us release only this physical trigger.
+    const active = (this.sampler as unknown as { _activeSources: Map<number, SampleVoice[]> })._activeSources;
+    const voice = active.get(midi)?.at(-1);
+    if (!voice) throw Error(`Sample voice was not created for MIDI ${midi}`);
+    this.sourceVoices.set(source, { voice, held: true });
+    return true;
+  }
+
+  noteOffSource(source: string): void {
+    const entry = this.sourceVoices.get(source);
+    if (!entry) return;
+    if (this.pedal) entry.held = false;
+    else this.stopSource(source);
+  }
+
+  private stopSource(source: string): void {
+    const entry = this.sourceVoices.get(source);
+    if (!entry) return;
+    entry.voice.stop(Tone.now());
+    this.sourceVoices.delete(source);
+  }
+
   setSustain(enabled: boolean): void {
+    this.pedal = enabled;
     for (const midi of this.voices.setPedal(enabled))
       if (this.ready) this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
+    if (!enabled) for (const [source, entry] of this.sourceVoices)
+      if (!entry.held) this.stopSource(source);
   }
 
   setRelease(seconds: number): void {
@@ -73,6 +107,8 @@ export class PianoAudioEngine {
 
   releaseAll(): void {
     this.voices.clear();
+    this.sourceVoices.clear();
+    this.pedal = false;
     if (this.ready) this.sampler.releaseAll(Tone.now());
   }
 

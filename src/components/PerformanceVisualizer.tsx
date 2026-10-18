@@ -11,6 +11,7 @@ type Props = {
   theme: Theme;
   notesPerSecond: number;
   showAssisted?: boolean;
+  range?: { low: number; high: number };
 };
 const colors: Record<Theme, string[]> = {
   rush: ["#61f4ef", "#f664d2", "#538cff", "#a987ff"],
@@ -25,10 +26,11 @@ export default function PerformanceVisualizer({
   theme,
   notesPerSecond,
   showAssisted = false,
+  range,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const values = useRef({ transpose, theme, notesPerSecond, map, showAssisted });
-  values.current = { transpose, theme, notesPerSecond, map, showAssisted };
+  const values = useRef({ transpose, theme, notesPerSecond, map, showAssisted, range });
+  values.current = { transpose, theme, notesPerSecond, map, showAssisted, range };
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -50,11 +52,11 @@ export default function PerformanceVisualizer({
     resize();
     const draw = () => {
       const now = performance.now();
-      const { transpose, theme, notesPerSecond, map, showAssisted } = values.current;
+      const { transpose, theme, notesPerSecond, map, showAssisted, range } = values.current;
       const travelMs = 4400;
       const speed = height / travelMs;
-      const range = pianoRange(map.bindings);
-      const geometry = pianoGeometry(width, transpose, range.low, range.high);
+      const visibleRange = range ?? pianoRange(map.bindings);
+      const geometry = pianoGeometry(width, transpose, visibleRange.low, visibleRange.high);
       ctx.fillStyle = theme === "cosmic" ? "#070c19" : "#05070b";
       ctx.fillRect(0, 0, width, height);
       if (theme === "cosmic") {

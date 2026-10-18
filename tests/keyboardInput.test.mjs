@@ -61,3 +61,17 @@ test('losing focus and disabling performance release all held notes', () => {
   assert.deepEqual(state.releases, [48, 60, 48]);
   state.manager.dispose();
 });
+
+test('section map changes preserve the original held pitch until keyup', () => {
+  const state = setup();
+  state.key('keydown', 'KeyQ');
+  state.manager.setMap({ id: 'transition', name: 'Transition', bindings: [{ code: 'KeyQ', label: 'Q', midi: 68 }] }, true);
+  assert.deepEqual(state.releases, []);
+  state.key('keydown', 'KeyQ', false, true);
+  assert.deepEqual(state.attacks, [60]);
+  state.key('keyup', 'KeyQ');
+  assert.deepEqual(state.releases, [60]);
+  state.key('keydown', 'KeyQ');
+  assert.deepEqual(state.attacks, [60, 68]);
+  state.manager.dispose();
+});

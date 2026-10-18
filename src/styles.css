@@ -703,6 +703,14 @@ input:focus-visible {
   color: #eaf2f5;
 }
 .practice-studio button, .practice-studio select, .practice-studio input { font: inherit; }
+.levels-practice .practice-header p { display: none; }
+.levels-practice .practice-measure { flex-basis: min(42vw, 570px); }
+.levels-practice .levels-lane { margin-left: 24px; min-height: 100px; }
+.levels-practice .levels-empty { display: block; padding-top: 40px; text-align: center; color: #829ba6; font: 12px "DM Mono", monospace; }
+.levels-practice .levels-mapping { color: #9fb9c1; font-size: 11px; border-top: 1px solid #273640; padding-top: 5px; }
+.levels-practice .levels-mapping summary { cursor: pointer; color: #83dce7; }
+.levels-practice .levels-mapping .practice-control-row { margin-top: 8px; }
+.levels-practice .practice-controls { max-height: min(30vh, 255px); overflow-y: auto; }
 .practice-studio button, .practice-studio select {
   color: #d9e8ec;
   background: #17212b;

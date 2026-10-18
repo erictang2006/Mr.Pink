@@ -44,8 +44,8 @@ export class KeyboardInputManager {
     this.releaseAll();
   }
 
-  setMap(map: KeyboardMap): void {
-    this.releaseAll();
+  setMap(map: KeyboardMap, preserveHeld = false): void {
+    if (!preserveHeld) this.releaseAll();
     this.map = map;
   }
 

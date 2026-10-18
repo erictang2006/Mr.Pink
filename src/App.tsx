@@ -8,6 +8,7 @@ import {
 import { flushSync } from "react-dom";
 import PianoCanvas from "./components/PianoCanvas";
 import PracticeStudio from "./components/PracticeStudio";
+import LevelsPractice from "./components/LevelsPractice";
 import SustainSettings, { type SustainSettingsValue } from "./components/SustainSettings";
 import PerformanceVisualizer, {
   type Theme,
@@ -33,6 +34,7 @@ import {
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
 import { climaxStart, defaultInterstellarMix, highEOctaveMidi, liveNoteGain, sectionGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
+import { levelsChordDefaults, levelsTransitionChords, levelsMap, levelsSong, validatedLevelsChords, type LevelsSection } from "./piano/levels";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -60,6 +62,13 @@ export default function App() {
     "locked" | "loading" | "ready" | "error"
   >("locked");
   const [captureEnabled, setCaptureEnabled] = useState(true);
+  const [songId, setSongId] = useState<"interstellar" | "levels">(() => savedValue("stage-piano-song", "interstellar") === "levels" ? "levels" : "interstellar");
+  const [levelsSection, setLevelsSection] = useState<LevelsSection>("main");
+  const [levelsGain, setLevelsGain] = useState(() => Math.max(0.1, Math.min(1, Number(savedValue("stage-piano-levels-transition-gain", "0.4")) || 0.4)));
+  const [levelsChords, setLevelsChords] = useState<Record<string, number[]>>(() => {
+    try { return validatedLevelsChords(JSON.parse(localStorage.getItem("stage-piano-levels-chords") || "null"));
+    } catch { return levelsChordDefaults; }
+  });
   const [view, setView] = useState<"practice" | "studio" | "performance">(
     () => ["practice", "assisted"].includes(new URLSearchParams(window.location.search).get("view") ?? "") ? "studio" : "practice",
   );
@@ -99,7 +108,7 @@ export default function App() {
   });
   const [sustainActive, setSustainActive] = useState(false);
   const [showAssistedNotes, setShowAssistedNotes] = useState(false);
-  const [performanceMeasure, setPerformanceMeasure] = useState(climaxStart);
+  const [performanceMeasure, setPerformanceMeasure] = useState(songId === "levels" ? 1 : climaxStart);
   const [interstellarMix, setInterstellarMix] = useState<InterstellarMix>(() => {
     try {
       const current = localStorage.getItem("stage-piano-interstellar-mix-v2");
@@ -110,11 +119,18 @@ export default function App() {
     } catch { return defaultInterstellarMix; }
   });
   const mixRef = useRef(interstellarMix);
+  const songRef = useRef(songId);
+  const levelsChordsRef = useRef(levelsChords);
+  const levelsGainRef = useRef(levelsGain);
+  const levelsHeld = useRef(new Map<string, number[]>());
   const measureRef = useRef(1);
   const performanceMeasureRef = useRef(performanceMeasure);
   const profileRef = useRef(profileId);
   const viewRef = useRef(view);
   mixRef.current = interstellarMix;
+  songRef.current = songId;
+  levelsChordsRef.current = levelsChords;
+  levelsGainRef.current = levelsGain;
   viewRef.current = view;
   const doubledByCode = useRef(new Map<string, number>());
   const sustainRef = useRef(false);
@@ -138,6 +154,20 @@ export default function App() {
     engine.setVolume(volume / 100);
     const input = new KeyboardInputManager(standardMap, {
       noteOn: (midi, code, at) => {
+        if (songRef.current === "levels") {
+          const measure = viewRef.current === "studio" ? measureRef.current : performanceMeasureRef.current;
+          const chords = measure <= 8 ? levelsChordsRef.current : levelsTransitionChords;
+          const pitches = chords[code] ?? [midi];
+          levelsHeld.current.set(code, pitches);
+          const gain = measure >= 9 && measure <= 12 ? levelsGainRef.current : 1;
+          pitches.forEach((pitch, index) => {
+            const source = `levels:${code}:${pitch}`;
+            if (engine.noteOnSource(source, pitch, gain)) liveNotes.current.dampPitch(pitch, at);
+            liveNotes.current.on(source, pitch, at, index > 0);
+          });
+          practiceNote.current?.(midi, code, at);
+          return;
+        }
         const inStudio = viewRef.current === "studio";
         const interstellarProfile = profileRef.current === interstellarMap.id || profileRef.current === assistedInterstellarMap.id;
         const measure = inStudio ? measureRef.current : performanceMeasureRef.current;
@@ -152,6 +182,16 @@ export default function App() {
         practiceNote.current?.(midi, code, at);
       },
       noteOff: (midi, code, at) => {
+        const levelsPitches = levelsHeld.current.get(code);
+        if (levelsPitches) {
+          for (const pitch of levelsPitches) {
+            const source = `levels:${code}:${pitch}`;
+            engine.noteOffSource(source);
+            liveNotes.current.off(source, at, false);
+          }
+          levelsHeld.current.delete(code);
+          return;
+        }
         engine.noteOff(midi);
         const doubled = doubledByCode.current.get(code);
         if (doubled !== undefined) {
@@ -171,6 +211,7 @@ export default function App() {
       for (const voice of assistedTimers.current.values()) window.clearTimeout(voice.timer);
       assistedTimers.current.clear();
       doubledByCode.current.clear();
+      levelsHeld.current.clear();
       engine.dispose();
       if (testTimer.current !== null) window.clearTimeout(testTimer.current);
       keyboard.current = null;
@@ -217,16 +258,15 @@ export default function App() {
         : ["F9", "Space"],
     );
   }, [view, themeShortcut]);
-  const activeProfile =
-    profiles.find((profile) => profile.id === profileId) ??
-    profiles[0] ??
-    standardMap;
+  const activeProfile = songId === "levels" ? levelsMap(levelsSection, levelsChords) :
+    profiles.find((profile) => profile.id === profileId) ?? profiles[0] ?? standardMap;
   profileRef.current = activeProfile.id;
   const isBundledInterstellar = activeProfile.id === interstellarMap.id || activeProfile.id === assistedInterstellarMap.id;
-  const keyboardRange = pianoRange(activeProfile.bindings);
+  const keyboardRange = pianoRange(songId === "levels" ? levelsMap("main", levelsChords).bindings : activeProfile.bindings);
   useEffect(() => {
-    keyboard.current?.setMap(activeProfile);
-  }, [activeProfile]);
+    keyboard.current?.setMap(activeProfile, songId === "levels");
+  }, [songId, levelsSection, levelsChords, profileId, profiles]);
+  useEffect(() => { try { localStorage.setItem("stage-piano-song", songId); localStorage.setItem("stage-piano-levels-chords", JSON.stringify(levelsChords)); localStorage.setItem("stage-piano-levels-transition-gain", String(levelsGain)); } catch { /* storage unavailable */ } }, [songId, levelsChords, levelsGain]);
   useEffect(() => {
     try {
       saveProfiles(profiles);
@@ -287,7 +327,7 @@ export default function App() {
       if (event.code === "Escape") {
         event.preventDefault();
         exitPerformance();
-      } else if (isBundledInterstellar && (event.code === "ArrowLeft" || event.code === "ArrowRight")) {
+      } else if ((isBundledInterstellar || songId === "levels") && (event.code === "ArrowLeft" || event.code === "ArrowRight")) {
         event.preventDefault();
         if (!event.repeat) setPerformanceBar(performanceMeasureRef.current + (event.code === "ArrowRight" ? 1 : -1));
       } else if (event.code === "F7") {
@@ -305,7 +345,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
-  }, [view, themeShortcut, isBundledInterstellar]);
+  }, [view, themeShortcut, isBundledInterstellar, songId]);
 
   useEffect(() => {
     if (view !== "performance") return;
@@ -327,12 +367,13 @@ export default function App() {
   const activePitches = useMemo(
     () =>
       [...new Set(snapshot.pressed.flatMap((key) => {
+        if (songId === "levels") return levelsHeld.current.get(key.code) ?? [key.midi];
         const upper = doubledByCode.current.get(key.code);
         return upper === undefined ? [key.midi] : [key.midi, upper];
       }))].sort(
         (a, b) => a - b,
       ),
-    [snapshot],
+    [snapshot, songId],
   );
   const expectedCodes = expected
     .toUpperCase()
@@ -357,6 +398,7 @@ export default function App() {
     assistedTimers.current.clear();
     doubledByCode.current.clear();
     keyboard.current?.releaseAll();
+    levelsHeld.current.clear();
     audio.current?.releaseAll();
     liveNotes.current.clear();
     if (preservePedal && pedalWasActive) audio.current?.setSustain(true);
@@ -370,9 +412,26 @@ export default function App() {
     setSustainActive(enabled);
   }
   function setPerformanceBar(value: number) {
-    const next = Math.max(1, Math.min(importedSong.measureCount, Math.round(value) || 1));
+    const next = Math.max(1, Math.min(songId === "levels" ? levelsSong.measureCount : importedSong.measureCount, Math.round(value) || 1));
     performanceMeasureRef.current = next;
     setPerformanceMeasure(next);
+    if (songId === "levels") setLevelsSection(next <= 8 ? "main" : "transition");
+  }
+  function setLevelsMeasure(measure: number) {
+    measureRef.current = measure;
+    setLevelsSection(measure <= 8 ? "main" : "transition");
+  }
+  function selectSong(next: "interstellar" | "levels") {
+    if (next === songId) return;
+    panic();
+    songRef.current = next;
+    setSongId(next);
+    if (next === "interstellar") setProfileId(interstellarMap.id);
+    if (next === "levels") { keyboard.current?.setTranspose(0); setTranspose(0); }
+    measureRef.current = 1;
+    performanceMeasureRef.current = 1;
+    setPerformanceMeasure(1);
+    setLevelsSection("main");
   }
   function triggerAssisted(event: AssistedEvent) {
     if (!audio.current?.isReady()) return;
@@ -417,12 +476,12 @@ export default function App() {
     previousTranspose.current = transpose;
     keyboard.current?.setTranspose(0);
     setTranspose(0);
-    selectProfile(interstellarMap.id);
+    if (songId === "interstellar") selectProfile(interstellarMap.id);
     setView("studio");
   }
   function exitStudio() {
     panic(true);
-    if (activeProfile.id === assistedInterstellarMap.id) selectProfile(interstellarMap.id);
+    if (songId === "interstellar" && activeProfile.id === assistedInterstellarMap.id) selectProfile(interstellarMap.id);
     keyboard.current?.setTranspose(previousTranspose.current);
     setTranspose(previousTranspose.current);
     setView("practice");
@@ -537,7 +596,9 @@ export default function App() {
   }
 
   if (view === "studio")
-    return <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} />;
+    return songId === "levels"
+      ? <LevelsPractice map={activeProfile} range={keyboardRange} snapshot={snapshot} pressedPitches={activePitches} audioReady={audioState === "ready"} startAudio={startAudio} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} onMeasureChange={setLevelsMeasure} resetVoices={() => panic(true)} transitionGain={levelsGain} setTransitionGain={setLevelsGain} chords={levelsChords} setChords={setLevelsChords} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} onSongChange={selectSong} />
+      : <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} onSongChange={selectSong} />;
 
   if (view === "performance")
     return (
@@ -552,17 +613,19 @@ export default function App() {
           theme={theme}
           notesPerSecond={snapshot.notesPerSecond}
           showAssisted={showAssistedNotes}
+          range={songId === "levels" ? keyboardRange : undefined}
         />
         {sustainSettings.showIndicator && <div className={`performance-sustain ${sustainActive ? "is-active" : ""}`}>PEDAL {sustainActive ? "ON" : "OFF"}</div>}
         <div className="performance-profile">
           {activeProfile.name}{" "}
           <span>· F7 LABELS {performanceLabels ? "ON" : "OFF"}</span>
         </div>
-        {isBundledInterstellar && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>E6 {interstellarMix.octaveEnabled ? "ON" : "OFF"} · ← / →</span></div>}
+        {(isBundledInterstellar || songId === "levels") && <div className="performance-measure">BAR {String(performanceMeasure).padStart(2, "0")} <span>{songId === "levels" ? performanceMeasure <= 8 ? "LEVELS" : "ROSES TRANSITION" : `E6 ${interstellarMix.octaveEnabled ? "ON" : "OFF"}`} · ← / →</span></div>}
         <div className="performance-piano">
           <PianoCanvas
             active={activePitches}
             map={activeProfile}
+            range={songId === "levels" ? keyboardRange : undefined}
             transpose={transpose}
             showLabels={performanceLabels}
           />
@@ -658,7 +721,8 @@ export default function App() {
           >
             Enter Performance Mode <span className="arrow">↗</span>
           </button>
-          {isBundledInterstellar && <><label className="performance-start-bar">Interstellar bar <input type="number" min="1" max={importedSong.measureCount} value={performanceMeasure} onChange={event => setPerformanceBar(Number(event.target.value))} /> <small>← / → on stage</small></label><label className="performance-start-bar"><input type="checkbox" checked={interstellarMix.octaveEnabled} onChange={event => setInterstellarMix({ ...interstellarMix, octaveEnabled: event.target.checked })} /> F → E5 + E6</label></>}
+          <label className="performance-start-bar">Song <select value={songId} onChange={event => selectSong(event.target.value as "interstellar" | "levels")}><option value="interstellar">Interstellar</option><option value="levels">Levels — Avicii</option></select></label>
+          {(isBundledInterstellar || songId === "levels") && <><label className="performance-start-bar">{songId === "levels" ? "Levels" : "Interstellar"} bar <input type="number" min="1" max={songId === "levels" ? levelsSong.measureCount : importedSong.measureCount} value={performanceMeasure} onChange={event => setPerformanceBar(Number(event.target.value))} /> <small>← / → on stage</small></label>{songId === "interstellar" && <label className="performance-start-bar"><input type="checkbox" checked={interstellarMix.octaveEnabled} onChange={event => setInterstellarMix({ ...interstellarMix, octaveEnabled: event.target.checked })} /> F → E5 + E6</label>}</>}
           <button className="start-button performance-enter" onClick={enterStudio}>
             Open Practice Studio <span className="arrow">↗</span>
           </button>
@@ -826,7 +890,7 @@ export default function App() {
             <div>
               <strong>Octave range</strong>
               <small>
-                {isBundledInterstellar
+                {isBundledInterstellar || songId === "levels"
                   ? "Fixed to the imported MIDI pitches"
                   : "Shift the full keyboard by one octave"}
               </small>
@@ -837,12 +901,12 @@ export default function App() {
                 onClick={() =>
                   setTranspose((value) => Math.max(-12, value - 12))
                 }
-                disabled={isBundledInterstellar || transpose <= -12}
+                disabled={isBundledInterstellar || songId === "levels" || transpose <= -12}
               >
                 −
               </button>
               <span>
-                {isBundledInterstellar
+                {isBundledInterstellar || songId === "levels"
                   ? "FIXED"
                   : transpose === 0
                     ? "STANDARD"
@@ -855,7 +919,7 @@ export default function App() {
                 onClick={() =>
                   setTranspose((value) => Math.min(12, value + 12))
                 }
-                disabled={isBundledInterstellar || transpose >= 12}
+                disabled={isBundledInterstellar || songId === "levels" || transpose >= 12}
               >
                 +
               </button>
@@ -905,7 +969,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mapping-panel" aria-label="Keyboard mapping editor">
+      {songId === "levels" ? <section className="mapping-panel" aria-label="Levels assisted mapping"><div className="keyboard-topline"><div><span className="section-index">03 / LEVELS MAPPING</span><h2>Single-key assisted chords</h2></div><button className="guide-button" onClick={enterStudio}>Adjust keys in Practice Studio ↗</button></div><p className="active-mapping">A/S/D/F trigger the left-hand stacks. U/I/O and J/K/L trigger the main chords. Six additional dyads use Y/P/;/H/N/,. At bar 9, J and M switch to individual notes. Remap any trigger in Practice Studio after a keyboard rollover test.</p></section> : <section className="mapping-panel" aria-label="Keyboard mapping editor">
         <div className="keyboard-topline">
           <div>
             <span className="section-index">03 / KEY MAPPINGS</span>
@@ -1078,7 +1142,7 @@ export default function App() {
             )}
           </>
         )}
-      </section>
+      </section>}
 
       <section className="keyboard-section" aria-label="Visual piano keyboard">
         <div className="keyboard-topline">
@@ -1174,6 +1238,7 @@ export default function App() {
           <PianoCanvas
             active={activePitches}
             map={activeProfile}
+            range={songId === "levels" ? keyboardRange : undefined}
             transpose={transpose}
             showLabels={practiceLabels}
           />

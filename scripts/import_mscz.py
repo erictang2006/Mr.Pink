@@ -40,7 +40,7 @@ def number(value):
     return float(value) if value.denominator != 1 else int(value)
 
 
-def import_score(path):
+def import_score(path, measure_count=30, song_id="interstellar", title="Interstellar"):
     with zipfile.ZipFile(path) as archive:
         scores = [name for name in archive.namelist() if name.endswith(".mscx")]
         if len(scores) != 1:
@@ -52,14 +52,14 @@ def import_score(path):
     staves = score.findall("Staff")
     if len(staves) != 2:
         raise ValueError(f"Expected two piano staves; found {len(staves)}")
-    if any(len(staff.findall("Measure")) < 30 for staff in staves):
-        raise ValueError("Score has fewer than 30 measures")
+    if any(len(staff.findall("Measure")) < measure_count for staff in staves):
+        raise ValueError(f"Score has fewer than {measure_count} measures")
     measures = []
     beat_start = Fraction(0)
     signature = (3, 4)
     tempo = 100.0
     issues = []
-    for index in range(30):
+    for index in range(measure_count):
         staff_measures = [staff.findall("Measure")[index] for staff in staves]
         for measure in staff_measures:
             for time in measure.findall(".//TimeSig"):
@@ -126,15 +126,15 @@ def import_score(path):
                          "notes": events, "rests": rests})
         beat_start += measure_beats
     pitches = sorted({note["midi"] for measure in measures for note in measure["notes"]})
-    return {"id": "interstellar", "title": "Interstellar", "sourceTitle": next(
+    return {"id": song_id, "title": title, "sourceTitle": next(
         (x.text for x in score.findall("metaTag") if x.get("name") == "workTitle"), ""),
-        "sourceFile": Path(path).name, "measureCount": 30, "totalBeats": number(beat_start),
+        "sourceFile": Path(path).name, "measureCount": measure_count, "totalBeats": number(beat_start),
         "pitches": pitches, "measures": measures, "unsupportedFeatures": issues}
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in (3, 6):
         raise SystemExit(__doc__)
-    song = import_score(sys.argv[1])
+    song = import_score(sys.argv[1], int(sys.argv[3]), sys.argv[4], sys.argv[5]) if len(sys.argv) == 6 else import_score(sys.argv[1])
     Path(sys.argv[2]).write_text(json.dumps(song, indent=2) + "\n")
     print(f"Imported {len(song['measures'])} measures, {sum(len(m['notes']) for m in song['measures'])} notes, {len(song['pitches'])} pitches")

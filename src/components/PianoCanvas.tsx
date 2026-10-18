@@ -17,6 +17,7 @@ type Props = {
   labelMode?: "computer" | "piano" | "both" | "none";
   practicePalette?: boolean;
   preferredLabels?: Record<number, string>;
+  range?: { low: number; high: number };
 };
 
 export default function PianoCanvas({
@@ -30,6 +31,7 @@ export default function PianoCanvas({
   labelMode,
   practicePalette = false,
   preferredLabels = {},
+  range: rangeOverride,
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -44,7 +46,7 @@ export default function PianoCanvas({
       ctx.scale(dpr, dpr);
       const width = rect.width;
       const height = rect.height;
-      const range = pianoRange(map.bindings);
+      const range = rangeOverride ?? pianoRange(map.bindings);
       const start = range.low + transpose;
       const end = range.high + transpose;
       const { whites, whiteWidth, blackWidth, keys } = pianoGeometry(
@@ -164,7 +166,7 @@ export default function PianoCanvas({
     observer.observe(canvas);
     draw();
     return () => observer.disconnect();
-  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels]);
+  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels, rangeOverride]);
 
   return (
     <canvas
