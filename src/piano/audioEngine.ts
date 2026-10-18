@@ -45,13 +45,15 @@ export class PianoAudioEngine {
     this.gain.volume.rampTo(value <= 0 ? -60 : 20 * Math.log10(value), 0.04);
   }
 
-  noteOn(midi: number): boolean {
+  noteOn(midi: number, linearGain = 1): boolean {
     if (!this.ready) return false;
     const dampedPrior = this.voices.attack(midi);
     if (dampedPrior) {
       this.sampler.triggerRelease(midiToToneName(midi), Tone.now());
     }
-    this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88);
+    // In Tone 15.1.22 Sampler forwards this argument to ToneBufferSource.start,
+    // whose gain envelope uses it as an amplitude factor (not MIDI velocity).
+    this.sampler.triggerAttack(midiToToneName(midi), Tone.now(), 0.88 * Math.max(0, Math.min(1, linearGain)));
     return dampedPrior;
   }
 

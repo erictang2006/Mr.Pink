@@ -747,6 +747,11 @@ input:focus-visible {
 .practice-prompt small { color: #819da9; }
 .practice-prompt em { margin-left: auto; color: #ff8393; font-style: normal; }
 .practice-controls { position: relative; display: grid; min-width: 0; gap: 7px; padding: 9px 20px; background: #101923; border-bottom: 1px solid #344754; }
+.practice-mix { border-top: 1px solid #273640; padding-top: 6px; }
+.practice-mix > span { color: #82dce5; font: 10px "DM Mono", monospace; letter-spacing: .08em; }
+.assisted-fingering-grid.practice-assisted-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4px; padding: 12px; }
+.practice-assisted-grid .assisted-event { min-width: 0; min-height: 44px; padding: 0; }
+.practice-assisted-grid .assisted-event strong { font-size: clamp(14px, 1.5vw, 20px); }
 .practice-control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 7px 12px; }
 .practice-control-row label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; color: #9ab1bb; font-size: 11px; }
 .practice-control-row select { max-width: 190px; }

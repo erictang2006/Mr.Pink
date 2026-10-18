@@ -31,6 +31,7 @@ import {
 } from "./piano/profiles";
 import type { AssistedEvent } from "./piano/assistedSong";
 import importedSong from "./piano/interstellar.song.json";
+import { defaultInterstellarMix, highEOctaveMidi, practiceNoteGain, shouldDoubleHighE, type InterstellarMix } from "./piano/interstellarMix";
 
 const emptySnapshot: InputSnapshot = {
   pressed: [],
@@ -97,6 +98,16 @@ export default function App() {
   const [sustainActive, setSustainActive] = useState(false);
   const [showAssistedNotes, setShowAssistedNotes] = useState(false);
   const [practiceMeasure, setPracticeMeasure] = useState(1);
+  const [interstellarMix, setInterstellarMix] = useState<InterstellarMix>(() => {
+    try { return { ...defaultInterstellarMix, ...JSON.parse(localStorage.getItem("stage-piano-interstellar-mix") || "{}") }; }
+    catch { return defaultInterstellarMix; }
+  });
+  const mixRef = useRef(interstellarMix);
+  const measureRef = useRef(practiceMeasure);
+  const viewRef = useRef(view);
+  mixRef.current = interstellarMix;
+  viewRef.current = view;
+  const doubledByCode = useRef(new Map<string, number>());
   const sustainRef = useRef(false);
   const pedalKeyHeld = useRef(false);
   const assistedTimers = useRef(new Map<number, { timer: number; midi: number; code: string }>());
@@ -118,12 +129,21 @@ export default function App() {
     engine.setVolume(volume / 100);
     const input = new KeyboardInputManager(standardMap, {
       noteOn: (midi, code, at) => {
-        if (engine.noteOn(midi)) liveNotes.current.dampPitch(midi, at);
+        const inStudio = viewRef.current === "studio";
+        const measure = measureRef.current;
+        const gain = inStudio ? practiceNoteGain(measure, midi, mixRef.current) : 1;
+        if (engine.noteOn(midi, gain)) liveNotes.current.dampPitch(midi, at);
+        if (inStudio && shouldDoubleHighE(measure, code, midi, mixRef.current.octaveEnabled)) {
+          engine.noteOn(highEOctaveMidi, gain * mixRef.current.octave);
+          doubledByCode.current.set(code, highEOctaveMidi);
+        }
         liveNotes.current.on(code, midi, at);
         practiceNote.current?.(midi, code, at);
       },
       noteOff: (midi, code, at) => {
         engine.noteOff(midi);
+        const doubled = doubledByCode.current.get(code);
+        if (doubled !== undefined) { engine.noteOff(doubled); doubledByCode.current.delete(code); }
         liveNotes.current.off(code, at, sustainRef.current);
       },
       change: setSnapshot,
@@ -135,6 +155,7 @@ export default function App() {
       testNotes.current.forEach((note) => engine.noteOff(note));
       for (const voice of assistedTimers.current.values()) window.clearTimeout(voice.timer);
       assistedTimers.current.clear();
+      doubledByCode.current.clear();
       engine.dispose();
       if (testTimer.current !== null) window.clearTimeout(testTimer.current);
       keyboard.current = null;
@@ -154,6 +175,9 @@ export default function App() {
     audio.current?.setRelease(sustainSettings.releaseSeconds);
     try { localStorage.setItem("stage-piano-sustain-settings", JSON.stringify(sustainSettings)); } catch { /* storage unavailable */ }
   }, [sustainSettings]);
+  useEffect(() => {
+    try { localStorage.setItem("stage-piano-interstellar-mix", JSON.stringify(interstellarMix)); } catch { /* storage unavailable */ }
+  }, [interstellarMix]);
   useEffect(() => {
     if (sustainSettings.mode === "automatic")
       setPedal(view === "studio" && practiceMeasure >= sustainSettings.autoStart && practiceMeasure <= sustainSettings.autoEnd);
@@ -326,6 +350,7 @@ export default function App() {
   function panic() {
     for (const voice of assistedTimers.current.values()) window.clearTimeout(voice.timer);
     assistedTimers.current.clear();
+    doubledByCode.current.clear();
     keyboard.current?.releaseAll();
     audio.current?.releaseAll();
     liveNotes.current.clear();
@@ -345,7 +370,7 @@ export default function App() {
       const id = assistedNextId.current++;
       const code = `assisted:${id}`;
       const at = performance.now();
-      if (audio.current.noteOn(midi)) liveNotes.current.dampPitch(midi, at);
+      if (audio.current.noteOn(midi, mixRef.current.assisted)) liveNotes.current.dampPitch(midi, at);
       liveNotes.current.on(code, midi, at, true);
       const timer = window.setTimeout(() => {
         audio.current?.noteOff(midi);
@@ -390,6 +415,7 @@ export default function App() {
   }
   function exitStudio() {
     panic();
+    if (activeProfile.id === assistedInterstellarMap.id) selectProfile(interstellarMap.id);
     keyboard.current?.setTranspose(previousTranspose.current);
     setTranspose(previousTranspose.current);
     setView("practice");
@@ -504,7 +530,7 @@ export default function App() {
   }
 
   if (view === "studio")
-    return <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={setPracticeMeasure} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} />;
+    return <PracticeStudio map={activeProfile} snapshot={snapshot} audioReady={audioState === "ready"} startAudio={startAudio} selectProfile={selectProfile} profiles={profiles} onNoteRef={practiceNote} onUnmappedRef={practiceUnmapped} onExit={exitStudio} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} showAssistedNotes={showAssistedNotes} setShowAssistedNotes={setShowAssistedNotes} liveNotes={liveNotes.current} onMeasureChange={measure => { measureRef.current = measure; setPracticeMeasure(measure); }} triggerAssisted={triggerAssisted} resetAssisted={resetAssistedSection} interstellarMix={interstellarMix} setInterstellarMix={setInterstellarMix} />;
 
   if (view === "performance")
     return (

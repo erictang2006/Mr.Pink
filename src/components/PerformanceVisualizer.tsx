@@ -73,8 +73,9 @@ export default function PerformanceVisualizer({
         const key = geometry.keys.get(note.midi);
         if (!key) continue;
         const top = height - (now - note.startMs) * speed;
-        const bottom =
-          note.endMs === null ? height : height - (now - note.endMs) * speed;
+        // The bar documents the performer's physical hold, while endMs tracks
+        // the independent audible lifetime under sustain.
+        const bottom = note.physicalEndMs === null ? height : height - (now - note.physicalEndMs) * speed;
         if (bottom <= 0) continue;
         const barHeight = Math.max(5, bottom - top);
         const inset = key.black ? 2 : Math.max(2, key.width * 0.12);
@@ -85,7 +86,6 @@ export default function PerformanceVisualizer({
           ];
         ctx.save();
         if (note.assisted) ctx.globalAlpha = 0.5;
-        else if (note.physicalEndMs !== null && note.endMs === null) ctx.globalAlpha = 0.42;
         ctx.shadowColor = color;
         ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : 8;
         const gradient = ctx.createLinearGradient(0, top, 0, bottom);
@@ -98,7 +98,7 @@ export default function PerformanceVisualizer({
         ctx.shadowBlur = 0;
         ctx.fillStyle = "#ffffffaa";
         ctx.fillRect(x + 1, Math.max(0, top), Math.max(1, w - 2), 2);
-        if (note.endMs === null && theme !== "minimal") {
+        if (note.physicalEndMs === null && theme !== "minimal") {
           ctx.fillStyle = color;
           ctx.globalAlpha = 0.45;
           ctx.fillRect(x - 2, height - 3, w + 4, 3);

@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "rea
 import PianoCanvas from "./PianoCanvas";
 import PerformanceVisualizer from "./PerformanceVisualizer";
 import SustainSettings, { type SustainSettingsValue } from "./SustainSettings";
+import InterstellarAudioSettings from "./InterstellarAudioSettings";
+import type { InterstellarMix } from "../piano/interstellarMix";
 import { assistedEvents, type AssistedEvent } from "../piano/assistedSong";
 import assistedSource from "../piano/interstellar_assisted_bars_9_13.json";
 import { midiToName, type KeyboardMap } from "../piano/noteMapping";
@@ -26,9 +28,11 @@ type Props = {
   setShowAssistedNotes: (value: boolean) => void;
   liveNotes: LiveNotes;
   onMeasureChange: (measure: number) => void;
+  interstellarMix: InterstellarMix;
+  setInterstellarMix: (value: InterstellarMix) => void;
 };
 
-export default function AssistedPractice({ map, snapshot, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange }: Props) {
+export default function AssistedPractice({ map, snapshot, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange, interstellarMix, setInterstellarMix }: Props) {
   const [index, setIndex] = useState(0);
   const [wrong, setWrong] = useState<number[]>([]);
   const [wrongCode, setWrongCode] = useState("");
@@ -120,7 +124,7 @@ export default function AssistedPractice({ map, snapshot, audioReady, startAudio
         <div className="practice-beats"><span>1</span><span style={{ left: "33.33%" }}>2</span><span style={{ left: "66.66%" }}>3</span></div>
       </div>)}
     </div><div className="practice-prompt"><span>{complete ? "DONE" : "NEXT"}</span><strong>{complete ? "Section complete" : current?.label}</strong><small>{complete ? "Restart to play again" : `${current && midiToName(current.liveMidi)} + assisted ${current?.assistedMidi.map(midiToName).join(" · ")}`}</small>{wrong.length > 0 && <em>Expected {current?.label}; heard {wrong.map(midiToName).join(", ")}</em>}{wrongCode && <em>Expected {current?.label}; {wrongCode} is unmapped</em>}</div></section>
-    <section className="practice-controls assisted-controls"><div className="practice-control-row"><button className="practice-primary" onClick={restart}>Restart section</button><label><input type="checkbox" checked={repeat} onChange={event => setRepeat(event.target.checked)} /> Repeat section</label><label><input type="checkbox" checked={showAssistedNotes} onChange={event => setShowAssistedNotes(event.target.checked)} /> Show Assisted Notes</label><span className="practice-accuracy">{index + (complete ? 1 : 0)} / 60 correct events</span></div><SustainSettings value={sustainSettings} active={sustainActive} onChange={setSustainSettings} /></section>
+    <section className="practice-controls assisted-controls"><div className="practice-control-row"><button className="practice-primary" onClick={restart}>Restart section</button><label><input type="checkbox" checked={repeat} onChange={event => setRepeat(event.target.checked)} /> Repeat section</label><label><input type="checkbox" checked={showAssistedNotes} onChange={event => setShowAssistedNotes(event.target.checked)} /> Show Assisted Notes</label><span className="practice-accuracy">{index + (complete ? 1 : 0)} / 60 correct events</span></div><InterstellarAudioSettings value={interstellarMix} onChange={setInterstellarMix} /><SustainSettings value={sustainSettings} active={sustainActive} onChange={setSustainSettings} /></section>
     <div className="assisted-trails"><PerformanceVisualizer notes={liveNotes} map={map} transpose={0} theme="cosmic" notesPerSecond={snapshot.notesPerSecond} showAssisted={showAssistedNotes} /></div>
     <section className="practice-piano" aria-label="Assisted piano"><div className="practice-piano-top"><span>LIVE KEYBOARD · {map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s</span></div><PianoCanvas active={held} expected={current && !complete ? [current.liveMidi] : []} wrong={wrong} completed={[]} map={map} transpose={0} labelMode="computer" preferredLabels={preferredLabels} practicePalette /></section>
   </main>;

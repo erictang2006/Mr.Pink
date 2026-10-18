@@ -14,7 +14,7 @@ export class LiveNotes {
   off(code: string, endMs: number, sustain = false): void {
     const note = this.active.get(code);
     if (!note) return;
-    note.physicalEndMs = Math.max(endMs, note.startMs + 35);
+    note.physicalEndMs = Math.max(endMs, note.startMs);
     this.active.delete(code);
     if (sustain) this.sustained.push(note);
     else {
@@ -45,8 +45,8 @@ export class LiveNotes {
   }
 
   visible(now: number, travelMs: number): LiveNote[] {
-    this.released = this.released.filter(note => now - note.endMs! < travelMs);
-    return [...this.released, ...this.sustained, ...this.active.values()];
+    this.released = this.released.filter(note => now - (note.physicalEndMs ?? note.startMs) < travelMs);
+    return [...this.released, ...this.sustained.filter(note => now - (note.physicalEndMs ?? note.startMs) < travelMs), ...this.active.values()];
   }
 
   clear(): void { this.active.clear(); this.sustained = []; this.released = []; }
