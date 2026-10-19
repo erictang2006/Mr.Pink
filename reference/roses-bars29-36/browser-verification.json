@@ -1,0 +1,947 @@
+{
+  "sandbox": {
+    "samples": [
+      {
+        "layer": "chops",
+        "beat": 140,
+        "time": 1.1526666666666667,
+        "offset": 0,
+        "duration": 1.7999999999999998,
+        "rate": 1
+      },
+      {
+        "layer": "snap",
+        "beat": 143,
+        "time": 2.9526666666666648,
+        "offset": 0,
+        "duration": 0.4746938998501548,
+        "rate": 1
+      }
+    ],
+    "bass": [],
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 37,
+      "beat": 1.25,
+      "pulse": 18,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "MISSED",
+      "closerReady": true,
+      "cycle": 0,
+      "buildup": {
+        "status": "FINISHED",
+        "ready": true,
+        "layers": [],
+        "bass": false
+      }
+    }
+  },
+  "practice": {
+    "measures": 36,
+    "samples": [
+      {
+        "layer": "chops",
+        "beat": 128,
+        "time": 4.107333333333333,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128,
+        "time": 4.107333333333333,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128,
+        "time": 4.107333333333333,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 128,
+        "time": 4.107333333333333,
+        "offset": 0,
+        "duration": 7.199999999999999,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128.5,
+        "time": 4.407333333333333,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128.5,
+        "time": 4.407333333333333,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      }
+    ],
+    "clock": {
+      "status": "running",
+      "mode": "timed",
+      "measure": 33,
+      "beat": 1.5,
+      "pulse": 3,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "MISSED",
+      "closerReady": true,
+      "cycle": 0,
+      "buildup": {
+        "status": "PLAYING",
+        "ready": true,
+        "layers": [
+          "chops",
+          "spacy",
+          "vox",
+          "roll"
+        ],
+        "bass": true
+      }
+    }
+  },
+  "ab": {
+    "mode": "original",
+    "original": 1,
+    "light": 0,
+    "vox": 1
+  },
+  "early": {
+    "drums": [
+      {
+        "kind": "kick",
+        "time": 9.92,
+        "now": 9.92
+      },
+      {
+        "kind": "clap",
+        "time": 9.925333333333333,
+        "now": 9.925333333333333
+      }
+    ],
+    "chords": [
+      61,
+      65,
+      68,
+      75
+    ],
+    "first": 4.957999999999999,
+    "vox": {
+      "layer": "vox",
+      "beat": 112,
+      "time": 9.75800000000001,
+      "offset": 0,
+      "duration": 9.6,
+      "rate": 1
+    },
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 29,
+      "beat": 1.5,
+      "pulse": 35,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0,
+      "lastDrum": {
+        "kind": "clap",
+        "sequence": 2
+      },
+      "buildup": {
+        "status": "PLAYING",
+        "ready": true,
+        "layers": [
+          "chops",
+          "spacy",
+          "vox"
+        ],
+        "bass": true
+      }
+    },
+    "stage": true
+  },
+  "ending": {
+    "samples": [
+      {
+        "layer": "chops",
+        "beat": 112,
+        "time": 9.75800000000001,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 112,
+        "time": 9.75800000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 112,
+        "time": 9.75800000000001,
+        "offset": 0,
+        "duration": 9.6,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 113,
+        "time": 10.358,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 114,
+        "time": 10.958000000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 115,
+        "time": 11.558000000000007,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 116,
+        "time": 12.158000000000008,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 117,
+        "time": 12.758,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 118,
+        "time": 13.358,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 119,
+        "time": 13.957999999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 120,
+        "time": 14.557999999999998,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 120,
+        "time": 14.557999999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 121,
+        "time": 15.157999999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 122,
+        "time": 15.757999999999997,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 123,
+        "time": 16.357999999999976,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 124,
+        "time": 16.95799999999997,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 125,
+        "time": 17.557999999999964,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 126,
+        "time": 18.15800000000003,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 127,
+        "time": 18.758000000000024,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 128,
+        "time": 19.357999999999997,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128,
+        "time": 19.357999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128,
+        "time": 19.357999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 128,
+        "time": 19.357999999999997,
+        "offset": 0,
+        "duration": 7.199999999999999,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128.5,
+        "time": 19.658000000000023,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128.5,
+        "time": 19.658000000000023,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129,
+        "time": 19.958000000000006,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129,
+        "time": 19.958000000000006,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129.5,
+        "time": 20.258,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129.5,
+        "time": 20.258,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130,
+        "time": 20.558000000000014,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130,
+        "time": 20.558000000000014,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130.5,
+        "time": 20.857999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130.5,
+        "time": 20.857999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131,
+        "time": 21.157999999999966,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131,
+        "time": 21.157999999999966,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131.5,
+        "time": 21.45799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131.5,
+        "time": 21.45799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132,
+        "time": 21.757999999999964,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132,
+        "time": 21.757999999999964,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132.5,
+        "time": 22.057999999999982,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132.5,
+        "time": 22.057999999999982,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133,
+        "time": 22.357999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133,
+        "time": 22.357999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133.5,
+        "time": 22.657999999999966,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133.5,
+        "time": 22.657999999999966,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134,
+        "time": 22.95799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134,
+        "time": 22.95799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134.5,
+        "time": 23.257999999999978,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134.5,
+        "time": 23.257999999999978,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135,
+        "time": 23.557999999999982,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135,
+        "time": 23.557999999999982,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135.5,
+        "time": 23.857999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135.5,
+        "time": 23.857999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 136,
+        "time": 24.15799999999998,
+        "offset": 0,
+        "duration": 2.4,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136,
+        "time": 24.15799999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 136,
+        "time": 24.15799999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.25,
+        "time": 24.307999999999986,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.5,
+        "time": 24.45799999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "spacy",
+        "beat": 136.5,
+        "time": 24.45799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.75,
+        "time": 24.607999999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "roll",
+        "beat": 137,
+        "time": 24.75799999999996,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.122462048309373
+      },
+      {
+        "layer": "spacy",
+        "beat": 137,
+        "time": 24.75799999999996,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.25,
+        "time": 24.907999999999966,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.189207115002721
+      },
+      {
+        "layer": "roll",
+        "beat": 137.5,
+        "time": 25.05799999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 137.5,
+        "time": 25.05799999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.75,
+        "time": 25.20799999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "roll",
+        "beat": 138,
+        "time": 25.357999999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 138,
+        "time": 25.357999999999997,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.25,
+        "time": 25.508000000000003,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "roll",
+        "beat": 138.5,
+        "time": 25.657999999999966,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "spacy",
+        "beat": 138.5,
+        "time": 25.657999999999966,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.75,
+        "time": 25.80799999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "roll",
+        "beat": 139,
+        "time": 25.95799999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "spacy",
+        "beat": 139,
+        "time": 25.95799999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.25,
+        "time": 26.107999999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "roll",
+        "beat": 139.5,
+        "time": 26.258000000000003,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "spacy",
+        "beat": 139.5,
+        "time": 26.258000000000003,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.75,
+        "time": 26.407999999999966,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "chops",
+        "beat": 140,
+        "time": 26.55799999999997,
+        "offset": 0,
+        "duration": 1.7999999999999998,
+        "rate": 1
+      },
+      {
+        "layer": "snap",
+        "beat": 143,
+        "time": 28.357999999999983,
+        "offset": 0,
+        "duration": 0.4746938998501548,
+        "rate": 1
+      }
+    ],
+    "bass": [
+      {
+        "midi": 49,
+        "velocity": 100,
+        "startBeat": 112,
+        "durationBeats": 4,
+        "bar": 29,
+        "beatInBar": 1,
+        "time": 9.75800000000001
+      },
+      {
+        "midi": 45,
+        "velocity": 100,
+        "startBeat": 116,
+        "durationBeats": 4,
+        "bar": 30,
+        "beatInBar": 1,
+        "time": 12.158000000000008
+      },
+      {
+        "midi": 40,
+        "velocity": 100,
+        "startBeat": 120,
+        "durationBeats": 8,
+        "bar": 31,
+        "beatInBar": 1,
+        "time": 14.557999999999998
+      },
+      {
+        "midi": 49,
+        "velocity": 100,
+        "startBeat": 128,
+        "durationBeats": 4,
+        "bar": 33,
+        "beatInBar": 1,
+        "time": 19.357999999999997
+      },
+      {
+        "midi": 45,
+        "velocity": 100,
+        "startBeat": 132,
+        "durationBeats": 4,
+        "bar": 34,
+        "beatInBar": 1,
+        "time": 21.757999999999964
+      },
+      {
+        "midi": 40,
+        "velocity": 100,
+        "startBeat": 136,
+        "durationBeats": 4,
+        "bar": 35,
+        "beatInBar": 1,
+        "time": 24.15799999999998
+      }
+    ],
+    "drums": [
+      {
+        "kind": "kick",
+        "time": 9.92,
+        "now": 9.92
+      },
+      {
+        "kind": "clap",
+        "time": 9.925333333333333,
+        "now": 9.925333333333333
+      }
+    ],
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 37,
+      "beat": 1.75,
+      "pulse": 164,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0,
+      "lastDrum": {
+        "kind": "clap",
+        "sequence": 2
+      },
+      "buildup": {
+        "status": "FINISHED",
+        "ready": true,
+        "layers": [],
+        "bass": false
+      }
+    },
+    "transport": "started",
+    "here": "started"
+  },
+  "counts": {
+    "vox": 2,
+    "spacy": 40,
+    "roll": 32,
+    "chops": 5,
+    "snap": 1
+  },
+  "errors": []
+}

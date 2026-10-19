@@ -1,0 +1,178 @@
+{
+  "practice": {
+    "plays": [
+      {
+        "args": [
+          2.772666666666665,
+          0
+        ],
+        "firstTick": 2.5926666666666667,
+        "rate": 1,
+        "duration": 42.02
+      }
+    ],
+    "clock": {
+      "status": "running",
+      "mode": "timed",
+      "measure": 27,
+      "beat": 3.25,
+      "pulse": 10,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0
+    },
+    "source": 42.02,
+    "label": "HERE WITH ME · PLAYING“I” → Bar 27 · 1& · 62.70 s at 100 BPMOriginal RosesRoses + Here With MeEntrance Bar 27 · 1&Bar 27 · 4&Bar 28 · 1Bar 28 · 4Bar 28 · 4&Bar 19 · 4&Bar 20 · 1Bar 20 · 4Bar 20 · 4&Bar 21 · 1Bar 21 · 2Entrance offset  msReset timingRoses vocal 100%Here With Me vocal 75%Volume fade  sAutomatic entrance · original pitch and speed · source 34.100 s. Roses stays on. Timing changes apply before entry or on the next restart/loop; negative offset = earlier.",
+    "settings": {
+      "enabled": true,
+      "preset": "27-1-and",
+      "offsetMs": 0,
+      "rosesLevel": 1,
+      "closerLevel": 0.75,
+      "fadeSeconds": 0.25
+    }
+  },
+  "offset": {
+    "saved": 150,
+    "plays": 1,
+    "text": "HERE WITH ME · PLAYING“I” → Bar 27 · 1& · 62.85 s at 100 BPMOriginal RosesRoses + Here With MeEntrance Bar 27 · 1&Bar 27 · 4&Bar 28 · 1Bar 28 · 4Bar 28 · 4&Bar 19 · 4&Bar 20 · 1Bar 20 · 4Bar 20 · 4&Bar 21 · 1Bar 21 · 2Entrance offset  msReset timingRoses vocal 100%Here With Me vocal 75%Volume fade  sAutomatic entrance · original pitch and speed · source 34.100 s. Roses stays on. Timing changes apply before entry or on the next restart/loop; negative offset = earlier."
+  },
+  "performance": {
+    "stage": true,
+    "plays": [
+      {
+        "args": [
+          4.783333333333331,
+          0
+        ],
+        "firstTick": 4.603333333333333,
+        "rate": 1,
+        "duration": 42.02
+      }
+    ],
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 29,
+      "beat": 3.5,
+      "pulse": 43,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0
+    },
+    "peak": 0.0001763539476087317,
+    "labels": "Here With Me PLAYING · Bar 27 · 1& · 62.70 s · Timing & mixHERE WITH ME · PLAYING“I” → Bar 27 · 1& · 62.70 s at 100 BPMOriginal RosesRoses + Here With MeEntrance Bar 27 · 1&Bar 27 · 4&Bar 28 · 1Bar 28 · 4Bar 28 · 4&Bar 19 · 4&Bar 20 · 1Bar 20 · 4Bar 20 · 4&Bar 21 · 1Bar 21 · 2Entrance offset  msReset timingRoses vocal 100%Here With Me vocal 75%Volume fade  sAutomatic entrance · original pitch and speed · source 34.100 s. Roses stays on. Timing changes apply before entry or on the next restart/loop; negative offset = earlier."
+  },
+  "beforePause": {
+    "score": 114.765625,
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 29,
+      "beat": 3.5,
+      "pulse": 43,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0
+    },
+    "metronome": "BAR 29 · 100 BPMBEAT 3 / 41234No drum cue in next 4 beatsHERE WITH ME → Bar 27 · 1& · PLAYINGBUILD OFF · VOCAL NOT ARMED",
+    "player": "started",
+    "plays": 1
+  },
+  "paused": {
+    "score": 114.59895833333333,
+    "clock": {
+      "status": "paused",
+      "mode": "performance",
+      "measure": 29,
+      "beat": 3.5,
+      "pulse": 43,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PAUSED",
+      "closerReady": true,
+      "cycle": 0
+    },
+    "transport": "paused",
+    "player": "stopped",
+    "peak": 0.00022785027977079153
+  },
+  "heldScore": 114.59895833333333,
+  "resumed": {
+    "score": 116.55729166666667,
+    "clock": {
+      "status": "running",
+      "mode": "performance",
+      "measure": 30,
+      "beat": 1.5,
+      "pulse": 51,
+      "synthActive": false,
+      "bassActive": false,
+      "missedBassHandoff": false,
+      "buildActive": false,
+      "buildPending": false,
+      "sectionTails": false,
+      "vocalStatus": "NOT ARMED",
+      "vocalReady": true,
+      "closerStatus": "PLAYING",
+      "closerReady": true,
+      "cycle": 0
+    },
+    "transport": "started",
+    "player": "started",
+    "plays": [
+      {
+        "args": [
+          4.783333333333331,
+          0
+        ],
+        "firstTick": 4.603333333333333,
+        "rate": 1,
+        "duration": 42.02
+      },
+      {
+        "args": [
+          11.697999999999999,
+          6.176666666666669
+        ],
+        "firstTick": 4.603333333333333,
+        "rate": 1,
+        "duration": 42.02
+      }
+    ],
+    "peak": 0.05802169814705849
+  },
+  "sourceLoaded": true,
+  "closerLoaded": false,
+  "errors": []
+}

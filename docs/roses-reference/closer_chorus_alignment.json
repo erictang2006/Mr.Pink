@@ -1,0 +1,23 @@
+{
+  "source_file": "Downloads/1_The Chainsmokers - Closer (Lyric) ft. Halsey - ChainsmokersVEVO_(Vocals).wav",
+  "source_sha256": "f9e096fd76eac3c87db32964fd05d1b9bc852228c5353aa0d5a4028f0b985a58",
+  "source_duration_seconds": 246.129604,
+  "source_sample_rate": 48000,
+  "channels": 2,
+  "source_onset_seconds": 48.300,
+  "onset_annotation_uncertainty_ms": 20,
+  "identification": "Local faster-whisper base.en recognition identified the chorus. Its broad first-word alignment was refined against the source spectrogram and 10 ms high-band energy measurements of the leading s fricative; energy rises at 48.28-48.31 seconds.",
+  "excerpt_start_seconds": 48.180,
+  "excerpt_start_sample": 2312640,
+  "excerpt_frame_count": 1536000,
+  "excerpt_duration_seconds": 32,
+  "excerpt_file": "public/roses/closer_chorus_original.wav",
+  "excerpt_sha256": "b2f2f9d254d5acb10e2d5ce7820258325edfb4e9b7bd5da7dd61f275ca17400d",
+  "excerpt_pcm_sha256": "13d678ffe9f3b46186affeb256d03bad149626e637930c8f393730118ac30f4f",
+  "processing": "PCM-exact trim only; no pitch shift, time stretch, gain change, or resampling",
+  "playback_rate": 1,
+  "pickup_seconds": 0.120,
+  "default_onset_score_beat": 111.5,
+  "default_onset_performance_seconds_100bpm": 66.900,
+  "default_excerpt_start_performance_seconds_100bpm": 66.780
+}

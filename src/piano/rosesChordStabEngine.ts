@@ -1,0 +1,179 @@
+import * as Tone from "tone";
+import { midiToToneName } from "./noteMapping";
+import { rosesChordShortcuts } from "./rosesChords";
+import { RosesFutureBassLayers } from "./rosesFutureBassLayers";
+import { RosesLoudStabsEngine } from "./rosesLoudStabsEngine";
+import { RosesDropLayers } from "./rosesDropLayers";
+import { defaultRosesDropSettings, validRosesDropSettings, type RosesDropSettings } from "./rosesDropSettings";
+
+/** Dedicated live chord timbre; the Roses lead and scheduled backing have separate voices. */
+export class RosesChordStabEngine {
+  private voice = new RosesDropLayers();
+  private future = new RosesFutureBassLayers();
+  private closer = new RosesLoudStabsEngine();
+  private closerSources = new Set<string>();
+  private closerSustained = new Map<number, number>();
+  private settings = { ...defaultRosesDropSettings };
+  private globalVolume = 1;
+  private originalBus = new Tone.Gain(0);
+  private futureBus = new Tone.Gain(1);
+  private bass = new Tone.MonoSynth({
+    oscillator: { type: "triangle" },
+    envelope: { attack: .002, decay: .58, sustain: .16, release: .12 },
+    filter: { type: "lowpass", Q: .5, rolloff: -24 },
+    filterEnvelope: { attack: .001, decay: .45, sustain: .25, release: .12, baseFrequency: 110, octaves: 1.8 },
+    volume: -10,
+  });
+  private bassHighPass = new Tone.Filter({ type: "highpass", frequency: 35, Q: .5, rolloff: -24 });
+  private bassGain = new Tone.Gain(.6);
+  private compressor = new Tone.Compressor({ threshold: -18, ratio: 3.5, attack: .003, release: .16 });
+  private duckGain = new Tone.Gain(1);
+  private output = new Tone.Volume(-12);
+  private limiter = new Tone.Limiter(-1.5);
+  private held = new Map<string, number>();
+  private sustained = new Map<number, number>();
+  private pedal = false;
+  private bassOwners = new Map<string, { midi: number; held: boolean }>();
+  private bassCurrentCode: string | null = null;
+
+  constructor() {
+    this.voice.connect(this.originalBus);
+    this.originalBus.connect(this.compressor);
+    this.future.connect(this.futureBus);
+    this.futureBus.connect(this.compressor);
+    this.closer.connect(this.compressor);
+    this.closer.setReferenceLevel(this.globalVolume);
+    this.compressor.chain(this.duckGain, this.output, this.limiter);
+    this.limiter.toDestination();
+    // Mono root foundation bypasses chord distortion/reverb and never stacks low harmonies.
+    this.bass.chain(this.bassHighPass, this.bassGain, this.compressor);
+    this.setSettings(this.settings);
+  }
+
+  /** Decode the local impact before enabling any live Roses keys. */
+  async load(): Promise<void> { await Promise.all([this.future.load(), this.closer.load()]); }
+  isReady(): boolean { return this.future.isReady() && this.closer.isReady(); }
+  private get activeVoice(): RosesDropLayers | RosesFutureBassLayers {
+    return this.settings.mode === "bonk" ? this.future : this.voice;
+  }
+
+  setGlobalVolume(value: number): void {
+    const level = Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
+    this.globalVolume = level;
+    this.closer.setReferenceLevel(level);
+    this.applyOutput();
+  }
+
+  compareLoudStab(side: "A" | "B"): void { this.closer.compare(side); }
+
+  setSettings(raw: RosesDropSettings): void {
+    const next = validRosesDropSettings(raw);
+    const bassChanged = next.bassEnabled !== this.settings.bassEnabled;
+    if (next.mode !== this.settings.mode) this.releaseAll();
+    this.settings = next;
+    this.voice.setSettings(next);
+    this.future.setSettings(next);
+    this.closer.setRelease(next.closerRelease);
+    this.originalBus.gain.rampTo(next.mode === "drop" ? 1 : 0, .015);
+    this.futureBus.gain.rampTo(next.mode === "bonk" ? 1 : 0, .015);
+    this.bassGain.gain.rampTo(next.mode === "drop" && next.bassEnabled ? next.bass : 0, .025);
+    this.bass.set({
+      envelope: { attack: .003, decay: next.decay, sustain: .3, release: Math.min(.5, next.release * .55) },
+      filterEnvelope: { attack: .002, decay: .4, sustain: .25, release: Math.min(.55, next.release * .65), baseFrequency: 110, octaves: 1.8 },
+    });
+    if (bassChanged) this.syncBass(Tone.immediate());
+    if (!next.duck) { this.duckGain.gain.cancelScheduledValues(Tone.immediate()); this.duckGain.gain.rampTo(1, .025); }
+    this.applyOutput();
+  }
+  private applyOutput(): void {
+    const level = this.globalVolume * this.settings.output;
+    this.output.volume.rampTo(level <= 0 ? -60 : -3 + 20 * Math.log10(level), .04);
+  }
+  /** Optional manual-kick ducking; no beat clock, drum scheduling, or input delay. */
+  duck(time = Tone.immediate()): void {
+    if (!this.settings.duck) return;
+    this.duckGain.gain.cancelAndHoldAtTime(time);
+    this.duckGain.gain.linearRampToValueAtTime(.3, time + .004);
+    this.duckGain.gain.linearRampToValueAtTime(1, time + .18);
+  }
+
+  noteOn(source: string, midi: number, code: string, time = Tone.immediate()): boolean {
+    if (this.held.has(source)) return false;
+    const name = midiToToneName(midi);
+    // Each strike gets a fresh voice. PolySynth retains earlier release tails;
+    // shared pitches are balanced by one release per attack, not cut on retrigger.
+    this.held.set(source, midi);
+    if (this.settings.closerMode === "loud" && /^Digit[123]$/.test(code)) {
+      this.closerSources.add(source);
+      if (midi === rosesChordShortcuts[code]?.[0]) this.closer.attack(code, time);
+      return true;
+    }
+    this.activeVoice.triggerAttack(name, time, /^[4567]$/.test(code.replace("Digit", "")) ? .68 : .86);
+    if (midi === rosesChordShortcuts[code]?.[0]) {
+      if (this.settings.mode === "bonk") {
+        this.future.triggerImpact(midi, time, .9);
+        return true;
+      }
+      this.bassOwners.delete(code);
+      this.bassOwners.set(code, { midi: midi - (midi >= 60 ? 24 : 12), held: true });
+      this.bassCurrentCode = null;
+      this.syncBass(time);
+    }
+    return true;
+  }
+
+  noteOff(source: string): void {
+    const midi = this.held.get(source);
+    if (midi === undefined) return;
+    this.held.delete(source);
+    // Bind release to the instrument that received keydown, even if A/B changed meanwhile.
+    if (this.closerSources.delete(source)) {
+      if (this.pedal) this.closerSustained.set(midi, (this.closerSustained.get(midi) ?? 0) + 1);
+      else if (midi === rosesChordShortcuts[source.split(":")[1]]?.[0]) this.closer.release(source.split(":")[1], Tone.immediate());
+      return;
+    }
+    const code = source.split(":")[1];
+    if (midi === rosesChordShortcuts[code]?.[0]) {
+      const owner = this.bassOwners.get(code);
+      if (this.pedal && owner) owner.held = false;
+      else this.bassOwners.delete(code);
+      this.syncBass(Tone.immediate());
+    }
+    if (this.pedal) this.sustained.set(midi, (this.sustained.get(midi) ?? 0) + 1);
+    else this.activeVoice.triggerRelease(midiToToneName(midi), Tone.immediate());
+  }
+
+  setSustain(enabled: boolean): void {
+    this.pedal = enabled;
+    if (enabled) return;
+    const time = Tone.immediate();
+    for (const [midi, count] of this.sustained) for (let i = 0; i < count; i++) this.activeVoice.triggerRelease(midiToToneName(midi), time);
+    this.sustained.clear();
+    for (const [midi, count] of this.closerSustained) for (const [code, notes] of Object.entries(rosesChordShortcuts)) if (notes[0] === midi && /^Digit[123]$/.test(code)) for (let i = 0; i < count; i++) this.closer.release(code, time);
+    this.closerSustained.clear();
+    for (const [code, owner] of this.bassOwners) if (!owner.held) this.bassOwners.delete(code);
+    this.syncBass(Tone.immediate());
+  }
+
+  private syncBass(time: number): void {
+    if (this.settings.mode === "bonk" || !this.settings.bassEnabled) {
+      if (this.bassCurrentCode !== null) this.bass.triggerRelease(time);
+      this.bassCurrentCode = null;
+      return;
+    }
+    const latest = [...this.bassOwners.entries()].at(-1);
+    if ((latest?.[0] ?? null) === this.bassCurrentCode) return;
+    this.bassCurrentCode = latest?.[0] ?? null;
+    if (latest) this.bass.triggerAttack(midiToToneName(latest[1].midi), time, .82);
+    else this.bass.triggerRelease(time);
+  }
+
+  releaseAll(): void {
+    this.held.clear(); this.sustained.clear(); this.closerSources.clear(); this.closerSustained.clear(); this.bassOwners.clear(); this.bassCurrentCode = null;
+    this.voice.releaseAll(Tone.immediate()); this.future.releaseAll(Tone.immediate()); this.closer.releaseAll(Tone.immediate()); this.bass.triggerRelease(Tone.immediate());
+  }
+  dispose(): void {
+    this.releaseAll(); this.voice.dispose(); this.future.dispose(); this.closer.dispose(); this.bass.dispose(); this.bassHighPass.dispose();
+    this.bassGain.dispose(); this.originalBus.dispose(); this.futureBus.dispose(); this.compressor.dispose(); this.duckGain.dispose(); this.output.dispose(); this.limiter.dispose();
+  }
+}

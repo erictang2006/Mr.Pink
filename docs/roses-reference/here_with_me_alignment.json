@@ -1,0 +1,22 @@
+{
+  "source_file": "/Users/erictang/1_Here With Me - Marshmello,CHVRCHES - US-UK_(Vocals).wav",
+  "source_sha256": "f6251a20c8587f858b9ede0072f30bbe014901d67b47dc5b15b1e34c706cbc57",
+  "source_sample_rate": 44100,
+  "channels": 2,
+  "source_onset_seconds": 34.1,
+  "onset_annotation_uncertainty_ms": 50,
+  "excerpt_start_seconds": 33.98,
+  "pickup_seconds": 0.12,
+  "excerpt_end_seconds": 76,
+  "excerpt_file": "public/roses/here_with_me_chorus_original.wav",
+  "excerpt_frame_count": 1853082,
+  "excerpt_duration_seconds": 42.02,
+  "excerpt_sha256": "c84ff24ba29f46d3c94942b06a324af59a145f835858bfd71303aae728d62ce9",
+  "excerpt_pcm_sha256": "ef8f6ff8bbc19d86f39b795780990326e95817dc7d9de935a5d721908e58d03e",
+  "processing": "PCM-exact extraction; no gain change, resampling, pitch shift or time stretching",
+  "playback_rate": 1,
+  "default_onset_score_beat": 104.5,
+  "default_onset_performance_seconds": 62.7,
+  "identification": "On-device faster-whisper base.en identified the hook around 34 s; cropped confirmation identified I need you here with me from 34.10 s. A 120 ms pickup preserves the soft start and preceding consonant transition. Word-boundary annotation is approximate; entrance offset remains adjustable.",
+  "tempo_evidence": "Corresponding hook attacks repeat approximately 19.2 s apart (8 bars at 100 BPM); positive energy-flux autocorrelation at 0.60 s exceeds nearby 98\u2013102 BPM candidates. No tempo processing was needed for this test."
+}

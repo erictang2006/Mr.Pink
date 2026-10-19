@@ -1,0 +1,1958 @@
+[
+  {
+    "mode": "light",
+    "solo": "all",
+    "peak": 0.06308463215827942,
+    "peakDb": -24.00152849870789,
+    "rms": 0.012991462999576984,
+    "tail": 0,
+    "events": [
+      {
+        "layer": "chops",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 9.6,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 113,
+        "time": 0.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 114,
+        "time": 1.3212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 115,
+        "time": 1.92125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 116,
+        "time": 2.5212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 117,
+        "time": 3.1212500000000003,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 118,
+        "time": 3.7212500000000004,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 119,
+        "time": 4.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 121,
+        "time": 5.52125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 122,
+        "time": 6.121250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 123,
+        "time": 6.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 124,
+        "time": 7.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 125,
+        "time": 7.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 126,
+        "time": 8.521249999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 127,
+        "time": 9.121250000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 7.199999999999999,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 2.4,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.25,
+        "time": 14.671249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "spacy",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.75,
+        "time": 14.97125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "roll",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.122462048309373
+      },
+      {
+        "layer": "spacy",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.25,
+        "time": 15.271249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.189207115002721
+      },
+      {
+        "layer": "roll",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.75,
+        "time": 15.57125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "roll",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.25,
+        "time": 15.871249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "roll",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "spacy",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.75,
+        "time": 16.171249999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "roll",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "spacy",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.25,
+        "time": 16.471249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "roll",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "spacy",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.75,
+        "time": 16.77125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "chops",
+        "beat": 140,
+        "time": 16.921249999999997,
+        "offset": 0,
+        "duration": 1.7999999999999998,
+        "rate": 1
+      },
+      {
+        "layer": "snap",
+        "beat": 143,
+        "time": 18.721249999999998,
+        "offset": 0,
+        "duration": 0.4746938998501548,
+        "rate": 1
+      }
+    ],
+    "remaining": 0,
+    "status": "FINISHED"
+  },
+  {
+    "mode": "original",
+    "solo": "vox",
+    "peak": 0.030927302315831184,
+    "peakDb": -30.193159207724225,
+    "rms": 0.00509339548224639,
+    "tail": 0,
+    "events": [
+      {
+        "layer": "chops",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 9.6,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 113,
+        "time": 0.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 114,
+        "time": 1.3212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 115,
+        "time": 1.92125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 116,
+        "time": 2.5212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 117,
+        "time": 3.1212500000000003,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 118,
+        "time": 3.7212500000000004,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 119,
+        "time": 4.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 121,
+        "time": 5.52125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 122,
+        "time": 6.121250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 123,
+        "time": 6.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 124,
+        "time": 7.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 125,
+        "time": 7.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 126,
+        "time": 8.521249999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 127,
+        "time": 9.121250000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 7.199999999999999,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 2.4,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.25,
+        "time": 14.671249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "spacy",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.75,
+        "time": 14.97125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "roll",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.122462048309373
+      },
+      {
+        "layer": "spacy",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.25,
+        "time": 15.271249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.189207115002721
+      },
+      {
+        "layer": "roll",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.75,
+        "time": 15.57125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "roll",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.25,
+        "time": 15.871249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "roll",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "spacy",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.75,
+        "time": 16.171249999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "roll",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "spacy",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.25,
+        "time": 16.471249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "roll",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "spacy",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.75,
+        "time": 16.77125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "chops",
+        "beat": 140,
+        "time": 16.921249999999997,
+        "offset": 0,
+        "duration": 1.7999999999999998,
+        "rate": 1
+      },
+      {
+        "layer": "snap",
+        "beat": 143,
+        "time": 18.721249999999998,
+        "offset": 0,
+        "duration": 0.4746938998501548,
+        "rate": 1
+      }
+    ],
+    "remaining": 0,
+    "status": "FINISHED"
+  },
+  {
+    "mode": "light",
+    "solo": "vox",
+    "peak": 0.03716057166457176,
+    "peakDb": -28.598352272007446,
+    "rms": 0.006464459485212537,
+    "tail": 0,
+    "events": [
+      {
+        "layer": "chops",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 112,
+        "time": 0.12125000000000002,
+        "offset": 0,
+        "duration": 9.6,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 113,
+        "time": 0.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 114,
+        "time": 1.3212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 115,
+        "time": 1.92125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 116,
+        "time": 2.5212499999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 117,
+        "time": 3.1212500000000003,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 118,
+        "time": 3.7212500000000004,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 119,
+        "time": 4.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 120,
+        "time": 4.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 121,
+        "time": 5.52125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 122,
+        "time": 6.121250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 123,
+        "time": 6.72125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 124,
+        "time": 7.32125,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 125,
+        "time": 7.921250000000001,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 126,
+        "time": 8.521249999999998,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 127,
+        "time": 9.121250000000002,
+        "offset": 0,
+        "duration": 0.525,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 4.8,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "vox",
+        "beat": 128,
+        "time": 9.72125,
+        "offset": 0,
+        "duration": 7.199999999999999,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 128.5,
+        "time": 10.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129,
+        "time": 10.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 129.5,
+        "time": 10.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130,
+        "time": 10.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 130.5,
+        "time": 11.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131,
+        "time": 11.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 131.5,
+        "time": 11.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132,
+        "time": 12.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 132.5,
+        "time": 12.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133,
+        "time": 12.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 133.5,
+        "time": 13.021249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134,
+        "time": 13.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 134.5,
+        "time": 13.621249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135,
+        "time": 13.921249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 135.5,
+        "time": 14.22125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "chops",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 2.4,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "spacy",
+        "beat": 136,
+        "time": 14.521249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.25,
+        "time": 14.671249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "spacy",
+        "beat": 136.5,
+        "time": 14.82125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 136.75,
+        "time": 14.97125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.0594630943592953
+      },
+      {
+        "layer": "roll",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.122462048309373
+      },
+      {
+        "layer": "spacy",
+        "beat": 137,
+        "time": 15.121249999999998,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.25,
+        "time": 15.271249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.189207115002721
+      },
+      {
+        "layer": "roll",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 137.5,
+        "time": 15.421249999999999,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 137.75,
+        "time": 15.57125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "roll",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.2599210498948732
+      },
+      {
+        "layer": "spacy",
+        "beat": 138,
+        "time": 15.72125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.25,
+        "time": 15.871249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "roll",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.3348398541700344
+      },
+      {
+        "layer": "spacy",
+        "beat": 138.5,
+        "time": 16.02125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 138.75,
+        "time": 16.171249999999997,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "roll",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.4142135623730951
+      },
+      {
+        "layer": "spacy",
+        "beat": 139,
+        "time": 16.32125,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.25,
+        "time": 16.471249999999998,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "roll",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "spacy",
+        "beat": 139.5,
+        "time": 16.621249999999996,
+        "offset": 0,
+        "duration": 0.3,
+        "rate": 1
+      },
+      {
+        "layer": "roll",
+        "beat": 139.75,
+        "time": 16.77125,
+        "offset": 0,
+        "duration": 0.15,
+        "rate": 1.5874010519681994
+      },
+      {
+        "layer": "chops",
+        "beat": 140,
+        "time": 16.921249999999997,
+        "offset": 0,
+        "duration": 1.7999999999999998,
+        "rate": 1
+      },
+      {
+        "layer": "snap",
+        "beat": 143,
+        "time": 18.721249999999998,
+        "offset": 0,
+        "duration": 0.4746938998501548,
+        "rate": 1
+      }
+    ],
+    "remaining": 0,
+    "status": "FINISHED"
+  }
+]

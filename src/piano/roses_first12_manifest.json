@@ -1,0 +1,613 @@
+{
+  "source": "Roses Ableton Remake(1).zip / remake 1 Project/remake 1.als",
+  "tempo_bpm": 100,
+  "time_signature": "4/4",
+  "bars": 12,
+  "duration_seconds": 28.8,
+  "intro_instrument": "Sylenth1 (VST) on Intro Pads track; Kickstart and FabFilter Pro-Q 2 appear after the instrument",
+  "events": {
+    "intro_pad_midi": [
+      {
+        "start_beat": 0.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 1,
+        "beat_in_bar": 1.0,
+        "time_sec": 0.0
+      },
+      {
+        "start_beat": 1.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 1,
+        "beat_in_bar": 2.5,
+        "time_sec": 0.9
+      },
+      {
+        "start_beat": 4.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 2,
+        "beat_in_bar": 1.0,
+        "time_sec": 2.4
+      },
+      {
+        "start_beat": 5.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 2,
+        "beat_in_bar": 2.5,
+        "time_sec": 3.3
+      },
+      {
+        "start_beat": 8.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 3,
+        "beat_in_bar": 1.0,
+        "time_sec": 4.8
+      },
+      {
+        "start_beat": 9.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 3,
+        "beat_in_bar": 2.5,
+        "time_sec": 5.7
+      },
+      {
+        "start_beat": 12.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 4,
+        "beat_in_bar": 1.0,
+        "time_sec": 7.2
+      },
+      {
+        "start_beat": 13.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 4,
+        "beat_in_bar": 2.5,
+        "time_sec": 8.1
+      },
+      {
+        "start_beat": 16.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 5,
+        "beat_in_bar": 1.0,
+        "time_sec": 9.6
+      },
+      {
+        "start_beat": 17.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 5,
+        "beat_in_bar": 2.5,
+        "time_sec": 10.5
+      },
+      {
+        "start_beat": 20.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 6,
+        "beat_in_bar": 1.0,
+        "time_sec": 12.0
+      },
+      {
+        "start_beat": 21.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 6,
+        "beat_in_bar": 2.5,
+        "time_sec": 12.9
+      },
+      {
+        "start_beat": 24.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 7,
+        "beat_in_bar": 1.0,
+        "time_sec": 14.4
+      },
+      {
+        "start_beat": 25.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 7,
+        "beat_in_bar": 2.5,
+        "time_sec": 15.3
+      },
+      {
+        "start_beat": 28.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 8,
+        "beat_in_bar": 1.0,
+        "time_sec": 16.8
+      },
+      {
+        "start_beat": 29.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 8,
+        "beat_in_bar": 2.5,
+        "time_sec": 17.7
+      },
+      {
+        "start_beat": 32.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 9,
+        "beat_in_bar": 1.0,
+        "time_sec": 19.2
+      },
+      {
+        "start_beat": 33.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 9,
+        "beat_in_bar": 2.5,
+        "time_sec": 20.1
+      },
+      {
+        "start_beat": 36.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 10,
+        "beat_in_bar": 1.0,
+        "time_sec": 21.6
+      },
+      {
+        "start_beat": 37.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 10,
+        "beat_in_bar": 2.5,
+        "time_sec": 22.5
+      },
+      {
+        "start_beat": 40.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 11,
+        "beat_in_bar": 1.0,
+        "time_sec": 24.0
+      },
+      {
+        "start_beat": 41.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 11,
+        "beat_in_bar": 2.5,
+        "time_sec": 24.9
+      },
+      {
+        "start_beat": 44.0,
+        "duration_beats": 4.0,
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 12,
+        "beat_in_bar": 1.0,
+        "time_sec": 26.4
+      },
+      {
+        "start_beat": 45.5,
+        "duration_beats": 2.5,
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 12,
+        "beat_in_bar": 2.5,
+        "time_sec": 27.3
+      }
+    ],
+    "kick": [
+      {
+        "start_beat": 16.0,
+        "end_beat": 16.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 5,
+        "beat_in_bar": 1.0,
+        "time_sec": 9.6
+      },
+      {
+        "start_beat": 17.5,
+        "end_beat": 18.392517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 5,
+        "beat_in_bar": 2.5,
+        "time_sec": 10.5
+      },
+      {
+        "start_beat": 20.0,
+        "end_beat": 20.75,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 6,
+        "beat_in_bar": 1.0,
+        "time_sec": 12.0
+      },
+      {
+        "start_beat": 20.75,
+        "end_beat": 21.5,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 6,
+        "beat_in_bar": 1.75,
+        "time_sec": 12.45
+      },
+      {
+        "start_beat": 21.5,
+        "end_beat": 22.0,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 6,
+        "beat_in_bar": 2.5,
+        "time_sec": 12.9
+      },
+      {
+        "start_beat": 22.0,
+        "end_beat": 22.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 6,
+        "beat_in_bar": 3.0,
+        "time_sec": 13.2
+      },
+      {
+        "start_beat": 24.0,
+        "end_beat": 24.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 7,
+        "beat_in_bar": 1.0,
+        "time_sec": 14.4
+      },
+      {
+        "start_beat": 25.5,
+        "end_beat": 26.392517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 7,
+        "beat_in_bar": 2.5,
+        "time_sec": 15.3
+      },
+      {
+        "start_beat": 28.0,
+        "end_beat": 28.75,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 8,
+        "beat_in_bar": 1.0,
+        "time_sec": 16.8
+      },
+      {
+        "start_beat": 28.75,
+        "end_beat": 29.5,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 8,
+        "beat_in_bar": 1.75,
+        "time_sec": 17.25
+      },
+      {
+        "start_beat": 29.5,
+        "end_beat": 30.0,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 8,
+        "beat_in_bar": 2.5,
+        "time_sec": 17.7
+      },
+      {
+        "start_beat": 30.0,
+        "end_beat": 30.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 8,
+        "beat_in_bar": 3.0,
+        "time_sec": 18.0
+      },
+      {
+        "start_beat": 32.0,
+        "end_beat": 32.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 9,
+        "beat_in_bar": 1.0,
+        "time_sec": 19.2
+      },
+      {
+        "start_beat": 33.5,
+        "end_beat": 34.392517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 9,
+        "beat_in_bar": 2.5,
+        "time_sec": 20.1
+      },
+      {
+        "start_beat": 36.0,
+        "end_beat": 36.75,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 10,
+        "beat_in_bar": 1.0,
+        "time_sec": 21.6
+      },
+      {
+        "start_beat": 36.75,
+        "end_beat": 37.5,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 10,
+        "beat_in_bar": 1.75,
+        "time_sec": 22.05
+      },
+      {
+        "start_beat": 37.5,
+        "end_beat": 38.0,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 10,
+        "beat_in_bar": 2.5,
+        "time_sec": 22.5
+      },
+      {
+        "start_beat": 38.0,
+        "end_beat": 38.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 10,
+        "beat_in_bar": 3.0,
+        "time_sec": 22.8
+      },
+      {
+        "start_beat": 40.0,
+        "end_beat": 40.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 11,
+        "beat_in_bar": 1.0,
+        "time_sec": 24.0
+      },
+      {
+        "start_beat": 41.5,
+        "end_beat": 42.392517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 11,
+        "beat_in_bar": 2.5,
+        "time_sec": 24.9
+      },
+      {
+        "start_beat": 44.0,
+        "end_beat": 44.75,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 12,
+        "beat_in_bar": 1.0,
+        "time_sec": 26.4
+      },
+      {
+        "start_beat": 44.75,
+        "end_beat": 45.5,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 12,
+        "beat_in_bar": 1.75,
+        "time_sec": 26.85
+      },
+      {
+        "start_beat": 45.5,
+        "end_beat": 46.0,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 12,
+        "beat_in_bar": 2.5,
+        "time_sec": 27.3
+      },
+      {
+        "start_beat": 46.0,
+        "end_beat": 46.892517,
+        "clip_name": "Roses Kick",
+        "source_file": "Roses Kick.wav",
+        "bar": 12,
+        "beat_in_bar": 3.0,
+        "time_sec": 27.6
+      }
+    ],
+    "clap": [
+      {
+        "start_beat": 17.0,
+        "end_beat": 17.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 5,
+        "beat_in_bar": 2.0,
+        "time_sec": 10.2
+      },
+      {
+        "start_beat": 19.0,
+        "end_beat": 19.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 5,
+        "beat_in_bar": 4.0,
+        "time_sec": 11.4
+      },
+      {
+        "start_beat": 21.0,
+        "end_beat": 21.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 6,
+        "beat_in_bar": 2.0,
+        "time_sec": 12.6
+      },
+      {
+        "start_beat": 23.0,
+        "end_beat": 23.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 6,
+        "beat_in_bar": 4.0,
+        "time_sec": 13.8
+      },
+      {
+        "start_beat": 25.0,
+        "end_beat": 25.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 7,
+        "beat_in_bar": 2.0,
+        "time_sec": 15.0
+      },
+      {
+        "start_beat": 27.0,
+        "end_beat": 27.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 7,
+        "beat_in_bar": 4.0,
+        "time_sec": 16.2
+      },
+      {
+        "start_beat": 29.0,
+        "end_beat": 29.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 8,
+        "beat_in_bar": 2.0,
+        "time_sec": 17.4
+      },
+      {
+        "start_beat": 31.0,
+        "end_beat": 31.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 8,
+        "beat_in_bar": 4.0,
+        "time_sec": 18.6
+      },
+      {
+        "start_beat": 33.0,
+        "end_beat": 33.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 9,
+        "beat_in_bar": 2.0,
+        "time_sec": 19.8
+      },
+      {
+        "start_beat": 35.0,
+        "end_beat": 35.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 9,
+        "beat_in_bar": 4.0,
+        "time_sec": 21.0
+      },
+      {
+        "start_beat": 37.0,
+        "end_beat": 37.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 10,
+        "beat_in_bar": 2.0,
+        "time_sec": 22.2
+      },
+      {
+        "start_beat": 39.0,
+        "end_beat": 39.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 10,
+        "beat_in_bar": 4.0,
+        "time_sec": 23.4
+      },
+      {
+        "start_beat": 41.0,
+        "end_beat": 41.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 11,
+        "beat_in_bar": 2.0,
+        "time_sec": 24.6
+      },
+      {
+        "start_beat": 43.0,
+        "end_beat": 43.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 11,
+        "beat_in_bar": 4.0,
+        "time_sec": 25.8
+      },
+      {
+        "start_beat": 45.0,
+        "end_beat": 45.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 12,
+        "beat_in_bar": 2.0,
+        "time_sec": 27.0
+      },
+      {
+        "start_beat": 47.0,
+        "end_beat": 47.9452,
+        "clip_name": "Roses SnareClap",
+        "source_file": "Roses SnareClap.wav",
+        "bar": 12,
+        "beat_in_bar": 4.0,
+        "time_sec": 28.2
+      }
+    ],
+    "vocal_effect": [
+      {
+        "start_beat": 31.0,
+        "end_beat": 33.451247,
+        "clip_name": "woo weird sample roses",
+        "source_file": "woo weird sample roses.wav",
+        "bar": 8,
+        "beat_in_bar": 4.0,
+        "time_sec": 18.6
+      },
+      {
+        "start_beat": 47.0,
+        "end_beat": 49.451247,
+        "clip_name": "woo weird sample roses",
+        "source_file": "woo weird sample roses.wav",
+        "bar": 12,
+        "beat_in_bar": 4.0,
+        "time_sec": 28.2
+      }
+    ]
+  },
+  "notes": "Ableton arrangement shows pad from bar 1, kick and snare/clap beginning bar 5, vocal effect at ends of bars 8 and 12. No separately arranged bass before bar 13. Sample extraction from finished WAV can include baked effects and is not a Sylenth preset."
+}

@@ -1,6 +1,6 @@
 # Stage Piano
 
-A React, TypeScript, Vite, Tone.js, and Canvas piano for live physical-keyboard performance. Notes sound only when a mapped key is pressed. Audio must be enabled with the on-screen button first.
+A React, TypeScript, Vite, Tone.js, and Canvas piano for live physical-keyboard performance. Piano and live synth notes respond to mapped physical keys; the Roses Intro Builder also has manually armed loop layers. Audio must be enabled with the on-screen button first.
 
 ## Run locally
 
@@ -10,6 +10,8 @@ npm run dev
 ```
 
 Open the local URL printed by Vite. Use `npm test` for input and geometry checks, `npm run typecheck` for TypeScript, and `npm run build` for a production build.
+
+This project is developed and run locally on the MacBook. It has no hosting configuration or Git remote.
 
 ## Playing
 
@@ -22,6 +24,8 @@ Open the local URL printed by Vite. Use `npm test` for input and geometry checks
 - Keydown starts one note; keyup releases the pitch captured at keydown. Losing focus or pressing F9 releases held notes.
 - Practice Mode has a 280–400px keyboard-height slider, starting at 330px. Performance Mode uses 29% of viewport height.
 - In Performance Mode, F7 toggles piano labels, F8 toggles the HUD, and the selected theme shortcut cycles visual themes.
+- Roses Sandbox has six synth presets, A/B comparison, saved sound settings, and isolated-note sample import. See [Roses instruments](docs/ROSES-INSTRUMENTS.md) for browser storage and project asset instructions.
+- Roses **Intro Builder** runs through bar 28, with manually armed synth/bass layers, the repeating guitar/build-bass section, live Z/X kick and clap, Step/Timed loops, and fullscreen controls. The Closer overlay enters at 28:4& by default. Open Roses Sandbox, then choose Step or Timed. See [Roses intro](docs/ROSES-INTRO.md).
 
 ## Code map
 
@@ -31,6 +35,11 @@ Open the local URL printed by Vite. Use `npm test` for input and geometry checks
 | `src/piano/profiles.ts` | Bundled and saved mapping profiles |
 | `src/piano/keyboardInput.ts` | Keydown, keyup, modifiers, held-key state |
 | `src/piano/audioEngine.ts` | Tone.js sampled piano and note lifetimes |
+| `src/piano/synthEngine.ts` | Roses synth presets, effects, imported sampler, and voice lifecycle |
+| `src/piano/sampleLibrary.ts` | Imported sample storage and project manifests |
+| `src/piano/rosesIntroEngine.ts` | One 100 BPM clock for the staged 28-bar Roses intro |
+| `src/piano/rosesBassEngine.ts` | Local Break Bass and Break Sub sound approximation |
+| `src/components/RosesPractice.tsx` | Roses keyboard sheet and layer practice controls |
 | `src/piano/geometry.ts` | Shared key positions for both canvases |
 | `src/components/PianoCanvas.tsx` | Piano keys, highlights, labels |
 | `src/components/PerformanceVisualizer.tsx` | Live reverse-falling-note bars |

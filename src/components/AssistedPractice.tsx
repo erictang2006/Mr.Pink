@@ -13,6 +13,7 @@ import type { LiveNotes } from "../piano/liveNotes";
 type Props = {
   map: KeyboardMap;
   snapshot: InputSnapshot;
+  soundingPitches: number[];
   audioReady: boolean;
   startAudio: () => void;
   onNoteRef: MutableRefObject<((midi: number, code: string, at: number) => void) | null>;
@@ -33,7 +34,7 @@ type Props = {
   setInterstellarMix: (value: InterstellarMix) => void;
 };
 
-export default function AssistedPractice({ map, snapshot, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, onSandbox, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange, interstellarMix, setInterstellarMix }: Props) {
+export default function AssistedPractice({ map, snapshot, soundingPitches, audioReady, startAudio, onNoteRef, onUnmappedRef, onExit, onExitAssisted, onSandbox, triggerAssisted, resetAssisted, sustainSettings, setSustainSettings, sustainActive, showAssistedNotes, setShowAssistedNotes, liveNotes, onMeasureChange, interstellarMix, setInterstellarMix }: Props) {
   const [index, setIndex] = useState(0);
   const [wrong, setWrong] = useState<number[]>([]);
   const [wrongCode, setWrongCode] = useState("");
@@ -45,7 +46,6 @@ export default function AssistedPractice({ map, snapshot, audioReady, startAudio
   const current = assistedEvents[index];
   const measure = current?.bar ?? 13;
   const preferredLabels = useMemo(() => Object.fromEntries(Object.values(assistedSource.keyboardMapping).map(item => [item.midi, item.label])), []);
-  const held = snapshot.pressed.map(item => item.midi);
 
   useEffect(() => { onMeasureChange(measure); }, [measure, onMeasureChange]);
   useEffect(() => {
@@ -127,6 +127,6 @@ export default function AssistedPractice({ map, snapshot, audioReady, startAudio
     </div><div className="practice-prompt"><span>{complete ? "DONE" : "NEXT"}</span><strong>{complete ? "Section complete" : current?.label}</strong><small>{complete ? "Restart to play again" : `${current && midiToName(current.liveMidi)} + assisted ${current?.assistedMidi.map(midiToName).join(" · ")}`}</small>{wrong.length > 0 && <em>Expected {current?.label}; heard {wrong.map(midiToName).join(", ")}</em>}{wrongCode && <em>Expected {current?.label}; {wrongCode} is unmapped</em>}</div></section>
     <section className="practice-controls assisted-controls"><div className="practice-control-row"><button className="practice-primary" onClick={restart}>Restart section</button><label><input type="checkbox" checked={repeat} onChange={event => setRepeat(event.target.checked)} /> Repeat section</label><label><input type="checkbox" checked={showAssistedNotes} onChange={event => setShowAssistedNotes(event.target.checked)} /> Show Assisted Notes</label><span className="practice-accuracy">{index + (complete ? 1 : 0)} / 60 correct events</span></div><InterstellarAudioSettings value={interstellarMix} onChange={setInterstellarMix} /><SustainSettings value={sustainSettings} active={sustainActive} onChange={setSustainSettings} /></section>
     <div className="assisted-trails"><PerformanceVisualizer notes={liveNotes} map={map} transpose={0} theme="cosmic" notesPerSecond={snapshot.notesPerSecond} showAssisted={showAssistedNotes} /></div>
-    <section className="practice-piano" aria-label="Assisted piano"><div className="practice-piano-top"><span>LIVE KEYBOARD · {map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s</span></div><PianoCanvas active={held} expected={current && !complete ? [current.liveMidi] : []} wrong={wrong} completed={[]} map={map} transpose={0} labelMode="computer" preferredLabels={preferredLabels} practicePalette /></section>
+    <section className="practice-piano" aria-label="Assisted piano"><div className="practice-piano-top"><span>LIVE KEYBOARD · {map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s</span></div><PianoCanvas active={soundingPitches} expected={current && !complete ? [current.liveMidi] : []} wrong={wrong} completed={[]} map={map} transpose={0} labelMode="computer" preferredLabels={preferredLabels} practicePalette /></section>
   </main>;
 }

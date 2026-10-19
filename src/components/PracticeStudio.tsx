@@ -23,6 +23,7 @@ type NoteHandler = (midi: number, code: string, at: number) => void;
 type Props = {
   map: KeyboardMap;
   snapshot: InputSnapshot;
+  soundingPitches: number[];
   audioReady: boolean;
   startAudio: () => void;
   selectProfile: (id: string) => void;
@@ -71,7 +72,7 @@ export default function PracticeStudio(props: Props) {
     : <RegularPractice {...props} onEnterAssisted={enterAssisted} />;
 }
 
-function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile, profiles, onNoteRef, onExit, onEnterAssisted, sustainSettings, setSustainSettings, sustainActive, onMeasureChange, triggerAssisted, resetAssisted, showAssistedNotes, setShowAssistedNotes, interstellarMix, setInterstellarMix, onSongChange, onSandbox }: Props & { onEnterAssisted: () => void }) {
+function RegularPractice({ map, snapshot, soundingPitches, audioReady, startAudio, selectProfile, profiles, onNoteRef, onExit, onEnterAssisted, sustainSettings, setSustainSettings, sustainActive, onMeasureChange, triggerAssisted, resetAssisted, showAssistedNotes, setShowAssistedNotes, interstellarMix, setInterstellarMix, onSongChange, onSandbox }: Props & { onEnterAssisted: () => void }) {
   const [mode, setMode] = useState<Mode>(() => preference("mode", "step") === "timed" ? "timed" : "step");
   const [speed, setSpeed] = useState(() => clamp(Number(preference("speed", "75")) || 75, 25, 125));
   const [tolerance, setTolerance] = useState(() => clamp(Number(preference("tolerance", "180")) || 180, 50, 500));
@@ -125,7 +126,6 @@ function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile,
   const expected = mode === "step" ? finished ? [] : current?.pitches ?? [] : groups.filter(group =>
     Math.abs(secondsAtBeat(song, group.absoluteBeat) - secondsAtBeat(song, playhead)) * 1000 <= tolerance
   ).flatMap(group => group.pitches);
-  const pressed = snapshot.pressed.map(item => item.midi);
   const completed = mode === "step" ? collected : current?.pitches.filter(midi => matched.includes(`${current.id}:${midi}`)) ?? [];
   const unmapped = song.pitches.filter(midi => bindingsForPitch(map, midi).length === 0);
   const alternatives = song.pitches.filter(midi => bindingsForPitch(map, midi).length > 1);
@@ -378,6 +378,6 @@ function RegularPractice({ map, snapshot, audioReady, startAudio, selectProfile,
       <div className="practice-control-row"><label><input type="checkbox" checked={showAssistedNotes} onChange={event => setShowAssistedNotes(event.target.checked)} /> Show Assisted Notes</label></div>
       <SustainSettings value={sustainSettings} active={sustainActive} onChange={setSustainSettings} />
     </section>
-    <section className="practice-piano" aria-label="Practice piano"><div className="practice-piano-top"><span>VIRTUAL PIANO · {map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s</span></div><PianoCanvas active={pressed} expected={expected} wrong={wrong} completed={completed} map={map} transpose={0} labelMode={labels} preferredLabels={visibleLabels} practicePalette /></section>
+    <section className="practice-piano" aria-label="Practice piano"><div className="practice-piano-top"><span>VIRTUAL PIANO · {map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s</span></div><PianoCanvas active={soundingPitches} expected={expected} wrong={wrong} completed={completed} map={map} transpose={0} labelMode={labels} preferredLabels={visibleLabels} practicePalette /></section>
   </main>;
 }

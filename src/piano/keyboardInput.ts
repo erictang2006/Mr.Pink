@@ -12,10 +12,13 @@ type Callbacks = {
   change: (snapshot: InputSnapshot) => void;
   unmappedKeyDown?: (code: string, at: number) => void;
   controlKeyDown?: (code: string, at: number) => boolean;
+  chordOn?: (pitches: readonly number[], code: string, at: number) => void;
+  chordOff?: (pitches: readonly number[], code: string, at: number) => void;
 };
 
 export class KeyboardInputManager {
-  private held = new Map<string, { label: string; midi: number }>();
+  private held = new Map<string, { label: string; midi: number; chord?: readonly number[] }>();
+  private chords: Readonly<Record<string, readonly number[]>> = {};
   private heldControls = new Set<string>();
   private detected = new Set<string>();
   private shift = false;
@@ -55,6 +58,11 @@ export class KeyboardInputManager {
     this.reservedCodes = new Set(codes);
   }
 
+  setChords(chords: Readonly<Record<string, readonly number[]>>): void {
+    this.releaseAll();
+    this.chords = chords;
+  }
+
   private onKeyDown = (event: KeyboardEvent): void => {
     if (!this.enabled) return;
     const target = event.target as HTMLElement | null;
@@ -68,6 +76,18 @@ export class KeyboardInputManager {
     if (!event.repeat && this.callbacks.controlKeyDown?.(event.code, performance.now())) {
       event.preventDefault();
       this.heldControls.add(event.code);
+      this.emit();
+      return;
+    }
+    const chord = this.chords[event.code];
+    if (chord?.length && this.callbacks.chordOn) {
+      event.preventDefault();
+      if (event.repeat || this.held.has(event.code)) return;
+      const pitches = [...chord];
+      const at = performance.now();
+      this.held.set(event.code, { label: event.code.replace(/^(Key|Digit)/, ""), midi: pitches[0], chord: pitches });
+      this.recentAttacks.push(...pitches.map(() => at));
+      this.callbacks.chordOn(pitches, event.code, at);
       this.emit();
       return;
     }
@@ -99,7 +119,7 @@ export class KeyboardInputManager {
     }
     event.preventDefault();
     this.held.delete(event.code);
-    this.callbacks.noteOff(held.midi, event.code, performance.now());
+    this.releaseHeld(event.code, held, performance.now());
     this.emit();
   };
 
@@ -107,10 +127,15 @@ export class KeyboardInputManager {
     if (document.hidden) this.releaseAll();
   };
 
+  private releaseHeld(code: string, held: { midi: number; chord?: readonly number[] }, at: number): void {
+    if (held.chord) this.callbacks.chordOff?.(held.chord, code, at);
+    else this.callbacks.noteOff(held.midi, code, at);
+  }
+
   releaseAll = (): void => {
     const at = performance.now();
     for (const [code, held] of this.held)
-      this.callbacks.noteOff(held.midi, code, at);
+      this.releaseHeld(code, held, at);
     this.held.clear();
     this.heldControls.clear();
     this.detected.clear();
@@ -122,7 +147,8 @@ export class KeyboardInputManager {
     const now = performance.now();
     this.recentAttacks = this.recentAttacks.filter((time) => now - time < 1000);
     this.callbacks.change({
-      pressed: [...this.held].map(([code, value]) => ({ code, ...value })),
+      pressed: [...this.held].flatMap(([code, value]) =>
+        (value.chord ?? [value.midi]).map(midi => ({ code, label: value.label, midi }))),
       detected: [...this.detected],
       shift: this.shift,
       notesPerSecond: this.recentAttacks.length,

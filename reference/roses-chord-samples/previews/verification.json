@@ -1,0 +1,149 @@
+[
+  {
+    "label": "bonk-only",
+    "sequence": "single",
+    "hold": 0.08,
+    "peak": 0.10761972516775131,
+    "peakDb": -19.36216242722173,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 1,
+    "maximumVoices": 4,
+    "tailAfterKeyup": 0.000444528591916764,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "body-only",
+    "sequence": "single",
+    "hold": 0.08,
+    "peak": 0.11787698417901993,
+    "peakDb": -18.571419677542455,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 1,
+    "maximumVoices": 4,
+    "tailAfterKeyup": 0.013328802475030562,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "combined",
+    "sequence": "single",
+    "hold": 0.08,
+    "peak": 0.19781363010406494,
+    "peakDb": -14.074875743650267,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 1,
+    "maximumVoices": 4,
+    "tailAfterKeyup": 0.013272161118007534,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "held",
+    "sequence": "single",
+    "hold": 1,
+    "peak": 0.19781363010406494,
+    "peakDb": -14.074875743650267,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 1,
+    "maximumVoices": 4,
+    "tailAfterKeyup": 0.008455264522227147,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "all-keys",
+    "sequence": "all",
+    "hold": 0.08,
+    "peak": 0.2096986174583435,
+    "peakDb": -13.568088656519706,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 8,
+    "maximumVoices": 12,
+    "tailAfterKeyup": 0.01327216082034597,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "rhythm-100bpm",
+    "sequence": "rhythm",
+    "hold": 0.08,
+    "peak": 0.19781363010406494,
+    "peakDb": -14.074875743650267,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 4,
+    "maximumVoices": 12,
+    "tailAfterKeyup": 0.013272162270491304,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  },
+  {
+    "label": "maximum-stack",
+    "sequence": "stack",
+    "hold": 0.08,
+    "peak": 0.3843541741371155,
+    "peakDb": -8.305367961472927,
+    "invalid": 0,
+    "oldAttacks": 0,
+    "impactCount": 8,
+    "maximumVoices": 24,
+    "tailAfterKeyup": 0.05974313024490241,
+    "end": 0,
+    "held": 0,
+    "pending": 0,
+    "active": [
+      0,
+      0,
+      0
+    ],
+    "bonks": 0
+  }
+]

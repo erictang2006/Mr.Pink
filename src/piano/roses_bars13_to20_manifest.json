@@ -1,0 +1,997 @@
+{
+  "source": "Roses Ableton Remake(1).zip / remake 1 Project/remake 1.als",
+  "tempo_bpm": 100,
+  "time_signature": "4/4",
+  "range": {
+    "first_bar": 13,
+    "last_bar": 20,
+    "first_beat": 48,
+    "last_beat_exclusive": 80,
+    "start_seconds": 28.8,
+    "end_seconds": 48,
+    "duration_seconds": 19.2
+  },
+  "track_instruments": {
+    "intro_pad": "Sylenth1 -> Kickstart -> FabFilter Pro-Q 2",
+    "break_bass": "Sylenth1 -> EQ Eight -> FabFilter Pro-Q 2 -> CamelCrusher",
+    "break_sub": "Nexus -> EQ Eight",
+    "kick": "Roses Kick.wav audio clips",
+    "clap": "Roses SnareClap.wav audio clips",
+    "whoo_accent": "woo weird sample roses.wav at beats 63 and 79 (end of bars 16, 20)"
+  },
+  "note": "Only tracks active in bars 13\u201320 are included. No clean isolated bass/sub stems were present in the remake archive, so the reference WAV is the full mix. Source synth plugins are not runnable in the browser directly.",
+  "observations": [
+    "The intro pad 2-bar phrase continues throughout bars 13\u201320.",
+    "Bass and sub-bass enter at bar 13 and follow C#3, A2, E2, E2, then repeat.",
+    "Kick audio clips are present during bars 13\u201319 but not bar 20 in this Ableton timeline.",
+    "Clap remains present on beats 2 and 4 through bar 20.",
+    "The whoo sample overlaps the ends of bars 16 and 20; its audio tail carries beyond bar 20.",
+    "At bar 21 the project switches to new guitar and buildup-bass material."
+  ],
+  "events": {
+    "intro_pad": [
+      {
+        "start_beat": 48.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.0,
+        "start_seconds": 28.8
+      },
+      {
+        "start_beat": 49.5,
+        "duration_beats": 2.5,
+        "note": "G#4",
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 2.5,
+        "start_seconds": 29.7
+      },
+      {
+        "start_beat": 52.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.0,
+        "start_seconds": 31.2
+      },
+      {
+        "start_beat": 53.5,
+        "duration_beats": 2.5,
+        "note": "F#4",
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 2.5,
+        "start_seconds": 32.1
+      },
+      {
+        "start_beat": 56.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.0,
+        "start_seconds": 33.6
+      },
+      {
+        "start_beat": 57.5,
+        "duration_beats": 2.5,
+        "note": "G#4",
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 2.5,
+        "start_seconds": 34.5
+      },
+      {
+        "start_beat": 60.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.0,
+        "start_seconds": 36.0
+      },
+      {
+        "start_beat": 61.5,
+        "duration_beats": 2.5,
+        "note": "F#4",
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 2.5,
+        "start_seconds": 36.9
+      },
+      {
+        "start_beat": 64.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.0,
+        "start_seconds": 38.4
+      },
+      {
+        "start_beat": 65.5,
+        "duration_beats": 2.5,
+        "note": "G#4",
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 2.5,
+        "start_seconds": 39.3
+      },
+      {
+        "start_beat": 68.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.0,
+        "start_seconds": 40.8
+      },
+      {
+        "start_beat": 69.5,
+        "duration_beats": 2.5,
+        "note": "F#4",
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 2.5,
+        "start_seconds": 41.7
+      },
+      {
+        "start_beat": 72.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.0,
+        "start_seconds": 43.2
+      },
+      {
+        "start_beat": 73.5,
+        "duration_beats": 2.5,
+        "note": "G#4",
+        "midi_pitch": 68,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 2.5,
+        "start_seconds": 44.1
+      },
+      {
+        "start_beat": 76.0,
+        "duration_beats": 4.0,
+        "note": "E4",
+        "midi_pitch": 64,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.0,
+        "start_seconds": 45.6
+      },
+      {
+        "start_beat": 77.5,
+        "duration_beats": 2.5,
+        "note": "F#4",
+        "midi_pitch": 66,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 2.5,
+        "start_seconds": 46.5
+      }
+    ],
+    "break_bass": [
+      {
+        "start_beat": 48.0,
+        "duration_beats": 0.5,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.0,
+        "start_seconds": 28.8
+      },
+      {
+        "start_beat": 48.5,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.5,
+        "start_seconds": 29.1
+      },
+      {
+        "start_beat": 48.75,
+        "duration_beats": 0.75,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.75,
+        "start_seconds": 29.25
+      },
+      {
+        "start_beat": 52.0,
+        "duration_beats": 0.5,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.0,
+        "start_seconds": 31.2
+      },
+      {
+        "start_beat": 52.5,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.5,
+        "start_seconds": 31.5
+      },
+      {
+        "start_beat": 52.75,
+        "duration_beats": 0.75,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.75,
+        "start_seconds": 31.65
+      },
+      {
+        "start_beat": 56.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.0,
+        "start_seconds": 33.6
+      },
+      {
+        "start_beat": 56.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.5,
+        "start_seconds": 33.9
+      },
+      {
+        "start_beat": 56.75,
+        "duration_beats": 0.75,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.75,
+        "start_seconds": 34.05
+      },
+      {
+        "start_beat": 60.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.0,
+        "start_seconds": 36.0
+      },
+      {
+        "start_beat": 60.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.5,
+        "start_seconds": 36.3
+      },
+      {
+        "start_beat": 60.75,
+        "duration_beats": 0.75,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.75,
+        "start_seconds": 36.45
+      },
+      {
+        "start_beat": 64.0,
+        "duration_beats": 0.5,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.0,
+        "start_seconds": 38.4
+      },
+      {
+        "start_beat": 64.5,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.5,
+        "start_seconds": 38.7
+      },
+      {
+        "start_beat": 64.75,
+        "duration_beats": 0.75,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.75,
+        "start_seconds": 38.85
+      },
+      {
+        "start_beat": 68.0,
+        "duration_beats": 0.5,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.0,
+        "start_seconds": 40.8
+      },
+      {
+        "start_beat": 68.5,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.5,
+        "start_seconds": 41.1
+      },
+      {
+        "start_beat": 68.75,
+        "duration_beats": 0.75,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.75,
+        "start_seconds": 41.25
+      },
+      {
+        "start_beat": 72.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.0,
+        "start_seconds": 43.2
+      },
+      {
+        "start_beat": 72.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.5,
+        "start_seconds": 43.5
+      },
+      {
+        "start_beat": 72.75,
+        "duration_beats": 0.75,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.75,
+        "start_seconds": 43.65
+      },
+      {
+        "start_beat": 76.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.0,
+        "start_seconds": 45.6
+      },
+      {
+        "start_beat": 76.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.5,
+        "start_seconds": 45.9
+      },
+      {
+        "start_beat": 76.75,
+        "duration_beats": 0.75,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.75,
+        "start_seconds": 46.05
+      }
+    ],
+    "break_sub": [
+      {
+        "start_beat": 48.0,
+        "duration_beats": 0.5,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.0,
+        "start_seconds": 28.8
+      },
+      {
+        "start_beat": 48.5,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.5,
+        "start_seconds": 29.1
+      },
+      {
+        "start_beat": 48.75,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 13,
+        "beat_in_bar": 1.75,
+        "start_seconds": 29.25
+      },
+      {
+        "start_beat": 52.0,
+        "duration_beats": 0.5,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.0,
+        "start_seconds": 31.2
+      },
+      {
+        "start_beat": 52.5,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.5,
+        "start_seconds": 31.5
+      },
+      {
+        "start_beat": 52.75,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 14,
+        "beat_in_bar": 1.75,
+        "start_seconds": 31.65
+      },
+      {
+        "start_beat": 56.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.0,
+        "start_seconds": 33.6
+      },
+      {
+        "start_beat": 56.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.5,
+        "start_seconds": 33.9
+      },
+      {
+        "start_beat": 56.75,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 15,
+        "beat_in_bar": 1.75,
+        "start_seconds": 34.05
+      },
+      {
+        "start_beat": 60.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.0,
+        "start_seconds": 36.0
+      },
+      {
+        "start_beat": 60.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.5,
+        "start_seconds": 36.3
+      },
+      {
+        "start_beat": 60.75,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 16,
+        "beat_in_bar": 1.75,
+        "start_seconds": 36.45
+      },
+      {
+        "start_beat": 64.0,
+        "duration_beats": 0.5,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.0,
+        "start_seconds": 38.4
+      },
+      {
+        "start_beat": 64.5,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.5,
+        "start_seconds": 38.7
+      },
+      {
+        "start_beat": 64.75,
+        "duration_beats": 0.25,
+        "note": "C#3",
+        "midi_pitch": 49,
+        "velocity": 100,
+        "bar": 17,
+        "beat_in_bar": 1.75,
+        "start_seconds": 38.85
+      },
+      {
+        "start_beat": 68.0,
+        "duration_beats": 0.5,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.0,
+        "start_seconds": 40.8
+      },
+      {
+        "start_beat": 68.5,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.5,
+        "start_seconds": 41.1
+      },
+      {
+        "start_beat": 68.75,
+        "duration_beats": 0.25,
+        "note": "A2",
+        "midi_pitch": 45,
+        "velocity": 100,
+        "bar": 18,
+        "beat_in_bar": 1.75,
+        "start_seconds": 41.25
+      },
+      {
+        "start_beat": 72.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.0,
+        "start_seconds": 43.2
+      },
+      {
+        "start_beat": 72.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.5,
+        "start_seconds": 43.5
+      },
+      {
+        "start_beat": 72.75,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 19,
+        "beat_in_bar": 1.75,
+        "start_seconds": 43.65
+      },
+      {
+        "start_beat": 76.0,
+        "duration_beats": 0.5,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.0,
+        "start_seconds": 45.6
+      },
+      {
+        "start_beat": 76.5,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.5,
+        "start_seconds": 45.9
+      },
+      {
+        "start_beat": 76.75,
+        "duration_beats": 0.25,
+        "note": "E2",
+        "midi_pitch": 40,
+        "velocity": 100,
+        "bar": 20,
+        "beat_in_bar": 1.75,
+        "start_seconds": 46.05
+      }
+    ],
+    "kick": [
+      {
+        "start_beat": 48.0,
+        "start_seconds": 28.8,
+        "bar": 13,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 49.5,
+        "start_seconds": 29.7,
+        "bar": 13,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 52.0,
+        "start_seconds": 31.2,
+        "bar": 14,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 52.75,
+        "start_seconds": 31.65,
+        "bar": 14,
+        "beat_in_bar": 1.75,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 53.5,
+        "start_seconds": 32.1,
+        "bar": 14,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.5
+      },
+      {
+        "start_beat": 54.0,
+        "start_seconds": 32.4,
+        "bar": 14,
+        "beat_in_bar": 3.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 56.0,
+        "start_seconds": 33.6,
+        "bar": 15,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 57.5,
+        "start_seconds": 34.5,
+        "bar": 15,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 60.0,
+        "start_seconds": 36.0,
+        "bar": 16,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 60.75,
+        "start_seconds": 36.45,
+        "bar": 16,
+        "beat_in_bar": 1.75,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 61.5,
+        "start_seconds": 36.9,
+        "bar": 16,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.5
+      },
+      {
+        "start_beat": 62.0,
+        "start_seconds": 37.2,
+        "bar": 16,
+        "beat_in_bar": 3.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 64.0,
+        "start_seconds": 38.4,
+        "bar": 17,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 65.5,
+        "start_seconds": 39.3,
+        "bar": 17,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 68.0,
+        "start_seconds": 40.8,
+        "bar": 18,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 68.75,
+        "start_seconds": 41.25,
+        "bar": 18,
+        "beat_in_bar": 1.75,
+        "name": "Roses Kick",
+        "duration_beats": 0.75
+      },
+      {
+        "start_beat": 69.5,
+        "start_seconds": 41.7,
+        "bar": 18,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.5
+      },
+      {
+        "start_beat": 70.0,
+        "start_seconds": 42.0,
+        "bar": 18,
+        "beat_in_bar": 3.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 72.0,
+        "start_seconds": 43.2,
+        "bar": 19,
+        "beat_in_bar": 1.0,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      },
+      {
+        "start_beat": 73.5,
+        "start_seconds": 44.1,
+        "bar": 19,
+        "beat_in_bar": 2.5,
+        "name": "Roses Kick",
+        "duration_beats": 0.8925
+      }
+    ],
+    "clap": [
+      {
+        "start_beat": 49.0,
+        "start_seconds": 29.4,
+        "bar": 13,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 51.0,
+        "start_seconds": 30.6,
+        "bar": 13,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 53.0,
+        "start_seconds": 31.8,
+        "bar": 14,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 55.0,
+        "start_seconds": 33.0,
+        "bar": 14,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 57.0,
+        "start_seconds": 34.2,
+        "bar": 15,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 59.0,
+        "start_seconds": 35.4,
+        "bar": 15,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 61.0,
+        "start_seconds": 36.6,
+        "bar": 16,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 63.0,
+        "start_seconds": 37.8,
+        "bar": 16,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 65.0,
+        "start_seconds": 39.0,
+        "bar": 17,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 67.0,
+        "start_seconds": 40.2,
+        "bar": 17,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 69.0,
+        "start_seconds": 41.4,
+        "bar": 18,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 71.0,
+        "start_seconds": 42.6,
+        "bar": 18,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 73.0,
+        "start_seconds": 43.8,
+        "bar": 19,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 75.0,
+        "start_seconds": 45.0,
+        "bar": 19,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 77.0,
+        "start_seconds": 46.2,
+        "bar": 20,
+        "beat_in_bar": 2.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      },
+      {
+        "start_beat": 79.0,
+        "start_seconds": 47.4,
+        "bar": 20,
+        "beat_in_bar": 4.0,
+        "name": "Roses SnareClap",
+        "duration_beats": 0.9452
+      }
+    ],
+    "whoo_accent": [
+      {
+        "start_beat": 47.0,
+        "start_seconds": 28.2,
+        "bar": 12,
+        "beat_in_bar": 4.0,
+        "name": "woo weird sample roses",
+        "duration_beats": 2.4512
+      },
+      {
+        "start_beat": 63.0,
+        "start_seconds": 37.8,
+        "bar": 16,
+        "beat_in_bar": 4.0,
+        "name": "woo weird sample roses",
+        "duration_beats": 2.4512
+      },
+      {
+        "start_beat": 79.0,
+        "start_seconds": 47.4,
+        "bar": 20,
+        "beat_in_bar": 4.0,
+        "name": "woo weird sample roses",
+        "duration_beats": 2.4512
+      }
+    ]
+  }
+}

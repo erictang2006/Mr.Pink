@@ -2,8 +2,11 @@ import { useEffect, useRef } from "react";
 import { pianoGeometry, pianoRange } from "../piano/geometry";
 import { type LiveNotes } from "../piano/liveNotes";
 import { type KeyboardMap } from "../piano/noteMapping";
+import { physicalNoteBar, stageNoteColor, type StageKeyGuide, type StagePresentation } from "../piano/performancePresentation";
+import { drawCosmicScene, drawLevelsScene } from "./performanceAtmosphere";
+import { LevelsOrb, orbDirection } from "./levelsOrb";
 
-export type Theme = "rush" | "cosmic" | "minimal" | "roses";
+export type Theme = "rush" | "cosmic" | "minimal" | "roses" | "levels";
 type Props = {
   notes: LiveNotes;
   map: KeyboardMap;
@@ -12,12 +15,15 @@ type Props = {
   notesPerSecond: number;
   showAssisted?: boolean;
   range?: { low: number; high: number };
+  presentation?: StagePresentation;
+  keyGuide?: StageKeyGuide;
 };
 const colors: Record<Theme, string[]> = {
   rush: ["#61f4ef", "#f664d2", "#538cff", "#a987ff"],
   cosmic: ["#90bfff", "#b4a9ff", "#e4ebff", "#6bd2ea"],
   minimal: ["#e7f0f2", "#66d8d1"],
   roses: ["#f59bcc", "#d891f2", "#b99bff", "#eb87b6"],
+  levels: ["#46e8ee", "#cf83ff"],
 };
 
 export default function PerformanceVisualizer({
@@ -28,10 +34,12 @@ export default function PerformanceVisualizer({
   notesPerSecond,
   showAssisted = false,
   range,
+  presentation,
+  keyGuide = {},
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const values = useRef({ transpose, theme, notesPerSecond, map, showAssisted, range });
-  values.current = { transpose, theme, notesPerSecond, map, showAssisted, range };
+  const values = useRef({ transpose, theme, notesPerSecond, map, showAssisted, range, presentation, keyGuide });
+  values.current = { transpose, theme, notesPerSecond, map, showAssisted, range, presentation, keyGuide };
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -39,6 +47,11 @@ export default function PerformanceVisualizer({
     let frame = 0;
     let width = 0;
     let height = 0;
+    let lastSeenId = 0;
+    let previousFrame = performance.now();
+    let energy = 0;
+    const orb = new LevelsOrb();
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
@@ -53,14 +66,37 @@ export default function PerformanceVisualizer({
     resize();
     const draw = () => {
       const now = performance.now();
-      const { transpose, theme, notesPerSecond, map, showAssisted, range } = values.current;
+      const { transpose, theme, notesPerSecond, map, showAssisted, range, presentation, keyGuide } = values.current;
       const travelMs = 4400;
-      const speed = height / travelMs;
       const visibleRange = range ?? pianoRange(map.bindings);
       const geometry = pianoGeometry(width, transpose, visibleRange.low, visibleRange.high);
-      ctx.fillStyle = theme === "cosmic" ? "#070c19" : theme === "roses" ? "#100b18" : "#05070b";
-      ctx.fillRect(0, 0, width, height);
-      if (theme === "cosmic") {
+      const visibleNotes = notes.visible(now, travelMs);
+      const attacks = visibleNotes.filter(note => note.id > lastSeenId && now - note.startMs < 100);
+      for (const note of visibleNotes) lastSeenId = Math.max(lastSeenId, note.id);
+      const elapsed = now - previousFrame;
+      energy *= Math.exp(-Math.min(100, elapsed) / 320);
+      previousFrame = now;
+      if (presentation === "levels" && attacks.length) {
+        const strength = Math.min(1.5, .25 + attacks.length * .13);
+        energy = Math.min(2, energy + strength);
+        const pitches = Object.keys(keyGuide).map(Number);
+        const low = pitches.length ? Math.min(...pitches) : 36;
+        const high = pitches.length ? Math.max(...pitches) : 84;
+        // Computer keys carry no velocity: chord size and recent hit density drive intensity.
+        const force = Math.min(1.8, .4 + Math.sqrt(attacks.length) * .25 + energy * .35);
+        for (const note of attacks.slice(0, 16)) {
+          const sharpness = Math.min(1, .25 + attacks.length * .065 + energy * .16 + (note.id % 3 === 0 ? .25 : 0));
+          orb.impulse(orbDirection(note.midi, note.id, low, high), force, sharpness);
+        }
+      }
+      orb.update(elapsed);
+      if (presentation === "interstellar") drawCosmicScene(ctx, width, height, now, reducedMotion);
+      else if (presentation === "levels") drawLevelsScene(ctx, width, height, now, energy, reducedMotion, orb);
+      else {
+        ctx.fillStyle = theme === "cosmic" ? "#070c19" : theme === "roses" ? "#100b18" : "#05070b";
+        ctx.fillRect(0, 0, width, height);
+      }
+      if (theme === "cosmic" && !presentation) {
         ctx.fillStyle = "#d4e4ff";
         for (let i = 0; i < 75; i++) {
           const x = ((i * 97.13) % 1) * width;
@@ -71,27 +107,24 @@ export default function PerformanceVisualizer({
         ctx.globalAlpha = 1;
       }
       const palette = colors[theme];
-      for (const note of notes.visible(now, travelMs)) {
+      for (const note of visibleNotes) {
         if (note.assisted && !showAssisted) continue;
         const key = geometry.keys.get(note.midi);
         if (!key) continue;
-        const top = height - (now - note.startMs) * speed;
-        // The bar documents the performer's physical hold, while endMs tracks
-        // the independent audible lifetime under sustain.
-        const bottom = note.physicalEndMs === null ? height : height - (now - note.physicalEndMs) * speed;
+        const { top, bottom, height: barHeight, held } = physicalNoteBar(note, now, height, travelMs);
         if (bottom <= 0) continue;
-        const barHeight = Math.max(5, bottom - top);
         const inset = key.black ? 2 : Math.max(2, key.width * 0.12);
         const x = key.x + inset;
         const w = Math.max(2, key.width - inset * 2);
-        const color = note.assisted ? "#d8ad65" : palette[
+        const color = presentation ? (presentation === "interstellar" && note.assisted ? "#cfbd94" : stageNoteColor(presentation, note.midi, note.code, keyGuide)) : note.assisted ? "#d8ad65" : palette[
             ((note.midi % palette.length) + palette.length) % palette.length
           ];
         ctx.save();
-        if (note.assisted) ctx.globalAlpha = 0.5;
+        if (note.assisted && presentation !== "levels") ctx.globalAlpha = 0.5;
         else if (note.octave) ctx.globalAlpha = 0.58;
+        if (presentation && !held) ctx.globalAlpha *= .78;
         ctx.shadowColor = color;
-        ctx.shadowBlur = theme === "minimal" ? 0 : theme === "rush" ? 13 : theme === "roses" ? 5 : 8;
+        ctx.shadowBlur = presentation && !held ? 2 : presentation === "levels" ? 14 : presentation === "interstellar" ? 10 : theme === "minimal" ? 0 : theme === "rush" ? 13 : theme === "roses" ? 5 : 8;
         const gradient = ctx.createLinearGradient(0, top, 0, bottom);
         gradient.addColorStop(0, color);
         gradient.addColorStop(1, theme === "minimal" ? color : `${color}99`);
@@ -100,9 +133,13 @@ export default function PerformanceVisualizer({
         ctx.roundRect(x, top, w, barHeight, 3);
         ctx.fill();
         ctx.shadowBlur = 0;
+        if (presentation) {
+          ctx.strokeStyle = `${color}99`; ctx.lineWidth = .7;
+          ctx.stroke();
+        }
         ctx.fillStyle = "#ffffffaa";
         ctx.fillRect(x + 1, Math.max(0, top), Math.max(1, w - 2), 2);
-        if (note.physicalEndMs === null && theme !== "minimal") {
+        if (held && theme !== "minimal") {
           ctx.fillStyle = color;
           ctx.globalAlpha = 0.45;
           ctx.fillRect(x - 2, height - 3, w + 4, 3);

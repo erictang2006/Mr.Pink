@@ -19,3 +19,8 @@ test('Roses preserves every individual Interstellar physical key at +4 semitones
   assert.deepEqual(phrasePitches('ef', 4), ['E: C♯4', 'F: G♯5']);
   assert.equal(rosesPhrase.length, 14);
 });
+
+test('Roses intro live drum and backing controls do not steal mapped piano keys', () => {
+  for (const code of ['KeyZ', 'KeyX', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'KeyL', 'KeyC', 'KeyG'])
+    assert.equal(rosesMap.bindings.some(binding => binding.code === code), false);
+});

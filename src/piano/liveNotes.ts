@@ -49,5 +49,7 @@ export class LiveNotes {
     return [...this.released, ...this.sustained.filter(note => now - (note.physicalEndMs ?? note.startMs) < travelMs), ...this.active.values()];
   }
 
+  soundingPitches(): number[] { return [...new Set([...this.active.values(), ...this.sustained].map(note => note.midi))]; }
+
   clear(): void { this.active.clear(); this.sustained = []; this.released = []; }
 }

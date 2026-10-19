@@ -1,0 +1,1349 @@
+{
+  "checks": [
+    {
+      "view": "Sandbox",
+      "index": 1,
+      "held": {
+        "pitches": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "expected": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "C#4"
+          },
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.13145868480205536
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 2,
+      "held": {
+        "pitches": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "expected": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "impact": 1,
+        "root": 63,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "D#4"
+          },
+          {
+            "profile": "closer",
+            "note": "G4"
+          },
+          {
+            "profile": "closer",
+            "note": "A#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.21188020706176758
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 3,
+      "held": {
+        "pitches": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "expected": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "impact": 1,
+        "root": 65,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "C5"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.14596228301525116
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 4,
+      "held": {
+        "pitches": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "expected": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "impact": 1,
+        "root": 49,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#3"
+          },
+          {
+            "profile": "roses",
+            "note": "F3"
+          },
+          {
+            "profile": "roses",
+            "note": "G#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.06028898432850838
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 5,
+      "held": {
+        "pitches": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "expected": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "impact": 1,
+        "root": 51,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "D#3"
+          },
+          {
+            "profile": "roses",
+            "note": "G3"
+          },
+          {
+            "profile": "roses",
+            "note": "A#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.12075816839933395
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 6,
+      "held": {
+        "pitches": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "expected": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "impact": 1,
+        "root": 57,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "A3"
+          },
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "A4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.09999027103185654
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 7,
+      "held": {
+        "pitches": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "expected": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "impact": 1,
+        "root": 59,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "B3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          },
+          {
+            "profile": "roses",
+            "note": "F#4"
+          },
+          {
+            "profile": "roses",
+            "note": "B4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.15577317774295807
+      }
+    },
+    {
+      "view": "Sandbox",
+      "index": 8,
+      "held": {
+        "pitches": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "expected": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "G#4"
+          },
+          {
+            "profile": "roses",
+            "note": "C#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.10256999731063843
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 1,
+      "held": {
+        "pitches": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "expected": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "C#4"
+          },
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.20061007142066956
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 2,
+      "held": {
+        "pitches": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "expected": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "impact": 1,
+        "root": 63,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "D#4"
+          },
+          {
+            "profile": "closer",
+            "note": "G4"
+          },
+          {
+            "profile": "closer",
+            "note": "A#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.1740022450685501
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 3,
+      "held": {
+        "pitches": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "expected": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "impact": 1,
+        "root": 65,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "C5"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.17361332476139069
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 4,
+      "held": {
+        "pitches": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "expected": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "impact": 1,
+        "root": 49,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#3"
+          },
+          {
+            "profile": "roses",
+            "note": "F3"
+          },
+          {
+            "profile": "roses",
+            "note": "G#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.0893685519695282
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 5,
+      "held": {
+        "pitches": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "expected": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "impact": 1,
+        "root": 51,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "D#3"
+          },
+          {
+            "profile": "roses",
+            "note": "G3"
+          },
+          {
+            "profile": "roses",
+            "note": "A#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.07114984840154648
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 6,
+      "held": {
+        "pitches": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "expected": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "impact": 1,
+        "root": 57,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "A3"
+          },
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "A4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.09364202618598938
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 7,
+      "held": {
+        "pitches": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "expected": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "impact": 1,
+        "root": 59,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "B3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          },
+          {
+            "profile": "roses",
+            "note": "F#4"
+          },
+          {
+            "profile": "roses",
+            "note": "B4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.09605075418949127
+      }
+    },
+    {
+      "view": "Practice",
+      "index": 8,
+      "held": {
+        "pitches": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "expected": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "G#4"
+          },
+          {
+            "profile": "roses",
+            "note": "C#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.13806630671024323
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 1,
+      "held": {
+        "pitches": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "expected": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          65,
+          68,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "C#4"
+          },
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.20849080383777618
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 2,
+      "held": {
+        "pitches": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "expected": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "impact": 1,
+        "root": 63,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          63,
+          67,
+          70,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "D#4"
+          },
+          {
+            "profile": "closer",
+            "note": "G4"
+          },
+          {
+            "profile": "closer",
+            "note": "A#4"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.17087781429290771
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 3,
+      "held": {
+        "pitches": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "expected": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "impact": 1,
+        "root": 65,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          65,
+          68,
+          72,
+          75
+        ],
+        "body": [
+          {
+            "profile": "closer",
+            "note": "F4"
+          },
+          {
+            "profile": "closer",
+            "note": "G#4"
+          },
+          {
+            "profile": "closer",
+            "note": "C5"
+          },
+          {
+            "profile": "closer",
+            "note": "D#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.16324305534362793
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 4,
+      "held": {
+        "pitches": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "expected": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "impact": 1,
+        "root": 49,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          49,
+          53,
+          56,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#3"
+          },
+          {
+            "profile": "roses",
+            "note": "F3"
+          },
+          {
+            "profile": "roses",
+            "note": "G#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.11016091704368591
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 5,
+      "held": {
+        "pitches": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "expected": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "impact": 1,
+        "root": 51,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          51,
+          55,
+          58,
+          63
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "D#3"
+          },
+          {
+            "profile": "roses",
+            "note": "G3"
+          },
+          {
+            "profile": "roses",
+            "note": "A#3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.12226226180791855
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 6,
+      "held": {
+        "pitches": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "expected": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "impact": 1,
+        "root": 57,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          57,
+          61,
+          64,
+          69
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "A3"
+          },
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "A4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.12048211693763733
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 7,
+      "held": {
+        "pitches": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "expected": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "impact": 1,
+        "root": 59,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          59,
+          63,
+          66,
+          71
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "B3"
+          },
+          {
+            "profile": "roses",
+            "note": "D#4"
+          },
+          {
+            "profile": "roses",
+            "note": "F#4"
+          },
+          {
+            "profile": "roses",
+            "note": "B4"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.11992957442998886
+      }
+    },
+    {
+      "view": "Performance",
+      "index": 8,
+      "held": {
+        "pitches": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "expected": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "impact": 1,
+        "root": 61,
+        "loaded": true,
+        "mono": 1,
+        "old": 0,
+        "lead": 0,
+        "notes": [
+          61,
+          64,
+          68,
+          73
+        ],
+        "body": [
+          {
+            "profile": "roses",
+            "note": "C#4"
+          },
+          {
+            "profile": "roses",
+            "note": "E4"
+          },
+          {
+            "profile": "roses",
+            "note": "G#4"
+          },
+          {
+            "profile": "roses",
+            "note": "C#5"
+          }
+        ],
+        "mode": "bonk"
+      },
+      "released": {
+        "held": 0,
+        "physicalEnd": true,
+        "ringing": true,
+        "tail": 0.13332727551460266
+      }
+    }
+  ],
+  "sustained": {
+    "pedal": true,
+    "pending": 4,
+    "held": 0
+  },
+  "pedalUp": {
+    "pedal": false,
+    "pending": 0,
+    "held": 4
+  },
+  "final": {
+    "held": 0,
+    "pending": 0,
+    "impacts": 0,
+    "active": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "peak": 3.0780370252614375e-7
+  },
+  "errors": []
+}

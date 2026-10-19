@@ -1,0 +1,70 @@
+{
+  "source": "Roses Ableton Remake(1).zip / remake 1 Project/remake 1.als",
+  "tempo_bpm": 100,
+  "beats_per_bar": 4,
+  "scope": {
+    "first_bar": 25,
+    "last_bar": 28,
+    "start_song_seconds": 57.6,
+    "end_song_seconds": 67.2,
+    "start_project_beat": 96,
+    "end_project_beat": 112
+  },
+  "clip_timing": [
+    {
+      "track": "Guitar L",
+      "asset": "Guitar build up bass compliment.wav",
+      "start_beat": 96,
+      "end_beat": 112.03121696
+    },
+    {
+      "track": "Guitar R",
+      "asset": "Guitar build up bass compliment.wav",
+      "start_beat": 96,
+      "end_beat": 112
+    },
+    {
+      "track": "Build Bass",
+      "asset": "build bass.mid",
+      "start_beat": 96,
+      "end_beat": 112,
+      "events": [
+        {
+          "pitch": "C#3",
+          "midi": 49,
+          "start_beat": 96,
+          "duration_beats": 4
+        },
+        {
+          "pitch": "A2",
+          "midi": 45,
+          "start_beat": 100,
+          "duration_beats": 4
+        },
+        {
+          "pitch": "E2",
+          "midi": 40,
+          "start_beat": 104,
+          "duration_beats": 8
+        }
+      ]
+    },
+    {
+      "track": "25-Audio",
+      "asset": "aah vocal chop loop 2.wav",
+      "start_beat": 88,
+      "end_beat": 99.447921349,
+      "note": "Clip begins during bar 23 and tails into bar 25. Do not restart it at bar 25."
+    },
+    {
+      "track": "25-Audio",
+      "asset": "aah vocal chop loop 2.wav",
+      "start_beat": 104,
+      "end_beat": 112,
+      "note": "New clip begins at bar 27."
+    }
+  ],
+  "regular_kick_clap_clips_in_scope": false,
+  "warning": "Clip presence and exact event boundaries verified from Ableton .als; proprietary plugin sound is not directly usable in a browser. Reuse existing app instruments/audio engines. Some clips may be warped/transposed within Ableton; check clip settings when matching rendered reference.",
+  "next_section": "Closer pickup is planned for bar 28 beat 4& (66.9s) but is NOT implemented by this reference pack."
+}

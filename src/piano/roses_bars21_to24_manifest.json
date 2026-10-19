@@ -1,0 +1,210 @@
+{
+  "tempo_bpm": 100,
+  "range_beats": [
+    80,
+    96
+  ],
+  "guitar_start_beat": 80,
+  "vocal_chops_start_beat": 88,
+  "build_bass": [
+    {
+      "start_beat": 80.0,
+      "duration_beats": 4.0,
+      "midi_pitch": 49,
+      "velocity": 100
+    },
+    {
+      "start_beat": 84.0,
+      "duration_beats": 4.0,
+      "midi_pitch": 45,
+      "velocity": 100
+    },
+    {
+      "start_beat": 88.0,
+      "duration_beats": 8.0,
+      "midi_pitch": 40,
+      "velocity": 100
+    }
+  ],
+  "vocal_chops": [
+    {
+      "start_beat": 88.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 88.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 88.75,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 89.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 89.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 90.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 90.25,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 90.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 91.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 91.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 91.75,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 92.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 92.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 92.75,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 93.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 93.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 93.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.25,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.25,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 94.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.0,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.5,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.75,
+      "duration_beats": 0.25,
+      "midi_pitch": 71,
+      "velocity": 100
+    },
+    {
+      "start_beat": 95.75,
+      "duration_beats": 0.25,
+      "midi_pitch": 73,
+      "velocity": 100
+    }
+  ],
+  "vocal_chops_root_midi": 60,
+  "sources": {
+    "build_bass": "roses_bars21_to24_build_bass.mid",
+    "vocal_chops": "roses_bars21_to24_vocal_chops.mid"
+  }
+}

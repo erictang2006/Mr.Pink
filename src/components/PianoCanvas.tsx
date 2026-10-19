@@ -5,6 +5,8 @@ import {
   type KeyboardMap,
 } from "../piano/noteMapping";
 import { pianoGeometry, pianoRange, isBlack } from "../piano/geometry";
+import type { StageKeyGuide, StagePresentation } from "../piano/performancePresentation";
+import { drawPerformancePiano } from "./performancePiano";
 
 type Props = {
   active: number[];
@@ -18,6 +20,9 @@ type Props = {
   practicePalette?: boolean;
   preferredLabels?: Record<number, string>;
   range?: { low: number; high: number };
+  presentation?: StagePresentation;
+  keyGuide?: StageKeyGuide;
+  pressedCodes?: string[];
 };
 
 export default function PianoCanvas({
@@ -32,6 +37,9 @@ export default function PianoCanvas({
   practicePalette = false,
   preferredLabels = {},
   range: rangeOverride,
+  presentation,
+  keyGuide = {},
+  pressedCodes = [],
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -39,11 +47,11 @@ export default function PianoCanvas({
     const canvas = ref.current!;
     const draw = () => {
       const rect = canvas.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.round(rect.width * dpr);
-      canvas.height = Math.round(rect.height * dpr);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const pixelWidth = Math.round(rect.width * dpr), pixelHeight = Math.round(rect.height * dpr);
+      if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) { canvas.width = pixelWidth; canvas.height = pixelHeight; }
       const ctx = canvas.getContext("2d")!;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const width = rect.width;
       const height = rect.height;
       const range = rangeOverride ?? pianoRange(map.bindings);
@@ -57,6 +65,11 @@ export default function PianoCanvas({
       );
       const blackHeight = height * 0.62;
       const activeSet = new Set(active);
+      if (presentation) {
+        // `active` comes only from currently held physical input, never audio sustain.
+        drawPerformancePiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), presentation);
+        return;
+      }
       const expectedSet = new Set(expected);
       const wrongSet = new Set(wrong);
       const completedSet = new Set(completed);
@@ -166,14 +179,14 @@ export default function PianoCanvas({
     observer.observe(canvas);
     draw();
     return () => observer.disconnect();
-  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels, rangeOverride]);
+  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels, rangeOverride, presentation, keyGuide, pressedCodes]);
 
   return (
     <canvas
       ref={ref}
       className="piano-canvas"
       role="img"
-      aria-label={`Piano keyboard for ${map.name}, showing active notes${showLabels ? " and physical key labels" : ""}`}
+      aria-label={`Piano keyboard for ${map.name}, showing active notes${showLabels || presentation ? " and physical key labels" : ""}`}
     />
   );
 }

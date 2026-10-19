@@ -1,0 +1,1875 @@
+{
+  "source": "remake 1.als (Ableton, uploaded Roses Ableton Remake(2).zip)",
+  "bpm": 100,
+  "meter": "4/4",
+  "bar_start_formula_seconds": "(bar - 1)*2.4",
+  "bar29_start_sec": 67.2,
+  "bar37_start_sec": 86.4,
+  "ableton_time_unit": "quarter-note beats, 0-based; bar29=beat112, bar37=beat144",
+  "note": "Listed projects clips are source evidence, not a requirement to auto-play normal kick/clap in Mr Pink.",
+  "tracks": [
+    {
+      "id": 23,
+      "name": "Build Bass",
+      "gain_linear": 0.5495408177,
+      "devices": [
+        "PluginDevice",
+        "PluginDevice",
+        "Reverb",
+        "Saturator",
+        "PluginDevice",
+        "AutoFilter"
+      ],
+      "plugins": [
+        "Sylenth1",
+        "FabFilter Pro-Q 2",
+        "CamelCrusher"
+      ],
+      "clips": [
+        {
+          "kind": "MidiClip",
+          "start_beat": 112.0,
+          "end_beat": 128.0,
+          "source_clip_name": "Sylenth1 #4 1",
+          "disabled": false,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.0,
+              "absolute_beat": 112.0,
+              "duration_beats": 4.0,
+              "midi_pitch": 49,
+              "pitch": "C#3",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.0,
+              "absolute_beat": 116.0,
+              "duration_beats": 4.0,
+              "midi_pitch": 45,
+              "pitch": "A2",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.0,
+              "absolute_beat": 120.0,
+              "duration_beats": 8.0,
+              "midi_pitch": 40,
+              "pitch": "E2",
+              "velocity": 100.0
+            }
+          ]
+        },
+        {
+          "kind": "MidiClip",
+          "start_beat": 128.0,
+          "end_beat": 140.0,
+          "source_clip_name": "Sylenth1 #4 1",
+          "disabled": false,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.0,
+              "absolute_beat": 128.0,
+              "duration_beats": 4.0,
+              "midi_pitch": 49,
+              "pitch": "C#3",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.0,
+              "absolute_beat": 132.0,
+              "duration_beats": 4.0,
+              "midi_pitch": 45,
+              "pitch": "A2",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.0,
+              "absolute_beat": 136.0,
+              "duration_beats": 8.0,
+              "midi_pitch": 40,
+              "pitch": "E2",
+              "velocity": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Buildup Kick",
+      "gain_linear": 1.0,
+      "devices": [],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 112.0,
+          "end_beat": 112.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 113.0,
+          "end_beat": 113.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 114.0,
+          "end_beat": 114.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 115.0,
+          "end_beat": 115.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 116.0,
+          "end_beat": 116.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 117.0,
+          "end_beat": 117.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 118.0,
+          "end_beat": 118.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 119.0,
+          "end_beat": 119.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 120.0,
+          "end_beat": 120.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 121.0,
+          "end_beat": 121.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 122.0,
+          "end_beat": 122.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 123.0,
+          "end_beat": 123.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 124.0,
+          "end_beat": 124.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 125.0,
+          "end_beat": 125.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 126.0,
+          "end_beat": 126.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 127.0,
+          "end_beat": 127.89251711829837,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.0,
+          "end_beat": 128.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.5,
+          "end_beat": 129.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 129.0,
+          "end_beat": 129.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 129.5,
+          "end_beat": 130.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 130.0,
+          "end_beat": 130.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 130.5,
+          "end_beat": 131.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 131.0,
+          "end_beat": 131.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 131.5,
+          "end_beat": 132.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 132.0,
+          "end_beat": 132.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 132.5,
+          "end_beat": 133.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 133.0,
+          "end_beat": 133.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 133.5,
+          "end_beat": 134.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 134.0,
+          "end_beat": 134.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 134.5,
+          "end_beat": 135.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 135.0,
+          "end_beat": 135.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 135.5,
+          "end_beat": 136.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 136.0,
+          "end_beat": 136.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 136.5,
+          "end_beat": 137.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 137.0,
+          "end_beat": 137.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 137.5,
+          "end_beat": 138.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 138.0,
+          "end_beat": 138.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 138.5,
+          "end_beat": 139.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 139.0,
+          "end_beat": 139.5,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 139.5,
+          "end_beat": 140.0,
+          "source_clip_name": "Roses Kick",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Roses Kick.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Buildup snare",
+      "gain_linear": 1.0,
+      "devices": [],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 112.0,
+          "end_beat": 112.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 113.0,
+          "end_beat": 113.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 114.0,
+          "end_beat": 114.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 115.0,
+          "end_beat": 115.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 116.0,
+          "end_beat": 116.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 117.0,
+          "end_beat": 117.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 118.0,
+          "end_beat": 118.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 119.0,
+          "end_beat": 119.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 120.0,
+          "end_beat": 120.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 121.0,
+          "end_beat": 121.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 122.0,
+          "end_beat": 122.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 123.0,
+          "end_beat": 123.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 124.0,
+          "end_beat": 124.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 125.0,
+          "end_beat": 125.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 126.0,
+          "end_beat": 126.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 127.0,
+          "end_beat": 127.875,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.0,
+          "end_beat": 128.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.5,
+          "end_beat": 129.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 129.0,
+          "end_beat": 129.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 129.5,
+          "end_beat": 130.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 130.0,
+          "end_beat": 130.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 130.5,
+          "end_beat": 131.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 131.0,
+          "end_beat": 131.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 131.5,
+          "end_beat": 132.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 132.0,
+          "end_beat": 132.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 132.5,
+          "end_beat": 133.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 133.0,
+          "end_beat": 133.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 133.5,
+          "end_beat": 134.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 134.0,
+          "end_beat": 134.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 134.5,
+          "end_beat": 135.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 135.0,
+          "end_beat": 135.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 135.5,
+          "end_beat": 136.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 136.0,
+          "end_beat": 136.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 136.5,
+          "end_beat": 137.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 137.0,
+          "end_beat": 137.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 137.5,
+          "end_beat": 138.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 138.0,
+          "end_beat": 138.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 138.5,
+          "end_beat": 139.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 139.0,
+          "end_beat": 139.5,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 139.5,
+          "end_beat": 140.0,
+          "source_clip_name": "spacy drum",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "spacy drum.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "name": "25-Audio",
+      "gain_linear": 0.9332544208,
+      "devices": [
+        "Eq8"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 112.0,
+          "end_beat": 120.0,
+          "source_clip_name": "aah vocal chop loop 2",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "aah vocal chop loop 2.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 120.0,
+          "end_beat": 128.0,
+          "source_clip_name": "aah vocal chop loop 2",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "aah vocal chop loop 2.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.0,
+          "end_beat": 136.0,
+          "source_clip_name": "aah vocal chop loop 2",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "aah vocal chop loop 2.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 136.0,
+          "end_beat": 140.0,
+          "source_clip_name": "aah vocal chop loop 2",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "aah vocal chop loop 2.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 140.0,
+          "end_beat": 143.0,
+          "source_clip_name": "aah vocal chop loop 2",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "aah vocal chop loop 2.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Vox Synth",
+      "gain_linear": 0.8609937429,
+      "devices": [
+        "Compressor2"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 112.0,
+          "end_beat": 128.0,
+          "source_clip_name": "Vox synth",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Vox synth.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        },
+        {
+          "kind": "AudioClip",
+          "start_beat": 128.0,
+          "end_beat": 140.0,
+          "source_clip_name": "Vox synth",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Vox synth.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "name": "3-Snare Drum 005 808 Double Beam",
+      "gain_linear": 1.0,
+      "devices": [
+        "MidiPitcher",
+        "MidiPitcher",
+        "MultiSampler",
+        "Compressor2"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "MidiClip",
+          "start_beat": 128.0,
+          "end_beat": 140.0,
+          "source_clip_name": "Snare Drum 005 808 Double Beam 1",
+          "disabled": false,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.0,
+              "absolute_beat": 128.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 0.5,
+              "absolute_beat": 128.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.0,
+              "absolute_beat": 129.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.5,
+              "absolute_beat": 129.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.0,
+              "absolute_beat": 130.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.5,
+              "absolute_beat": 130.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.0,
+              "absolute_beat": 131.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.5,
+              "absolute_beat": 131.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.0,
+              "absolute_beat": 132.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.5,
+              "absolute_beat": 132.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.0,
+              "absolute_beat": 133.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.5,
+              "absolute_beat": 133.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 6.0,
+              "absolute_beat": 134.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 6.5,
+              "absolute_beat": 134.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 7.0,
+              "absolute_beat": 135.0,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 7.5,
+              "absolute_beat": 135.5,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.0,
+              "absolute_beat": 136.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.25,
+              "absolute_beat": 136.25,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.5,
+              "absolute_beat": 136.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 8.75,
+              "absolute_beat": 136.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 9.0,
+              "absolute_beat": 137.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 9.25,
+              "absolute_beat": 137.25,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 9.5,
+              "absolute_beat": 137.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 9.75,
+              "absolute_beat": 137.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 10.0,
+              "absolute_beat": 138.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 10.25,
+              "absolute_beat": 138.25,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 10.5,
+              "absolute_beat": 138.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 10.75,
+              "absolute_beat": 138.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 11.0,
+              "absolute_beat": 139.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 11.25,
+              "absolute_beat": 139.25,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 11.5,
+              "absolute_beat": 139.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 11.75,
+              "absolute_beat": 139.75,
+              "duration_beats": 0.5,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "name": "Snap",
+      "gain_linear": 1.0,
+      "devices": [
+        "Reverb",
+        "Compressor2"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 143.0,
+          "end_beat": 143.79115649975026,
+          "source_clip_name": "snap for drop",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "snap for drop.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Guitar L",
+      "gain_linear": 1.0,
+      "devices": [],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "AudioClip",
+          "start_beat": 96.0,
+          "end_beat": 112.03121696012322,
+          "source_clip_name": "Guitar build up bass compliment",
+          "disabled": false,
+          "loop_enabled": false,
+          "source_sample_filename": "Guitar build up bass compliment.wav",
+          "pitch_coarse": "0",
+          "start_relative_beats": "0",
+          "warped": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Guitar R",
+      "gain_linear": 1.0,
+      "devices": [],
+      "plugins": [],
+      "clips": []
+    },
+    {
+      "id": 28,
+      "name": "Vocal synth",
+      "gain_linear": 0.6025595665,
+      "devices": [
+        "MultiSampler",
+        "Eq8",
+        "Reverb",
+        "CrossDelay",
+        "Compressor2"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "MidiClip",
+          "start_beat": 112.0,
+          "end_beat": 116.0,
+          "source_clip_name": "MIDI Out 1",
+          "disabled": true,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.5,
+              "absolute_beat": 112.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 70,
+              "pitch": "Bb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 0.75,
+              "absolute_beat": 112.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.5,
+              "absolute_beat": 113.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.0,
+              "absolute_beat": 114.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.5,
+              "absolute_beat": 114.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.75,
+              "absolute_beat": 114.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 63,
+              "pitch": "Eb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.5,
+              "absolute_beat": 115.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 61,
+              "pitch": "C#4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.5,
+              "absolute_beat": 116.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.5,
+              "absolute_beat": 117.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 56,
+              "pitch": "Ab3",
+              "velocity": 100.0
+            }
+          ]
+        },
+        {
+          "kind": "MidiClip",
+          "start_beat": 120.0,
+          "end_beat": 128.0,
+          "source_clip_name": "MIDI Out 1",
+          "disabled": true,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.5,
+              "absolute_beat": 120.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 70,
+              "pitch": "Bb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 0.75,
+              "absolute_beat": 120.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.5,
+              "absolute_beat": 121.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.0,
+              "absolute_beat": 122.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.5,
+              "absolute_beat": 122.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.75,
+              "absolute_beat": 122.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 63,
+              "pitch": "Eb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.5,
+              "absolute_beat": 123.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 61,
+              "pitch": "C#4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.5,
+              "absolute_beat": 124.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.5,
+              "absolute_beat": 125.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 56,
+              "pitch": "Ab3",
+              "velocity": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "32-Electric Nylon Guitar",
+      "gain_linear": 0.5821031332,
+      "devices": [
+        "StringStudio",
+        "Eq8",
+        "Reverb",
+        "CrossDelay",
+        "Compressor2"
+      ],
+      "plugins": [],
+      "clips": [
+        {
+          "kind": "MidiClip",
+          "start_beat": 112.0,
+          "end_beat": 116.0,
+          "source_clip_name": "MIDI Out 1",
+          "disabled": true,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.5,
+              "absolute_beat": 112.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 70,
+              "pitch": "Bb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 0.75,
+              "absolute_beat": 112.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.5,
+              "absolute_beat": 113.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.0,
+              "absolute_beat": 114.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.5,
+              "absolute_beat": 114.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.75,
+              "absolute_beat": 114.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 63,
+              "pitch": "Eb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.5,
+              "absolute_beat": 115.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 61,
+              "pitch": "C#4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.5,
+              "absolute_beat": 116.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.5,
+              "absolute_beat": 117.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 56,
+              "pitch": "Ab3",
+              "velocity": 100.0
+            }
+          ]
+        },
+        {
+          "kind": "MidiClip",
+          "start_beat": 120.0,
+          "end_beat": 128.0,
+          "source_clip_name": "MIDI Out 1",
+          "disabled": true,
+          "loop_enabled": true,
+          "notes": [
+            {
+              "clip_relative_beat": 0.5,
+              "absolute_beat": 120.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 70,
+              "pitch": "Bb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 0.75,
+              "absolute_beat": 120.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 1.5,
+              "absolute_beat": 121.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 68,
+              "pitch": "Ab4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.0,
+              "absolute_beat": 122.0,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.5,
+              "absolute_beat": 122.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 65,
+              "pitch": "F4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 2.75,
+              "absolute_beat": 122.75,
+              "duration_beats": 0.25,
+              "midi_pitch": 63,
+              "pitch": "Eb4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 3.5,
+              "absolute_beat": 123.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 61,
+              "pitch": "C#4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 4.5,
+              "absolute_beat": 124.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 60,
+              "pitch": "C4",
+              "velocity": 100.0
+            },
+            {
+              "clip_relative_beat": 5.5,
+              "absolute_beat": 125.5,
+              "duration_beats": 0.25,
+              "midi_pitch": 56,
+              "pitch": "Ab3",
+              "velocity": 100.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Roses Ableton remake: bars 21\u201324 only",
+  "project_tempo_bpm": 100,
+  "beats_per_bar": 4,
+  "source_beats_range": [
+    80,
+    96
+  ],
+  "relative_time_seconds_range": [
+    48,
+    57.6
+  ],
+  "sound_and_midi_clips": [
+    {
+      "track": "Guitar L",
+      "source_clip": "Guitar build up bass compliment.wav",
+      "start_beat": 80,
+      "end_beat": 96,
+      "comment": "Original Ableton project uses same guitar sample on Guitar L and Guitar R tracks. Recreate original panning/processing only if available."
+    },
+    {
+      "track": "Guitar R",
+      "source_clip": "Guitar build up bass compliment.wav",
+      "start_beat": 80,
+      "end_beat": 96
+    },
+    {
+      "track": "Build Bass",
+      "source_clip": "build bass.mid",
+      "start_beat": 80,
+      "end_beat": 96,
+      "comment": "Use actual MIDI note events; original plugin Sylenth1 is not directly importable in browser."
+    },
+    {
+      "track": "Vocal Chops",
+      "source_clip": "ah intro sample.wav",
+      "start_beat": 88,
+      "end_beat": 96,
+      "comment": "MIDI clip controls sampled vocal chops starting bar 23. Interpret actual clip notes; do not loop sample at arbitrary timing."
+    },
+    {
+      "track": "Audio vocal chop",
+      "source_clip": "aah vocal chop loop 2.wav",
+      "start_beat": 88,
+      "end_beat": 99.45,
+      "comment": "Clip extends beyond bar 24; implement only requested portion and manage future extension carefully."
+    },
+    {
+      "track": "Original regular Kick & Snare/Clap",
+      "source_clip": null,
+      "start_beat": null,
+      "end_beat": null,
+      "comment": "No clips overlapping source beats 80\u201396 on tracks named Kick, Snare 1, or related regular drum tracks. Keep Z/X manual; do not invent required drum hits."
+    }
+  ],
+  "existing_app_layers": "Keep existing cued Roses vocals running and manually triggered Z kick / X clap, but stop prior 4-bar intro pad and break bass/sub at bar 21 when the new build takes over.",
+  "license_note": "User-provided remix assets. Confirm rights before redistribution or public hosting."
+}
