@@ -1,0 +1,479 @@
+[
+  {
+    "id": "39",
+    "name": "Drop Chords",
+    "devices": [
+      {
+        "name": "Sylenth1",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 516116,
+        "strings": [
+          "ROSES chords"
+        ]
+      },
+      {
+        "name": "CamelCrusher",
+        "enabled": "false",
+        "parameters": {
+          "On": "false"
+        },
+        "bufferBytes": 1767,
+        "strings": [
+          "?Annihilate",
+          "?American Crunch",
+          "?American HiGain",
+          "?British Clean",
+          "?British Crunch",
+          "?British HiGain",
+          "?Bass Maker",
+          "?hfF?",
+          "?Clean Rainbow",
+          "?23S?",
+          "?533?",
+          "?Tube Warmth",
+          "?Dark Crunch",
+          "?Destroyer",
+          "?Ultra Phat"
+        ]
+      },
+      {
+        "name": "Eq8",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "GlobalGain": "0",
+          "Scale": "1",
+          "AdaptiveQ": "true"
+        }
+      },
+      {
+        "name": "Reverb",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "PreDelay": "2.5",
+          "BandHighOn": "false",
+          "BandLowOn": "true",
+          "BandFreq": "830",
+          "BandWidth": "5.8499999",
+          "SpinOn": "true",
+          "EarlyReflectModFreq": "0.2976999879",
+          "EarlyReflectModDepth": "17.5",
+          "DiffuseDelay": "0.5",
+          "ShelfHighOn": "true",
+          "ShelfHiFreq": "4500",
+          "ShelfHiGain": "0.6999999881",
+          "ShelfLowOn": "false",
+          "ShelfLoFreq": "90",
+          "ShelfLoGain": "0.75",
+          "ChorusOn": "true",
+          "SizeModFreq": "0.01999999955",
+          "SizeModDepth": "0.01999999955",
+          "DecayTime": "1200",
+          "AllPassGain": "0.6000000238",
+          "AllPassSize": "0.400000006",
+          "FreezeOn": "false",
+          "FlatOn": "true",
+          "CutOn": "true",
+          "RoomSize": "100",
+          "StereoSeparation": "100",
+          "RoomType": "0",
+          "MixReflect": "1",
+          "MixDiffuse": "1",
+          "MixDirect": "0.1825396866"
+        }
+      },
+      {
+        "name": "AudioEffectGroupDevice",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "MacroControls.0": "71.9666672",
+          "MacroControls.1": "63.5",
+          "MacroControls.2": "57.5325813",
+          "MacroControls.3": "0",
+          "MacroControls.4": "88.9000015",
+          "MacroControls.5": "33.8666687",
+          "MacroControls.6": "127",
+          "MacroControls.7": "63.5",
+          "ChainSelector": "127"
+        }
+      },
+      {
+        "name": "MultibandDynamics",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "SplitLowMid": "98.3436279",
+          "SplitMidHigh": "1661.19495",
+          "SoftKnee": "true",
+          "EnvelopeIsPeak": "false",
+          "OutputGain": "0",
+          "GlobalAmount": "1",
+          "GlobalTime": "1",
+          "GainLow": "0",
+          "GainMid": "0",
+          "GainHigh": "0",
+          "InputGainLow": "2.29999995",
+          "InputGainMid": "4.5999999",
+          "InputGainHigh": "7.0999999",
+          "ActiveLow": "true",
+          "ActiveMid": "true",
+          "ActiveHigh": "true",
+          "AboveThresholdLow": "-21.75",
+          "AboveThresholdMid": "-23.25",
+          "AboveThresholdHigh": "-22",
+          "BelowThresholdLow": "-80",
+          "BelowThresholdMid": "-80",
+          "BelowThresholdHigh": "-80",
+          "AboveRatioLow": "-0.4299999475",
+          "AboveRatioMid": "-0.4299999475",
+          "AboveRatioHigh": "-0.4299999475",
+          "BelowRatioLow": "0",
+          "BelowRatioMid": "0",
+          "BelowRatioHigh": "0",
+          "AttackLow": "156.254028",
+          "AttackMid": "102.39476",
+          "AttackHigh": "79.459465",
+          "ReleaseLow": "363.863373",
+          "ReleaseMid": "282.361938",
+          "ReleaseHigh": "219.115921"
+        }
+      },
+      {
+        "name": "CrossDelay",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "Linked": "false",
+          "SyncModeLeft": "true",
+          "BeatDelayEnumL": "3",
+          "NoteOffsetLeft": "0",
+          "MsDelayLeft": "100",
+          "SyncModeRight": "true",
+          "BeatDelayEnumR": "5",
+          "NoteOffsetRight": "0",
+          "MsDelayRight": "100",
+          "Feedback": "0",
+          "DryWet": "0.1349206418"
+        }
+      },
+      {
+        "name": "Kickstart",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 7808,
+        "strings": [
+          "Kickstart"
+        ]
+      },
+      {
+        "name": "Compressor2",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "Threshold": "0.8218037486",
+          "Ratio": "2",
+          "ExpansionRatio": "1.14999998",
+          "Attack": "2",
+          "Release": "50",
+          "AutoReleaseControlOnOff": "false",
+          "Gain": "0.9908256531",
+          "GainCompensation": "true",
+          "DryWet": "1",
+          "Model": "0",
+          "LegacyModel": "1",
+          "LogEnvelope": "true",
+          "LegacyEnvFollowerMode": "0",
+          "Knee": "6",
+          "LookAhead": "0",
+          "SideListen": "false"
+        }
+      },
+      {
+        "name": "FabFilter Pro-Q 2",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 788,
+        "strings": [
+          "Default Setting"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "53",
+    "name": "Drop Chords",
+    "devices": [
+      {
+        "name": "Sylenth1",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 516116,
+        "strings": [
+          "ROSES chords"
+        ]
+      },
+      {
+        "name": "CamelCrusher",
+        "enabled": "false",
+        "parameters": {
+          "On": "false"
+        },
+        "bufferBytes": 1767,
+        "strings": [
+          "?Annihilate",
+          "?American Crunch",
+          "?American HiGain",
+          "?British Clean",
+          "?British Crunch",
+          "?British HiGain",
+          "?Bass Maker",
+          "?hfF?",
+          "?Clean Rainbow",
+          "?23S?",
+          "?533?",
+          "?Tube Warmth",
+          "?Dark Crunch",
+          "?Destroyer",
+          "?Ultra Phat"
+        ]
+      },
+      {
+        "name": "Eq8",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "GlobalGain": "0",
+          "Scale": "1",
+          "AdaptiveQ": "true"
+        }
+      },
+      {
+        "name": "Reverb",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "PreDelay": "2.5",
+          "BandHighOn": "false",
+          "BandLowOn": "true",
+          "BandFreq": "830",
+          "BandWidth": "5.8499999",
+          "SpinOn": "true",
+          "EarlyReflectModFreq": "0.2976999879",
+          "EarlyReflectModDepth": "17.5",
+          "DiffuseDelay": "0.5",
+          "ShelfHighOn": "true",
+          "ShelfHiFreq": "4500",
+          "ShelfHiGain": "0.6999999881",
+          "ShelfLowOn": "false",
+          "ShelfLoFreq": "90",
+          "ShelfLoGain": "0.75",
+          "ChorusOn": "true",
+          "SizeModFreq": "0.01999999955",
+          "SizeModDepth": "0.01999999955",
+          "DecayTime": "1200",
+          "AllPassGain": "0.6000000238",
+          "AllPassSize": "0.400000006",
+          "FreezeOn": "false",
+          "FlatOn": "true",
+          "CutOn": "true",
+          "RoomSize": "100",
+          "StereoSeparation": "100",
+          "RoomType": "0",
+          "MixReflect": "1",
+          "MixDiffuse": "1",
+          "MixDirect": "0.1825396866"
+        }
+      },
+      {
+        "name": "AudioEffectGroupDevice",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "MacroControls.0": "71.9666672",
+          "MacroControls.1": "63.5",
+          "MacroControls.2": "57.5325813",
+          "MacroControls.3": "0",
+          "MacroControls.4": "88.9000015",
+          "MacroControls.5": "33.8666687",
+          "MacroControls.6": "127",
+          "MacroControls.7": "63.5",
+          "ChainSelector": "127"
+        }
+      },
+      {
+        "name": "MultibandDynamics",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "SplitLowMid": "98.3436279",
+          "SplitMidHigh": "1661.19495",
+          "SoftKnee": "true",
+          "EnvelopeIsPeak": "false",
+          "OutputGain": "0",
+          "GlobalAmount": "1",
+          "GlobalTime": "1",
+          "GainLow": "0",
+          "GainMid": "0",
+          "GainHigh": "0",
+          "InputGainLow": "2.29999995",
+          "InputGainMid": "4.5999999",
+          "InputGainHigh": "7.0999999",
+          "ActiveLow": "true",
+          "ActiveMid": "true",
+          "ActiveHigh": "true",
+          "AboveThresholdLow": "-21.75",
+          "AboveThresholdMid": "-23.25",
+          "AboveThresholdHigh": "-22",
+          "BelowThresholdLow": "-80",
+          "BelowThresholdMid": "-80",
+          "BelowThresholdHigh": "-80",
+          "AboveRatioLow": "-0.4299999475",
+          "AboveRatioMid": "-0.4299999475",
+          "AboveRatioHigh": "-0.4299999475",
+          "BelowRatioLow": "0",
+          "BelowRatioMid": "0",
+          "BelowRatioHigh": "0",
+          "AttackLow": "156.254028",
+          "AttackMid": "102.39476",
+          "AttackHigh": "79.459465",
+          "ReleaseLow": "363.863373",
+          "ReleaseMid": "282.361938",
+          "ReleaseHigh": "219.115921"
+        }
+      },
+      {
+        "name": "CrossDelay",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "Linked": "false",
+          "SyncModeLeft": "true",
+          "BeatDelayEnumL": "3",
+          "NoteOffsetLeft": "0",
+          "MsDelayLeft": "100",
+          "SyncModeRight": "true",
+          "BeatDelayEnumR": "5",
+          "NoteOffsetRight": "0",
+          "MsDelayRight": "100",
+          "Feedback": "0",
+          "DryWet": "0.1349206418"
+        }
+      },
+      {
+        "name": "Kickstart",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 7808,
+        "strings": [
+          "Kickstart"
+        ]
+      },
+      {
+        "name": "Compressor2",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "Threshold": "0.8218037486",
+          "Ratio": "2",
+          "ExpansionRatio": "1.14999998",
+          "Attack": "2",
+          "Release": "50",
+          "AutoReleaseControlOnOff": "false",
+          "Gain": "0.9908256531",
+          "GainCompensation": "true",
+          "DryWet": "1",
+          "Model": "0",
+          "LegacyModel": "1",
+          "LogEnvelope": "true",
+          "LegacyEnvFollowerMode": "0",
+          "Knee": "6",
+          "LookAhead": "0",
+          "SideListen": "false"
+        }
+      },
+      {
+        "name": "FabFilter Pro-Q 2",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 788,
+        "strings": [
+          "Default Setting"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "45",
+    "name": "drop bass",
+    "devices": [
+      {
+        "name": "Massive",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 2581,
+        "strings": [
+          "DSINv",
+          "DSINj",
+          "DSINe",
+          "DSINe",
+          "DSINj",
+          "DSINl",
+          "DSINl",
+          "DSINy",
+          "DSINy",
+          "DSINt",
+          "DSINt",
+          "DSINs",
+          "hsin@",
+          "DSIN@#",
+          "UU)A@"
+        ]
+      },
+      {
+        "name": "FabFilter Pro-Q 2",
+        "enabled": "true",
+        "parameters": {
+          "On": "true"
+        },
+        "bufferBytes": 788,
+        "strings": [
+          "Default Setting"
+        ]
+      },
+      {
+        "name": "Saturator",
+        "enabled": "true",
+        "parameters": {
+          "On": "true",
+          "DryWet": "1",
+          "PreDrive": "4.57143021",
+          "PostDrive": "0",
+          "Type": "0",
+          "BaseDrive": "0",
+          "ColorOn": "true",
+          "ColorFrequency": "1000.00018",
+          "ColorWidth": "0.3000000119",
+          "ColorDepth": "0",
+          "PostClip": "false"
+        }
+      }
+    ]
+  }
+]

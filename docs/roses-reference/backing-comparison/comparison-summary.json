@@ -1,0 +1,96 @@
+{
+  "originalRenderByteIdenticalToPrevious": true,
+  "originalRenderSha256": "ccbdd6fb4631a757d361236c08e9976849171833ce5cb5d8d4132e72adb7ba61",
+  "cases": [
+    {
+      "mode": "roses",
+      "beforeBar29Identical": true,
+      "afterBar37ShortTailIdentical": true,
+      "peakDb": -20.765345876607384,
+      "rmsDb": -36.66141301820702,
+      "audioNodeCreations": {
+        "oscillators": 242,
+        "filters": 13,
+        "waveshapers": 4,
+        "bufferSources": 83
+      },
+      "finite": true,
+      "vocal": [
+        {
+          "url": "/roses/here_with_me_chorus_original.wav",
+          "time": 5.0299999999999985,
+          "offset": 0
+        }
+      ],
+      "dropEvents": 224,
+      "bar37Attacks": 4
+    },
+    {
+      "mode": "hwm-build",
+      "beforeBar29Identical": true,
+      "afterBar37ShortTailIdentical": true,
+      "peakDb": -21.194714543566654,
+      "rmsDb": -37.74655890076073,
+      "audioNodeCreations": {
+        "oscillators": 230,
+        "filters": 13,
+        "waveshapers": 4,
+        "bufferSources": 7
+      },
+      "finite": true,
+      "vocal": [
+        {
+          "url": "/roses/here_with_me_chorus_original.wav",
+          "time": 5.0299999999999985,
+          "offset": 0
+        }
+      ],
+      "dropEvents": 224,
+      "bar37Attacks": 4
+    },
+    {
+      "mode": "hwm-drop",
+      "beforeBar29Identical": true,
+      "afterBar37ShortTailIdentical": true,
+      "peakDb": -21.194714543566654,
+      "rmsDb": -37.67139248530878,
+      "audioNodeCreations": {
+        "oscillators": 230,
+        "filters": 13,
+        "waveshapers": 4,
+        "bufferSources": 7
+      },
+      "finite": true,
+      "vocal": [
+        {
+          "url": "/roses/here_with_me_chorus_original.wav",
+          "time": 5.0299999999999985,
+          "offset": 0
+        }
+      ],
+      "dropEvents": 224,
+      "bar37Attacks": 4
+    }
+  ],
+  "maximumControls": {
+    "renderer": "Actual Start Bar 25 + Backing + Lead through Tone.js on a native OfflineAudioContext; not a browser or hardware listening test",
+    "mode": "vox",
+    "backingMode": "hwm-drop",
+    "maximumControls": true,
+    "audioNodeCreations": {
+      "oscillators": 230,
+      "filters": 13,
+      "waveshapers": 4,
+      "bufferSources": 7
+    },
+    "seconds": 51,
+    "prerollSeconds": 0.05,
+    "voxSynthEvents": 0,
+    "voxMelodyRetained": true,
+    "dropEvents": 224,
+    "bar37Attacks": 4,
+    "finite": true,
+    "peakDb": -12.80589395391387,
+    "rmsDb": -29.42325476582465
+  }
+}

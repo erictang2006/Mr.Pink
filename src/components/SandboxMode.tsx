@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import RosesBuildupControls from "./RosesBuildupControls";
+import HereWithMeLeadControls from "./HereWithMeLeadControls";
+import DropLayerMixer from "./DropLayerMixer";
+import RosesBackingControls from "./RosesBackingControls";
+import HereWithMeChordControls from "./HereWithMeChordControls";
+import type { HereWithMeChordSound } from "../piano/hereWithMeChords";
+import type { RosesCloserSettings } from "../piano/rosesCloser";
 import type { RosesIntroEngine, RosesIntroSnapshot } from "../piano/rosesIntroEngine";
 import type { BuildupSettings } from "../piano/rosesBuildup";
 import PianoCanvas from "./PianoCanvas";
@@ -17,6 +23,8 @@ import type { RosesDropSettings } from "../piano/rosesDropSettings";
 export type SongId = "interstellar" | "levels" | "rush-e" | "roses";
 type Labels = "computer" | "piano" | "both" | "none";
 type Props = {
+  hereWithMeChordSound: HereWithMeChordSound; onHereWithMeChordSound: (value: HereWithMeChordSound) => void;
+  closerSettings: RosesCloserSettings; onCloserSettings: (settings:RosesCloserSettings) => void;
   introEngine: RosesIntroEngine | null; introClock: RosesIntroSnapshot | null; buildupSettings: BuildupSettings; onBuildupSettings: (value: BuildupSettings) => void;
   songId: SongId; map: KeyboardMap; transpose: number; range: { low: number; high: number };
   snapshot: InputSnapshot; activePitches: number[]; liveNotes: LiveNotes;
@@ -34,11 +42,12 @@ type Props = {
 
 const titles: Record<SongId, string> = { interstellar: "Interstellar", levels: "Levels — Avicii", "rush-e": "Rush E", roses: "Roses — The Chainsmokers" };
 
-export default function SandboxMode({ introEngine, introClock, buildupSettings, onBuildupSettings, songId, map, transpose, range, snapshot, activePitches, liveNotes, audioReady, startAudio, volume, setVolume, rosesTranspose, setRosesTranspose, synthSettings, setSynthSettings, dropSettings, setDropSettings, compareLoudStab, instrumentId, setInstrumentId, instrumentError, previewInstrument, sustainSettings, setSustainSettings, sustainActive, onSongChange, onSheet, onExit, onPerformance }: Props) {
+export default function SandboxMode({ hereWithMeChordSound, onHereWithMeChordSound, closerSettings, onCloserSettings, introEngine, introClock, buildupSettings, onBuildupSettings, songId, map, transpose, range, snapshot, activePitches, liveNotes, audioReady, startAudio, volume, setVolume, rosesTranspose, setRosesTranspose, synthSettings, setSynthSettings, dropSettings, setDropSettings, compareLoudStab, instrumentId, setInstrumentId, instrumentError, previewInstrument, sustainSettings, setSustainSettings, sustainActive, onSongChange, onSheet, onExit, onPerformance }: Props) {
   const [labels, setLabels] = useState<Labels>(() => {
     try { const value = localStorage.getItem("stage-piano-sandbox-labels"); return value === "piano" || value === "both" || value === "none" ? value : "computer"; }
     catch { return "computer"; }
   });
+  const playableRange = songId === "roses" ? { ...range, low: Math.min(36, range.low) } : range;
   const [fullscreen, setFullscreen] = useState(false);
   const root = useRef<HTMLElement>(null);
   useEffect(() => { try { localStorage.setItem("stage-piano-sandbox-labels", labels); } catch { /* storage unavailable */ } }, [labels]);
@@ -64,13 +73,17 @@ export default function SandboxMode({ introEngine, introClock, buildupSettings, 
         <button onClick={onExit}>← Piano</button>
       </div>
     </header>
-    <section className="sandbox-trails" aria-label="Live note trails"><PerformanceVisualizer notes={liveNotes} map={map} transpose={transpose} theme={songId === "roses" ? "roses" : "minimal"} notesPerSecond={snapshot.notesPerSecond} range={range} /></section>
-    <section className="sandbox-keyboard" aria-label="Free play piano"><div className="sandbox-keyboard-head"><span>{map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s · Pedal {sustainActive ? "ON" : "OFF"}</span></div><PianoCanvas active={activePitches} map={map} transpose={transpose} range={range} labelMode={labels} practicePalette={songId === "roses"} /></section>
+    <section className="sandbox-trails" aria-label="Live note trails"><PerformanceVisualizer notes={liveNotes} map={map} transpose={transpose} theme={songId === "roses" ? "roses" : "minimal"} notesPerSecond={snapshot.notesPerSecond} range={playableRange} /></section>
+    <section className="sandbox-keyboard" aria-label="Free play piano"><div className="sandbox-keyboard-head"><span>{map.name}</span><span>{snapshot.pressed.length} keys down · {snapshot.notesPerSecond} notes/s · Pedal {sustainActive ? "ON" : "OFF"}</span></div><PianoCanvas active={activePitches} map={map} transpose={transpose} range={playableRange} labelMode={labels} practicePalette={songId === "roses"} /></section>
     <section className="sandbox-controls">
       <div className="sandbox-control-line"><label>Labels <select value={labels} onChange={event => setLabels(event.target.value as Labels)}><option value="computer">Computer keys</option><option value="piano">Piano notes</option><option value="both">Both</option><option value="none">None</option></select></label><label>Master <output>{volume}%</output><input type="range" min="0" max="100" value={volume} onChange={event => setVolume(Number(event.target.value))} /></label>{songId === "roses" && <label>Transpose <output>{rosesTranspose > 0 ? "+" : ""}{rosesTranspose}</output><input type="range" min="-12" max="12" step="1" value={rosesTranspose} onChange={event => setRosesTranspose(Number(event.target.value))} /></label>}</div>
+      {songId === "roses" && <HereWithMeChordControls value={hereWithMeChordSound} onChange={onHereWithMeChordSound} />}
+      {songId === "roses" && <DropLayerMixer engine={introEngine} clock={introClock} audioReady={audioReady} startAudio={startAudio} />}
       {songId === "roses" && <InstrumentLibrary instrumentId={instrumentId} onInstrument={setInstrumentId} settings={synthSettings} onSettings={setSynthSettings} error={instrumentError} audioReady={audioReady} startAudio={startAudio} preview={previewInstrument} />}
       {songId === "roses" && <RosesDropControls value={dropSettings} onChange={setDropSettings} onCompare={compareLoudStab} />}
+      {songId === "roses" && <RosesBackingControls engine={introEngine} clock={introClock} audioReady={audioReady} startAudio={startAudio} vocalLevel={closerSettings.closerLevel} onVocalLevel={level=>onCloserSettings({...closerSettings,closerLevel:level})} />}
       {songId === "roses" && <RosesBuildupControls engine={introEngine} clock={introClock} settings={buildupSettings} onChange={onBuildupSettings} />}
+      {songId === "roses" && <HereWithMeLeadControls engine={introEngine} clock={introClock} />}
       {songId === "roses" && <details className="sandbox-details"><summary>Optional opening phrase reference · physical keys</summary><div className="sandbox-phrase">{rosesPhrase.map((keys, index) => <span key={index}><b>{keys.length > 1 ? `[${keys}]` : keys}</b><small>{phrasePitches(keys, rosesTranspose).join(" + ")}</small></span>)}</div><p>Play freely. Unmapped keys remain unmapped; this phrase is a reference, not a scored song.</p></details>}
       <details className="sandbox-details"><summary>Sustain and shortcuts</summary><SustainSettings value={sustainSettings} active={sustainActive} onChange={setSustainSettings} /><p>Space toggles sustain · F9 stops all sounds. Note trails show physical key hold time.</p></details>
     </section>

@@ -85,7 +85,7 @@ export class KeyboardInputManager {
       if (event.repeat || this.held.has(event.code)) return;
       const pitches = [...chord];
       const at = performance.now();
-      this.held.set(event.code, { label: event.code.replace(/^(Key|Digit)/, ""), midi: pitches[0], chord: pitches });
+      this.held.set(event.code, { label: event.code === "Equal" ? "=" : event.code === "Minus" ? "-" : event.code.replace(/^(Key|Digit)/, ""), midi: pitches[0], chord: pitches });
       this.recentAttacks.push(...pitches.map(() => at));
       this.callbacks.chordOn(pitches, event.code, at);
       this.emit();

@@ -1,0 +1,2431 @@
+{
+  "renderer": "Actual section start through Tone.js on a native OfflineAudioContext; not a browser or hardware listening test",
+  "startBar": 1,
+  "mode": "vox",
+  "backingMode": "roses",
+  "dropBassEvents": 35,
+  "dropChordTracks": 4,
+  "dropDrums": {
+    "kick": 24,
+    "clap": 16,
+    "hat": 38
+  },
+  "maximumControls": false,
+  "audioNodeCreations": {
+    "oscillators": 353,
+    "filters": 15,
+    "waveshapers": 7,
+    "bufferSources": 166
+  },
+  "samples": [
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 48.0507936508107,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 57.65224489798157,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 57.65224489798157,
+      "offset": 0
+    },
+    {
+      "url": "/roses/here_with_me_chorus_original.wav",
+      "time": 62.63,
+      "offset": 0
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 67.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 67.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Vox synth.wav",
+      "time": 67.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 67.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 68.44999999999999,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 69.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 69.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 70.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 70.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 71.44999999999999,
+      "offset": 0
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 72.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 72.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 72.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 73.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 73.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 74.44999999999999,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 75.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 75.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 76.25000000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 76.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 76.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 76.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Vox synth.wav",
+      "time": 76.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 81.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.8,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.1,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.4,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.7,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.3,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.6,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.9,
+      "offset": 0
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 84.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/buildup/snap for drop.wav",
+      "time": 85.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/chord-cache/chordA.wav",
+      "time": 86.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/chord-cache/chordB.wav",
+      "time": 86.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/chord-cache/bonkA.wav",
+      "time": 86.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/chord-cache/bonkB.wav",
+      "time": 86.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 86.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 87.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 87.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 88.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 88.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 89.3,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 89.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 89.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 90.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 90.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 91.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 91.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 92.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 93.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 93.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.1,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 94.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 95.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 96.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 96.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 96.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 97.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.1875,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.22500000000001,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.2625,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.3,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 98.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 98.9,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 99.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 99.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 99.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.1,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 100.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 100.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 101.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 101.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.35,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 102.65,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.95,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.9875,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.025,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.0625,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.1,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 103.25,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.55,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 103.7,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 103.85,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 104.15,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 104.45,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.75,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.9,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 105.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 105.05,
+      "offset": 0
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 105.35,
+      "offset": 0
+    }
+  ],
+  "seconds": 113.6,
+  "prerollSeconds": 0.05,
+  "voxSynthEvents": 0,
+  "voxMelodyRetained": true,
+  "dropEvents": 224,
+  "bar37Attacks": 4,
+  "finite": true,
+  "peakDb": -11.023597954104511,
+  "rmsDb": -33.86605976212018,
+  "attacks": [
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D4",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F3",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#3",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D4",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F3",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#3",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D4",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F3",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#3",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D4",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C4",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#3",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "A#4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F3",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#3",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G3",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    }
+  ]
+}

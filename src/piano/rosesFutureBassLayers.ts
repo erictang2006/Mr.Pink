@@ -41,6 +41,7 @@ export class RosesFutureBassLayers {
   private bonkLowPass = new Tone.Filter({ type: "lowpass", frequency: 1500, Q: .5, rolloff: -24 });
   private bonkGain = new Tone.Gain(.28);
   private impacts = new Set<Tone.ToneBufferSource>();
+  private offlineEnded = new Set<Tone.ToneBufferSource>();
   private loading: Promise<void> | null = null;
   private disposed = false;
 
@@ -111,11 +112,15 @@ export class RosesFutureBassLayers {
     this.right.triggerAttack(note, time, velocity);
     this.center.triggerAttack(note, time, velocity);
   }
+  /** Source-MIDI audition rendering; live keys retain their physical gates. */
+  triggerAttackRelease(note: string, duration: number, time: number, velocity: number): void {
+    for (const voice of [this.left, this.right, this.center]) voice.triggerAttackRelease(note, duration, time, velocity);
+  }
   triggerImpact(root: number, time: number, velocity: number): void {
     if (!this.bonkBuffer.loaded || this.disposed || this.impacts.size >= 16) return;
     const source = new Tone.ToneBufferSource({ url: this.bonkBuffer, loop: false,
       playbackRate: 2 ** ((bonkPitchForRoot(root) - bonkRootMidi) / 12), fadeIn: .001, fadeOut: .008,
-      onended: () => { this.impacts.delete(source); source.dispose(); },
+      onended: () => { this.impacts.delete(source); if (source.context.isOffline) this.offlineEnded.add(source); else source.dispose(); },
     });
     source.connect(this.bonkHighPass);
     this.impacts.add(source);
@@ -132,6 +137,7 @@ export class RosesFutureBassLayers {
   dispose(): void {
     this.disposed = true;
     for (const source of this.impacts) source.dispose();
+    for (const source of this.offlineEnded) source.dispose(); this.offlineEnded.clear();
     this.impacts.clear();
     this.left.dispose(); this.right.dispose(); this.center.dispose();
     this.leftPan.dispose(); this.rightPan.dispose(); this.bodyGain.dispose(); this.highPass.dispose();

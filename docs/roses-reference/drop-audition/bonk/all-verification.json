@@ -1,0 +1,16 @@
+{
+  "mode": "all",
+  "seconds": 23,
+  "chordPlayback": "cached",
+  "chordSound": "bonk",
+  "renderWallSeconds": 1.307043042,
+  "audioNodeCreations": {
+    "oscillators": 329,
+    "filters": 6,
+    "waveshapers": 3
+  },
+  "peakDb": -11.947351200837367,
+  "rmsDb": -29.851641311121448,
+  "tailPeakDb": null,
+  "finite": true
+}

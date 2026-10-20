@@ -26,6 +26,7 @@ This project is developed and run locally on the MacBook. It has no hosting conf
 - In Performance Mode, F7 toggles piano labels, F8 toggles the HUD, and the selected theme shortcut cycles visual themes.
 - Roses Sandbox has six synth presets, A/B comparison, saved sound settings, and isolated-note sample import. See [Roses instruments](docs/ROSES-INSTRUMENTS.md) for browser storage and project asset instructions.
 - Roses **Intro Builder** runs through bar 28, with manually armed synth/bass layers, the repeating guitar/build-bass section, live Z/X kick and clap, Step/Timed loops, and fullscreen controls. The Closer overlay enters at 28:4& by default. Open Roses Sandbox, then choose Step or Timed. See [Roses intro](docs/ROSES-INTRO.md).
+- Roses Sandbox and Timed Practice include **Drop Layer Mixer → Play Drop** for an explicitly started automatic audition of bars 37–44. Lead, source-MIDI bass, two source-MIDI chord tracks and source drums have independent volume/mute/solo buses. The original hi-hat WAV enters at bar 41 beat 1& with its source rolls. Normal performance remains manually armed. See [Drop Layer Mixer](docs/DROP-LAYER-MIXER.md).
 
 ## Code map
 

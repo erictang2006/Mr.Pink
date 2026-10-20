@@ -1,0 +1,24 @@
+{
+  "A": {
+    "original": {
+      "relative4to8kDb": -59.86078545628244,
+      "rmsDb": -16.04757308959961
+    },
+    "bright": {
+      "relative4to8kDb": -30.67351512977436,
+      "rmsDb": -16.04757308959961
+    },
+    "relativeHighBandChangeDb": 29.187270326508084
+  },
+  "B": {
+    "original": {
+      "relative4to8kDb": -59.580367132895574,
+      "rmsDb": -15.324954986572266
+    },
+    "bright": {
+      "relative4to8kDb": -30.247921890251128,
+      "rmsDb": -15.324954986572266
+    },
+    "relativeHighBandChangeDb": 29.332445242644447
+  }
+}

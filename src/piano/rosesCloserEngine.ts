@@ -57,6 +57,16 @@ export class RosesCloserEngine {
     this.player.start(this.startedAt, this.sourceOffset);
     this.status = "PLAYING"; this.fired = true;
   }
+  /** Explicit bar-29 audition joins the same vocal timeline, without moving its cue. */
+  joinAt(scoreBeat: number, time: number, secondsPerBeat: number): void {
+    if (!this.settings.enabled || !this.ready || this.fired) return;
+    const plan = closerCuePlan(this.settings, secondsPerBeat);
+    if (scoreBeat < plan.startBeat) return;
+    this.sourceOffset = (scoreBeat - plan.startBeat) * secondsPerBeat;
+    if (this.sourceOffset >= this.player.buffer.duration) { this.fired = true; this.status = "FINISHED"; return; }
+    this.startedAt = time; this.player.start(time, this.sourceOffset);
+    this.status = "PLAYING"; this.fired = true;
+  }
   pause(time = Tone.immediate()): void {
     if (this.status !== "PLAYING") return;
     this.sourceOffset += Math.max(0, time - this.startedAt);

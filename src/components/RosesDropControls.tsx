@@ -33,6 +33,7 @@ export default function RosesDropControls({ value, onChange, onCompare }: Props)
       </label>}
     </div>
     <p>Recorded Loud Stabs uses the finished chord WAVs on keys 1–3. Short taps end shortly after keyup; long holds keep the recorded body looping until release. Keys 4–8 retain the chord instrument selected above.</p>
+    {value.closerMode === "loud" && <small>Brightness also controls Recorded Loud Stabs and its drop-lead option. 2800 Hz keeps the original recorded tone; lower values soften it and higher values brighten it. The Body, Bonk, Space and Decay sliders affect the synth instrument.</small>}
     {onCompare && <div className="sandbox-control-line" aria-label="Loud Stabs A/B comparison">
       <strong>Loud Stabs source / finished hit</strong>
       <button type="button" onClick={() => onCompare("A")}>A · Original WAV hit</button>

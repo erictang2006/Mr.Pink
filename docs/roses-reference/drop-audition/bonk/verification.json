@@ -1,0 +1,37 @@
+{
+  "renderer": "Actual Tone.js graph on node-web-audio-api OfflineAudioContext; not a browser or hardware latency test",
+  "cases": [
+    {
+      "mode": "all",
+      "seconds": 23,
+      "chordPlayback": "cached",
+      "chordSound": "bonk",
+      "renderWallSeconds": 1.307043042,
+      "audioNodeCreations": {
+        "oscillators": 329,
+        "filters": 6,
+        "waveshapers": 3
+      },
+      "peakDb": -11.947351200837367,
+      "rmsDb": -29.851641311121448,
+      "tailPeakDb": null,
+      "finite": true
+    },
+    {
+      "mode": "maximum",
+      "seconds": 23,
+      "chordPlayback": "cached",
+      "chordSound": "bonk",
+      "renderWallSeconds": 1.157145125,
+      "audioNodeCreations": {
+        "oscillators": 329,
+        "filters": 6,
+        "waveshapers": 3
+      },
+      "peakDb": -2.7356158230855288,
+      "rmsDb": -21.03568744156442,
+      "tailPeakDb": null,
+      "finite": true
+    }
+  ]
+}

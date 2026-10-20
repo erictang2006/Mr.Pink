@@ -1,0 +1,267 @@
+# Mr Pink — Three Alternative Backing Arrangements for Roses Bars 29–36
+
+## Goal
+
+I want to compare THREE complete backing arrangements for Roses bars 29–36, while retaining my existing Here With Me vocals.
+
+I have supplied the original FL Studio remake:
+
+`reference/here-with-me-remake/Here with Me Remake by Energy(4).zip`
+
+This archive contains `Remake.flp`, the vocal source, drum samples, effects, and plugin-related project data.
+
+**Do not replace the Vox Synth melody with another melody again.**
+
+My request is different: I want to swap the ENTIRE BACKING ARRANGEMENT for bars 29–36, including the appropriate harmonic instruments, bass, drums, synths and effects.
+
+Keep everything independently selectable so I can compare the three options.
+
+## 1. Analyze the FL Studio project thoroughly
+
+Before coding, extract and analyze `Remake.flp`.
+
+Determine the actual patterns, clips, notes, instruments, plugins, sample assignments, and effects used around source measures:
+
+- 18–24 (buildup)
+- 26–34 (drop)
+
+Verify the source project's tempo, bar numbering, clip boundaries, active/muted instruments, and which parts are audio versus MIDI.
+
+Do not assume a channel is active just because it exists in the project.
+
+Produce an inventory containing:
+- Source track/channel name.
+- Instrument or sample.
+- Actual active measure range.
+- Notes or source clip timing.
+- Role in the mix.
+- Whether the instrument's original sound is reproducible locally.
+- Whether the asset is present or missing.
+
+Pay special attention to Guitar, Soft Pad, Kontakt bass, Nexus, Spire, Sylenth1 leads, DirectWave, and relevant drum/effect samples.
+
+Do not invent notes, patterns or original instrument presets.
+
+## 2. Create three selectable backing modes
+
+In the existing Roses Sandbox, add:
+
+**Bars 29–36 Backing Source**
+
+Options:
+
+A. `Original Roses Buildup`
+
+B. `Here With Me — Buildup`
+
+C. `Here With Me — Drop Backing`
+
+Default to A so my existing arrangement remains unchanged.
+
+### Mode A — Original Roses Buildup
+
+Preserve the currently implemented Roses bars 29–36 backing exactly as it is, including:
+- Vox Synth
+- Spacy Drum
+- Existing buildup bass
+- Buildup percussion
+- Existing programmed vocal chops and effects
+
+Do not modify or recreate this existing mode unnecessarily.
+
+### Mode B — Here With Me Buildup
+
+Replace the Roses instrumental backing during bars 29–36 with the Here With Me instrumental buildup near source bars 18–24.
+
+Include all relevant, genuinely active musical components:
+- Chord/harmony instruments
+- Guitar and pad layers
+- Bass
+- Appropriate drums and percussion
+- Riser/transitional effects
+- Other musical backing components supported by the FL Studio project
+
+Map this source arrangement to Roses bars 29–36.
+
+Because source bars 18–24 contain seven measures, inspect source bar 25 and the nearby phrase structure before determining the final eighth measure.
+
+Prefer an authentic contiguous eight-bar musical phrase when possible. Do not arbitrarily stretch seven bars to eight or invent a new final measure.
+
+Document exactly which source measures you selected and why.
+
+Do not schedule the source remake's vocal recording; keep the existing Mr Pink Here With Me vocal cue.
+
+### Mode C — Here With Me Drop Backing
+
+Replace the Roses instrumental backing during bars 29–36 with the Here With Me drop arrangement near source bars 26–34.
+
+**I want the FULL DROP BACKING, not just an additional high synth melody.**
+
+Include the appropriate active layers identified from the actual project, such as:
+- Lower bass synth and bass-note foundation
+- Chord/harmonic accompaniment
+- Lower-register synth layers
+- Higher synth layers where genuinely part of the chosen arrangement
+- Kick, clap, snare, hats
+- FX, crashes and transitions
+
+My previous Here With Me implementation concentrated on the four-layer drop lead melody. For this experiment, I want to hear what the remaining supporting instrumental layers contribute, especially the LOWER chords and bass.
+
+Do not simply duplicate the existing four-layer lead and call that the drop backing.
+
+Identify all actual supporting instrument tracks and reproduce their MIDI/rhythms from the FL Studio project.
+
+Source bars 26–34 contain nine measures inclusive. Analyze the actual phrase and use an appropriate eight-bar region, most likely bars 26–33 if the phrase supports it.
+
+Do not time-compress nine bars into eight.
+
+Document the precise source-to-target mapping.
+
+## 3. Preserve existing Here With Me vocals
+
+My project already plays Here With Me vocals during the Roses buildup.
+
+For all three modes:
+- Preserve the current vocal source file.
+- Preserve its current transport position and source offset.
+- Preserve its tempo/pitch treatment.
+- Do not add a second vocal recording from this ZIP.
+- Do not bring back Closer.
+- Do not move the vocal entrance.
+- Make the backing volume independently adjustable from the vocal.
+
+I want to compare how the SAME vocals sound over three different instrumental backings.
+
+## 4. Preserve the drop at Roses bars 37–44
+
+My Here With Me combined lead is already implemented for Roses bars 37–44.
+
+That implementation is correct and should remain unchanged.
+
+Do not:
+- Extend its current playback range.
+- Change its MIDI.
+- Change its instrument sounds.
+- Create duplicate playback at the bar-37 boundary.
+- Change the existing Roses drop mixer.
+- Overwrite the bass, chord or drum layers already implemented at bars 37–44.
+
+These three alternative backing arrangements apply ONLY to Roses bars 29–36.
+
+End new note scheduling at bar 37, allowing appropriate short effect tails without leaking sustained notes into the drop.
+
+## 5. Instrument sound quality
+
+I want the instruments to sound as close to the original FL Studio remake as practical.
+
+Use the actual included WAV/AIFF samples wherever appropriate.
+
+For instruments dependent on Kontakt, Nexus, Spire or Sylenth1:
+- Inspect their actual embedded project states.
+- Reuse any existing compatible sounds in Mr Pink if suitable.
+- Otherwise use a browser-compatible sampler or synth approximation.
+- Do not claim a proprietary preset has been reproduced exactly.
+- Do not use generic piano sounds for everything.
+- Preserve the distinct character of the bass, chords, pads, and synth leads.
+
+Because I particularly care about the full drop sound, prioritize accurate layering, attack, decay, note timing, and mixing.
+
+Do not silently replace source chords with my existing physical chord keybind voicings.
+
+## 6. Backing mode isolation
+
+Only ONE backing mode may be active during bars 29–36.
+
+If Mode B is selected:
+- Do not play the original Roses Vox Synth or original buildup bass/drums underneath.
+- Do not accidentally play Mode C layers.
+
+If Mode C is selected:
+- Do not play original Roses Vox Synth/bass/drums or Mode B layers underneath.
+
+Shared existing Here With Me vocals remain active in all modes.
+
+Keep the mode buses independently managed and prevent duplicated instruments or effects.
+
+## 7. Integrate with existing Start Bar 25 button
+
+I already have:
+
+`Start Bar 25 + Backing + Lead`
+
+Do not replace this button or create a competing playback engine.
+
+Make the backing selector work with it.
+
+When I choose a backing mode and press Start Bar 25:
+- Play existing bars 25–28 as currently configured.
+- At bar 29, begin the selected backing arrangement.
+- Play it through bar 36.
+- Transition cleanly at bar 37 into my existing Here With Me drop.
+- Preserve the existing vocal playback throughout.
+
+Use the existing Tone.js transport.
+
+No independent timers or manually approximated musical delays.
+
+## 8. Audition controls
+
+In Roses Sandbox, provide:
+- Backing Mode selector (A / B / C).
+- Start Bar 25 + Backing + Lead (reuse existing).
+- Start Bar 29 (for direct testing).
+- Backing gain adjustment.
+- Vocal gain adjustment.
+- Stop/reset.
+
+If practical, add submix controls for:
+- Chords/pads
+- Bass
+- Drums
+- FX
+
+I want to hear the entire selected backing and be able to isolate components if something sounds wrong.
+
+Provide a clear mode label, but don't clutter the fullscreen audience-facing Performance Mode.
+
+## 9. No external publishing
+
+Keep the source ZIP and extracted project references local.
+
+Store necessary runtime audio samples inside suitable project asset directories.
+
+Avoid copying the entire 4 MB FL Studio project into publicly served web assets unnecessarily. Only place the files actually needed for browser playback in public runtime directories.
+
+Do not deploy, publish, push, or upload the project.
+
+## 10. Verification
+
+Test the three backing modes independently.
+
+Confirm:
+1. Mode A sounds exactly as it did before.
+2. Mode B uses the Here With Me buildup's actual source MIDI and instrument structure.
+3. Mode C uses the Here With Me drop's actual source MIDI and backing layers.
+4. Bass and lower chord layers are present where expected.
+5. No unintended doubling with existing Roses layers.
+6. The Here With Me vocal remains unchanged.
+7. Playback works from Start Bar 25.
+8. Bars 29–36 remain aligned at 100 BPM.
+9. Bar 37 transitions correctly into the existing drop.
+10. No new notes or loops leak into bars 37–44.
+11. Stopping/replaying does not leave stuck voices.
+12. No audio clipping or excessive CPU usage.
+
+Run build, type checks, and local browser playback tests.
+
+Report:
+- Exact FL Studio tracks used in each mode.
+- Exact source-measure-to-Roses-measure mapping.
+- Actual audio samples imported.
+- Recreated instruments and any limitations.
+- Files changed.
+- Whether the original mode remains unchanged.
+
+This is an experimental backing comparison. Do not permanently choose a winner for me.
+
+Work locally only. No deployment or external publication.

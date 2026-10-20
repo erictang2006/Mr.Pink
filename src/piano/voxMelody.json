@@ -1,0 +1,84 @@
+{
+  "notes": [
+    {
+      "beat": 0.5,
+      "duration": 0.25,
+      "midi": 73
+    },
+    {
+      "beat": 0.75,
+      "duration": 0.25,
+      "midi": 71
+    },
+    {
+      "beat": 1.5,
+      "duration": 0.25,
+      "midi": 71
+    },
+    {
+      "beat": 2.0,
+      "duration": 0.25,
+      "midi": 68
+    },
+    {
+      "beat": 2.5,
+      "duration": 0.25,
+      "midi": 68
+    },
+    {
+      "beat": 2.75,
+      "duration": 0.25,
+      "midi": 66
+    },
+    {
+      "beat": 3.5,
+      "duration": 0.25,
+      "midi": 64
+    },
+    {
+      "beat": 8.5,
+      "duration": 0.25,
+      "midi": 73
+    },
+    {
+      "beat": 8.75,
+      "duration": 0.25,
+      "midi": 71
+    },
+    {
+      "beat": 9.5,
+      "duration": 0.25,
+      "midi": 71
+    },
+    {
+      "beat": 10.0,
+      "duration": 0.25,
+      "midi": 68
+    },
+    {
+      "beat": 10.5,
+      "duration": 0.25,
+      "midi": 68
+    },
+    {
+      "beat": 10.75,
+      "duration": 0.25,
+      "midi": 66
+    },
+    {
+      "beat": 11.5,
+      "duration": 0.25,
+      "midi": 64
+    },
+    {
+      "beat": 12.5,
+      "duration": 0.25,
+      "midi": 63
+    },
+    {
+      "beat": 13.5,
+      "duration": 0.25,
+      "midi": 59
+    }
+  ]
+}

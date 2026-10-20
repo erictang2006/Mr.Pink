@@ -14,6 +14,7 @@ import SandboxMode, { type SongId } from "./components/SandboxMode";
 import RosesPractice from "./components/RosesPractice";
 import RosesBeatClock from "./components/RosesBeatClock";
 import RosesBuildupControls from "./components/RosesBuildupControls";
+import HereWithMeLeadControls from "./components/HereWithMeLeadControls";
 import { validBuildupSettings } from "./piano/rosesBuildup";
 import RosesCloserControls from "./components/RosesCloserControls";
 import SustainSettings, { type SustainSettingsValue } from "./components/SustainSettings";
@@ -48,6 +49,7 @@ import { levelsChordDefaults, levelsTransitionChords, levelsRosesChords, levelsM
 import { DrumEngine, defaultDrumMix, type DrumMix, type DrumSnapshot } from "./piano/drumEngine";
 import { rosesMap } from "./piano/roses";
 import { rosesChordHint, rosesChordShortcuts, rosesChordSource } from "./piano/rosesChords";
+import { hereWithMeChordShortcuts, validHereWithMeChordSound } from "./piano/hereWithMeChords";
 import { RosesChordStabEngine } from "./piano/rosesChordStabEngine";
 import { validRosesDropSettings } from "./piano/rosesDropSettings";
 import { RosesIntroEngine, type LiveDrumHit, type RosesIntroSnapshot } from "./piano/rosesIntroEngine";
@@ -112,6 +114,7 @@ export default function App() {
     catch { return validRosesDropSettings(); }
   });
   const [rosesIntroSnapshot, setRosesIntroSnapshot] = useState<RosesIntroSnapshot | null>(null);
+  const [hereWithMeChordSound, setHereWithMeChordSound] = useState(() => validHereWithMeChordSound(savedValue("stage-piano-hwm-chord-sound", "keys678")));
   const [rosesIntroLoadState, setRosesIntroLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [rosesVocalOffset, setRosesVocalOffset] = useState(() => {
     const value = Number(savedValue("stage-piano-roses-vocal-offset-v2", String(rosesVocalCue.sourceOffsetSeconds)));
@@ -263,10 +266,12 @@ export default function App() {
     synthEngine.setGlobalVolume(volume / 100);
     const chordStabEngine = new RosesChordStabEngine();
     chordStabEngine.setSettings(rosesDropSettings);
+    chordStabEngine.setHereWithMeSound(hereWithMeChordSound);
     chordStabs.current = chordStabEngine;
     void chordStabEngine.load().catch(() => { /* Explicit Enable audio retries and reports failure. */ });
     chordStabEngine.setGlobalVolume(volume / 100);
     const introEngine = new RosesIntroEngine(synthEngine, setRosesIntroSnapshot, () => rosesTransposeRef.current);
+    introEngine.setDropLeadSettings(rosesDropSettings);
     rosesIntro.current = introEngine;
     setRosesIntroSnapshot(introEngine.snapshot());
     let introMounted = true;
@@ -443,8 +448,14 @@ export default function App() {
   }, [volume]);
   useEffect(() => {
     chordStabs.current?.setSettings(rosesDropSettings);
+    rosesIntro.current?.setDropLeadSettings(rosesDropSettings);
     try { localStorage.setItem("stage-piano-roses-drop-v4", JSON.stringify(rosesDropSettings)); } catch { /* storage unavailable */ }
   }, [rosesDropSettings]);
+  useEffect(() => {
+    keyboard.current?.releaseAll();
+    chordStabs.current?.setHereWithMeSound(hereWithMeChordSound);
+    try { localStorage.setItem("stage-piano-hwm-chord-sound", hereWithMeChordSound); } catch { /* storage unavailable */ }
+  }, [hereWithMeChordSound]);
   useEffect(() => {
     rosesIntro.current?.setBassVolumes(rosesBassLevels.bass, rosesBassLevels.sub);
     try { localStorage.setItem("stage-piano-roses-bass-levels", JSON.stringify(rosesBassLevels)); } catch { /* storage unavailable */ }
@@ -559,7 +570,7 @@ export default function App() {
     keyboard.current?.setMap(activeProfile, songId === "levels" || (songId === "interstellar" && view === "performance"));
   }, [songId, levelsSection, levelsChords, profileId, profiles, view]);
   useEffect(() => {
-    keyboard.current?.setChords(songId === "roses" ? rosesChordShortcuts : {});
+    keyboard.current?.setChords(songId === "roses" ? { ...rosesChordShortcuts, ...hereWithMeChordShortcuts } : {});
   }, [songId]);
   useEffect(() => {
     if (songId !== "roses") return;
@@ -997,7 +1008,7 @@ export default function App() {
     }, 600);
   }
 
-  if (view === "sandbox") return <SandboxMode introEngine={rosesIntro.current} introClock={rosesIntroSnapshot} buildupSettings={rosesBuildupSettings} onBuildupSettings={setRosesBuildupSettings} dropSettings={rosesDropSettings} setDropSettings={setRosesDropSettings} compareLoudStab={async side => { if (audioState !== "ready") await startAudio(); if (chordStabs.current?.isReady()) chordStabs.current.compareLoudStab(side); }} songId={songId} map={activeProfile} transpose={activeTranspose} range={keyboardRange} snapshot={snapshot} activePitches={activePitches} liveNotes={liveNotes.current} audioReady={audioState === "ready"} startAudio={startAudio} volume={volume} setVolume={setVolume} rosesTranspose={rosesTranspose} setRosesTranspose={setRosesTranspose} synthSettings={synthSettings} setSynthSettings={setSynthSettings} instrumentId={instrumentId} setInstrumentId={selectRosesInstrument} instrumentError={instrumentError} previewInstrument={(midi) => synth.current?.preview(midi)} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} onSongChange={selectSong} onSheet={sandboxToSheet} onExit={exitSandbox} onPerformance={enterPerformance} />;
+  if (view === "sandbox") return <SandboxMode hereWithMeChordSound={hereWithMeChordSound} onHereWithMeChordSound={setHereWithMeChordSound} closerSettings={rosesCloserSettings} onCloserSettings={setRosesCloserSettings} introEngine={rosesIntro.current} introClock={rosesIntroSnapshot} buildupSettings={rosesBuildupSettings} onBuildupSettings={setRosesBuildupSettings} dropSettings={rosesDropSettings} setDropSettings={setRosesDropSettings} compareLoudStab={async side => { if (audioState !== "ready") await startAudio(); if (chordStabs.current?.isReady()) chordStabs.current.compareLoudStab(side); }} songId={songId} map={activeProfile} transpose={activeTranspose} range={keyboardRange} snapshot={snapshot} activePitches={activePitches} liveNotes={liveNotes.current} audioReady={audioState === "ready"} startAudio={startAudio} volume={volume} setVolume={setVolume} rosesTranspose={rosesTranspose} setRosesTranspose={setRosesTranspose} synthSettings={synthSettings} setSynthSettings={setSynthSettings} instrumentId={instrumentId} setInstrumentId={selectRosesInstrument} instrumentError={instrumentError} previewInstrument={(midi) => synth.current?.preview(midi)} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} onSongChange={selectSong} onSheet={sandboxToSheet} onExit={exitSandbox} onPerformance={enterPerformance} />;
 
   if (view === "studio")
     return songId === "roses"
@@ -1035,12 +1046,13 @@ export default function App() {
           <span>{rosesIntroSnapshot?.status === "finished" ? "Finished · Reset to rehearse" : rosesIntroSnapshot?.missedBassHandoff && !rosesIntroSnapshot.bassActive ? "MISSED BASS HANDOFF · N recovers on the next bar" : (rosesIntroSnapshot?.measure ?? 1) === 4 ? `Arm V synth and ${rosesVocalKey.replace("Key", "")} vocal for bar 5` : (rosesIntroSnapshot?.measure ?? 1) < 5 ? "Play live synth · V arms synth for bar 5" : (rosesIntroSnapshot?.measure ?? 1) < 13 ? "Play Z/X drums · N arms bass for bar 13" : (rosesIntroSnapshot?.measure ?? 1) >= 21 ? "Guitar + build bass · no required drums" : (rosesIntroSnapshot?.measure ?? 1) >= 20 ? "Play X clap · M accent optional" : "Play Z kick / X clap · M accent at bar 16"}</span>
           {rosesIntroSnapshot?.lastDrum && <span className="roses-drum-flash" key={rosesIntroSnapshot.lastDrum.sequence}>{rosesIntroSnapshot.lastDrum.kind.toUpperCase()} HIT</span>}
           {rosesIntroSnapshot?.lastAccent && <span className="roses-drum-flash" key={`accent-${rosesIntroSnapshot.lastAccent}`}>VOCAL ACCENT HIT</span>}
-          <div><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(1, "performance")}>Start bar 1</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(5, "performance")}>Start bar 5</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(9, "performance")}>Start bar 9</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(13, "performance")}>Start bar 13</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(21, "performance")}>Start bar 21</button><button onClick={() => rosesIntro.current?.armSynth()}>V Arm synth</button><button onClick={() => rosesIntro.current?.armBass()}>N Arm bass</button><button onClick={() => rosesIntro.current?.armBuild()} disabled={rosesIntroSnapshot?.status === "running" && rosesIntroSnapshot.measure >= 21}>F6 Arm build</button><button onClick={() => rosesIntro.current?.armVocal()} disabled={!rosesIntroSnapshot?.vocalReady || rosesIntroSnapshot.status === "running" && rosesIntroSnapshot.measure !== 4}>{rosesVocalKey.replace("Key", "")} Arm vocal</button><button disabled={!rosesIntroSnapshot || !["running", "paused"].includes(rosesIntroSnapshot.status)} onClick={() => rosesIntroSnapshot?.status === "paused" ? rosesIntro.current?.resume() : rosesIntro.current?.pause()}>{rosesIntroSnapshot?.status === "paused" ? "Resume" : "Pause"}</button><button onClick={() => setRosesBeatHud(value => !value)}>Beat HUD {rosesBeatHud ? "ON" : "OFF"}</button><button onClick={() => rosesIntro.current?.stopLoop()}>B Stop backing</button><button onClick={() => rosesIntro.current?.reset()}>Reset</button></div>
+          <div><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError || rosesIntroSnapshot?.drop?.status === "loading"} onClick={() => rosesIntro.current?.startWithDrop(1, "performance")}>Start bar 1</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(5, "performance")}>Start bar 5</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(9, "performance")}>Start bar 9</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(13, "performance")}>Start bar 13</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(21, "performance")}>Start bar 21</button><button onClick={() => rosesIntro.current?.armSynth()}>V Arm synth</button><button onClick={() => rosesIntro.current?.armBass()}>N Arm bass</button><button onClick={() => rosesIntro.current?.armBuild()} disabled={rosesIntroSnapshot?.status === "running" && rosesIntroSnapshot.measure >= 21}>F6 Arm build</button><button onClick={() => rosesIntro.current?.armVocal()} disabled={!rosesIntroSnapshot?.vocalReady || rosesIntroSnapshot.status === "running" && rosesIntroSnapshot.measure !== 4}>{rosesVocalKey.replace("Key", "")} Arm vocal</button><button disabled={!rosesIntroSnapshot || !["running", "paused"].includes(rosesIntroSnapshot.status)} onClick={() => rosesIntroSnapshot?.status === "paused" ? rosesIntro.current?.resume() : rosesIntro.current?.pause()}>{rosesIntroSnapshot?.status === "paused" ? "Resume" : "Pause"}</button><button onClick={() => setRosesBeatHud(value => !value)}>Beat HUD {rosesBeatHud ? "ON" : "OFF"}</button><button onClick={() => rosesIntro.current?.stopLoop()}>B Stop backing</button><button onClick={() => rosesIntro.current?.reset()}>Reset</button></div>
           <label className="roses-performance-synth-level">V Synth <output>{Math.round(rosesSynthLevel * 100)}%</output><input aria-label="V Synth backing level" type="range" min="0" max="150" step="5" value={Math.round(rosesSynthLevel * 100)} onChange={event => setRosesSynthLevel(Number(event.target.value) / 100)} /></label>
           <label className="roses-performance-synth-level">Synth lead <output>{rosesSynthLeadMs} ms</output><input aria-label="V Synth timing lead" type="range" min="0" max="60" step="5" value={rosesSynthLeadMs} onChange={event => setRosesSynthLeadMs(Number(event.target.value))} /></label>
           <small>{rosesChordHint}</small>
           <small>V synth · N bass/sub · F6 build at bar 21 · {rosesVocalKey.replace("Key", "")} vocal at bar 4 for bar 5 · Z kick · X clap · M accent · B stop · Space pedal {sustainActive ? "ON" : "OFF"} · samples {rosesIntroLoadState}{instrumentError ? ` · ${instrumentError}` : ""}</small>
           <RosesBuildupControls engine={rosesIntro.current} clock={rosesIntroSnapshot} settings={rosesBuildupSettings} onChange={setRosesBuildupSettings} compact />
+          <HereWithMeLeadControls engine={rosesIntro.current} clock={rosesIntroSnapshot} compact />
           <RosesCloserControls settings={rosesCloserSettings} onChange={setRosesCloserSettings} status={rosesIntroSnapshot?.closerStatus} compact />
           <div><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(25, "performance")}>Start bar 25</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(27, "performance")}>Start bar 27</button></div>
           {rosesIntroSnapshot?.status === "finished" && <span>{rosesIntroSnapshot.sectionTails ? "Roses section complete · audio tails releasing" : "Roses section complete"}{rosesIntroSnapshot.closerStatus === "PLAYING" ? " · Here With Me continues" : ""}</span>}

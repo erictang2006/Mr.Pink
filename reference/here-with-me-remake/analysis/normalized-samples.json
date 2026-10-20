@@ -1,0 +1,262 @@
+[
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+    "sourceSha256": "a020bebcf2f65cc7d6fccf4abe0f868c948425493d135b07d926626f5a717870",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav.wav",
+    "normalizedSha256": "ab33ee7414f6277744c039ddc06c997384828555d841e9f31da908706fe24baf",
+    "frames": 75797,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "VFX2 Impacts 03.wav",
+    "sourceSha256": "a9e861c9c5bde689ce7e08c6cbd3dd27bc09df082997c7e3aee6a9e4c3c68e62",
+    "normalized": "VFX2 Impacts 03.wav.wav",
+    "normalizedSha256": "540315a087f2c853a722ff9180af8aa28c74a8eb83ad3980a661384170bab49c",
+    "frames": 205579,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "KSHMR_White_Noise_02_-_Exhaust.aif",
+    "sourceSha256": "33bcedf855b39439e8347fbf0465f3464be2757010a2b08b9b7209f9a9bc1185",
+    "normalized": "KSHMR_White_Noise_02_-_Exhaust.aif.wav",
+    "normalizedSha256": "22cf2c3dc17ddee6cffc035296703498d1183585461b284a95e2247b0810eb36",
+    "frames": 392766,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Future Bass Essentials - Downlifter 07.wav",
+    "sourceSha256": "ce5f4a02646a29c7a26b5983728e618943bc5ee38750075b8c923ace07078810",
+    "normalized": "Ultrasonic - Future Bass Essentials - Downlifter 07.wav.wav",
+    "normalizedSha256": "8da7babf5de6b10a01c9c98528dc70acd377b49591e87be4a37c757fc238d64f",
+    "frames": 578813,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "EO Upfilter&Downfilter.wav",
+    "sourceSha256": "5314dfa6e82337009bd7b0c1132d4e26b2453170086c521aba173b8b6283f958",
+    "normalized": "EO Upfilter&Downfilter.wav.wav",
+    "normalizedSha256": "0f0536501f52a2be1e01712d3d99eb2faad3a1f731b001f9af38f85b4c273a4d",
+    "frames": 248708,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Clap 04.wav",
+    "sourceSha256": "88336cb36a73ee449cc248186eb091ff487f7e4203dd5a911e3d78546dea615c",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Clap 04.wav.wav",
+    "normalizedSha256": "ece5d63b8e9bf9d0cc2a30206560e87f34f0e4641eb21117fbf3787da7143897",
+    "frames": 3199,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Clap 17.wav",
+    "sourceSha256": "81c4d78d2b75b2a0e7677f285dcd4ce19a1567826223b8acb58b95b26df3af13",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Clap 17.wav.wav",
+    "normalizedSha256": "712acb839864835c0660b11fac8cd57b0af581a27f75eac14daf4e7a4377e824",
+    "frames": 70560,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+    "sourceSha256": "1239ba13465fcc4d113fc5fa6d3dc4c4cc41890139a632f7d5610406f71583c5",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav.wav",
+    "normalizedSha256": "7e93869f0d4d829bec01986fd43b9b114af73bcbaa9d702582384950104710ec",
+    "frames": 352800,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Uplifter 08.wav",
+    "sourceSha256": "07bf27c6df1eca881be412204ab26a3aac6c435cc367187437c4dc9f13e8b2f7",
+    "normalized": "Ultrasonic - Uplifter 08.wav.wav",
+    "normalizedSha256": "0302f6ddeeece50a54cd718bd4e67834cf86509c192115ea202d8e8811d17c78",
+    "frames": 413438,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "SSLononSnare.wav",
+    "sourceSha256": "0034e94d1ad4f8a5badadb6719612494103697cb40b6157a89300da929910721",
+    "normalized": "SSLononSnare.wav.wav",
+    "normalizedSha256": "a39809b9af64d7bccea236dd3cca0dce71faa5bd99ebd8aacb2a8e12ded5ad84",
+    "frames": 2506,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "KSHMR_Short_Sweep_Up_04.aif",
+    "sourceSha256": "1559e00d06db6fc32c28da16f1082a42d9928c3ddb9ea563523b35ce7192733b",
+    "normalized": "KSHMR_Short_Sweep_Up_04.aif.wav",
+    "normalizedSha256": "48216bfd2228603d3c827d48cd79107bded6a01aa0259cdcbcc2792faf9681db",
+    "frames": 20672,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - White Noise Downlifter 02.wav",
+    "sourceSha256": "8effdafd71b0e693b7e6446131d250828a31cc485dea9e0f19d02366f7595def",
+    "normalized": "Ultrasonic - White Noise Downlifter 02.wav.wav",
+    "normalizedSha256": "e2b137cfd0d5227d80ad2ac3543a9f0c01695b230a1554ffa84381870df8cc31",
+    "frames": 661500,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "KSHMR_Top_Kick_03.aif",
+    "sourceSha256": "a02288ed01a036685ddb541fe908ddd806a53d5e8b5198ec3b7990ea7e02483a",
+    "normalized": "KSHMR_Top_Kick_03.aif.wav",
+    "normalizedSha256": "705e6851678d42c969195dce8a836018e2b09db4f5df0e0a3b0c0fc06f6145ec",
+    "frames": 3584,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+    "sourceSha256": "f97dcb61ee78a28edb6a8adb7718797b7d85d5a3c9bc65fd7305ef941fa2fc59",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav.wav",
+    "normalizedSha256": "dfb64c672d80f5b03f103de31eead66ca297cbdf12593b7f436877d282ae03db",
+    "frames": 32975,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+    "sourceSha256": "3a03a95cd7937ea5d921d91ca329b39736d00dd41c2cb14b1debc779b3dbb31e",
+    "normalized": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav.wav",
+    "normalizedSha256": "612f03f5b9c1b0b7ba349a5b61c9b64d822a8be166419fdb1c817306787ab3ae",
+    "frames": 52920,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "KSHMR_Hi_Hats_Closed_04.aif",
+    "sourceSha256": "dad17504bcd0bae507621d2a48e4cb08859c24ce9c23aae7fd8cf8a91ab996c6",
+    "normalized": "KSHMR_Hi_Hats_Closed_04.aif.wav",
+    "normalizedSha256": "1fc39c5b2184a3b05a5e81e7019b35a563da12d4a7728822524eb662acc60b68",
+    "frames": 7752,
+    "channels": 2,
+    "rate": 44100,
+    "vorbisUnwrapped": false
+  },
+  {
+    "file": "Piezo (1).wav",
+    "sourceSha256": "fa7ab8cad6fd315d54d1454f9c8cc8fdbeac2f89bcebdfed690657c2c072780a",
+    "normalized": "Piezo (1).wav.wav",
+    "normalizedSha256": "f285b12269d6bffbb51c67e522727dc01e01136a465099d5520e12ee07b1a99a",
+    "frames": 132220,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (2).wav",
+    "sourceSha256": "d5cfd47605294592bf83ecc1fc6fc8af03d53a4d1f6783cff78c8fc7a70a3b0c",
+    "normalized": "Piezo (2).wav.wav",
+    "normalizedSha256": "39a5b9e0510c1b8c9ca69c5f703d22fb8847a53cdbe6cb50dca2380813a5e4c5",
+    "frames": 132049,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (3).wav",
+    "sourceSha256": "154a1c9142dd1ca587d96b19730e17f360966a608476c7468917695413199604",
+    "normalized": "Piezo (3).wav.wav",
+    "normalizedSha256": "55a232b0d31aad892d64bbad6f1a6c96dc742f0b6ee3fbad1e5ff331b608c736",
+    "frames": 132235,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (4).wav",
+    "sourceSha256": "707bbff6015345788922209cb31813a251f2fbab29f58ec661402f491e171a5c",
+    "normalized": "Piezo (4).wav.wav",
+    "normalizedSha256": "fadebe186b992423e008e928b3cdbf00d52d5480dd43029fb1c925ba9ed70728",
+    "frames": 132244,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (5).wav",
+    "sourceSha256": "356a28c56a346ee36011a360102077a6e9e15df99e1ce205206ffc3b7d7107b2",
+    "normalized": "Piezo (5).wav.wav",
+    "normalizedSha256": "856a411e8312c247a717fcda1d4410e296e5e0de26c93317fc27cda003d2da55",
+    "frames": 132199,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (6).wav",
+    "sourceSha256": "127ef47ffcf2da9375f85d5d99848c5f1f719decdc9b0cb4f6eab95e2517d02f",
+    "normalized": "Piezo (6).wav.wav",
+    "normalizedSha256": "1268b86792770d43e434829d613eded6d755a24b18f324d55f9d57fe2a1e9dcc",
+    "frames": 110187,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (7).wav",
+    "sourceSha256": "cb1858ec609bf4af5669d69eb1e1ba511d3c0a141a02ee0d80ff61567bf0aa48",
+    "normalized": "Piezo (7).wav.wav",
+    "normalizedSha256": "5f7716947d29ac00b154b741a1a7ecd02588c12e8f3459759e750fe4e99de137",
+    "frames": 110204,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (8).wav",
+    "sourceSha256": "84b7f51eef08bad2cdc96814df88a110adc96768b8289ae829e9da53be047adb",
+    "normalized": "Piezo (8).wav.wav",
+    "normalizedSha256": "6f2616014753b4d075256fcf94be613fec2eca50fa1407496cacf482068b9959",
+    "frames": 110192,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (9).wav",
+    "sourceSha256": "d9261b7568b2adf6bf7d6e98ffa3582fdef886567720a211f1915d1e6f5f6567",
+    "normalized": "Piezo (9).wav.wav",
+    "normalizedSha256": "aa7c3aeeaa554c948407426c8ad4bcb732b1b6daacb767e6bdfcda92ef5f120a",
+    "frames": 110098,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  },
+  {
+    "file": "Piezo (10).wav",
+    "sourceSha256": "24f5888134bfa5471b92061b80bf7328d107921608e7ce442ac7551f44141095",
+    "normalized": "Piezo (10).wav.wav",
+    "normalizedSha256": "deef6b77d8f939bf4d863d0f16f9c7836c2923751215eae95efb6021e96c38de",
+    "frames": 110095,
+    "channels": 1,
+    "rate": 44100,
+    "vorbisUnwrapped": true
+  }
+]

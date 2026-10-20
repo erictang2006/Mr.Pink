@@ -1,0 +1,37 @@
+{
+  "method": "Actual Tone graph in node-web-audio-api; six-second opening; node creation counts are total allocations, not concurrent active nodes. Offline speed is not a browser/hardware deadline test.",
+  "realtimeSynth": {
+    "mode": "all",
+    "seconds": 6,
+    "chordPlayback": "synth",
+    "renderWallSeconds": 4.984756917,
+    "audioNodeCreations": {
+      "oscillators": 816,
+      "filters": 258,
+      "waveshapers": 126
+    },
+    "peakDb": -11.538359892818558,
+    "rmsDb": -27.864820870008458,
+    "tailPeakDb": null,
+    "finite": true
+  },
+  "preparedChords": {
+    "mode": "all",
+    "seconds": 6,
+    "chordPlayback": "cached",
+    "renderWallSeconds": 0.22603837499999999,
+    "audioNodeCreations": {
+      "oscillators": 109,
+      "filters": 6,
+      "waveshapers": 3
+    },
+    "peakDb": -11.538359892818558,
+    "rmsDb": -27.864820867689634,
+    "tailPeakDb": null,
+    "finite": true
+  },
+  "pcmDifferenceRelativeDb": -103.99809096161331,
+  "pcmBitIdentical": false,
+  "fullPhrasePcmDifferenceRelativeDb": -98.28468935767135,
+  "longestNearZeroMs": 11.746031746031745
+}

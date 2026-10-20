@@ -1,0 +1,175 @@
+{
+  "saved_date": "2026-10-20",
+  "description": "Local reference archive and extracted FL Studio remake supplied by the user. Not a runtime asset directory.",
+  "source_archive": "/Users/etang1/Downloads/Here with Me Remake by Energy.zip",
+  "archive": "Here with Me Remake by Energy.zip",
+  "archive_bytes": 16972091,
+  "archive_sha256": "cdd104b543e0d135225c4bbaa7a87667f69dc28eb97a6efa513c277644bb2041",
+  "request_file": "backing-arrangements-request.txt",
+  "request_sha256": "82b213f3753c24622ad93b13d069e2d335c485f7a497020b487d627d348dea04",
+  "project_file": "extracted/Remake.flp",
+  "file_count": 32,
+  "extracted_bytes": 26303566,
+  "files": [
+    {
+      "path": "extracted/Remake.flp",
+      "bytes": 4320455,
+      "sha256": "7f16d1fc234b10526f27bda0eaecfc08d2b16eb37afe2747aa589b87e2abb9a3"
+    },
+    {
+      "path": "extracted/MARSHMELLO ft CHVRCHES - HERE WITH ME ACAPELLA ( VOICE ONLY ).mp3",
+      "bytes": 3949851,
+      "sha256": "42b24ff67c4f16eaaf20d90e374e40c3afdc2206ac9c304a8f486cc1413e04b6"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "bytes": 455058,
+      "sha256": "a020bebcf2f65cc7d6fccf4abe0f868c948425493d135b07d926626f5a717870"
+    },
+    {
+      "path": "extracted/LC_Clap_02.wav",
+      "bytes": 14598,
+      "sha256": "32f19f974047bd6e3bb4b21307273a5db445d5273b9ae9a2cb322dc09727795e"
+    },
+    {
+      "path": "extracted/KSHMR_Shaker_05.aif",
+      "bytes": 97210,
+      "sha256": "5d78aa414ba04d902172be36fa47bc712787d5ae639038a6c01f9d3c219ee049"
+    },
+    {
+      "path": "extracted/KSHMR_Short_Sweep_Up_04.aif",
+      "bytes": 128218,
+      "sha256": "1559e00d06db6fc32c28da16f1082a42d9928c3ddb9ea563523b35ce7192733b"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Clap 04.wav",
+      "bytes": 19470,
+      "sha256": "88336cb36a73ee449cc248186eb091ff487f7e4203dd5a911e3d78546dea615c"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+      "bytes": 2304356,
+      "sha256": "1239ba13465fcc4d113fc5fa6d3dc4c4cc41890139a632f7d5610406f71583c5"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Clap 17.wav",
+      "bytes": 423636,
+      "sha256": "81c4d78d2b75b2a0e7677f285dcd4ce19a1567826223b8acb58b95b26df3af13"
+    },
+    {
+      "path": "extracted/VFX2 Impacts 03.wav",
+      "bytes": 822810,
+      "sha256": "a9e861c9c5bde689ce7e08c6cbd3dd27bc09df082997c7e3aee6a9e4c3c68e62"
+    },
+    {
+      "path": "extracted/KSHMR_White_Noise_02_-_Exhaust.aif",
+      "bytes": 2360782,
+      "sha256": "33bcedf855b39439e8347fbf0465f3464be2757010a2b08b9b7209f9a9bc1185"
+    },
+    {
+      "path": "extracted/Ultrasonic - Future Bass Essentials - Downlifter 07.wav",
+      "bytes": 2315596,
+      "sha256": "ce5f4a02646a29c7a26b5983728e618943bc5ee38750075b8c923ace07078810"
+    },
+    {
+      "path": "extracted/Ultrasonic - Uplifter 08.wav",
+      "bytes": 3308050,
+      "sha256": "07bf27c6df1eca881be412204ab26a3aac6c435cc367187437c4dc9f13e8b2f7"
+    },
+    {
+      "path": "extracted/SSLononSnare.wav",
+      "bytes": 20276,
+      "sha256": "0034e94d1ad4f8a5badadb6719612494103697cb40b6157a89300da929910721"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "bytes": 264108,
+      "sha256": "f97dcb61ee78a28edb6a8adb7718797b7d85d5a3c9bc65fd7305ef941fa2fc59"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "bytes": 317796,
+      "sha256": "3a03a95cd7937ea5d921d91ca329b39736d00dd41c2cb14b1debc779b3dbb31e"
+    },
+    {
+      "path": "extracted/KSHMR_Hi_Hats_Closed_04.aif",
+      "bytes": 50698,
+      "sha256": "dad17504bcd0bae507621d2a48e4cb08859c24ce9c23aae7fd8cf8a91ab996c6"
+    },
+    {
+      "path": "extracted/Ultrasonic - White Noise Downlifter 02.wav",
+      "bytes": 2646428,
+      "sha256": "8effdafd71b0e693b7e6446131d250828a31cc485dea9e0f19d02366f7595def"
+    },
+    {
+      "path": "extracted/EO Upfilter&Downfilter.wav",
+      "bytes": 1990056,
+      "sha256": "5314dfa6e82337009bd7b0c1132d4e26b2453170086c521aba173b8b6283f958"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Kick 22.wav",
+      "bytes": 149480,
+      "sha256": "6db09ba0b0e8bd8bf120e4ea3fc738d60ef1afb32aa3dc6314e1e7ab05a46ccd"
+    },
+    {
+      "path": "extracted/KSHMR_Top_Kick_03.aif",
+      "bytes": 25690,
+      "sha256": "a02288ed01a036685ddb541fe908ddd806a53d5e8b5198ec3b7990ea7e02483a"
+    },
+    {
+      "path": "extracted/Ultrasonic - Marshmello Essentials Vol.1 - Snare 02.wav",
+      "bytes": 91958,
+      "sha256": "4e0c576265e4cae62c16337069aba2d4446a8a1af6f16851e1a7cfa8ddcddfbd"
+    },
+    {
+      "path": "extracted/Piezo (1).wav",
+      "bytes": 20216,
+      "sha256": "fa7ab8cad6fd315d54d1454f9c8cc8fdbeac2f89bcebdfed690657c2c072780a"
+    },
+    {
+      "path": "extracted/Piezo (2).wav",
+      "bytes": 20936,
+      "sha256": "d5cfd47605294592bf83ecc1fc6fc8af03d53a4d1f6783cff78c8fc7a70a3b0c"
+    },
+    {
+      "path": "extracted/Piezo (3).wav",
+      "bytes": 23146,
+      "sha256": "154a1c9142dd1ca587d96b19730e17f360966a608476c7468917695413199604"
+    },
+    {
+      "path": "extracted/Piezo (4).wav",
+      "bytes": 25010,
+      "sha256": "707bbff6015345788922209cb31813a251f2fbab29f58ec661402f491e171a5c"
+    },
+    {
+      "path": "extracted/Piezo (5).wav",
+      "bytes": 25010,
+      "sha256": "356a28c56a346ee36011a360102077a6e9e15df99e1ce205206ffc3b7d7107b2"
+    },
+    {
+      "path": "extracted/Piezo (6).wav",
+      "bytes": 21766,
+      "sha256": "127ef47ffcf2da9375f85d5d99848c5f1f719decdc9b0cb4f6eab95e2517d02f"
+    },
+    {
+      "path": "extracted/Piezo (7).wav",
+      "bytes": 22644,
+      "sha256": "cb1858ec609bf4af5669d69eb1e1ba511d3c0a141a02ee0d80ff61567bf0aa48"
+    },
+    {
+      "path": "extracted/Piezo (8).wav",
+      "bytes": 23788,
+      "sha256": "84b7f51eef08bad2cdc96814df88a110adc96768b8289ae829e9da53be047adb"
+    },
+    {
+      "path": "extracted/Piezo (9).wav",
+      "bytes": 23048,
+      "sha256": "d9261b7568b2adf6bf7d6e98ffa3582fdef886567720a211f1915d1e6f5f6567"
+    },
+    {
+      "path": "extracted/Piezo (10).wav",
+      "bytes": 21422,
+      "sha256": "24f5888134bfa5471b92061b80bf7328d107921608e7ce442ac7551f44141095"
+    }
+  ]
+}

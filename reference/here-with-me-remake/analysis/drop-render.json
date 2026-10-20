@@ -1,0 +1,7190 @@
+{
+  "mode": "drop",
+  "renderer": "Real Tone.js synth approximations and decoded supplied samples, native 8-channel OfflineAudioContext. No proprietary plugin emulation claim.",
+  "sourceBars": [
+    26,
+    33
+  ],
+  "targetBars": [
+    29,
+    36
+  ],
+  "bpm": 100,
+  "ppq": 96,
+  "normalizationGain": 0.3441941079567844,
+  "rawMixPeak": 1.3945619314908981,
+  "renderWallSeconds": 7.846994999999999,
+  "files": [
+    {
+      "group": "chords",
+      "file": "drop-chords.wav",
+      "seconds": 19.35,
+      "sha256": "5717e3e2f4c7a12b44a1f85e8c60ea704ce2a7cc9c786e9d01803b8ca0b95080",
+      "peak": 0.1418297806906132,
+      "rmsDb": -31.654102663890036
+    },
+    {
+      "group": "bass",
+      "file": "drop-bass.wav",
+      "seconds": 19.35,
+      "sha256": "2674f6e2c9f5091b6e339a2096e596676aee8cd84b4b49fa6efa33692a612855",
+      "peak": 0.10464727376369744,
+      "rmsDb": -32.77169266261694
+    },
+    {
+      "group": "drums",
+      "file": "drop-drums.wav",
+      "seconds": 19.35,
+      "sha256": "734685215006d3527d714026968bf6ed702e07642dc220b4ca05cfdeb86f2be5",
+      "peak": 0.38752647424467634,
+      "rmsDb": -25.68136328603739
+    },
+    {
+      "group": "fx",
+      "file": "drop-fx.wav",
+      "seconds": 19.35,
+      "sha256": "d4327c590b6703c72d374cbe85ac313383b074b62ce2a696fb264fe4b0f32ba3",
+      "peak": 0.06735287493142644,
+      "rmsDb": -42.17071671935467
+    }
+  ],
+  "sourceHashes": {
+    "reference/here-with-me-remake/extracted/Remake.flp": "7f16d1fc234b10526f27bda0eaecfc08d2b16eb37afe2747aa589b87e2abb9a3",
+    "reference/here-with-me-remake/backing-source-events.json": "1fd684634d887a129bcd69431455f77ac1e5c1590f2b9ee9d630f515573b1684",
+    "scripts/analyze-hwm-remake.py": "fb1e7019e0a01f2d027c57298fab8f999f4f7b3ecd984cfd42e530a0384e68dd",
+    "scripts/normalize-hwm-samples.mjs": "d6fde6ba6b6f48094bf380403ae19858cfecc0807867e5cd33d7e33766035b0a",
+    "scripts/prepare-hwm-sample-fx.py": "b0133245cfe4ce361e9d1af27185029c03b3704e282fa02091daa87e1d374cb2",
+    "scripts/render-hwm-backing.mjs": "aac730cfc0e28b0a40cf71ce82a8896dfa5cd4bb3dd6961237edab5329ae4e3d",
+    "src/piano/hwmBackingRenderEngine.ts": "07a9a98e34c73a3d03abe825a59fd4eeb3baa2d0ec54f4ff5ff5dd48b7bf07b8",
+    "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
+    "src/piano/hereWithMeLeadEngine.ts": "7703c6a0b76eacd1c9c6c7f789bae51094a7a1c06308cbda457a48c07d904647",
+    "src/piano/hereWithMeLead.ts": "e18146de1b236d6455cc8d841d37e4e7c6507b09d0541aa2962c52eda5ba372b",
+    "reference/here-with-me-remake/analysis/normalized-samples.json": "75acbd019fc4ab5d79859117b4ec41ff91e6a3550305c0bbf8816029e292229d",
+    "reference/here-with-me-remake/analysis/sample-fx-preparation.json": "5d398ca6c9bbbbaf002d9f3af470f4c405b258a2e2f6c855b6d30e83d915d791",
+    "package-lock.json": "e5f7927acc45e43deed4b98b57981cbf2e4f396ac19b6d48ca9cfbd2cab511d0"
+  },
+  "scheduled": [
+    {
+      "channel": 2,
+      "tick": 0,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 0,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 0,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 0,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 0,
+      "midi": 48,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 0,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 0,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 0,
+      "midi": 67,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 0,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 0,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 0,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 0,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 0,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 0,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 0,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 0,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 0,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 3,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 4,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 0,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 7,
+      "tick": 0,
+      "durationTicks": 3,
+      "file": "KSHMR_Short_Sweep_Up_04.aif",
+      "offsetSeconds": 0.44999999999999996
+    },
+    {
+      "channel": 11,
+      "tick": 0,
+      "durationTicks": 746,
+      "file": "VFX2 Impacts 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 12,
+      "tick": 0,
+      "durationTicks": 1425,
+      "file": "KSHMR_White_Noise_02_-_Exhaust.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 15,
+      "tick": 0,
+      "durationTicks": 564,
+      "file": "Ultrasonic - Future Bass Essentials - Downlifter 07.wav",
+      "offsetSeconds": 9.6
+    },
+    {
+      "channel": 15,
+      "tick": 0,
+      "durationTicks": 2100,
+      "file": "Ultrasonic - Future Bass Essentials - Downlifter 07.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 30,
+      "tick": 0,
+      "durationTicks": 1536,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 31,
+      "tick": 0,
+      "durationTicks": 2400,
+      "file": "Ultrasonic - White Noise Downlifter 02.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 32,
+      "tick": 0,
+      "durationTicks": 680,
+      "file": "EO Upfilter&Downfilter.wav",
+      "offsetSeconds": 1.3875
+    },
+    {
+      "channel": 34,
+      "tick": 0,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 24,
+      "midi": 62,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 24,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 24,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 24,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 24,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 24,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 48,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 48,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 72,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 72,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 72,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 72,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 72,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 72,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 72,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 72,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 72,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 72,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 72,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 72,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 73,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 75,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 76,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 24,
+      "tick": 96,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 96,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 96,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 120,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 120,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 120,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 120,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 120,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 120,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 144,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 144,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 144,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 144,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 144,
+      "midi": 46,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 144,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 144,
+      "midi": 62,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 144,
+      "midi": 65,
+      "durationTicks": 240
+    },
+    {
+      "channel": 13,
+      "tick": 144,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 144,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 144,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 144,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 144,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 145,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 147,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 148,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 144,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 144,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 168,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 168,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 168,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 168,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 168,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 168,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 168,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 192,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 192,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 216,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 216,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 216,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 216,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 216,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 216,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 216,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 216,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 217,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 219,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 220,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 240,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 240,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 240,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 240,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 240,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 240,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 240,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 240,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 264,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 264,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 288,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 288,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 288,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 288,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 288,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 288,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 288,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 288,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 289,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 291,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 292,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 288,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 312,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 312,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 324,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 336,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 336,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 336,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 336,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 336,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 336,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 336,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 336,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 336,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 336,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 336,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 336,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 337,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 339,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 360,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 360,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 360,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 361,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 363,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 28,
+      "tick": 360,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 384,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 384,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 384,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 384,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 384,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 384,
+      "midi": 44,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 384,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 384,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 384,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 384,
+      "midi": 70,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 384,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 384,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 384,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 384,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 384,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 384,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 384,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 384,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 384,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 385,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 387,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 388,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 390,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 4,
+      "tick": 384,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 384,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 408,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 408,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 408,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 408,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 408,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 408,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 432,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 432,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 456,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 456,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 456,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 456,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 456,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 456,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 456,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 456,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 456,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 456,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 456,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 456,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 456,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 457,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 459,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 460,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 462,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 24,
+      "tick": 480,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 480,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 480,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 504,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 504,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 504,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 504,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 504,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 504,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 528,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 528,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 528,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 528,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 528,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 528,
+      "midi": 39,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 528,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 528,
+      "midi": 55,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 528,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 528,
+      "midi": 67,
+      "durationTicks": 192
+    },
+    {
+      "channel": 13,
+      "tick": 528,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 528,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 528,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 528,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 528,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 529,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 531,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 532,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 528,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 528,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 552,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 552,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 552,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 552,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 552,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 552,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 552,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 576,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 576,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 600,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 600,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 600,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 600,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 600,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 600,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 600,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 600,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 600,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 601,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 603,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 604,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 624,
+      "midi": 53,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 624,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 624,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 624,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 624,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 624,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 624,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 624,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 648,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 648,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 672,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 672,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 672,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 672,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 672,
+      "midi": 67,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 672,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 672,
+      "midi": 51,
+      "durationTicks": 46
+    },
+    {
+      "channel": 24,
+      "tick": 672,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 672,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 673,
+      "midi": 55,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 675,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 676,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 672,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 696,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 696,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 708,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 720,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 720,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 720,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 720,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 720,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 3,
+      "tick": 720,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 720,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 720,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 720,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 720,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 720,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 720,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 720,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 720,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 721,
+      "midi": 55,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 723,
+      "midi": 58,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 724,
+      "midi": 65,
+      "durationTicks": 18
+    },
+    {
+      "channel": 4,
+      "tick": 720,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 720,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 14,
+      "tick": 744,
+      "midi": 51,
+      "durationTicks": 24
+    },
+    {
+      "channel": 24,
+      "tick": 744,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 744,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 745,
+      "midi": 55,
+      "durationTicks": 23
+    },
+    {
+      "channel": 14,
+      "tick": 747,
+      "midi": 58,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 748,
+      "midi": 65,
+      "durationTicks": 20
+    },
+    {
+      "channel": 28,
+      "tick": 744,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 768,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 768,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 768,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 768,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 768,
+      "midi": 48,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 768,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 768,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 768,
+      "midi": 67,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 768,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 768,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 768,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 768,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 768,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 768,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 768,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 768,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 768,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 769,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 771,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 772,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 768,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 768,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 792,
+      "midi": 62,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 792,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 792,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 792,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 792,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 792,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 816,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 816,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 840,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 840,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 840,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 840,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 840,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 840,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 840,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 840,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 840,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 840,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 840,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 840,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 841,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 843,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 844,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 24,
+      "tick": 864,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 864,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 864,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 888,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 888,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 888,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 888,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 888,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 888,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 912,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 912,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 912,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 912,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 912,
+      "midi": 46,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 912,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 912,
+      "midi": 62,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 912,
+      "midi": 65,
+      "durationTicks": 240
+    },
+    {
+      "channel": 13,
+      "tick": 912,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 912,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 912,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 912,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 912,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 913,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 915,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 916,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 912,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 912,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 936,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 936,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 936,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 936,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 936,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 936,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 936,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 960,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 960,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 984,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 984,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 984,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 984,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 984,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 984,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 984,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 984,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 985,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 987,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 988,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 1008,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1008,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1008,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1008,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1008,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1008,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 1008,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1008,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1032,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1032,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1056,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1056,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1056,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1056,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1056,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1056,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 1056,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1056,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1057,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1059,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1060,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 1056,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1080,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1080,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 1092,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1104,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1104,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1104,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1104,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1104,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1104,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 1104,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1104,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1104,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1104,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1104,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1104,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1105,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1107,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 1128,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1128,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1128,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1129,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1131,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 28,
+      "tick": 1128,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1152,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1152,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1152,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1152,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1152,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 1152,
+      "midi": 44,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1152,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1152,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1152,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1152,
+      "midi": 70,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 1152,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1152,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1152,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1152,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1152,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1152,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 1152,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 1152,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1152,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1153,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1155,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1156,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 1158,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 4,
+      "tick": 1152,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1152,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1176,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1176,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1176,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1176,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1176,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1176,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1200,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1200,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1224,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1224,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1224,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1224,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1224,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 1224,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1224,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1224,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1224,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1224,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1224,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1224,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1224,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1225,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1227,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1228,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 1230,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 24,
+      "tick": 1248,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1248,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 1248,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1272,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1272,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1272,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1272,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1272,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1272,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1296,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1296,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1296,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1296,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1296,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 1296,
+      "midi": 39,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1296,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1296,
+      "midi": 55,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1296,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1296,
+      "midi": 67,
+      "durationTicks": 192
+    },
+    {
+      "channel": 13,
+      "tick": 1296,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1296,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 1296,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 1296,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1296,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1297,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1299,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1300,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 1296,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1296,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1320,
+      "midi": 53,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1320,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1320,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1320,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1320,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1320,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 1320,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1344,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1344,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1368,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1368,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1368,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1368,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1368,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 1368,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1368,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 1368,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1368,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1369,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1371,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1372,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 1392,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1392,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1392,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1392,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1392,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1392,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 1392,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1392,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1416,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1416,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1440,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1440,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1440,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1440,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1440,
+      "midi": 67,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1440,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1440,
+      "midi": 51,
+      "durationTicks": 46
+    },
+    {
+      "channel": 24,
+      "tick": 1440,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1440,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1441,
+      "midi": 55,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1443,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1444,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 1440,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1464,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1464,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 1476,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1488,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1488,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1488,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1488,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1488,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 3,
+      "tick": 1488,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1488,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1488,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 1488,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1488,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1488,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1488,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1488,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1488,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1489,
+      "midi": 55,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1491,
+      "midi": 58,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 1492,
+      "midi": 65,
+      "durationTicks": 18
+    },
+    {
+      "channel": 4,
+      "tick": 1488,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1488,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1512,
+      "midi": 51,
+      "durationTicks": 24
+    },
+    {
+      "channel": 24,
+      "tick": 1512,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1512,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1513,
+      "midi": 55,
+      "durationTicks": 23
+    },
+    {
+      "channel": 14,
+      "tick": 1515,
+      "midi": 58,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1516,
+      "midi": 65,
+      "durationTicks": 20
+    },
+    {
+      "channel": 28,
+      "tick": 1512,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1536,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1536,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1536,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1536,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 1536,
+      "midi": 48,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1536,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1536,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1536,
+      "midi": 67,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 1536,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1536,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1536,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1536,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1536,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1536,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 1536,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 1536,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1536,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1537,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1539,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1540,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 1536,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 11,
+      "tick": 1536,
+      "durationTicks": 746,
+      "file": "VFX2 Impacts 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 12,
+      "tick": 1536,
+      "durationTicks": 1425,
+      "file": "KSHMR_White_Noise_02_-_Exhaust.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 15,
+      "tick": 1536,
+      "durationTicks": 1536,
+      "file": "Ultrasonic - Future Bass Essentials - Downlifter 07.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 30,
+      "tick": 1536,
+      "durationTicks": 1536,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1536,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1560,
+      "midi": 62,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1560,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1560,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1560,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1560,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1560,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1584,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1584,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1608,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1608,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1608,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1608,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 1608,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1608,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1608,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1608,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1608,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1608,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1608,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1608,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1609,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1611,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1612,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 24,
+      "tick": 1632,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1632,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 1632,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1656,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1656,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1656,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1656,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1656,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1656,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1680,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1680,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1680,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1680,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 1680,
+      "midi": 46,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1680,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1680,
+      "midi": 62,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 1680,
+      "midi": 65,
+      "durationTicks": 240
+    },
+    {
+      "channel": 13,
+      "tick": 1680,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1680,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 1680,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 1680,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1680,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1681,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1683,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1684,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 1680,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1680,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1704,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1704,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1704,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1704,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1704,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1704,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 1704,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1728,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1728,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1752,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1752,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1752,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1752,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 1752,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1752,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 1752,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1752,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1753,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1755,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1756,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 1776,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1776,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1776,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1776,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1776,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1776,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 1776,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1776,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 9,
+      "tick": 1793,
+      "durationTicks": 1279,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1800,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1800,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1824,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1824,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1824,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1824,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1824,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1824,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 1824,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1824,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1825,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1827,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1828,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 1824,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1848,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1848,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 1860,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1872,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1872,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1872,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 1872,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 1872,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 1872,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 1872,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1872,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1872,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1872,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1872,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1872,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1873,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1875,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 16,
+      "tick": 1883,
+      "durationTicks": 1189,
+      "file": "Ultrasonic - Uplifter 08.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1896,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1896,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1896,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1897,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 1899,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 28,
+      "tick": 1896,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1920,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1920,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1920,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1920,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1920,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 1920,
+      "midi": 44,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1920,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1920,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1920,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 1920,
+      "midi": 70,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 1920,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1920,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1920,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1920,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1920,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1920,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 1920,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 1920,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1920,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1921,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1923,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1924,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 1926,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 4,
+      "tick": 1920,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 1920,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 1944,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1944,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1944,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1944,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1944,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1944,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 1968,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1968,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 1992,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1992,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1992,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1992,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 1992,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 1992,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 1992,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 1992,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 1992,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 1992,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 1992,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 1992,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 1992,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 1993,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 1995,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 1996,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 1998,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 24,
+      "tick": 2016,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2016,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 2016,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2040,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2040,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2040,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2040,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2040,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2040,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2064,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2064,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2064,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2064,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2064,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 2064,
+      "midi": 39,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2064,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2064,
+      "midi": 55,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2064,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2064,
+      "midi": 67,
+      "durationTicks": 192
+    },
+    {
+      "channel": 13,
+      "tick": 2064,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2064,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 2064,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 2064,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2064,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2065,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2067,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2068,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 2064,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2064,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2088,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2088,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2088,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2088,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2088,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2088,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 2088,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2112,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2112,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2136,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2136,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2136,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2136,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2136,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 2136,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2136,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 2136,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2136,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2137,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2139,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2140,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 2160,
+      "midi": 53,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2160,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2160,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2160,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2160,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2160,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 2160,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2160,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2184,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2184,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2208,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2208,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2208,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2208,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2208,
+      "midi": 67,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 2208,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 2208,
+      "midi": 51,
+      "durationTicks": 46
+    },
+    {
+      "channel": 24,
+      "tick": 2208,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2208,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2209,
+      "midi": 55,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2211,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2212,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 2208,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2232,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2232,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 2244,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2256,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2256,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2256,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2256,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2256,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 3,
+      "tick": 2256,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 2256,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 2256,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 2256,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2256,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2256,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2256,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2256,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2256,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2257,
+      "midi": 55,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 2259,
+      "midi": 58,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 2260,
+      "midi": 65,
+      "durationTicks": 18
+    },
+    {
+      "channel": 4,
+      "tick": 2256,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2256,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2280,
+      "midi": 51,
+      "durationTicks": 24
+    },
+    {
+      "channel": 24,
+      "tick": 2280,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2280,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2281,
+      "midi": 55,
+      "durationTicks": 23
+    },
+    {
+      "channel": 14,
+      "tick": 2283,
+      "midi": 58,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 2284,
+      "midi": 65,
+      "durationTicks": 20
+    },
+    {
+      "channel": 28,
+      "tick": 2280,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2304,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2304,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2304,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2304,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 2304,
+      "midi": 48,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2304,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2304,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2304,
+      "midi": 67,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 2304,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2304,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 2304,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2304,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2304,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2304,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 2304,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 2304,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2304,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2305,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2307,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2308,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 2304,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2304,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2328,
+      "midi": 62,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2328,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2328,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2328,
+      "midi": 74,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2328,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2328,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2352,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2352,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2376,
+      "midi": 48,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2376,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2376,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2376,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 2376,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2376,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 2376,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2376,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2376,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2376,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2376,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2376,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2377,
+      "midi": 60,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2379,
+      "midi": 63,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2380,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 24,
+      "tick": 2400,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2400,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 2400,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2424,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2424,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2424,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2424,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2424,
+      "midi": 36,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2424,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2448,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2448,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2448,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2448,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 2448,
+      "midi": 46,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2448,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2448,
+      "midi": 62,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2448,
+      "midi": 65,
+      "durationTicks": 240
+    },
+    {
+      "channel": 13,
+      "tick": 2448,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2448,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 2448,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 2448,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2448,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2449,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2451,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2452,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 2448,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2448,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2472,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2472,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2472,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2472,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2472,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2472,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 2472,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2496,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2496,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2520,
+      "midi": 46,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2520,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2520,
+      "midi": 62,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2520,
+      "midi": 65,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 2520,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2520,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 2520,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2520,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2521,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2523,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2524,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 2544,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2544,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2544,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2544,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2544,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2544,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 2544,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2544,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2568,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2568,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2592,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2592,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2592,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2592,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 2592,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 2592,
+      "midi": 53,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 2592,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2592,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2593,
+      "midi": 58,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2595,
+      "midi": 62,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2596,
+      "midi": 65,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 2592,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2616,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2616,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 2628,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2640,
+      "midi": 46,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2640,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2640,
+      "midi": 62,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2640,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 2640,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 2640,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 2640,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2640,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2640,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2640,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2640,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2640,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2641,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 2643,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 2664,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2664,
+      "midi": 34,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2664,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2665,
+      "midi": 56,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 2667,
+      "midi": 63,
+      "durationTicks": 19
+    },
+    {
+      "channel": 28,
+      "tick": 2664,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2688,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2688,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2688,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2688,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2688,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 2688,
+      "midi": 44,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2688,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2688,
+      "midi": 60,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2688,
+      "midi": 63,
+      "durationTicks": 144
+    },
+    {
+      "channel": 3,
+      "tick": 2688,
+      "midi": 70,
+      "durationTicks": 144
+    },
+    {
+      "channel": 13,
+      "tick": 2688,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2688,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 2688,
+      "midi": 60,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2688,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2688,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2688,
+      "midi": 72,
+      "durationTicks": 22
+    },
+    {
+      "channel": 23,
+      "tick": 2688,
+      "midi": 56,
+      "durationTicks": 144
+    },
+    {
+      "channel": 24,
+      "tick": 2688,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2688,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2689,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2691,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2692,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 2694,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 4,
+      "tick": 2688,
+      "durationTicks": 275,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2688,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2712,
+      "midi": 58,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2712,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2712,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2712,
+      "midi": 70,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2712,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2712,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2736,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2736,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2760,
+      "midi": 44,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2760,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2760,
+      "midi": 60,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2760,
+      "midi": 63,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2760,
+      "midi": 70,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 2760,
+      "midi": 56,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2760,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 19,
+      "tick": 2760,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2760,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2760,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2760,
+      "midi": 75,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2760,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2760,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2761,
+      "midi": 56,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2763,
+      "midi": 60,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2764,
+      "midi": 63,
+      "durationTicks": 44
+    },
+    {
+      "channel": 14,
+      "tick": 2766,
+      "midi": 70,
+      "durationTicks": 42
+    },
+    {
+      "channel": 24,
+      "tick": 2784,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2784,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 27,
+      "tick": 2784,
+      "durationTicks": 120,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2808,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2808,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2808,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2808,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2808,
+      "midi": 32,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2808,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2832,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2832,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2832,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2832,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2832,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 3,
+      "tick": 2832,
+      "midi": 39,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2832,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2832,
+      "midi": 55,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2832,
+      "midi": 58,
+      "durationTicks": 240
+    },
+    {
+      "channel": 3,
+      "tick": 2832,
+      "midi": 67,
+      "durationTicks": 192
+    },
+    {
+      "channel": 13,
+      "tick": 2832,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2832,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 23,
+      "tick": 2832,
+      "midi": 51,
+      "durationTicks": 240
+    },
+    {
+      "channel": 24,
+      "tick": 2832,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2832,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2833,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2835,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2836,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 4,
+      "tick": 2832,
+      "durationTicks": 240,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2832,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 19,
+      "tick": 2856,
+      "midi": 53,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2856,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2856,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2856,
+      "midi": 65,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2856,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2856,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 28,
+      "tick": 2856,
+      "durationTicks": 192,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2880,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2880,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2904,
+      "midi": 39,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2904,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2904,
+      "midi": 55,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2904,
+      "midi": 58,
+      "durationTicks": 72
+    },
+    {
+      "channel": 2,
+      "tick": 2904,
+      "midi": 67,
+      "durationTicks": 72
+    },
+    {
+      "channel": 13,
+      "tick": 2904,
+      "midi": 51,
+      "durationTicks": 72
+    },
+    {
+      "channel": 14,
+      "tick": 2904,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 24,
+      "tick": 2904,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2904,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2905,
+      "midi": 55,
+      "durationTicks": 47
+    },
+    {
+      "channel": 14,
+      "tick": 2907,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2908,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 19,
+      "tick": 2928,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 2928,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 2928,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 2928,
+      "midi": 63,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 2928,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2928,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 4,
+      "tick": 2928,
+      "durationTicks": 144,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 2928,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 2952,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2952,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 2976,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2976,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2976,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2976,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 2976,
+      "midi": 67,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 2976,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 2976,
+      "midi": 51,
+      "durationTicks": 46
+    },
+    {
+      "channel": 24,
+      "tick": 2976,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 2976,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 2977,
+      "midi": 55,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2979,
+      "midi": 58,
+      "durationTicks": 45
+    },
+    {
+      "channel": 14,
+      "tick": 2980,
+      "midi": 67,
+      "durationTicks": 44
+    },
+    {
+      "channel": 27,
+      "tick": 2976,
+      "durationTicks": 96,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 03.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 24,
+      "tick": 3000,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 3000,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 29,
+      "tick": 3012,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 2,
+      "tick": 3024,
+      "midi": 39,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 3024,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 3024,
+      "midi": 55,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 3024,
+      "midi": 58,
+      "durationTicks": 48
+    },
+    {
+      "channel": 2,
+      "tick": 3024,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 3,
+      "tick": 3024,
+      "midi": 65,
+      "durationTicks": 48
+    },
+    {
+      "channel": 13,
+      "tick": 3024,
+      "midi": 51,
+      "durationTicks": 48
+    },
+    {
+      "channel": 14,
+      "tick": 3024,
+      "midi": 51,
+      "durationTicks": 22
+    },
+    {
+      "channel": 19,
+      "tick": 3024,
+      "midi": 55,
+      "durationTicks": 22
+    },
+    {
+      "channel": 20,
+      "tick": 3024,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 21,
+      "tick": 3024,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 22,
+      "tick": 3024,
+      "midi": 67,
+      "durationTicks": 22
+    },
+    {
+      "channel": 24,
+      "tick": 3024,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 3024,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 3025,
+      "midi": 55,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 3027,
+      "midi": 58,
+      "durationTicks": 19
+    },
+    {
+      "channel": 14,
+      "tick": 3028,
+      "midi": 65,
+      "durationTicks": 18
+    },
+    {
+      "channel": 4,
+      "tick": 3024,
+      "durationTicks": 48,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Kick 12.wav",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 34,
+      "tick": 3024,
+      "durationTicks": 13,
+      "file": "KSHMR_Top_Kick_03.aif",
+      "offsetSeconds": 0
+    },
+    {
+      "channel": 14,
+      "tick": 3048,
+      "midi": 51,
+      "durationTicks": 24
+    },
+    {
+      "channel": 24,
+      "tick": 3048,
+      "midi": 39,
+      "durationTicks": 24
+    },
+    {
+      "channel": 29,
+      "tick": 3048,
+      "midi": 60,
+      "durationTicks": 0
+    },
+    {
+      "channel": 14,
+      "tick": 3049,
+      "midi": 55,
+      "durationTicks": 23
+    },
+    {
+      "channel": 14,
+      "tick": 3051,
+      "midi": 58,
+      "durationTicks": 21
+    },
+    {
+      "channel": 14,
+      "tick": 3052,
+      "midi": 65,
+      "durationTicks": 20
+    },
+    {
+      "channel": 28,
+      "tick": 3048,
+      "durationTicks": 24,
+      "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
+      "offsetSeconds": 0
+    }
+  ]
+}

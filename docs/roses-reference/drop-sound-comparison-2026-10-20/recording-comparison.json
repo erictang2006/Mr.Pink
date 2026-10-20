@@ -1,0 +1,104 @@
+{
+  "method": "Mono screen-recording audio captures. Equal-duration active windows; spectra normalized by total 100 Hz\u20138 kHz energy. Source instruments are not isolated. Noise floor estimated from initial 0.5 seconds.",
+  "clips": [
+    {
+      "clip": 1,
+      "musicStartSeconds": 1.45,
+      "durationAnalyzed": 7.2,
+      "rmsDb": -32.610441830794684,
+      "peakDb": -16.99403514576426,
+      "crestDb": 15.616406685030421,
+      "midBandEnvelopeP90P10Db": 12.271807127932847,
+      "centroid100to8kNoiseCorrectedHz": 1334.336193408985,
+      "bandDbRelativeTo100to8k": {
+        "sub": -8.674181084904962,
+        "body": -3.7277744250438904,
+        "low_mid": -6.146645085450392,
+        "presence": -5.8595588036030275,
+        "brightness": -11.316668450352669,
+        "air": -14.749077622887325
+      },
+      "noiseCorrectedBandDbRelativeTo100to8k": {
+        "sub": -9.454596276157453,
+        "body": -3.7423624324828095,
+        "low_mid": -6.151497011868602,
+        "presence": -5.838089934266142,
+        "brightness": -11.292809508931965,
+        "air": -14.724521152399316
+      },
+      "beatAlignedWindow": {
+        "startSeconds": 1.472,
+        "seconds": 7.2,
+        "bandDbRelativeTo100to8k": {
+          "body100to400": -3.679425004774637,
+          "presence1_5to4k": -5.9292826404525165,
+          "brightness4to8k": -11.378189270668857
+        }
+      }
+    },
+    {
+      "clip": 2,
+      "musicStartSeconds": 3.5100000000000002,
+      "durationAnalyzed": 7.2,
+      "rmsDb": -31.632400635090704,
+      "peakDb": -15.253145157956489,
+      "crestDb": 16.379255477134215,
+      "midBandEnvelopeP90P10Db": 11.979517659967238,
+      "centroid100to8kNoiseCorrectedHz": 467.12608596800214,
+      "bandDbRelativeTo100to8k": {
+        "sub": -5.79447791593259,
+        "body": -1.7440550212287507,
+        "low_mid": -5.831270458963813,
+        "presence": -12.122820613541743,
+        "brightness": -20.82784016234859,
+        "air": -28.640306938999526
+      },
+      "noiseCorrectedBandDbRelativeTo100to8k": {
+        "sub": -6.414354837852435,
+        "body": -1.7343971578582182,
+        "low_mid": -5.745536523477241,
+        "presence": -12.444937990943894,
+        "brightness": -22.25273288267794,
+        "air": -32.13308139820728
+      },
+      "beatAlignedWindow": {
+        "startSeconds": 3.529,
+        "seconds": 7.2,
+        "bandDbRelativeTo100to8k": {
+          "body100to400": -1.7482151818838154,
+          "presence1_5to4k": -12.171220435990438,
+          "brightness4to8k": -20.91231165037428
+        }
+      }
+    }
+  ],
+  "brightnessDifferenceDb": 10.959923373745974,
+  "caveats": [
+    "Both captures are mono with background noise; they are full mixes, not isolated chord stems.",
+    "The app capture visibly uses bass 100%, Original chords 81%, Here With Me lead disabled and Bonk disabled. User confirms drums enabled.",
+    "Reference-only vocal/effect content and recording response can also affect spectra; band differences are not a prescription for applying equal and opposite EQ.",
+    "Whole-mix crest factors are similar; a larger transient peak in the original is not established.",
+    "No claim of a by-ear or sound-identical Sylenth1/Massive reconstruction."
+  ],
+  "alignment": {
+    "method": "Shared original snare/clap one-shot waveform correlation at 8 kHz; first clap is beat 145, 0.6 seconds after bar 37.",
+    "bar37CaptureStarts": [
+      1.472,
+      3.529
+    ],
+    "periodBetweenDetectedClapsSeconds": 1.2
+  },
+  "sourceFiles": [
+    {
+      "path": "/Users/etang1/Desktop/Screen Recording 2026-10-20 at 11.54.21\u202fAM.mov",
+      "sha256": "dabafe2a3bb5afeef25ae0877dd0b98884d02db137156e75abad259c10c2456e",
+      "identity": "YouTube Ableton remake"
+    },
+    {
+      "path": "/Users/etang1/Desktop/Screen Recording 2026-10-20 at 11.54.43\u202fAM.mov",
+      "sha256": "cc0ca1c82ef47afa6c6260110e32535e78a3c371b7035bf34b6abeaa597f3460",
+      "identity": "Mr Pink local app"
+    }
+  ],
+  "beatAlignedBrightnessDifferenceDb": 9.534122379705424
+}

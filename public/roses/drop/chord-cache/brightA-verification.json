@@ -1,0 +1,1176 @@
+{
+  "mode": "brightA",
+  "track": 39,
+  "preset": {
+    "mode": "drop",
+    "closerMode": "loud",
+    "closerRelease": 0.12,
+    "body": 1,
+    "punch": 0.48,
+    "bass": 0.5,
+    "bonk": 0.35,
+    "space": 0.15,
+    "brightness": 5600,
+    "decay": 0.34,
+    "release": 0.32,
+    "output": 0.9,
+    "duck": false,
+    "bassEnabled": true
+  },
+  "loudnessMatchGain": 1.4272150423489707,
+  "seconds": 25.9,
+  "prerollRemovedSeconds": 0.1,
+  "renderWallSeconds": 11.076373666,
+  "peak": 1.1837574257313894,
+  "tail": 4.887916707310766e-11,
+  "finite": true,
+  "sourceHashes": {
+    "src/piano/rosesDropArrangement.json": "7763b2b06caa9d62c53f456165b79a1da40e93b628ac46f257736529908e06df",
+    "src/piano/rosesDropLayers.ts": "d0782273cc968b99527da74766966292c956af0c50a9a3822d6b6ac4d6ab4d17",
+    "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
+    "src/piano/brightDropChordProfile.ts": "73b1b2716ab612f494dabbc97696e658953ca4b934978dfbad5e0309427350bf",
+    "public/roses/drop/chord-cache/chordA.wav": "f2f45cdea7c8f40c883569298911c4da786dd1f87a6d029e9df759871b0b88ce",
+    "src/piano/rosesDropSettings.ts": "1e110841d0dd2ade970561a51ad58f82afacaca63f6a76e01d711a7777079cf2",
+    "src/piano/noteMapping.ts": "c002368d092d0e1642d11ea66e3727f6733f73a73676857582f85f27bd89e8fa",
+    "package-lock.json": "e5f7927acc45e43deed4b98b57981cbf2e4f396ac19b6d48ca9cfbd2cab511d0"
+  },
+  "notes": [
+    {
+      "beat": 144,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 92,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 144,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 92,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 144,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 92,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 144,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 92,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 145,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 145.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 145.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 145.5,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 145.5,
+      "duration": 0.375,
+      "midi": 68,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 146,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 146,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 146,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 146,
+      "duration": 0.375,
+      "midi": 61,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 147.5,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 147.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 147.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 147.5,
+      "duration": 0.375,
+      "midi": 59,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 148,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 148,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 148,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 148,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 149,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 149,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 149,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 149,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 150.5,
+      "duration": 0.375,
+      "midi": 63,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 151.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 151.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 151.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 152,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 152,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 152,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 152,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 153,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 153.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 153.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 153.5,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 153.5,
+      "duration": 0.375,
+      "midi": 68,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 154,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 154,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 154,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 154,
+      "duration": 0.375,
+      "midi": 61,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 155.5,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 155.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 155.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 155.5,
+      "duration": 0.375,
+      "midi": 59,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 156,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 156,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 156,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 156,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 157.5,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 158.5,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 161,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 161.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 161.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 161.5,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 161.5,
+      "duration": 0.375,
+      "midi": 68,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 162,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 162,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 162,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 162,
+      "duration": 0.375,
+      "midi": 61,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 163.5,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 163.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 163.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 163.5,
+      "duration": 0.375,
+      "midi": 59,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 164,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 164,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 164,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 164,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 165,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 165,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 165,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 165,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 166.5,
+      "duration": 0.375,
+      "midi": 63,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 167.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 167.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 167.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 168,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 168,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 168,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 168,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 169,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 169.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 169.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 169.5,
+      "duration": 0.375,
+      "midi": 56,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 169.5,
+      "duration": 0.375,
+      "midi": 68,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 170,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 170,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 170,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 170,
+      "duration": 0.375,
+      "midi": 61,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 171.5,
+      "duration": 0.375,
+      "midi": 45,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 171.5,
+      "duration": 0.375,
+      "midi": 49,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 171.5,
+      "duration": 0.375,
+      "midi": 52,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 171.5,
+      "duration": 0.375,
+      "midi": 59,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 172,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 172,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 172,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 172,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 173.5,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174.5,
+      "duration": 0.375,
+      "midi": 40,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174.5,
+      "duration": 0.375,
+      "midi": 44,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174.5,
+      "duration": 0.375,
+      "midi": 47,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    },
+    {
+      "beat": 174.5,
+      "duration": 0.375,
+      "midi": 64,
+      "velocity": 91,
+      "track": 39,
+      "group": "chords"
+    }
+  ],
+  "audioSha256": "4fa6e77f3f3e1cfaf4c40d4f758ae03245bbd02747de094972119905b6d291ca"
+}

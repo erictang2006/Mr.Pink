@@ -1,0 +1,106 @@
+{
+  "source_sha256": "d6ee043078649854508c3e1677d47b9d2d51e70b4f3986d8cf2cc890309d4daf",
+  "method": "Recorded Vox fundamental verification against clip-bounded reference MIDI, shifted +3 semitones to match the actual audio. Note gates use the reference quarter-beat lengths; audio reverb tails are not extra notes.",
+  "tempo": 100,
+  "notes": [
+    {
+      "beat": 0.5,
+      "duration": 0.25,
+      "midi": 73,
+      "measured_fundamental_hz": 554.48
+    },
+    {
+      "beat": 0.75,
+      "duration": 0.25,
+      "midi": 71,
+      "measured_fundamental_hz": 493.918
+    },
+    {
+      "beat": 1.5,
+      "duration": 0.25,
+      "midi": 71,
+      "measured_fundamental_hz": 493.918
+    },
+    {
+      "beat": 2.0,
+      "duration": 0.25,
+      "midi": 68,
+      "measured_fundamental_hz": 414.514
+    },
+    {
+      "beat": 2.5,
+      "duration": 0.25,
+      "midi": 68,
+      "measured_fundamental_hz": 414.514
+    },
+    {
+      "beat": 2.75,
+      "duration": 0.25,
+      "midi": 66,
+      "measured_fundamental_hz": 370.102
+    },
+    {
+      "beat": 3.5,
+      "duration": 0.25,
+      "midi": 64,
+      "measured_fundamental_hz": 328.381
+    },
+    {
+      "beat": 8.5,
+      "duration": 0.25,
+      "midi": 73,
+      "measured_fundamental_hz": 554.48
+    },
+    {
+      "beat": 8.75,
+      "duration": 0.25,
+      "midi": 71,
+      "measured_fundamental_hz": 493.918
+    },
+    {
+      "beat": 9.5,
+      "duration": 0.25,
+      "midi": 71,
+      "measured_fundamental_hz": 493.918
+    },
+    {
+      "beat": 10.0,
+      "duration": 0.25,
+      "midi": 68,
+      "measured_fundamental_hz": 414.514
+    },
+    {
+      "beat": 10.5,
+      "duration": 0.25,
+      "midi": 68,
+      "measured_fundamental_hz": 414.514
+    },
+    {
+      "beat": 10.75,
+      "duration": 0.25,
+      "midi": 66,
+      "measured_fundamental_hz": 370.102
+    },
+    {
+      "beat": 11.5,
+      "duration": 0.25,
+      "midi": 64,
+      "measured_fundamental_hz": 328.381
+    },
+    {
+      "beat": 12.5,
+      "duration": 0.25,
+      "midi": 63,
+      "measured_fundamental_hz": 310.886
+    },
+    {
+      "beat": 13.5,
+      "duration": 0.25,
+      "midi": 59,
+      "measured_fundamental_hz": 244.94
+    }
+  ],
+  "stab_source_sha256": "1cba38bfff66322a6c70c0b6ae235b6e02e10db59ffe43dcfe5efb5afda7ae83",
+  "stab_note_sha256": "28ab83926b81d67f8e5759bae0623d60802b9a7f5682a450ba7aa76a33b4b1e2",
+  "stab_method": "E4 harmonic-envelope reconstruction from the recorded A-minor hit. Polyphonic harmonic overlaps make this a timbre approximation, not source separation."
+}

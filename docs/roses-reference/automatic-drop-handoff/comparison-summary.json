@@ -1,0 +1,137 @@
+{
+  "renderer": "Real Tone.js on native OfflineAudioContext; browser unavailable; device listening not verified",
+  "cases": [
+    {
+      "startBar": 29,
+      "backingMode": "hwm-build",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -10.159831038578776,
+      "rmsDb": -31.38457487829853
+    },
+    {
+      "startBar": 29,
+      "backingMode": "hwm-drop",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -10.159831038578776,
+      "rmsDb": -31.368786077007158
+    },
+    {
+      "startBar": 29,
+      "backingMode": "roses",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -10.159831038578776,
+      "rmsDb": -31.13189052599864
+    },
+    {
+      "startBar": 25,
+      "backingMode": "hwm-build",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -11.023598875072079,
+      "rmsDb": -31.18467459340267
+    },
+    {
+      "startBar": 25,
+      "backingMode": "hwm-drop",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -11.023598875072079,
+      "rmsDb": -31.169376134925596
+    },
+    {
+      "startBar": 25,
+      "backingMode": "roses",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -11.023598875072079,
+      "rmsDb": -30.943708152051848
+    },
+    {
+      "startBar": 1,
+      "backingMode": "roses",
+      "dropEvents": 224,
+      "dropBassEvents": 35,
+      "dropChordTracks": 4,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "bar37Attacks": 4,
+      "finite": true,
+      "peakDb": -11.023597954104511,
+      "rmsDb": -33.86605976212018
+    }
+  ],
+  "earlierArrangementChecks": [
+    {
+      "backingMode": "roses",
+      "region": "Start Bar 25 through the beginning of bar 37",
+      "identicalToPreviousLeadOnlyAudition": true,
+      "currentPcmSha256": "4414e16db28e17e543845606d485756004e87ec5fa1285bf60f190bfc069e449"
+    },
+    {
+      "backingMode": "hwm-build",
+      "region": "Start Bar 25 through the beginning of bar 37",
+      "identicalToPreviousLeadOnlyAudition": true,
+      "currentPcmSha256": "9d18d3aad3c37b3155d16e494603df37f4e314cac1fa28c9956d35a7bf24282e"
+    },
+    {
+      "backingMode": "hwm-drop",
+      "region": "Start Bar 25 through the beginning of bar 37",
+      "identicalToPreviousLeadOnlyAudition": true,
+      "currentPcmSha256": "7bf5061a4250c9bb333167b3fa85d06de8bd8358e65c204b1ae59da957ee8292"
+    }
+  ]
+}

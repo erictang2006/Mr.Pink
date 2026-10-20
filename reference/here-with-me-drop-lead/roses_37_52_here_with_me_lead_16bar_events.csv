@@ -1,0 +1,449 @@
+track_channel,track_name,repeat_index,target_bar,within_bar_tick,start_tick_relative_to_rose_bar37,duration_ticks,midi_pitch,velocity_raw,start_seconds_relative_to_rose_bar37,absolute_roses_transport_seconds,duration_seconds
+19,Lead 1 — Spire — lower octave,0,37,0,0,22,63,76,0.0,86.4,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,0,0,22,75,76,0.0,86.4,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,0,0,22,75,76,0.0,86.4,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,0,0,22,75,76,0.0,86.4,0.1375
+19,Lead 1 — Spire — lower octave,0,37,24,24,22,62,76,0.15,86.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,24,24,22,74,76,0.15,86.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,24,24,22,74,76,0.15,86.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,24,24,22,74,76,0.15,86.55,0.1375
+19,Lead 1 — Spire — lower octave,0,37,72,72,22,58,76,0.45,86.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,72,72,22,70,76,0.45,86.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,72,72,22,70,76,0.45,86.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,72,72,22,70,76,0.45,86.85,0.1375
+19,Lead 1 — Spire — lower octave,0,37,120,120,22,55,76,0.75,87.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,120,120,22,67,76,0.75,87.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,120,120,22,67,76,0.75,87.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,120,120,22,67,76,0.75,87.15,0.1375
+19,Lead 1 — Spire — lower octave,0,37,168,168,22,58,76,1.05,87.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,168,168,22,70,76,1.05,87.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,168,168,22,70,76,1.05,87.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,168,168,22,70,76,1.05,87.45,0.1375
+19,Lead 1 — Spire — lower octave,0,37,240,240,22,60,76,1.5,87.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,240,240,22,72,76,1.5,87.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,240,240,22,72,76,1.5,87.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,240,240,22,72,76,1.5,87.9,0.1375
+19,Lead 1 — Spire — lower octave,0,37,336,336,22,60,76,2.1,88.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,37,336,336,22,72,76,2.1,88.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,37,336,336,22,72,76,2.1,88.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,37,336,336,22,72,76,2.1,88.5,0.1375
+19,Lead 1 — Spire — lower octave,0,38,0,384,22,58,76,2.4,88.8,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,0,384,22,70,76,2.4,88.8,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,0,384,22,70,76,2.4,88.8,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,0,384,22,70,76,2.4,88.8,0.1375
+19,Lead 1 — Spire — lower octave,0,38,24,408,22,60,76,2.55,88.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,24,408,22,72,76,2.55,88.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,24,408,22,72,76,2.55,88.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,24,408,22,72,76,2.55,88.95,0.1375
+19,Lead 1 — Spire — lower octave,0,38,72,456,22,58,76,2.85,89.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,72,456,22,70,76,2.85,89.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,72,456,22,70,76,2.85,89.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,72,456,22,70,76,2.85,89.25,0.1375
+19,Lead 1 — Spire — lower octave,0,38,120,504,22,55,76,3.15,89.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,120,504,22,67,76,3.15,89.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,120,504,22,67,76,3.15,89.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,120,504,22,67,76,3.15,89.55,0.1375
+19,Lead 1 — Spire — lower octave,0,38,168,552,22,55,76,3.45,89.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,168,552,22,67,76,3.45,89.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,168,552,22,67,76,3.45,89.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,168,552,22,67,76,3.45,89.85,0.1375
+19,Lead 1 — Spire — lower octave,0,38,240,624,22,53,76,3.9,90.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,240,624,22,65,76,3.9,90.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,240,624,22,65,76,3.9,90.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,240,624,22,65,76,3.9,90.3,0.1375
+19,Lead 1 — Spire — lower octave,0,38,336,720,22,51,76,4.5,90.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,38,336,720,22,63,76,4.5,90.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,38,336,720,22,63,76,4.5,90.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,38,336,720,22,63,76,4.5,90.9,0.1375
+19,Lead 1 — Spire — lower octave,0,39,0,768,22,63,76,4.8,91.2,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,0,768,22,75,76,4.8,91.2,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,0,768,22,75,76,4.8,91.2,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,0,768,22,75,76,4.8,91.2,0.1375
+19,Lead 1 — Spire — lower octave,0,39,24,792,22,62,76,4.95,91.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,24,792,22,74,76,4.95,91.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,24,792,22,74,76,4.95,91.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,24,792,22,74,76,4.95,91.35,0.1375
+19,Lead 1 — Spire — lower octave,0,39,72,840,22,58,76,5.25,91.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,72,840,22,70,76,5.25,91.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,72,840,22,70,76,5.25,91.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,72,840,22,70,76,5.25,91.65,0.1375
+19,Lead 1 — Spire — lower octave,0,39,120,888,22,55,76,5.55,91.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,120,888,22,67,76,5.55,91.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,120,888,22,67,76,5.55,91.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,120,888,22,67,76,5.55,91.95,0.1375
+19,Lead 1 — Spire — lower octave,0,39,168,936,22,58,76,5.85,92.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,168,936,22,70,76,5.85,92.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,168,936,22,70,76,5.85,92.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,168,936,22,70,76,5.85,92.25,0.1375
+19,Lead 1 — Spire — lower octave,0,39,240,1008,22,60,76,6.3,92.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,240,1008,22,72,76,6.3,92.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,240,1008,22,72,76,6.3,92.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,240,1008,22,72,76,6.3,92.7,0.1375
+19,Lead 1 — Spire — lower octave,0,39,336,1104,22,60,76,6.9,93.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,39,336,1104,22,72,76,6.9,93.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,39,336,1104,22,72,76,6.9,93.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,39,336,1104,22,72,76,6.9,93.3,0.1375
+19,Lead 1 — Spire — lower octave,0,40,0,1152,22,60,76,7.2,93.6,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,0,1152,22,72,76,7.2,93.6,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,0,1152,22,72,76,7.2,93.6,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,0,1152,22,72,76,7.2,93.6,0.1375
+19,Lead 1 — Spire — lower octave,0,40,24,1176,22,58,76,7.35,93.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,24,1176,22,70,76,7.35,93.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,24,1176,22,70,76,7.35,93.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,24,1176,22,70,76,7.35,93.75,0.1375
+19,Lead 1 — Spire — lower octave,0,40,72,1224,22,63,76,7.65,94.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,72,1224,22,75,76,7.65,94.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,72,1224,22,75,76,7.65,94.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,72,1224,22,75,76,7.65,94.05,0.1375
+19,Lead 1 — Spire — lower octave,0,40,120,1272,22,55,76,7.95,94.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,120,1272,22,67,76,7.95,94.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,120,1272,22,67,76,7.95,94.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,120,1272,22,67,76,7.95,94.35,0.1375
+19,Lead 1 — Spire — lower octave,0,40,168,1320,22,53,76,8.25,94.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,168,1320,22,65,76,8.25,94.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,168,1320,22,65,76,8.25,94.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,168,1320,22,65,76,8.25,94.65,0.1375
+19,Lead 1 — Spire — lower octave,0,40,240,1392,22,51,76,8.7,95.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,240,1392,22,63,76,8.7,95.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,240,1392,22,63,76,8.7,95.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,240,1392,22,63,76,8.7,95.1,0.1375
+19,Lead 1 — Spire — lower octave,0,40,336,1488,22,55,76,9.3,95.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,0,40,336,1488,22,67,76,9.3,95.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,0,40,336,1488,22,67,76,9.3,95.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,0,40,336,1488,22,67,76,9.3,95.7,0.1375
+19,Lead 1 — Spire — lower octave,1,41,0,1536,22,63,76,9.6,96.0,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,0,1536,22,75,76,9.6,96.0,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,0,1536,22,75,76,9.6,96.0,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,0,1536,22,75,76,9.6,96.0,0.1375
+19,Lead 1 — Spire — lower octave,1,41,24,1560,22,62,76,9.75,96.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,24,1560,22,74,76,9.75,96.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,24,1560,22,74,76,9.75,96.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,24,1560,22,74,76,9.75,96.15,0.1375
+19,Lead 1 — Spire — lower octave,1,41,72,1608,22,58,76,10.05,96.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,72,1608,22,70,76,10.05,96.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,72,1608,22,70,76,10.05,96.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,72,1608,22,70,76,10.05,96.45,0.1375
+19,Lead 1 — Spire — lower octave,1,41,120,1656,22,55,76,10.35,96.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,120,1656,22,67,76,10.35,96.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,120,1656,22,67,76,10.35,96.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,120,1656,22,67,76,10.35,96.75,0.1375
+19,Lead 1 — Spire — lower octave,1,41,168,1704,22,58,76,10.65,97.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,168,1704,22,70,76,10.65,97.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,168,1704,22,70,76,10.65,97.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,168,1704,22,70,76,10.65,97.05,0.1375
+19,Lead 1 — Spire — lower octave,1,41,240,1776,22,60,76,11.1,97.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,240,1776,22,72,76,11.1,97.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,240,1776,22,72,76,11.1,97.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,240,1776,22,72,76,11.1,97.5,0.1375
+19,Lead 1 — Spire — lower octave,1,41,336,1872,22,60,76,11.7,98.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,41,336,1872,22,72,76,11.7,98.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,41,336,1872,22,72,76,11.7,98.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,41,336,1872,22,72,76,11.7,98.1,0.1375
+19,Lead 1 — Spire — lower octave,1,42,0,1920,22,58,76,12.0,98.4,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,0,1920,22,70,76,12.0,98.4,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,0,1920,22,70,76,12.0,98.4,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,0,1920,22,70,76,12.0,98.4,0.1375
+19,Lead 1 — Spire — lower octave,1,42,24,1944,22,60,76,12.15,98.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,24,1944,22,72,76,12.15,98.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,24,1944,22,72,76,12.15,98.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,24,1944,22,72,76,12.15,98.55,0.1375
+19,Lead 1 — Spire — lower octave,1,42,72,1992,22,58,76,12.45,98.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,72,1992,22,70,76,12.45,98.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,72,1992,22,70,76,12.45,98.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,72,1992,22,70,76,12.45,98.85,0.1375
+19,Lead 1 — Spire — lower octave,1,42,120,2040,22,55,76,12.75,99.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,120,2040,22,67,76,12.75,99.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,120,2040,22,67,76,12.75,99.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,120,2040,22,67,76,12.75,99.15,0.1375
+19,Lead 1 — Spire — lower octave,1,42,168,2088,22,55,76,13.05,99.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,168,2088,22,67,76,13.05,99.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,168,2088,22,67,76,13.05,99.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,168,2088,22,67,76,13.05,99.45,0.1375
+19,Lead 1 — Spire — lower octave,1,42,240,2160,22,53,76,13.5,99.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,240,2160,22,65,76,13.5,99.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,240,2160,22,65,76,13.5,99.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,240,2160,22,65,76,13.5,99.9,0.1375
+19,Lead 1 — Spire — lower octave,1,42,336,2256,22,51,76,14.1,100.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,42,336,2256,22,63,76,14.1,100.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,42,336,2256,22,63,76,14.1,100.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,42,336,2256,22,63,76,14.1,100.5,0.1375
+19,Lead 1 — Spire — lower octave,1,43,0,2304,22,63,76,14.4,100.8,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,0,2304,22,75,76,14.4,100.8,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,0,2304,22,75,76,14.4,100.8,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,0,2304,22,75,76,14.4,100.8,0.1375
+19,Lead 1 — Spire — lower octave,1,43,24,2328,22,62,76,14.55,100.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,24,2328,22,74,76,14.55,100.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,24,2328,22,74,76,14.55,100.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,24,2328,22,74,76,14.55,100.95,0.1375
+19,Lead 1 — Spire — lower octave,1,43,72,2376,22,58,76,14.85,101.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,72,2376,22,70,76,14.85,101.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,72,2376,22,70,76,14.85,101.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,72,2376,22,70,76,14.85,101.25,0.1375
+19,Lead 1 — Spire — lower octave,1,43,120,2424,22,55,76,15.15,101.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,120,2424,22,67,76,15.15,101.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,120,2424,22,67,76,15.15,101.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,120,2424,22,67,76,15.15,101.55,0.1375
+19,Lead 1 — Spire — lower octave,1,43,168,2472,22,58,76,15.45,101.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,168,2472,22,70,76,15.45,101.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,168,2472,22,70,76,15.45,101.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,168,2472,22,70,76,15.45,101.85,0.1375
+19,Lead 1 — Spire — lower octave,1,43,240,2544,22,60,76,15.9,102.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,240,2544,22,72,76,15.9,102.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,240,2544,22,72,76,15.9,102.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,240,2544,22,72,76,15.9,102.3,0.1375
+19,Lead 1 — Spire — lower octave,1,43,336,2640,22,60,76,16.5,102.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,43,336,2640,22,72,76,16.5,102.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,43,336,2640,22,72,76,16.5,102.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,43,336,2640,22,72,76,16.5,102.9,0.1375
+19,Lead 1 — Spire — lower octave,1,44,0,2688,22,60,76,16.8,103.2,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,0,2688,22,72,76,16.8,103.2,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,0,2688,22,72,76,16.8,103.2,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,0,2688,22,72,76,16.8,103.2,0.1375
+19,Lead 1 — Spire — lower octave,1,44,24,2712,22,58,76,16.95,103.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,24,2712,22,70,76,16.95,103.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,24,2712,22,70,76,16.95,103.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,24,2712,22,70,76,16.95,103.35,0.1375
+19,Lead 1 — Spire — lower octave,1,44,72,2760,22,63,76,17.25,103.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,72,2760,22,75,76,17.25,103.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,72,2760,22,75,76,17.25,103.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,72,2760,22,75,76,17.25,103.65,0.1375
+19,Lead 1 — Spire — lower octave,1,44,120,2808,22,55,76,17.55,103.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,120,2808,22,67,76,17.55,103.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,120,2808,22,67,76,17.55,103.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,120,2808,22,67,76,17.55,103.95,0.1375
+19,Lead 1 — Spire — lower octave,1,44,168,2856,22,53,76,17.85,104.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,168,2856,22,65,76,17.85,104.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,168,2856,22,65,76,17.85,104.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,168,2856,22,65,76,17.85,104.25,0.1375
+19,Lead 1 — Spire — lower octave,1,44,240,2928,22,51,76,18.3,104.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,240,2928,22,63,76,18.3,104.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,240,2928,22,63,76,18.3,104.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,240,2928,22,63,76,18.3,104.7,0.1375
+19,Lead 1 — Spire — lower octave,1,44,336,3024,22,55,76,18.9,105.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,1,44,336,3024,22,67,76,18.9,105.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,1,44,336,3024,22,67,76,18.9,105.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,1,44,336,3024,22,67,76,18.9,105.3,0.1375
+19,Lead 1 — Spire — lower octave,2,45,0,3072,22,63,76,19.2,105.6,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,0,3072,22,75,76,19.2,105.6,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,0,3072,22,75,76,19.2,105.6,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,0,3072,22,75,76,19.2,105.6,0.1375
+19,Lead 1 — Spire — lower octave,2,45,24,3096,22,62,76,19.35,105.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,24,3096,22,74,76,19.35,105.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,24,3096,22,74,76,19.35,105.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,24,3096,22,74,76,19.35,105.75,0.1375
+19,Lead 1 — Spire — lower octave,2,45,72,3144,22,58,76,19.65,106.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,72,3144,22,70,76,19.65,106.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,72,3144,22,70,76,19.65,106.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,72,3144,22,70,76,19.65,106.05,0.1375
+19,Lead 1 — Spire — lower octave,2,45,120,3192,22,55,76,19.95,106.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,120,3192,22,67,76,19.95,106.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,120,3192,22,67,76,19.95,106.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,120,3192,22,67,76,19.95,106.35,0.1375
+19,Lead 1 — Spire — lower octave,2,45,168,3240,22,58,76,20.25,106.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,168,3240,22,70,76,20.25,106.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,168,3240,22,70,76,20.25,106.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,168,3240,22,70,76,20.25,106.65,0.1375
+19,Lead 1 — Spire — lower octave,2,45,240,3312,22,60,76,20.7,107.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,240,3312,22,72,76,20.7,107.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,240,3312,22,72,76,20.7,107.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,240,3312,22,72,76,20.7,107.1,0.1375
+19,Lead 1 — Spire — lower octave,2,45,336,3408,22,60,76,21.3,107.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,45,336,3408,22,72,76,21.3,107.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,45,336,3408,22,72,76,21.3,107.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,45,336,3408,22,72,76,21.3,107.7,0.1375
+19,Lead 1 — Spire — lower octave,2,46,0,3456,22,58,76,21.6,108.0,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,0,3456,22,70,76,21.6,108.0,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,0,3456,22,70,76,21.6,108.0,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,0,3456,22,70,76,21.6,108.0,0.1375
+19,Lead 1 — Spire — lower octave,2,46,24,3480,22,60,76,21.75,108.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,24,3480,22,72,76,21.75,108.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,24,3480,22,72,76,21.75,108.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,24,3480,22,72,76,21.75,108.15,0.1375
+19,Lead 1 — Spire — lower octave,2,46,72,3528,22,58,76,22.05,108.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,72,3528,22,70,76,22.05,108.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,72,3528,22,70,76,22.05,108.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,72,3528,22,70,76,22.05,108.45,0.1375
+19,Lead 1 — Spire — lower octave,2,46,120,3576,22,55,76,22.35,108.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,120,3576,22,67,76,22.35,108.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,120,3576,22,67,76,22.35,108.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,120,3576,22,67,76,22.35,108.75,0.1375
+19,Lead 1 — Spire — lower octave,2,46,168,3624,22,55,76,22.65,109.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,168,3624,22,67,76,22.65,109.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,168,3624,22,67,76,22.65,109.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,168,3624,22,67,76,22.65,109.05,0.1375
+19,Lead 1 — Spire — lower octave,2,46,240,3696,22,53,76,23.1,109.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,240,3696,22,65,76,23.1,109.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,240,3696,22,65,76,23.1,109.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,240,3696,22,65,76,23.1,109.5,0.1375
+19,Lead 1 — Spire — lower octave,2,46,336,3792,22,51,76,23.7,110.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,46,336,3792,22,63,76,23.7,110.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,46,336,3792,22,63,76,23.7,110.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,46,336,3792,22,63,76,23.7,110.1,0.1375
+19,Lead 1 — Spire — lower octave,2,47,0,3840,22,63,76,24.0,110.4,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,0,3840,22,75,76,24.0,110.4,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,0,3840,22,75,76,24.0,110.4,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,0,3840,22,75,76,24.0,110.4,0.1375
+19,Lead 1 — Spire — lower octave,2,47,24,3864,22,62,76,24.15,110.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,24,3864,22,74,76,24.15,110.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,24,3864,22,74,76,24.15,110.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,24,3864,22,74,76,24.15,110.55,0.1375
+19,Lead 1 — Spire — lower octave,2,47,72,3912,22,58,76,24.45,110.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,72,3912,22,70,76,24.45,110.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,72,3912,22,70,76,24.45,110.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,72,3912,22,70,76,24.45,110.85,0.1375
+19,Lead 1 — Spire — lower octave,2,47,120,3960,22,55,76,24.75,111.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,120,3960,22,67,76,24.75,111.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,120,3960,22,67,76,24.75,111.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,120,3960,22,67,76,24.75,111.15,0.1375
+19,Lead 1 — Spire — lower octave,2,47,168,4008,22,58,76,25.05,111.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,168,4008,22,70,76,25.05,111.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,168,4008,22,70,76,25.05,111.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,168,4008,22,70,76,25.05,111.45,0.1375
+19,Lead 1 — Spire — lower octave,2,47,240,4080,22,60,76,25.5,111.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,240,4080,22,72,76,25.5,111.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,240,4080,22,72,76,25.5,111.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,240,4080,22,72,76,25.5,111.9,0.1375
+19,Lead 1 — Spire — lower octave,2,47,336,4176,22,60,76,26.1,112.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,47,336,4176,22,72,76,26.1,112.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,47,336,4176,22,72,76,26.1,112.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,47,336,4176,22,72,76,26.1,112.5,0.1375
+19,Lead 1 — Spire — lower octave,2,48,0,4224,22,60,76,26.4,112.8,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,0,4224,22,72,76,26.4,112.8,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,0,4224,22,72,76,26.4,112.8,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,0,4224,22,72,76,26.4,112.8,0.1375
+19,Lead 1 — Spire — lower octave,2,48,24,4248,22,58,76,26.55,112.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,24,4248,22,70,76,26.55,112.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,24,4248,22,70,76,26.55,112.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,24,4248,22,70,76,26.55,112.95,0.1375
+19,Lead 1 — Spire — lower octave,2,48,72,4296,22,63,76,26.85,113.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,72,4296,22,75,76,26.85,113.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,72,4296,22,75,76,26.85,113.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,72,4296,22,75,76,26.85,113.25,0.1375
+19,Lead 1 — Spire — lower octave,2,48,120,4344,22,55,76,27.15,113.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,120,4344,22,67,76,27.15,113.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,120,4344,22,67,76,27.15,113.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,120,4344,22,67,76,27.15,113.55,0.1375
+19,Lead 1 — Spire — lower octave,2,48,168,4392,22,53,76,27.45,113.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,168,4392,22,65,76,27.45,113.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,168,4392,22,65,76,27.45,113.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,168,4392,22,65,76,27.45,113.85,0.1375
+19,Lead 1 — Spire — lower octave,2,48,240,4464,22,51,76,27.9,114.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,240,4464,22,63,76,27.9,114.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,240,4464,22,63,76,27.9,114.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,240,4464,22,63,76,27.9,114.3,0.1375
+19,Lead 1 — Spire — lower octave,2,48,336,4560,22,55,76,28.5,114.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,2,48,336,4560,22,67,76,28.5,114.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,2,48,336,4560,22,67,76,28.5,114.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,2,48,336,4560,22,67,76,28.5,114.9,0.1375
+19,Lead 1 — Spire — lower octave,3,49,0,4608,22,63,76,28.8,115.2,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,0,4608,22,75,76,28.8,115.2,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,0,4608,22,75,76,28.8,115.2,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,0,4608,22,75,76,28.8,115.2,0.1375
+19,Lead 1 — Spire — lower octave,3,49,24,4632,22,62,76,28.95,115.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,24,4632,22,74,76,28.95,115.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,24,4632,22,74,76,28.95,115.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,24,4632,22,74,76,28.95,115.35,0.1375
+19,Lead 1 — Spire — lower octave,3,49,72,4680,22,58,76,29.25,115.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,72,4680,22,70,76,29.25,115.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,72,4680,22,70,76,29.25,115.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,72,4680,22,70,76,29.25,115.65,0.1375
+19,Lead 1 — Spire — lower octave,3,49,120,4728,22,55,76,29.55,115.95,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,120,4728,22,67,76,29.55,115.95,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,120,4728,22,67,76,29.55,115.95,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,120,4728,22,67,76,29.55,115.95,0.1375
+19,Lead 1 — Spire — lower octave,3,49,168,4776,22,58,76,29.85,116.25,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,168,4776,22,70,76,29.85,116.25,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,168,4776,22,70,76,29.85,116.25,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,168,4776,22,70,76,29.85,116.25,0.1375
+19,Lead 1 — Spire — lower octave,3,49,240,4848,22,60,76,30.3,116.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,240,4848,22,72,76,30.3,116.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,240,4848,22,72,76,30.3,116.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,240,4848,22,72,76,30.3,116.7,0.1375
+19,Lead 1 — Spire — lower octave,3,49,336,4944,22,60,76,30.9,117.3,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,49,336,4944,22,72,76,30.9,117.3,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,49,336,4944,22,72,76,30.9,117.3,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,49,336,4944,22,72,76,30.9,117.3,0.1375
+19,Lead 1 — Spire — lower octave,3,50,0,4992,22,58,76,31.2,117.6,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,0,4992,22,70,76,31.2,117.6,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,0,4992,22,70,76,31.2,117.6,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,0,4992,22,70,76,31.2,117.6,0.1375
+19,Lead 1 — Spire — lower octave,3,50,24,5016,22,60,76,31.35,117.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,24,5016,22,72,76,31.35,117.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,24,5016,22,72,76,31.35,117.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,24,5016,22,72,76,31.35,117.75,0.1375
+19,Lead 1 — Spire — lower octave,3,50,72,5064,22,58,76,31.65,118.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,72,5064,22,70,76,31.65,118.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,72,5064,22,70,76,31.65,118.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,72,5064,22,70,76,31.65,118.05,0.1375
+19,Lead 1 — Spire — lower octave,3,50,120,5112,22,55,76,31.95,118.35,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,120,5112,22,67,76,31.95,118.35,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,120,5112,22,67,76,31.95,118.35,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,120,5112,22,67,76,31.95,118.35,0.1375
+19,Lead 1 — Spire — lower octave,3,50,168,5160,22,55,76,32.25,118.65,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,168,5160,22,67,76,32.25,118.65,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,168,5160,22,67,76,32.25,118.65,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,168,5160,22,67,76,32.25,118.65,0.1375
+19,Lead 1 — Spire — lower octave,3,50,240,5232,22,53,76,32.7,119.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,240,5232,22,65,76,32.7,119.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,240,5232,22,65,76,32.7,119.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,240,5232,22,65,76,32.7,119.1,0.1375
+19,Lead 1 — Spire — lower octave,3,50,336,5328,22,51,76,33.3,119.7,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,50,336,5328,22,63,76,33.3,119.7,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,50,336,5328,22,63,76,33.3,119.7,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,50,336,5328,22,63,76,33.3,119.7,0.1375
+19,Lead 1 — Spire — lower octave,3,51,0,5376,22,63,76,33.6,120.0,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,0,5376,22,75,76,33.6,120.0,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,0,5376,22,75,76,33.6,120.0,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,0,5376,22,75,76,33.6,120.0,0.1375
+19,Lead 1 — Spire — lower octave,3,51,24,5400,22,62,76,33.75,120.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,24,5400,22,74,76,33.75,120.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,24,5400,22,74,76,33.75,120.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,24,5400,22,74,76,33.75,120.15,0.1375
+19,Lead 1 — Spire — lower octave,3,51,72,5448,22,58,76,34.05,120.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,72,5448,22,70,76,34.05,120.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,72,5448,22,70,76,34.05,120.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,72,5448,22,70,76,34.05,120.45,0.1375
+19,Lead 1 — Spire — lower octave,3,51,120,5496,22,55,76,34.35,120.75,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,120,5496,22,67,76,34.35,120.75,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,120,5496,22,67,76,34.35,120.75,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,120,5496,22,67,76,34.35,120.75,0.1375
+19,Lead 1 — Spire — lower octave,3,51,168,5544,22,58,76,34.65,121.05,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,168,5544,22,70,76,34.65,121.05,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,168,5544,22,70,76,34.65,121.05,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,168,5544,22,70,76,34.65,121.05,0.1375
+19,Lead 1 — Spire — lower octave,3,51,240,5616,22,60,76,35.1,121.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,240,5616,22,72,76,35.1,121.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,240,5616,22,72,76,35.1,121.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,240,5616,22,72,76,35.1,121.5,0.1375
+19,Lead 1 — Spire — lower octave,3,51,336,5712,22,60,76,35.7,122.1,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,51,336,5712,22,72,76,35.7,122.1,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,51,336,5712,22,72,76,35.7,122.1,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,51,336,5712,22,72,76,35.7,122.1,0.1375
+19,Lead 1 — Spire — lower octave,3,52,0,5760,22,60,76,36.0,122.4,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,0,5760,22,72,76,36.0,122.4,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,0,5760,22,72,76,36.0,122.4,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,0,5760,22,72,76,36.0,122.4,0.1375
+19,Lead 1 — Spire — lower octave,3,52,24,5784,22,58,76,36.15,122.55,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,24,5784,22,70,76,36.15,122.55,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,24,5784,22,70,76,36.15,122.55,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,24,5784,22,70,76,36.15,122.55,0.1375
+19,Lead 1 — Spire — lower octave,3,52,72,5832,22,63,76,36.45,122.85,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,72,5832,22,75,76,36.45,122.85,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,72,5832,22,75,76,36.45,122.85,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,72,5832,22,75,76,36.45,122.85,0.1375
+19,Lead 1 — Spire — lower octave,3,52,120,5880,22,55,76,36.75,123.15,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,120,5880,22,67,76,36.75,123.15,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,120,5880,22,67,76,36.75,123.15,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,120,5880,22,67,76,36.75,123.15,0.1375
+19,Lead 1 — Spire — lower octave,3,52,168,5928,22,53,76,37.05,123.45,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,168,5928,22,65,76,37.05,123.45,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,168,5928,22,65,76,37.05,123.45,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,168,5928,22,65,76,37.05,123.45,0.1375
+19,Lead 1 — Spire — lower octave,3,52,240,6000,22,51,76,37.5,123.9,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,240,6000,22,63,76,37.5,123.9,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,240,6000,22,63,76,37.5,123.9,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,240,6000,22,63,76,37.5,123.9,0.1375
+19,Lead 1 — Spire — lower octave,3,52,336,6096,22,55,76,38.1,124.5,0.1375
+20,lead 2 — Sylenth1 — upper octave A,3,52,336,6096,22,67,76,38.1,124.5,0.1375
+21,lead 2 #2 — Sylenth1 — upper octave B,3,52,336,6096,22,67,76,38.1,124.5,0.1375
+22,lead 2 #3 — Sylenth1 — upper octave C,3,52,336,6096,22,67,76,38.1,124.5,0.1375

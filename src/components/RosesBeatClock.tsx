@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { rosesDrumTargets, rosesIntroBeats, rosesIntroTempo } from "../piano/rosesIntro";
 import type { RosesIntroEngine, RosesIntroSnapshot } from "../piano/rosesIntroEngine";
 import { closerTarget, type RosesCloserSettings } from "../piano/rosesCloser";
+import { leadEndBeat } from "../piano/hereWithMeLead";
 
 type Props = { engine: RosesIntroEngine | null; clock: RosesIntroSnapshot | null; leadMs?: number; compact?: boolean; feedback?: string; closerSettings?: RosesCloserSettings };
 
@@ -10,7 +11,7 @@ export default function RosesBeatClock({ engine, clock, leadMs = 0, compact = fa
   const [position, setPosition] = useState({ beat: 0, bpm: rosesIntroTempo });
   useEffect(() => {
     if (!engine || !clock || clock.status === "idle" || clock.status === "finished") {
-      setPosition({ beat: clock?.status === "finished" ? rosesIntroBeats : clock ? (clock.measure - 1) * 4 + clock.beat - 1 : 0, bpm: engine?.tempo() ?? rosesIntroTempo });
+      setPosition({ beat: clock?.status === "finished" ? clock.drop?.status === "done" ? leadEndBeat : rosesIntroBeats : clock ? (clock.measure - 1) * 4 + clock.beat - 1 : 0, bpm: engine?.tempo() ?? rosesIntroTempo });
       return;
     }
     let frame = 0;

@@ -4,6 +4,8 @@ This temporarily replaces the **Closer vocal overlay only**. Per the latest inst
 
 ## Rehearse
 
+For a short audition with backing, use **Start bar 25 + backing + lead** in Timed Practice. This explicit action starts at 100 BPM with guitar/build bass prepared for bars 25–28 and **Buildup 29–36** armed for the next section. Here With Me keeps its selected automatic entrance (default 27:1&). V synth and N bass/sub belong to the earlier bars 5–20, and F6 Build belongs to 21–28; they do not arm the separate bar-29 buildup. The same explicit action also arms the drop lead for bar 37; Disarm lead can cancel that layer independently. Ordinary Jump/Start keeps its existing manual layer setup.
+
 1. Select Roses, enable audio, and open **Timed** Practice.
 2. Choose **No loop**, jump to **Bar 27**, then press **Start**.
 3. In the vocal panel, leave **Roses + Here With Me** selected.

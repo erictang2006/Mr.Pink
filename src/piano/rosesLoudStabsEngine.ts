@@ -1,5 +1,6 @@
 import * as Tone from "tone";
 import { rosesChordShortcuts } from "./rosesChords";
+import { loudStabBrightnessDb } from "./loudStabBrightness";
 
 export const loudStabSampleUrl = "/roses/chords/loud-stabs-am-hit.wav";
 const recordedUrls = {
@@ -29,6 +30,7 @@ export class RosesLoudStabsEngine {
   private releaseSeconds = .12;
   private hitGain = new Tone.Gain(.85);
   private output = new Tone.Gain(.85);
+  private tone = new Tone.Filter({ type: "highshelf", frequency: 2800, gain: 0 });
   private rawReference = new Tone.Gain(.37).toDestination();
   private samples = new Set<RecordedVoice>();
   private heldSamples = new Map<CloserKey, RecordedVoice[]>();
@@ -36,8 +38,9 @@ export class RosesLoudStabsEngine {
   private heldLoops = new Map<CloserKey, RecordedVoice[]>();
   private previewSample: RecordedVoice | null = null;
 
-  constructor() { this.hitGain.connect(this.output); }
-  connect(destination: Tone.InputNode): void { this.output.connect(destination); }
+  constructor() { this.hitGain.connect(this.output); this.output.connect(this.tone); }
+  connect(destination: Tone.InputNode): void { this.tone.connect(destination); }
+  setBrightness(value: number): void { this.tone.gain.rampTo(loudStabBrightnessDb(value), .025); }
   isReady(): boolean {
     return !this.disposed && this.reference.loaded &&
       Object.values(this.hits).every(buffer => buffer.loaded) &&
@@ -56,11 +59,12 @@ export class RosesLoudStabsEngine {
   setReferenceLevel(master: number): void {
     this.rawReference.gain.rampTo(.37 * Math.max(0, Math.min(1, master)), .03);
   }
-  private strikeRecording(buffer: Tone.ToneAudioBuffer, time: number, destination: Tone.InputNode, owner?: CloserKey): RecordedVoice | null {
+  private strikeRecording(buffer: Tone.ToneAudioBuffer, time: number, destination: Tone.InputNode, owner?: CloserKey, playbackRate = 1, velocity = 1): RecordedVoice | null {
     if (!this.isReady()) return null;
     const gain = new Tone.Gain(1).connect(destination);
+    gain.gain.setValueAtTime(velocity, time);
     const hit: RecordedVoice = { source: null!, gain };
-    const source = new Tone.ToneBufferSource({ url: buffer, fadeIn: .001,
+    const source = new Tone.ToneBufferSource({ url: buffer, playbackRate, fadeIn: .001,
       onended: () => {
         this.samples.delete(hit);
         if (owner) {
@@ -114,6 +118,17 @@ export class RosesLoudStabsEngine {
     hit.gain.gain.linearRampToValueAtTime(0, time + seconds);
     hit.source.stop(time + seconds + .01);
   }
+  /** The actual Key-3 Fm7 hit, transposed by its F4 root. Its chord harmonics
+   * stay intact. Drop MIDI gates are <140 ms, before the long-hold loop enters.
+   */
+  triggerPitch(midi: number, duration: number, time: number, velocity = 1): void {
+    const hit = this.strikeRecording(this.hits.Digit3, time, this.hitGain, undefined, 2 ** ((midi - 65) / 12), velocity);
+    if (hit) this.fadeVoice(hit, time + duration, this.releaseSeconds);
+  }
+  cancel(): void {
+    for (const hit of [...this.samples, ...this.activeLoops]) { hit.source.dispose(); hit.gain.dispose(); }
+    this.samples.clear(); this.activeLoops.clear(); this.heldSamples.clear(); this.heldLoops.clear(); this.previewSample = null;
+  }
   attack(code: string, time: number): void {
     if (!(code in rosesChordShortcuts) || !/^Digit[123]$/.test(code)) return;
     const key = code as CloserKey;
@@ -150,6 +165,6 @@ export class RosesLoudStabsEngine {
     this.reference.dispose();
     for (const buffer of Object.values(this.hits)) buffer.dispose();
     for (const buffer of Object.values(this.sustains)) buffer.dispose();
-    this.hitGain.dispose(); this.output.dispose(); this.rawReference.dispose();
+    this.hitGain.dispose(); this.output.dispose(); this.tone.dispose(); this.rawReference.dispose();
   }
 }

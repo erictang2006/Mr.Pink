@@ -1,5 +1,6 @@
 import * as Tone from "tone";
 import type { RosesDropSettings } from "./rosesDropSettings";
+import { DropChordAmbience } from "./dropChordAmbience";
 
 // A piano-like taper avoids a flat, compressed tail followed by a sudden drop.
 const chordReleaseCurve = [1, .78, .58, .42, .29, .19, .115, .06, .025, .007, 0];
@@ -33,9 +34,10 @@ export class RosesDropLayers {
   private punchGain = new Tone.Gain(.24);
   private lowPass = new Tone.Filter({ type: "lowpass", frequency: 2800, rolloff: -24, Q: .55 });
   private warmth = new Tone.EQ3({ low: 2.5, mid: 1.5, high: -3, lowFrequency: 360, highFrequency: 2400 });
-  private ambience = new Tone.JCReverb({ roomSize: .12, wet: .025 });
+  private ambience: Tone.JCReverb | DropChordAmbience;
 
-  constructor() {
+  constructor(nativeAmbience = false) {
+    this.ambience = nativeAmbience ? new DropChordAmbience() : new Tone.JCReverb({ roomSize: .12, wet: .025 });
     this.left.chain(this.leftPan, this.bodyGain);
     this.right.chain(this.rightPan, this.bodyGain);
     this.core.connect(this.bodyGain);
@@ -75,6 +77,9 @@ export class RosesDropLayers {
     this.right.triggerAttack(note, time, velocity);
     this.core.triggerAttack(note, time, velocity);
     this.punch.triggerAttack(note, time, velocity);
+  }
+  triggerAttackRelease(note: string, duration: number, time: number, velocity: number): void {
+    for (const voice of [this.left, this.right, this.core, this.punch]) voice.triggerAttackRelease(note, duration, time, velocity);
   }
   triggerRelease(note: string, time: number): void {
     this.left.triggerRelease(note, time); this.right.triggerRelease(note, time); this.core.triggerRelease(note, time); this.punch.triggerRelease(note, time);

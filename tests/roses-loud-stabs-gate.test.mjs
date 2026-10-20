@@ -23,6 +23,7 @@ export class Gain {
   toDestination() { return this; }
   dispose() {}
 }
+export class Filter extends Gain {}
 export class ToneBufferSource {
   constructor(options) { this.options = options; this.stops = []; }
   connect() { return this; }

@@ -18,6 +18,7 @@ export class RosesBassEngine {
     envelope: { attack: .002, decay: .24, sustain: .48, release: .12 },
   } });
   private bassFilter = new Tone.Filter({ type: "lowpass", frequency: 820, Q: .7 });
+  private buildGain = new Tone.Gain(1);
   private bassDrive = new Tone.Distortion({ distortion: .16, wet: .20 });
   private subFilter = new Tone.Filter({ type: "lowpass", frequency: 155, Q: .45 });
   private bassOutput = new Tone.Volume(-25).toDestination();
@@ -26,13 +27,20 @@ export class RosesBassEngine {
   private bassLevel = .45;
   private subLevel = .35;
 
-  constructor() {
+  constructor(destination?: Tone.InputNode) {
+    // Audition instances can use a mixer bus; ordinary performance instances
+    // retain their existing destination and gain behavior.
+    if (destination) {
+      this.bassOutput.disconnect(); this.bassOutput.connect(destination);
+      this.subOutput.disconnect(); this.subOutput.connect(destination);
+    }
     this.bass.chain(this.bassFilter, this.bassDrive, this.bassOutput);
-    this.build.connect(this.bassFilter);
+    this.build.chain(this.buildGain, this.bassFilter);
     this.sub.chain(this.subFilter, this.subOutput);
     this.setMaster(this.master);
   }
   setMaster(value: number): void { this.master = Math.max(0, Math.min(1, value)); this.applyVolumes(); }
+  setBuildGain(value: number, time?: number): void { this.buildGain.gain.rampTo(value, .02, time); }
   setVolumes(bass: number, sub: number): void {
     this.bassLevel = Math.max(0, Math.min(1, bass));
     this.subLevel = Math.max(0, Math.min(1, sub));
@@ -50,10 +58,16 @@ export class RosesBassEngine {
   triggerBuild(notes: RosesNote[], time: number, secondsPerBeat: number, endAtBoundary = false): void {
     for (const note of notes) this.build.triggerAttackRelease(midiToToneName(note.midi), Math.max(.001, note.durationBeats * secondsPerBeat - (endAtBoundary ? .12 : 0)), time, note.velocity / 127);
   }
+  triggerExact(notes: RosesNote[], time: number, secondsPerBeat: number): void {
+    for (const note of notes) {
+      this.bass.triggerAttackRelease(midiToToneName(note.midi), note.durationBeats * secondsPerBeat, time, note.velocity / 127);
+      this.sub.triggerAttackRelease(midiToToneName(note.midi), note.durationBeats * secondsPerBeat, time, note.velocity / 127);
+    }
+  }
   releaseAll(time = Tone.now()): void { this.bass.releaseAll(time); this.sub.releaseAll(time); this.build.releaseAll(time); }
   dispose(): void {
     this.releaseAll(); this.bass.dispose(); this.sub.dispose(); this.build.dispose();
-    this.bassFilter.dispose(); this.bassDrive.dispose(); this.subFilter.dispose();
+    this.buildGain.dispose(); this.bassFilter.dispose(); this.bassDrive.dispose(); this.subFilter.dispose();
     this.bassOutput.dispose(); this.subOutput.dispose();
   }
 }

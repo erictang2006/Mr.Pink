@@ -1,9 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { build } from 'esbuild';
+import { readFileSync } from 'node:fs';
 
 const bundle = await build({
-  stdin: { contents: `export { KeyboardInputManager } from './src/piano/keyboardInput';
+  stdin: { contents: `export { hereWithMeChords, hereWithMeChordShortcuts } from './src/piano/hereWithMeChords';
+    export { HereWithMeLeadEngine } from './src/piano/hereWithMeLeadEngine';
+    export { KeyboardInputManager } from './src/piano/keyboardInput';
     export { SynthEngine } from './src/piano/synthEngine';
     export { RosesChordStabEngine } from './src/piano/rosesChordStabEngine';
     export { LiveNotes } from './src/piano/liveNotes';
@@ -20,12 +23,12 @@ const bundle = await build({
       export class Gain {} export class Filter {} export class Chorus {}
       export class FeedbackDelay {} export class JCReverb {} export class Volume {}
       export class Distortion {} export class Compressor {}
-      export class WaveShaper {} export class ToneAudioBuffer {} export class ToneBufferSource {}
+      export class WaveShaper {} export class ToneAudioBuffer {} export class ToneBufferSource {} export class ToneAudioNode {}
       export class Panner {} export class EQ3 {} export class Limiter {}
     ` }));
   } }],
 });
-const { KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot } =
+const { hereWithMeChords, hereWithMeChordShortcuts, HereWithMeLeadEngine, KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot } =
   await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
 
 class Target {
@@ -62,6 +65,7 @@ function setup() {
       triggerRelease(at) { bassEvents.push(['off', at]); },
     },
     voice: {
+      releaseAll() { active.clear(); },
       triggerAttack(note, at, velocity) {
         active.set(note, (active.get(note) ?? 0) + 1); events.push(['on', note, at, velocity]);
       },
@@ -81,15 +85,24 @@ function setup() {
   });
   const impactEvents = [], futureEvents = [], futureActive = new Map();
   stabs.future = {
+    releaseAll() { futureActive.clear(); },
     triggerAttack(note, at) { futureEvents.push(['on', note, at]); futureActive.set(note, (futureActive.get(note) ?? 0) + 1); },
     triggerRelease(note, at) { futureEvents.push(['off', note, at]); futureActive.set(note, Math.max(0, (futureActive.get(note) ?? 0) - 1)); },
     triggerImpact(root, at, velocity) { impactEvents.push({ root, at, velocity }); },
   };
   const closerEvents = [], closerImpacts = [], closerActive = new Map();
   stabs.closer = {
+    releaseAll() { closerActive.clear(); },
     attack(code, at) { closerEvents.push(['on', code, at]); closerActive.set(code, (closerActive.get(code) ?? 0) + 1); },
     release(code, at) { closerEvents.push(['off', code, at]); closerActive.set(code, Math.max(0, (closerActive.get(code) ?? 0) - 1)); },
   };
+  const manualEvents=[],manualActive=new Map();
+  const manualOn=(sound,midi,at)=>{const key=sound+':'+midi;manualActive.set(key,(manualActive.get(key)??0)+1);manualEvents.push(['on',sound,midi,at]);};
+  const manualOff=(sound,midi,at,all=false)=>{const key=sound+':'+midi;manualActive.set(key,all?0:Math.max(0,(manualActive.get(key)??0)-1));manualEvents.push(['off',sound,midi,at]);};
+  Object.assign(stabs,{hereWithMeSound:'keys678',manualSources:new Map(),manualSustained:[],
+    manualLead:{prepareVoices(){},attackChordNote(midi,at){manualOn('lead',midi,at);},releaseChordNote(midi,at){manualOff('lead',midi,at);},stop(){for(const key of manualActive.keys())if(key.startsWith('lead:'))manualActive.set(key,0);}},
+    stabNote:{triggerAttack(note,at){manualOn('stabs',note,at);},triggerRelease(note,at){manualOff('stabs',note,at,true);},releaseAll(){for(const key of manualActive.keys())if(key.startsWith('stabs:'))manualActive.set(key,0);}}
+  });
   let snapshot, graded = 0;
   const input = new KeyboardInputManager(rosesMap, {
     noteOn(midi, code, at) { synth.noteOn(code, midi); notes.on(code, midi, at); graded++; },
@@ -112,7 +125,7 @@ function setup() {
   const key = (type, code, extra = {}) => window.dispatch(type, {
     code, repeat: false, shiftKey: false, target: null, preventDefault() {}, ...extra,
   });
-  return { closerEvents, closerImpacts, closerActive, impactEvents, futureEvents, futureActive, input, key, synth, stabs, notes, events, bassEvents, active, melodyActive, snapshot: () => snapshot, graded: () => graded };
+  return { manualEvents, manualActive, closerEvents, closerImpacts, closerActive, impactEvents, futureEvents, futureActive, input, key, synth, stabs, notes, events, bassEvents, active, melodyActive, snapshot: () => snapshot, graded: () => graded };
 }
 
 test('live chords have the exact requested MIDI voicings and avoid all existing Roses controls', () => {
@@ -126,6 +139,89 @@ test('live chords have the exact requested MIDI voicings and avoid all existing 
     assert.equal(rosesMap.bindings.some(binding => binding.code === code), ['Digit4','Digit5','Digit6','Digit7','Digit8'].includes(code), 'only 4–8 intentionally replace individual Roses notes');
     assert.equal(reserved.includes(code), false);
   }
+});
+
+test('manual Here With Me keys use the four source harmony voicings in = - 0 9 order',()=>{
+ const notes=JSON.parse(readFileSync('reference/here-with-me-remake/backing-source-events.json')).selections.drop.notes;
+ assert.deepEqual(hereWithMeChords.map(c=>c.code),['Equal','Minus','Digit0','Digit9']);
+ for(const chord of hereWithMeChords){
+  const pitches=notes.filter(n=>n.channel===2&&n.tick===chord.tick).map(n=>n.midi).sort((a,b)=>a-b);
+  assert.deepEqual([...chord.notes],pitches);
+  assert.equal(rosesChordShortcuts[chord.code],undefined,'keys 1–8 retain their own mapping');
+ }
+});
+
+test('manual chord shortcuts work immediately without a clock and retain keyup/repeat/focus handling',()=>{
+ const state=setup();
+ try{
+  state.input.setChords({...rosesChordShortcuts,...hereWithMeChordShortcuts});
+  state.stabs.settings.mode='bonk';
+  for(const chord of hereWithMeChords){
+   const before=state.futureEvents.length,impacts=state.impactEvents.length;
+   state.key('keydown',chord.code);state.key('keydown',chord.code,{repeat:true});
+   assert.deepEqual(state.snapshot().pressed.map(n=>n.midi),[...chord.notes]);
+   assert.ok(state.snapshot().pressed.every(n=>n.label===chord.key));
+   assert.equal(state.futureEvents.length-before,chord.notes.length);
+   assert.equal(state.impactEvents.length-impacts,1,'Bonk fires once per chord, using its real root');
+   assert.equal(state.impactEvents.at(-1).root,chord.notes[0]);
+   state.key('keyup',chord.code);assert.ok([...state.futureActive.values()].every(n=>n===0));
+   state.key('keydown',chord.code,{target:{closest:()=>true}});assert.equal(state.snapshot().pressed.length,0);
+  }
+  assert.equal(state.graded(),0,'these chords do not advance practice or start playback');
+  state.key('keydown','Equal');window.dispatch('blur');assert.ok([...state.futureActive.values()].every(n=>n===0));
+ }finally{state.input.dispose();}
+});
+
+test('all three manual sound options route only the new keys and switching releases held and pedaled notes',()=>{
+ const state=setup();
+ try{
+  state.input.setChords({...rosesChordShortcuts,...hereWithMeChordShortcuts});
+  state.stabs.settings.closerMode='loud';
+  for(const sound of ['keys678','keys123','lead']){
+   state.stabs.setHereWithMeSound(sound);
+   const first=state.events.length,manual=state.manualEvents.length;
+   state.key('keydown','Equal');state.key('keydown','Equal',{repeat:true});
+   if(sound==='keys678')assert.equal(state.events.length-first,4);
+   else assert.deepEqual(state.manualEvents.slice(manual).map(e=>e.slice(0,2)),Array.from({length:4},()=>['on',sound==='lead'?'lead':'stabs']));
+   state.key('keydown','Digit1');assert.equal(state.closerEvents.at(-1)[1],'Digit1','old keys 1–3 keep their sound');
+   state.key('keyup','Digit1');
+   state.stabs.setSustain(true);state.key('keyup','Equal');
+   if(sound!=='keys678')assert.ok([...state.manualActive.values()].some(n=>n>0));
+   state.stabs.setSustain(false);
+   assert.ok([...state.active.values(),...state.manualActive.values()].every(n=>n===0));
+   state.key('keydown','Minus');state.stabs.setSustain(true);state.key('keyup','Minus');
+   state.stabs.setHereWithMeSound(sound==='lead'?'keys678':'lead');
+   assert.equal(state.stabs.held.size,0);assert.equal(state.stabs.manualSustained.length,0);
+   assert.ok([...state.active.values(),...state.manualActive.values()].every(n=>n===0));state.stabs.setSustain(false);
+  }
+  state.stabs.setHereWithMeSound('keys123');state.stabs.settings.closerMode='current';
+  const count=state.events.length;state.key('keydown','Equal');assert.equal(state.events.length-count,4,'Current chord sound follows the existing selection');state.key('keyup','Equal');
+ }finally{state.input.dispose();}
+});
+
+test('sampled manual chords preserve pitches shared by another held chord and clear on panic',()=>{
+ const state=setup();
+ try{
+  state.input.setChords({...rosesChordShortcuts,...hereWithMeChordShortcuts});
+  state.stabs.settings.closerMode='loud';state.stabs.setHereWithMeSound('keys123');
+  state.key('keydown','Equal');state.key('keydown','Digit0');state.key('keyup','Equal');
+  assert.ok(state.manualActive.get('stabs:C4')>0,'C4 belongs to both chords');
+  assert.ok(state.manualActive.get('stabs:D#4')>0,'E♭4 belongs to both chords');
+  state.key('keyup','Digit0');assert.ok([...state.manualActive.values()].every(n=>n===0));
+  state.key('keydown','Digit9');state.stabs.releaseAll();assert.ok([...state.manualActive.values()].every(n=>n===0));
+ }finally{state.input.dispose();}
+});
+
+test('manual lead chords reuse the four lead banks with the original one-octave separation',()=>{
+ const events=[],banks=new Map([19,20,21,22].map(channel=>[channel,{voice:{
+  triggerAttack(note,time,velocity){events.push(['on',channel,note,time,velocity]);},
+  triggerRelease(note,time){events.push(['off',channel,note,time]);},
+ }}]));
+ const lead=Object.assign(Object.create(HereWithMeLeadEngine.prototype),{banks});
+ lead.attackChordNote(60,42);lead.releaseChordNote(60,43);
+ assert.deepEqual(events.slice(0,4).map(e=>e.slice(1,4)),[[19,'C4',42],[20,'C5',42],[21,'C5',42],[22,'C5',42]]);
+ assert.deepEqual(events.slice(4).map(e=>e.slice(1)),[[19,'C4',43],[20,'C5',43],[21,'C5',43],[22,'C5',43]]);
+ assert.ok([...banks.values()].every(bank=>bank.voice.maxPolyphony===24));
 });
 
 test('4/5 exactly lower 1/2 by one octave', () => {

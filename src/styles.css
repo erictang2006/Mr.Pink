@@ -753,6 +753,14 @@ input:focus-visible {
 .sandbox-details summary { cursor: pointer; color: #e5afdf; }
 .sandbox-details .sandbox-control-line { margin-top: 10px; }
 .sandbox-details p { margin: 7px 0 0; }
+.drop-layer-mixer > small { display: block; margin-top: 7px; line-height: 1.5; }
+.drop-mixer-rows { display: grid; gap: 6px; margin-block: 10px; }
+.drop-mixer-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 7px; background: #182332; border-radius: 5px; }
+.drop-mixer-row > strong { min-width: 165px; color: #d5e7ed; font-size: 11px; }
+.drop-mixer-row > strong small { display: block; color: #91aab5; margin-top: 3px; font-size: 9px; }
+.drop-mixer-row label { display: inline-flex; align-items: center; gap: 5px; }
+.drop-mixer-row input[type="range"] { width: 105px; }
+.drop-layer-mixer button[aria-pressed="true"] { border-color: #bfa2e4; background: #49365e; color: #fff; }
 .sandbox-phrase { display: flex; gap: 5px; overflow-x: auto; padding: 8px 0; }
 .sandbox-phrase span { flex: 0 0 auto; display: grid; gap: 3px; min-width: 76px; padding: 5px 7px; border: 1px solid #4d4055; border-radius: 5px; }
 .sandbox-phrase b { color: #f4c0e9; font: 700 15px "DM Mono", monospace; }

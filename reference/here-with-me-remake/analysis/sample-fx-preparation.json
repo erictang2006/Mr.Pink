@@ -1,0 +1,35 @@
+[
+  {
+    "channel": 9,
+    "file": "channel-9.wav",
+    "sourceFile": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+    "reverse": true,
+    "pitchCents": 0,
+    "stretchBeats": 0.0,
+    "seconds": 8.0,
+    "sha256": "5a78aa634c232b166cddc4be2387a31f3a46c942a667e77b0449450bd9961882",
+    "limitation": null
+  },
+  {
+    "channel": 17,
+    "file": "channel-17.wav",
+    "sourceFile": "SSLononSnare.wav",
+    "reverse": false,
+    "pitchCents": 200,
+    "stretchBeats": 0.0,
+    "seconds": 0.05063492063492064,
+    "sha256": "e93d53e448876579c8efa3df4dbb31d2c346c7b78847aff6039221311ed0b3a4",
+    "limitation": null
+  },
+  {
+    "channel": 30,
+    "file": "channel-30.wav",
+    "sourceFile": "Ultrasonic - Marshmello Essentials Vol.1 - Crash 09.wav",
+    "reverse": false,
+    "pitchCents": 200,
+    "stretchBeats": 16.0,
+    "seconds": 9.6,
+    "sha256": "63d7315bdd6e0ee127a19d9d14a1422a159687b33336e0cf0655aee05a398a17",
+    "limitation": "Phase-vocoder approximation of FL Auto/Elastique time stretching"
+  }
+]

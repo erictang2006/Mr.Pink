@@ -1,0 +1,296 @@
+{
+  "source": "/Users/etang1/Downloads/Roses Ableton Remake.zip",
+  "archiveSha256": "3e06276d32b27ddd6ecc37eb8d945b355ccb4cb0ac7211e1b7430914a3e3075a",
+  "files": [
+    {
+      "path": "Roses Ableton Remake/2nd verse snare pattern.wav",
+      "bytes": 1927992,
+      "sha256": "a782adbe2613114f78b2d65a6c790761bce4f458b673414df4749f5a0103d66f"
+    },
+    {
+      "path": "Roses Ableton Remake/2nd verse snare pattern.wav.asd",
+      "bytes": 36304,
+      "sha256": "67ce89483318c2763ef72471336d5cb9f74b7701a1497097158f8166906b56f8"
+    },
+    {
+      "path": "Roses Ableton Remake/Aah build.mid",
+      "bytes": 306,
+      "sha256": "9c17f08cea303ea43b54612486c50b4736d9fdbdca3c8ab38d1c5bd09545074b"
+    },
+    {
+      "path": "Roses Ableton Remake/aah vocal chop loop 2.wav",
+      "bytes": 1212472,
+      "sha256": "2cd6845e18fa44de33505d67da2ea895b9995c9a57f1e289141d265f8665ddbe"
+    },
+    {
+      "path": "Roses Ableton Remake/aah vocal chop loop 2.wav.asd",
+      "bytes": 24748,
+      "sha256": "15872b9ffa36fd06dea6c982ec2d4d37c5407c5659c5c98e3900486dd8680a37"
+    },
+    {
+      "path": "Roses Ableton Remake/aah vocal chop loop.wav",
+      "bytes": 1647960,
+      "sha256": "19b9cf02dfb31a58dd676968c87ef6810489bd14ffeb8737d5ec58efe0ef0a69"
+    },
+    {
+      "path": "Roses Ableton Remake/aah vocal chop loop.wav.asd",
+      "bytes": 31820,
+      "sha256": "6115e2dd9c6761925b1abfb9d744e8f1c7951d323f3f99f96ed4cf1e75aa07a8"
+    },
+    {
+      "path": "Roses Ableton Remake/ah intro sample.wav",
+      "bytes": 182742,
+      "sha256": "d5d196601ee26c3f1e0ac217f076f4cbfb2c54ca4973585143da7d895f93b550"
+    },
+    {
+      "path": "Roses Ableton Remake/ahhAHhah sample official.wav",
+      "bytes": 377230,
+      "sha256": "b57c3645be3ce9dd50345bd003dc56fd28d09a4afb2521d6129d1bf9f990c13b"
+    },
+    {
+      "path": "Roses Ableton Remake/ahhAHhah sample official.wav.asd",
+      "bytes": 6892,
+      "sha256": "e7226e308a1df6b58ebc6f68db956c9bf42feccf4aeca6cc173d2bef1d2d8230"
+    },
+    {
+      "path": "Roses Ableton Remake/break bass.mid",
+      "bytes": 269,
+      "sha256": "26465ed14b2b31e888c4bf3a9e9325805ceec9145e315fffe9828c17fc11b638"
+    },
+    {
+      "path": "Roses Ableton Remake/brop bass.mid",
+      "bytes": 213,
+      "sha256": "53b2a18b0746059d530ffbba02aa33bb4b9c478a752a646a6cdfd1beebfd66aa"
+    },
+    {
+      "path": "Roses Ableton Remake/build bass.mid",
+      "bytes": 97,
+      "sha256": "9a645a8fcdfe69e93056b522837c6bc8df6d5ff2035ccf11a742bcc1bb17f416"
+    },
+    {
+      "path": "Roses Ableton Remake/Build Snare.mid",
+      "bytes": 345,
+      "sha256": "d325622b34f705fdc4b8cf1f67c2bf92e107c8d66bdc0b84ea60e747bc5d419e"
+    },
+    {
+      "path": "Roses Ableton Remake/Build Synth vox.mid",
+      "bytes": 139,
+      "sha256": "2b5405d2057cf7404b55694e95f0813b52ac03f3cc4ea263512c9f860314fea0"
+    },
+    {
+      "path": "Roses Ableton Remake/Builup synth.wav",
+      "bytes": 512384,
+      "sha256": "9143d9eb8ee1406203c96db13e2c3d6483d3618fad3ed2a7ed8acb3bc761b77e"
+    },
+    {
+      "path": "Roses Ableton Remake/Chant What 001 Who Tha Boss.wav",
+      "bytes": 113038,
+      "sha256": "704e705eee89002bdb535567fe12c32dbf4858a0baf06c0108c66072e4fc7b2c"
+    },
+    {
+      "path": "Roses Ableton Remake/drop chords.mid",
+      "bytes": 651,
+      "sha256": "58693c8da890d45be5697062e5177e7dc5b9f4bd824d6d0c8354d4c0336162af"
+    },
+    {
+      "path": "Roses Ableton Remake/drop drum loop.wav",
+      "bytes": 946768,
+      "sha256": "282a5114245a5c02d3eb3f1553c1859353e8bd8866d9eaca95b1b7e611958c87"
+    },
+    {
+      "path": "Roses Ableton Remake/drop drum loop.wav.asd",
+      "bytes": 19928,
+      "sha256": "207704c8c8f0925ac4399b791009ee81d5445b555bdd1652f242bc11ec4c0353"
+    },
+    {
+      "path": "Roses Ableton Remake/drop hi hat loops.wav",
+      "bytes": 1695368,
+      "sha256": "a93057184bf9fb52b395b7ea4cee0de2eefb5a33f987663c7aa72ed86adaf64c"
+    },
+    {
+      "path": "Roses Ableton Remake/Drop whoa.wav",
+      "bytes": 1890508,
+      "sha256": "fb7aa1d2960c0b1d9156ee3975a74a8ca2d44e8bc5944e6ac96ef4dfc30b7787"
+    },
+    {
+      "path": "Roses Ableton Remake/Drop whoa.wav.asd",
+      "bytes": 35728,
+      "sha256": "6a0a994fa5c2d0e8622d49e3a666e36d93654024f0ce5134781ed68c8e844289"
+    },
+    {
+      "path": "Roses Ableton Remake/Final Roses Remake.wav",
+      "bytes": 38949164,
+      "sha256": "74392f5cb6d3108cd2a7c00293da5ce29138c7d448bdffdfedc5e96bb47b7a7b"
+    },
+    {
+      "path": "Roses Ableton Remake/Final Roses Remake.wav.asd",
+      "bytes": 670873,
+      "sha256": "867d1b5ef6acaf0a04117e88557bb8225ce68279d61603910c15a625320a3dd1"
+    },
+    {
+      "path": "Roses Ableton Remake/Guitar build up bass compliment.wav",
+      "bytes": 3398918,
+      "sha256": "c065cfaaa4cb678332b32d323cbd91db7aebdc7cc9014d7516681712b0935056"
+    },
+    {
+      "path": "Roses Ableton Remake/Guitar build up bass compliment.wav.asd",
+      "bytes": 33288,
+      "sha256": "a626a1d8225d832b0a5217c043716a8b428cbd08de8fd89635cf5715c39412d0"
+    },
+    {
+      "path": "Roses Ableton Remake/Hi hats.mid",
+      "bytes": 233,
+      "sha256": "384a0057c4b02bad3f3a09aeb9bd7ca49719d50cf45675bf65a2e02150ea5196"
+    },
+    {
+      "path": "Roses Ableton Remake/HiHat Closed 004 Crunk.wav",
+      "bytes": 22094,
+      "sha256": "c9f30ff2b4d73b03f41960e504e03c54e9a59697af666fe4d155bab9cd1ccae6"
+    },
+    {
+      "path": "Roses Ableton Remake/HiHat Closed 004 Crunk.wav.asd",
+      "bytes": 4065,
+      "sha256": "1d980e6b64d6df65b3b3375422e881864aeb262559275dfbb8ef866e18ba7ad0"
+    },
+    {
+      "path": "Roses Ableton Remake/intro pad.mid",
+      "bytes": 106,
+      "sha256": "eac15d8f060cd24ca7e286548a1c053490ff2bb5f6744a4eb2928a1c0c0eb5dc"
+    },
+    {
+      "path": "Roses Ableton Remake/Presets/Build Bass.fxp",
+      "bytes": 1088,
+      "sha256": "4f602d9f240c0c038a881c59e7e8292ba66abf2206b660cc2917b47c33eeca76"
+    },
+    {
+      "path": "Roses Ableton Remake/Presets/Drop Bass.nmsv",
+      "bytes": 8562,
+      "sha256": "42d1b4182c290a1336f33f0e074e6eca7a27b3db4ebcd5b671045cb30d5d6e64"
+    },
+    {
+      "path": "Roses Ableton Remake/Presets/Drop Key.nmsv",
+      "bytes": 3477,
+      "sha256": "1777567a56afc5da16cb4a799486f86438900a158bf9dc31d5a5d1e85002df86"
+    },
+    {
+      "path": "Roses Ableton Remake/Presets/Intro pad.fxp",
+      "bytes": 1088,
+      "sha256": "e5c0330cf752f95e47accefa030e3caf8cf32090ec0333f00e7a23975b2dfd7b"
+    },
+    {
+      "path": "Roses Ableton Remake/Presets/Verse bass.fxp",
+      "bytes": 1088,
+      "sha256": "659c7fee064e6a076066431082c50d0bbf7684890d7d61627e01a9c3aa9b0461"
+    },
+    {
+      "path": "Roses Ableton Remake/remake 1 Project/Ableton Project Info/AProject.ico",
+      "bytes": 481686,
+      "sha256": "97a4f75c8bdfaa11bfdbc45259282593627805b386d3b320d041ac09fb2e9dfe"
+    },
+    {
+      "path": "Roses Ableton Remake/remake 1 Project/Ableton Project Info/Project8_1.cfg",
+      "bytes": 459,
+      "sha256": "7104ca628ae40eeaae1abb6e7b5eef451e7177b45db67e2b12b07ebdddeab31d"
+    },
+    {
+      "path": "Roses Ableton Remake/remake 1 Project/Desktop.ini",
+      "bytes": 106,
+      "sha256": "2f0226d7d2c816330e21d909fc88c669704d28f819aa3db1896def2b0dcf470d"
+    },
+    {
+      "path": "Roses Ableton Remake/remake 1 Project/remake 1.als",
+      "bytes": 548575,
+      "sha256": "c28d3cce15fadcf34ba6ec8298eb5950377dc5b7b87dd80531565238078e4cd1"
+    },
+    {
+      "path": "Roses Ableton Remake/reverse synth effect.wav",
+      "bytes": 121014,
+      "sha256": "a8d46934252dad91a1a3fc99909fdf36f32d579c75f9fe9f0d9625bd9de0856b"
+    },
+    {
+      "path": "Roses Ableton Remake/reverse synth effect.wav.asd",
+      "bytes": 4647,
+      "sha256": "49a42109c347b32a23ac207d7d173a31cbbbb5797a62a83e09d8d3714c7bb1ef"
+    },
+    {
+      "path": "Roses Ableton Remake/Roses Kick.wav",
+      "bytes": 194358,
+      "sha256": "0fe5867fdfc20c316671c745e070b83cd2b6a8b38f3a1d04626c87cc5dce8f2f"
+    },
+    {
+      "path": "Roses Ableton Remake/Roses Kick.wav.asd",
+      "bytes": 5300,
+      "sha256": "178d5744dc25f2f9880815ed2a98718993c9fc53fe565459601d410f42fd5224"
+    },
+    {
+      "path": "Roses Ableton Remake/Roses SnareClap.wav",
+      "bytes": 205510,
+      "sha256": "a79af18f1b896276db149c92119807d2ee3a0a8d72422d15ba56025a91508e24"
+    },
+    {
+      "path": "Roses Ableton Remake/Roses SnareClap.wav.asd",
+      "bytes": 5388,
+      "sha256": "a48e89e2872dc10e6e3e03a135ea3ae50dce023381b8f2b383485c28d0688d44"
+    },
+    {
+      "path": "Roses Ableton Remake/snap for drop.wav",
+      "bytes": 172902,
+      "sha256": "3964cf4c0583b4e2d1ccd35dbd228dbc33c4c76fbf9afea25fe8a13729c9271c"
+    },
+    {
+      "path": "Roses Ableton Remake/snap for drop.wav.asd",
+      "bytes": 5120,
+      "sha256": "0b36951ef8f53a8c088e01db4e0dfd890ba265ff37fe93697b53aae3b70b3b25"
+    },
+    {
+      "path": "Roses Ableton Remake/Snare Drum 005 808 Double Beam.wav",
+      "bytes": 51648,
+      "sha256": "5e3fd991acbdaca5898c09a1b6c4cc0b01a43f40096ebe29185e3b24673c512e"
+    },
+    {
+      "path": "Roses Ableton Remake/Snare Drum 005 808 Double Beam.wav.asd",
+      "bytes": 4187,
+      "sha256": "7ecadb3d86fc3395849056b489fe19dc934caba665cac8524dae0ec3853c84eb"
+    },
+    {
+      "path": "Roses Ableton Remake/spacy drum.wav",
+      "bytes": 314654,
+      "sha256": "9a083089e3d2d3c41332ef9dd42ec75d007b0574920e392d9c4e519351be68d2"
+    },
+    {
+      "path": "Roses Ableton Remake/spacy drum.wav.asd",
+      "bytes": 6340,
+      "sha256": "65e1ef8168ac4917a473b36b97ea0b358d362a9ac7c4442f65e437b044aa7be3"
+    },
+    {
+      "path": "Roses Ableton Remake/vocal chops.mid",
+      "bytes": 306,
+      "sha256": "9c17f08cea303ea43b54612486c50b4736d9fdbdca3c8ab38d1c5bd09545074b"
+    },
+    {
+      "path": "Roses Ableton Remake/vocal drop.mid",
+      "bytes": 213,
+      "sha256": "2884c785d9be6b4826054985b6c4f7316bbdde13dbb5812738db3f0f547ccf79"
+    },
+    {
+      "path": "Roses Ableton Remake/Vox synth.wav",
+      "bytes": 1939020,
+      "sha256": "d6ee043078649854508c3e1677d47b9d2d51e70b4f3986d8cf2cc890309d4daf"
+    },
+    {
+      "path": "Roses Ableton Remake/Vox synth.wav.asd",
+      "bytes": 36872,
+      "sha256": "d7803a61f00ba06223d73694e9073cff753c05e399fa9eaf2d914997a0ea2828"
+    },
+    {
+      "path": "Roses Ableton Remake/woo weird sample roses.wav",
+      "bytes": 524310,
+      "sha256": "d25afc97252e1262e907629bf150e3ec0188286d2c6c730b9259e778f7dd9dce"
+    },
+    {
+      "path": "Roses Ableton Remake/woo weird sample roses.wav.asd",
+      "bytes": 8060,
+      "sha256": "316bdc429b9a2cda5170ee047d4ef9e2ee70dde51c93bde5f013f28586dc0d54"
+    }
+  ]
+}
