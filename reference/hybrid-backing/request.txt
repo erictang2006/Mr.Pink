@@ -1,0 +1,207 @@
+# Mr Pink — Hybrid Here With Me Buildup With Roses Drum Roll and Pre-Drop Break
+
+## Goal
+
+I want to improve the transition into my Here With Me drop at Roses measure 37.
+
+I compared two existing versions:
+
+1. Original Roses buildup: I love the accelerating drums and how the final measure pauses before the drop.
+2. Here With Me backing: I prefer its chords and harmony, but it continues playing too much during the last measure, so the drop doesn't have enough contrast.
+
+**Combine the best parts of both.**
+
+Keep the Here With Me vocals, chords, bass and instrumental harmony, but borrow the Roses accelerating drum buildup.
+
+Then create a dramatic near-silent bar 36 with a rising sweep/riser before the Here With Me drop starts at bar 37.
+
+## 1. Preserve existing backing options
+
+Keep every existing backing option in the dropdown:
+- Original Roses Buildup
+- Here With Me — Buildup
+- Here With Me — Drop Backing
+
+Add a FOURTH option:
+
+**Hybrid — Here With Me + Roses Drum Build**
+
+Do not overwrite the existing arrangements.
+
+Make the new hybrid option available for testing using the existing `Start Bar 25 + Backing + Lead` control.
+
+## 2. Bars 29–32 — Here With Me harmony
+
+Use the existing transposed Here With Me Drop Backing arrangement as the musical foundation.
+
+Keep:
+- Here With Me vocals
+- Existing E-major-transposed backing chords
+- Here With Me bass
+- Other melodic/harmonic instruments in the selected backing
+
+Do not add the original Roses Vox Synth or Roses bass progression.
+
+Borrow the Roses Spacy Drum pattern as a separate percussion layer.
+
+Use the existing source MIDI timing and `spacy drum.wav` sample rather than generating a new drum sound.
+
+If Here With Me percussion is already playing, inspect and balance the combined rhythms to avoid duplicate or clashing hits.
+
+## 3. Bars 33–35 — Accelerating drum buildup
+
+Continue the Here With Me harmony.
+
+Use the existing Roses buildup percussion arrangement:
+- Spacy Drum accelerates to eighth notes.
+- Additional snare-roll layer enters based on the original Roses MIDI.
+- Faster snare activity develops into bar 35.
+
+Reuse the existing imported Roses drum samples and scheduling data.
+
+Do not copy the entire Roses instrumental buildup.
+
+Only borrow its rhythmic percussion.
+
+Allow the Here With Me harmonic backing to gradually become thinner toward the end of bar 35, creating room for the breakdown.
+
+Use smooth gain or filter automation if needed, preserving the chord progression and vocal clarity.
+
+Avoid excessive low-frequency stacking between kick and bass.
+
+## 4. Bar 36 — Dramatic breakdown
+
+This is the most important change.
+
+At bar 36 (84.0 seconds), I want the instrumental backing to become almost silent.
+
+Stop or fade:
+- Here With Me bass
+- Here With Me chord backing
+- Sustained synth backing
+- Spacy Drum
+- Snare roll
+- Buildup kick/percussion
+
+Use short fades where needed to avoid audio clicks.
+
+Preserve any important Here With Me vocal phrase or tail. Do not abruptly cut a vocal word in half.
+
+The result should feel like a sudden release of energy before the drop.
+
+## 5. Add a rising sweep / riser
+
+During bar 36, add a rising EDM effect.
+
+Desired sound:
+- Soft airy noise at the beginning.
+- Gradually rising pitch or perceived frequency.
+- Increasing brightness and intensity.
+- Wider, more energetic texture near the end.
+- Smooth transition into a tiny moment of space before the drop.
+
+Possible implementation:
+- Filtered noise sweep.
+- Rising oscillator texture.
+- Existing riser sample, if one is available.
+- A combination of noise and filtered tonal effects.
+
+Prioritize a smooth, musical EDM riser rather than a loud alarm-like synth.
+
+The effect should start around bar 36 beat 1 and approach its maximum intensity just before the bar-37 drop.
+
+Do not overwhelm the vocals.
+
+## 6. Riser slider and controls
+
+In Roses Sandbox, add:
+
+**Pre-Drop Riser**
+- Enable/disable toggle
+- Riser Volume slider (0–100%)
+- Riser Intensity slider (0–100%)
+
+The volume slider controls loudness.
+
+The intensity slider controls how dramatic the rising filter/pitch sweep feels.
+
+The riser should automatically follow bar-36 timing during normal playback.
+
+If easy, add a separate manual-preview trigger so I can audition the effect outside the full performance.
+
+Do not require me to physically drag a slider during the live show.
+
+## 7. Final snap and silence
+
+Reuse the existing Roses `snap for drop.wav` if available.
+
+Try placing the snap on bar 36 beat 4 (85.8 seconds), as in the original Roses remake.
+
+Allow a short gap immediately before bar 37.
+
+The riser should stop or resolve cleanly, rather than continuing noisily over the drop.
+
+Make the transition feel intentional:
+
+Accelerating drums → sudden break → rising sweep → snap → DROP.
+
+## 8. Bar 37 — Existing Here With Me drop
+
+At bar 37 (86.4 seconds), preserve the existing Here With Me drop implementation.
+
+Do not change:
+- Four-layer lead MIDI
+- Here With Me drop chords
+- Here With Me drop bass
+- Drop drum samples
+- Existing transposition to E major
+- Vocal timing
+- Drop mixer settings
+
+The goal is to improve the transition into the drop, not rebuild the drop itself.
+
+## 9. UI updates
+
+When the Hybrid backing option is selected, the Practice/Performance UI should accurately reflect the new arrangement.
+
+Bars 29–32:
+- Here With Me harmonic information
+- Subtle musical visuals
+
+Bars 33–35:
+- Increasing rhythmic buildup visuals
+- Correct snare/drum activity
+
+Bar 36:
+- Clear breakdown
+- Minimal note activity
+- Subtle visual representation of the riser building upward
+
+Bar 37:
+- Strong visual reaction at the drop entrance
+
+Keep existing piano labels, song theme, keybinds and layout.
+
+Do not invent live piano note hits for automatic percussion.
+
+## 10. Testing
+
+Test playback starting at bar 25 and directly at bars 29, 33, 36 and 37.
+
+Verify:
+- Here With Me pitched backing remains harmonically consistent in E major.
+- Original Roses Vox Synth and bass are not duplicated in Hybrid mode.
+- Roses buildup drums use correct sample/MIDI timing.
+- Drums accelerate correctly through bar 35.
+- Most instrumental backing falls silent in bar 36.
+- Vocal phrases are preserved.
+- Riser increases smoothly in intensity.
+- Snap occurs at the correct time.
+- The riser does not mask the bar-37 drop.
+- The existing Here With Me drop remains unchanged.
+- Other three backing modes still function exactly as before.
+- No stuck audio, timing drift or clipping.
+
+Run TypeScript/build checks and test locally.
+
+All work must remain local. Do not deploy or publish.

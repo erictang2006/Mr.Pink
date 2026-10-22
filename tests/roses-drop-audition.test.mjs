@@ -58,8 +58,8 @@ export class Gain {constructor(value){this.gain=new Param(value);nodes.push(this
 export class Compressor extends Gain {} export class Volume extends Gain {constructor(value){super();this.volume=new Param(value);}}
 export class Limiter extends Gain {} export class WaveShaper extends Gain {} export class Filter extends Gain {} export class Panner extends Gain {} export class Synth {}
 export class PolySynth extends Gain {constructor(type,options){super();this.options=options;this.volume=new Param(options.volume);}triggerAttackRelease(note,duration,at,velocity){events.push({kind:'lead',note,duration,at,velocity,voice:this});}}
-export class ToneAudioBuffer {async load(name){this.name=name;this.loaded=true;this.duration=name.includes('chord-cache')?22.9:name.includes('HiHat')?.25:name.includes('Kick')?.5355102041:.5671201814;}dispose(){this.disposed=true;}}
-export class ToneBufferSource extends Gain {constructor(options){super();this.options=options;this.context={isOffline:false};}start(at,offset,duration,gain){events.push({kind:this.options.url.name.includes('chord-cache')?'chord-cache':'drum',name:this.options.url.name,at,offset,gain,source:this});}stop(at){this.stopAt=at;}dispose(){this.disposed=true;}}
+export class ToneAudioBuffer {async load(name){this.name=name;this.loaded=true;this.duration=name.includes('hwm-backing')?19.35:name.includes('chord-cache')?22.9:name.includes('HiHat')?.25:name.includes('Kick')?.5355102041:.5671201814;}dispose(){this.disposed=true;}}
+export class ToneBufferSource extends Gain {constructor(options){super();this.options=options;this.context={isOffline:false};}start(at,offset,duration,gain){events.push({kind:this.options.url.name.includes('hwm-backing')?'hwm-backing':'drum',name:this.options.url.name,at,offset,gain,source:this});}stop(at){this.stopAt=at;}dispose(){this.disposed=true;}}
 export let clockTime=0;export const setClock=value=>clockTime=value;
 export const immediate=()=>clockTime,now=immediate;
 export const context={lookAhead:.1,updateInterval:.05,isOffline:false},getContext=()=>context;
@@ -93,138 +93,81 @@ test('prepared chord tracks match the source MIDI and synth inputs, with unmodif
  }
 });
 
-test('original and Keys 6–8 chord rows play together and have independent volume, enable, mute and solo',async()=>{
- const engine=await fresh('cached');engine.start();engine.tick(144,10,.6);
- const original=engine.buses.get('chords'),bonk=engine.buses.get('bonkChords');
- assert.equal(original.gain.value,.32);assert.equal(bonk.gain.value,.32);
- const count=events.length;
- engine.setRow('bonkChords',{volume:.21});assert.equal(bonk.gain.value,.21);assert.equal(original.gain.value,.32);
- engine.setRow('chords',{muted:true});assert.equal(original.gain.value,0);assert.equal(bonk.gain.value,.21);
- engine.setRow('chords',{muted:false,solo:true});assert.equal(original.gain.value,.32);assert.equal(bonk.gain.value,0);
- engine.setRow('bonkChords',{solo:true});assert.equal(original.gain.value,0);assert.equal(bonk.gain.value,.21);
- assert.equal(engine.snapshot().rows.chords.solo,false);
- engine.setRow('bonkChords',{solo:false,enabled:false});assert.equal(bonk.gain.value,0);assert.equal(original.gain.value,.32);
- engine.allOn();assert.equal(original.gain.value,.32);assert.equal(bonk.gain.value,.21);
- engine.setChordLevel(1,.25);assert.equal(engine.chordBuses[1].gain.value,.25);assert.equal(engine.bonkChordBuses[1].gain.value,.25);
- engine.muteAll();assert.equal(original.gain.value,0);assert.equal(bonk.gain.value,0);
- engine.allOn();engine.resetVolumes();assert.equal(original.gain.value,.32);assert.equal(bonk.gain.value,.32);
- assert.equal(events.length,count,'mix changes do not restart either chord track or other instruments');
- engine.dispose();
+const backingEvents=()=>events.filter(e=>e.kind==='hwm-backing');
+test('final drop plays E-major HWM source harmony and bass, one four-bank lead and unchanged Roses percussion',async()=>{
+ const engine=await fresh();engine.tick(144,0,.6);assert.equal(events.length,0);
+ engine.start();for(let beat=144;beat<=180;beat+=.25){engine.tick(beat,10+(beat-144)*.6,.6);engine.tick(beat,10+(beat-144)*.6,.6);}
+ const lead=events.filter(e=>e.kind==='lead');assert.equal(lead.length,224);
+ const original=JSON.parse(readFileSync('reference/here-with-me-drop-lead/roses_37_52_here_with_me_lead_16bar_events.json')).events.filter(e=>e.repeat_index<2);
+ original.forEach((note,i)=>{assert.equal(lead[i].note,midiName(note.midi_pitch+1));near(lead[i].at,10+note.start_seconds_relative_to_rose_bar37);near(lead[i].duration,note.duration_seconds);});
+ assert.equal(new Set(lead.map(e=>e.voice)).size,4);
+ assert.deepEqual(backingEvents().map(e=>e.name),['/roses/hwm-backing/drop-instrumental-chords.wav','/roses/hwm-backing/drop-bass.wav']);
+ backingEvents().forEach(e=>{near(e.at,10);assert.equal(e.offset,0);assert.equal(e.source.options.playbackRate,1);});
+ assert.equal(events.some(e=>['bass','chords','chord-cache'].includes(e.kind)),false,'no original Roses harmonic scheduling');
+ const drums=events.filter(e=>e.kind==='drum');assert.equal(drums.length,78);
+ arrangement.drums.forEach((n,i)=>{near(drums[i].at,10+(n.beat-144)*.6);near(drums[i].gain,n.gain*n.velocity/127);assert.equal(drums[i].source.options.playbackRate,undefined);});
+ assert.equal(engine.snapshot().status,'done');engine.dispose();assert.ok(lead.every(e=>e.voice.disposed));
 });
-
-test('default playback keeps both sound options synchronized with no real-time chord synth allocation',async()=>{
- events.length=0;setClock(0);
- const engine=new RosesDropAuditionEngine(()=>{});await engine.prepare();engine.start();
- assert.equal(engine.snapshot().chordPlayback,'cached');assert.equal(engine.chords.length,0);
- for(let beat=144;beat<=176;beat+=.25)engine.tick(beat,10+(beat-144)*.6,.6);
- const tracks=events.filter(e=>e.kind==='chord-cache');assert.equal(tracks.length,4);
- tracks.forEach((e,i)=>{near(e.at,10);assert.equal(e.offset,0);assert.equal(e.source.destination,engine.cachedChordBuses[i]);assert.equal(e.source.options.playbackRate,1);});
- assert.equal(events.filter(e=>e.kind==='chords').length,0);
- assert.ok(tracks.every(e=>!e.source.disposed),'tails finish after the bar-45 clock boundary');
- const count=events.length;engine.setChordLevel(0,.25);engine.setRow('chords',{muted:true});engine.setRow('chords',{muted:false});
- assert.equal(engine.chordBuses[0].gain.value,.25);assert.equal(events.length,count);
- engine.dispose();assert.ok(tracks.every(e=>e.source.disposed));
+test('stale stabs, Bonk and chord preset requests cannot add conflicting harmony',async()=>{
+ const engine=await fresh();engine.setLeadSound('loud-stabs');engine.setChordPreset('bright');engine.setRow('bonkChords',{enabled:true,solo:true});engine.allOn();
+ engine.start();engine.tick(144,10,.6);engine.setLeadSound('loud-stabs');engine.tick(144.25,10.15,.6);
+ assert.equal(engine.snapshot().leadSound,'original');assert.equal(engine.snapshot().rows.bonkChords.enabled,false);
+ assert.equal(events.filter(e=>e.kind==='lead').length,8);assert.equal(new Set(events.filter(e=>e.voice).map(e=>e.voice)).size,4);
+ assert.equal(events.some(e=>e.name?.includes('loud-stabs')||e.name?.includes('chord-cache')),false);engine.dispose();
 });
-
-test('cached chords stop on pause/reset and resume at the current phrase offset without replaying the entrance',async()=>{
- const engine=await fresh('cached');engine.start();engine.tick(144,10,.6);
- const old=events.filter(e=>e.kind==='chord-cache');engine.pause();assert.ok(old.every(e=>e.source.disposed));
- engine.resume();engine.tick(144,11,.6);assert.equal(events.filter(e=>e.kind==='chord-cache').length,4);
- engine.tick(144.25,11.15,.6);
- const resumed=events.filter(e=>e.kind==='chord-cache').slice(4);assert.equal(resumed.length,4);
- resumed.forEach(e=>{near(e.offset,.15);near(e.at,11.15);});
- engine.stop();assert.ok(resumed.every(e=>e.source.disposed));
- engine.start();engine.tick(144,20,.6);assert.equal(events.filter(e=>e.kind==='chord-cache').length,12);
- engine.dispose();
+test('pause, resume, stop and replay cancel sources and preserve the phrase offset without duplicate notes',async()=>{
+ const engine=await fresh();engine.start();engine.tick(144,10,.6);const first=events.slice();
+ engine.pause();assert.ok(first.filter(e=>e.source).every(e=>e.source.disposed));assert.ok(first.filter(e=>e.voice).every(e=>e.voice.disposed));
+ engine.resume();engine.tick(144,11,.6);assert.equal(backingEvents().length,2);
+ engine.tick(144.25,11.15,.6);assert.equal(backingEvents().length,4);backingEvents().slice(2).forEach(e=>near(e.offset,.15));
+ assert.equal(events.filter(e=>e.kind==='lead').length,8);
+ engine.stop();const count=events.length;engine.tick(145,12,.6);assert.equal(events.length,count);
+ engine.start();engine.tick(144,20,.6);assert.equal(backingEvents().length,6);backingEvents().slice(4).forEach(e=>assert.equal(e.offset,0));engine.dispose();
 });
-
-test('playback diagnostics capture missed scheduling deadlines without stopping the clock',async()=>{
- const engine=await fresh('cached');engine.start();setClock(10.05);engine.tick(144,10,.6);
- near(engine.snapshot().maxLatenessMs,50);assert.equal(engine.snapshot().lateCallbacks,1);
- setClock(10.14);engine.tick(144.25,10.15,.6);assert.equal(engine.snapshot().lateCallbacks,1);
- assert.equal(engine.snapshot().status,'running');engine.stop();engine.start();
- assert.equal(engine.snapshot().lateCallbacks,0);assert.equal(engine.snapshot().maxLatenessMs,0);engine.dispose();setClock(0);
-});
-
-test('automatic playback buffers scheduling and restores the original clock after finish, stop and replay',async()=>{
- const engine=await fresh();
- engine.start();assert.equal(context.lookAhead,.2);assert.equal(context.updateInterval,.025);
- engine.start();engine.tick(176,20,.6);
- assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);
- engine.start();engine.pause();engine.resume();engine.stop();
- assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);
- context.lookAhead=.3;context.updateInterval=.01;
- engine.start();assert.equal(context.lookAhead,.3);assert.equal(context.updateInterval,.01);
- engine.dispose();assert.equal(context.lookAhead,.3);assert.equal(context.updateInterval,.01);
- context.lookAhead=.1;context.updateInterval=.05;
- context.isOffline=true;
- const offline=await fresh();offline.start();assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);
- offline.dispose();context.isOffline=false;
-});
-
-test('explicit audition schedules four independent groups at exact source timestamps, including off-grid hats',async()=>{
- const engine=await fresh();engine.tick(144,0,.6);assert.equal(events.length,0,'never autoplays merely by loading');
- engine.start();for(let b=144;b<=180;b+=.25){engine.tick(b,(b-144)*.6,.6);engine.tick(b,(b-144)*.6,.6);}
- assert.deepEqual(['lead','bass','chords','drum'].map(k=>events.filter(e=>e.kind===k).length),[224,35,319,78]);
- const notes=events.filter(e=>e.kind==='bass'||e.kind==='chords');
- arrangement.notes.forEach((n,i)=>{const actual=notes[i];near(actual.at,(n.beat-144)*.6);near(actual.duration,n.duration*.6);assert.equal(actual.note,n.group==='bass'?n.midi:midiName(n.midi));if(n.group==='chords')assert.equal(actual.track,n.track);});
- const drums=events.filter(e=>e.kind==='drum');
- arrangement.drums.forEach((n,i)=>{near(drums[i].at,(n.beat-144)*.6);near(drums[i].gain,n.gain*n.velocity/127);});
- assert.ok(drums.filter(e=>e.name.includes('HiHat')).every(e=>e.at>=9.9-1e-9));
- assert.ok(events.every(e=>e.at<19.2));assert.equal(engine.snapshot().status,'done');
- assert.ok(events.filter(e=>e.voice).every(e=>!e.voice.disposed),'voices may finish their natural tails');
- engine.dispose();assert.ok(events.filter(e=>e.voice).every(e=>e.voice.disposed));
-});
-
-test('mixer mute, enable, solo, volume and individual drum controls update gains without retriggering',async()=>{
- const engine=await fresh();engine.start();engine.tick(144,0,.6);const count=events.length;
+test('mute, solo, enable, volume and drum controls operate without replaying audio',async()=>{
+ const engine=await fresh();engine.start();engine.tick(144,10,.6);const count=events.length;
  engine.setRow('bass',{muted:true});assert.equal(engine.buses.get('bass').gain.value,0);
  engine.setRow('bass',{muted:false,volume:.4});assert.equal(engine.buses.get('bass').gain.value,.4);
- engine.setRow('drums',{solo:true});
- for(const id of ['lead','bass','chords','bonkChords'])assert.equal(engine.buses.get(id).gain.value,0);
- assert.ok(engine.buses.get('drums').gain.value>0);
+ engine.setRow('drums',{solo:true});for(const id of ['lead','bass','chords','bonkChords'])assert.equal(engine.buses.get(id).gain.value,0);
  engine.setRow('lead',{solo:true});assert.equal(engine.snapshot().rows.drums.solo,false);
  engine.setRow('lead',{solo:false});assert.ok(engine.buses.get('chords').gain.value>0);
  engine.muteDrum('hat',true);assert.equal(engine.drumBuses.get('hat').gain.value,0);assert.equal(engine.drumBuses.get('kick').gain.value,1);
- engine.setChordLevel(1,.25);assert.equal(engine.chordBuses[1].gain.value,.25);
- engine.setRow('chords',{enabled:false});assert.equal(engine.buses.get('chords').gain.value,0);
- engine.muteAll();for(const id of ['lead','bass','chords','bonkChords','drums'])assert.equal(engine.buses.get(id).gain.value,0);
- engine.allOn();engine.resetVolumes();assert.equal(engine.drumBuses.get('hat').gain.value,1);assert.equal(events.length,count,'mix changes do not replay any attack');
- assert.equal(engine.snapshot().rows.lead.volume,.65);engine.dispose();
+ engine.muteAll();for(const bus of engine.buses.values())assert.equal(bus.gain.value,0);
+ engine.allOn();engine.resetVolumes();assert.equal(engine.drumBuses.get('hat').gain.value,1);assert.equal(events.length,count);engine.dispose();
+});
+test('scheduling margin restores on finish, stop and replay and diagnostics report late callbacks',async()=>{
+ context.lookAhead=.1;context.updateInterval=.05;
+ const engine=await fresh();engine.start();assert.equal(context.lookAhead,.2);assert.equal(context.updateInterval,.025);
+ setClock(10.05);engine.tick(144,10,.6);near(engine.snapshot().maxLatenessMs,50);
+ engine.start();engine.tick(176,20,.6);assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);
+ engine.start();engine.pause();engine.resume();engine.stop();assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);engine.dispose();setClock(0);
 });
 
-test('stop/replay, pause/resume and late ticks cannot duplicate or retain voices',async()=>{
- const engine=await fresh();engine.start();engine.tick(144,0,.6);const old=events.slice();
- engine.stop();assert.ok(old.filter(e=>e.voice).every(e=>e.voice.disposed));
- const count=events.length;engine.tick(145,.6,.6);assert.equal(events.length,count);
- engine.start();engine.tick(144,10,.6);const next=events.slice(count);assert.equal(next.length,old.length);
- engine.pause();engine.tick(144.25,11,.6);assert.equal(events.length,count+next.length);
- engine.resume();engine.tick(144,11.1,.6);assert.equal(events.length,count+next.length);
- engine.tick(144.25,11.25,.6);assert.ok(events.length>count+next.length);engine.dispose();
+test('restored Roses backing schedules its original bass MIDI and both cached chord sounds without HWM harmony',async()=>{
+ const engine=await fresh();engine.setBackingSource('roses');engine.start();
+ for(let beat=144;beat<=176;beat+=.25)engine.tick(beat,10+(beat-144)*.6,.6);
+ assert.equal(backingEvents().length,0);
+ const bass=events.filter(e=>e.kind==='bass');const expected=arrangement.notes.filter(e=>e.group==='bass');assert.equal(bass.length,35);
+ expected.forEach((n,i)=>{assert.equal(bass[i].note,n.midi);near(bass[i].at,10+(n.beat-144)*.6);near(bass[i].duration,n.duration*.6);});
+ const tracks=events.filter(e=>e.name?.includes('/chord-cache/'));assert.deepEqual(tracks.map(e=>e.name.split('/').at(-1)),['chordA.wav','chordB.wav','bonkA.wav','bonkB.wav']);
+ tracks.forEach(e=>{near(e.at,10);assert.equal(e.offset,0);assert.equal(e.source.options.playbackRate,1);});
+ assert.equal(events.filter(e=>e.kind==='lead').length,224);assert.equal(engine.snapshot().backingSource,'roses');
+ engine.dispose();assert.ok(bass.every(e=>e.voice.disposed));
 });
-
-
-test('Brighter / Punchier selects only the prepared Original chord variant, including live A/B and replay', async()=>{
- const engine=await fresh('cached');
- assert.equal(engine.snapshot().chordPreset,'original');
- engine.setChordPreset('bright');engine.start();engine.tick(144,10,.6);
- let tracks=events.filter(e=>e.kind==='chord-cache');
- assert.deepEqual(tracks.map(e=>e.name.split('/').at(-1)),['brightA.wav','brightB.wav','bonkA.wav','bonkB.wav']);
- assert.equal(engine.chords.length,0,'the brighter preset never creates real-time chord synths');
- const bonk=tracks.slice(2),first=tracks.slice(0,2);
- engine.setChordPreset('original');engine.tick(144.25,10.15,.6);
- tracks=events.filter(e=>e.kind==='chord-cache');
- assert.equal(tracks.length,6,'only the two Original chord tracks change');
- assert.ok(first.every(e=>e.source.stopAt===10.15),'outgoing tracks fade at the handoff');
- assert.ok(bonk.every(e=>!e.source.disposed&&e.source.stopAt===undefined),'Bonk keeps playing uninterrupted');
- assert.deepEqual(tracks.slice(4).map(e=>e.name.split('/').at(-1)),['chordA.wav','chordB.wav']);
- tracks.slice(4).forEach(e=>{near(e.offset,.15);near(e.at,10.15);assert.equal(e.source.options.fadeIn,.01);});
- engine.setChordPreset('bright');engine.pause();engine.resume();engine.tick(144.5,11,.6);
- const resumed=events.filter(e=>e.kind==='chord-cache').slice(6);
- assert.deepEqual(resumed.map(e=>e.name.split('/').at(-1)),['brightA.wav','brightB.wav','bonkA.wav','bonkB.wav']);
- resumed.forEach(e=>near(e.offset,.3));
- engine.stop();engine.start();engine.tick(144,20,.6);
- const replay=events.filter(e=>e.kind==='chord-cache').slice(10);
- assert.equal(engine.snapshot().chordPreset,'bright');assert.equal(replay.length,4);replay.forEach(e=>near(e.offset,0));
- engine.dispose();assert.ok(events.filter(e=>e.kind==='chord-cache').every(e=>e.source.disposed));
+test('Roses preset, separate chord-row controls and replay retain source choice and timing',async()=>{
+ const engine=await fresh();engine.setBackingSource('roses');engine.setChordPreset('bright');engine.setChordLevel(0,.7);engine.start();engine.tick(144,10,.6);
+ assert.equal(engine.chordBuses[0].gain.value,.7);assert.equal(engine.chordBuses[2].gain.value,.7);
+ assert.equal(engine.buses.get('bonkChords').gain.value,.32);engine.setRow('bonkChords',{solo:true,volume:.4});assert.equal(engine.buses.get('chords').gain.value,0);assert.equal(engine.buses.get('bonkChords').gain.value,.4);
+ engine.setRow('bonkChords',{solo:false,enabled:false});assert.equal(engine.buses.get('bonkChords').gain.value,0);
+ engine.stop();engine.start();engine.tick(144,20,.6);assert.equal(engine.snapshot().backingSource,'roses');assert.equal(engine.snapshot().chordPreset,'bright');
+ assert.deepEqual(events.filter(e=>e.name?.includes('/chord-cache/')).slice(-4).map(e=>e.name.split('/').at(-1)),['brightA.wav','brightB.wav','bonkA.wav','bonkB.wav']);engine.dispose();
+});
+test('backing source changes and paused changes cancel old harmony, retain lead voices and join at the current offset',async()=>{
+ const engine=await fresh();engine.start();engine.tick(144,10,.6);const old=backingEvents();const banks=[...engine.lead.banks.values()];
+ engine.setBackingSource('roses');assert.ok(old.every(e=>e.source.disposed));assert.deepEqual([...engine.lead.banks.values()],banks);
+ engine.tick(145,10.6,.6);events.filter(e=>e.name?.includes('/chord-cache/')).forEach(e=>near(e.offset,.6));
+ engine.pause();engine.setBackingSource('hwm');engine.setBackingSource('roses');const bass=engine.rosesBass;
+ engine.resume();assert.equal(engine.rosesBass,bass,'resume cannot create a second bass engine');engine.tick(145.25,11,.6);
+ engine.setBackingSource('hwm');assert.ok(bass.disposed);engine.tick(145.5,11.15,.6);backingEvents().slice(-2).forEach(e=>near(e.offset,.9));
+ assert.equal(engine.buses.get('bonkChords').gain.value,0);assert.equal(engine.snapshot().leadSound,'original');engine.dispose();
 });

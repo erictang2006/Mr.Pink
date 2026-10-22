@@ -1,0 +1,35 @@
+[
+  {
+    "mode": "roses",
+    "identicalPeak": true,
+    "identicalRms": true,
+    "leadEvents": 224,
+    "drums": {
+      "kick": 24,
+      "clap": 16,
+      "hat": 38
+    }
+  },
+  {
+    "mode": "hwm-build",
+    "identicalPeak": true,
+    "identicalRms": true,
+    "leadEvents": 224,
+    "drums": {
+      "kick": 24,
+      "clap": 16,
+      "hat": 38
+    }
+  },
+  {
+    "mode": "hwm-drop",
+    "identicalPeak": true,
+    "identicalRms": true,
+    "leadEvents": 224,
+    "drums": {
+      "kick": 24,
+      "clap": 16,
+      "hat": 38
+    }
+  }
+]

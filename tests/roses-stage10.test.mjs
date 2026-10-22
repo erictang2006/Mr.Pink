@@ -55,12 +55,12 @@ export class Split extends Gain {} export class Merge extends Gain {} export cla
 export class Filter extends Gain {constructor(){super();this.frequency=new Param();}} export class EQ3 extends Gain {} export class Compressor extends Gain {} export class WaveShaper extends Gain {} export class Limiter extends Gain {} export class Distortion extends Gain {} export class JCReverb extends Gain {}
 export class ToneAudioBuffer {
  constructor() { this.duration=0; }
- async load(name) {this.name=name;this.loaded=true;this.duration=name.includes('hwm-backing')?19.35:name.includes('chord-cache')?22.9:name.includes('single-E4')?.785011:name.includes('Vox')?10.987506:name.includes('aah')?6.868753:name.includes('spacy')?.876485:name.includes('snap')?.474694:.179955;}
+ async load(name) {this.name=name;this.loaded=true;this.duration=name.includes('/hybrid/riser-')?2.28:name.includes('/hybrid/')?19.2:name.includes('hwm-backing')?19.35:name.includes('chord-cache')?22.9:name.includes('single-E4')?.785011:name.includes('Vox')?10.987506:name.includes('aah')?6.868753:name.includes('spacy')?.876485:name.includes('snap')?.474694:.179955;}
  dispose() {}
 }
 export class ToneBufferSource extends Gain {
  constructor(options){super();this.options=options;sampleSources.push(this);}
- start(at,offset,duration,gain){events.push({kind:'buildup-sample',name:this.options.url.name,at,offset,gain,rate:this.options.playbackRate});}
+ start(at,offset,duration,gain){events.push({kind:'buildup-sample',name:this.options.url.name,at,offset,gain,rate:this.options.playbackRate,dropBacking:!!this.destination?.dropBacking});}
  stop(at){events.push({kind:'buildup-stop',name:this.options.url.name,at});} 
 }
 export class Panner extends Gain { constructor(pan) { super(); this.pan = pan; } }
@@ -121,10 +121,16 @@ const bundled = await build({
   }}],
 });
 const audio = await import(`data:text/javascript;base64,${Buffer.from(bundled.outputFiles[0].text).toString('base64')}`);
+const dropSamples=()=>audio.events.filter(e=>e.kind==='buildup-sample'&&e.dropBacking);
+const bassSamples=()=>dropSamples().filter(e=>e.name.endsWith('/drop-bass.wav'));
+
 async function createEngine() {
   audio.clearEvents();
   const engine = new audio.RosesIntroEngine({ isPlayable:()=>true, stopLoop() {}, triggerLoopNote() {} },()=>{},()=>4);
   await engine.load();
+  engine.setBackingMode("roses");
+  const startDrop=engine.drop.start.bind(engine.drop);
+  engine.drop.start=(...args)=>{startDrop(...args);for(const bus of [...engine.drop.buses.values(),...engine.drop.chordBuses])bus.dropBacking=true;};
   return engine;
 }
 
@@ -194,7 +200,7 @@ test('explicit bar-25 backing and lead audition hands off at bars 29 and 37 with
   assert.equal(audio.events.filter(e => e.kind === 'drop-lead').length, 224);
   assert.equal(engine.snapshot().drop.status, 'done');
   assert.equal(engine.snapshot().status, 'finished');
-  assert.equal(audio.events.filter(e => e.kind === 'audition-bass').length, 35);
+  assert.equal(bassSamples().length, 1);
   assert.equal(audio.events.filter(e => e.kind === 'buildup-sample' && e.name.includes('Roses Kick')).length, 24);
   engine.dispose();
 });
@@ -220,7 +226,7 @@ test('all four Vox instrument options replay the Vox melody with identical backi
    assert.equal(vox.length,mode==='lead'?120:0,'the four banks play the 30 Vox notes, not the 224-event drop melody');
    assert.equal(drop.length,224);
    assert.equal(lead.filter(e=>Math.abs(e.at-(start+28.8))<1e-8).length,4);
-   assert.deepEqual(drop.slice(0,4).map(e=>e.note),['D#4','D#5','D#5','D#5']);
+   assert.deepEqual(drop.slice(0,4).map(e=>e.note),['E4','E5','E5','E5']);
    if(mode==='lead'||mode==='stabs')expected.forEach((note,i)=>{
      const group=mode==='lead'?vox.slice(i*4,i*4+4):[stabs[i]];
      group.forEach(event=>{
@@ -369,7 +375,7 @@ test('the existing Roses clock places the armed four-layer lead at bar 37 and en
  }
  const lead=audio.events.filter(e=>e.kind==='drop-lead');
  assert.equal(lead.length,224);assert.ok(Math.abs(lead[0].at-86.4)<1e-9);
- assert.deepEqual(lead.slice(0,4).map(e=>e.note),['D#4','D#5','D#5','D#5']);
+ assert.deepEqual(lead.slice(0,4).map(e=>e.note),['E4','E5','E5','E5']);
  assert.ok(lead.every(e=>e.at<105.6));
  assert.equal(engine.snapshot().lead.status,'DONE');
  assert.ok(lead.every(e=>!e.voice.disposed),'the final tails are allowed to decay');
@@ -405,13 +411,13 @@ test('Play Drop uses the existing clock, stops at 45 and leaves manual performan
  assert.equal(engine.snapshot().drop.status,'running');assert.equal(engine.snapshot().lead.status,'OFF');
  for(let tick=0;tick<=128;tick++)audio.advance(10+tick*.15);
  assert.equal(engine.snapshot().drop.status,'done');assert.equal(engine.snapshot().status,'finished');
- assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,35);
+ assert.equal(bassSamples().length,1);
  const samples=audio.events.filter(e=>e.kind==='buildup-sample'&&e.name.includes('HiHat'));
  assert.equal(samples.length,38);assert.ok(Math.abs(samples[0].at-19.9)<1e-9);
  const atEnd=audio.events.length;audio.advance(40);assert.equal(audio.events.length,atEnd);
  engine.reset(37);assert.equal(engine.snapshot().drop.status,'idle');
  engine.startAt(37,'performance');audio.advance(50);
- assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,35,'normal performance does not turn audition on');
+ assert.equal(bassSamples().length,1,'normal performance does not turn audition on');
  engine.dispose();
 });
 
@@ -430,7 +436,7 @@ test('drop graph and lead banks are ready before the transport can fire its firs
  };
  try {
   assert.equal(await engine.playDrop(),true);
-  assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,1,'the entrance is not skipped');
+  assert.equal(bassSamples().length,1,'the entrance is not skipped');
  } finally { audio.Transport.start=start;engine.dispose(); }
 });
 
@@ -449,7 +455,7 @@ test('three backing sources isolate bars 29–36 while preserving bar-25 backing
   assert.equal(await engine.rehearseFrom25('timed'),true);
   for(let tick=0;tick<=320;tick++)audio.advance(start+tick*.15);
   const events=audio.events.slice(first),samples=events.filter(e=>e.kind==='buildup-sample');
-  const prepared=samples.filter(e=>e.name.includes('/hwm-backing/'));
+  const prepared=samples.filter(e=>e.name.includes('/hwm-backing/')&&!e.dropBacking);
   const old=samples.filter(e=>!e.name.includes('/hwm-backing/')&&e.at<start+28.8-1e-8);
   assert.equal(prepared.length,mode==='roses'?0:4);
   if(mode!=='roses'){
@@ -527,7 +533,7 @@ test('the new prepared backing remains at 100 BPM during its audition',async()=>
 
 test('all full-take starts hand off to exactly the Play Drop arrangement in every backing mode',async()=>{
  const engine=await createEngine();engine.setDropChordPreset('bright');
- const isDropSample=e=>e.kind==='buildup-sample'&&/chord-cache|Roses Kick|Roses SnareClap|HiHat/.test(e.name);
+ const isDropSample=e=>e.kind==='buildup-sample'&&(e.dropBacking||/Roses Kick|Roses SnareClap|HiHat/.test(e.name));
  const dropEvents=start=>audio.events.filter(e=>['drop-lead','audition-bass'].includes(e.kind)||isDropSample(e))
   .map(({voice,...e})=>({...e,at:Number((e.at-start).toFixed(8))}));
  await engine.playDrop();for(let tick=0;tick<=128;tick++)audio.advance(10+tick*.15);
@@ -544,8 +550,8 @@ test('all full-take starts hand off to exactly the Play Drop arrangement in ever
   for(let tick=boundary;tick<=(45-bar)*16;tick++)audio.advance(10+tick*.15);
   assert.deepEqual(dropEvents(dropTime),reference,`bar ${bar}, ${mode}: same timing, notes, samples and preset as Play Drop`);
   assert.equal(audio.events.filter(e=>e.kind==='drop-lead'&&Math.abs(e.at-dropTime)<1e-8).length,4);
-  assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,35);
-  assert.equal(audio.events.filter(isDropSample).length,82,'four chord tracks plus 24 kicks, 16 claps and 38 hats');
+  assert.equal(bassSamples().length,1);
+  assert.equal(audio.events.filter(isDropSample).length,80,'two HWM tracks plus 24 kicks, 16 claps and 38 hats');
   assert.equal(engine.snapshot().status,'finished');assert.equal(engine.snapshot().drop.status,'done');
   assert.equal(engine.snapshot().drop.chordPreset,'bright');
  }
@@ -555,23 +561,23 @@ test('all full-take starts hand off to exactly the Play Drop arrangement in ever
 test('automatic handoffs preserve mixer choices and permit edits before the drop entrance',async()=>{
  const engine=await createEngine();
  engine.setDropRow('lead',{enabled:false,volume:.31});engine.setDropRow('bass',{muted:true});
- engine.setDropRow('bonkChords',{solo:true,volume:.47});engine.muteDropDrum('hat',true);
+ engine.setDropRow('chords',{solo:true,volume:.47});engine.muteDropDrum('hat',true);
  engine.setDropChordLevel(0,.7);engine.setDropChordPreset('bright');
  const expected=engine.snapshot().drop;
  for(const bar of [1,25,29]){
   assert.equal(await (bar===1?engine.startWithDrop(1,'timed'):bar===25?engine.rehearseFrom25('timed'):engine.rehearseFrom29('timed')),true);
   const actual=engine.snapshot().drop;
   for(const key of ['rows','drumMutes','chordLevels','chordPreset'])assert.deepEqual(actual[key],expected[key]);
-  for(const id of ['lead','bass','chords','drums'])assert.equal(engine.drop.buses.get(id).gain.value,0);
-  assert.equal(engine.drop.buses.get('bonkChords').gain.value,.47);
+  for(const id of ['lead','bass','bonkChords','drums'])assert.equal(engine.drop.buses.get(id).gain.value,0);
+  assert.equal(engine.drop.buses.get('chords').gain.value,.47);
  }
- engine.setDropRow('bonkChords',{solo:false});engine.setDropRow('lead',{enabled:true,volume:.42});
+ engine.setDropRow('chords',{solo:false});engine.setDropRow('lead',{enabled:true,volume:.42});
  engine.setDropRow('bass',{muted:false,volume:.51});engine.setDropChordPreset('original');
  for(let tick=0;tick<=128;tick++)audio.advance(10+tick*.15);
  assert.equal(engine.drop.buses.get('lead').gain.value,.42);assert.equal(engine.drop.buses.get('bass').gain.value,.51);
  assert.equal(engine.drop.drumBuses.get('hat').gain.value,0);
- const chords=audio.events.filter(e=>e.kind==='buildup-sample'&&e.name.includes('chord-cache'));
- assert.equal(chords.length,4);assert.ok(chords.some(e=>e.name.endsWith('chordA.wav')));assert.ok(chords.every(e=>!e.name.includes('bright')));
+ const chords=dropSamples().filter(e=>e.name.endsWith('drop-instrumental-chords.wav'));
+ assert.equal(chords.length,1);assert.ok(chords.some(e=>e.name.endsWith('drop-instrumental-chords.wav')));assert.ok(chords.every(e=>!e.name.includes('bright')));
  engine.dispose();
 });
 
@@ -582,11 +588,11 @@ test('section auditions cancel during loading or before 37, and resume without d
   assert.equal(await pending,false);assert.equal(engine.snapshot().status,'idle');assert.equal(engine.snapshot().drop.status,'idle');
   await (bar===1?engine.startWithDrop(1,'timed'):bar===25?engine.rehearseFrom25('timed'):engine.rehearseFrom29('timed'));
   audio.advance(10);engine.pause();assert.equal(engine.snapshot().drop.status,'paused');
-  audio.advance(11);assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,0);
+  audio.advance(11);assert.equal(bassSamples().length,0);
   engine.resume();assert.equal(engine.snapshot().drop.status,'running');
   for(let tick=1;tick<=(37-bar)*16;tick++)audio.advance(20+tick*.15);
   assert.equal(audio.events.filter(e=>e.kind==='drop-lead').length,4);
-  assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,1);
+  assert.equal(bassSamples().length,1);
   engine.reset();const count=audio.events.length;audio.advance(100);assert.equal(audio.events.length,count);
   audio.clearEvents();
   await (bar===1?engine.startWithDrop(1,'timed'):bar===25?engine.rehearseFrom25('timed'):engine.rehearseFrom29('timed'));
@@ -614,7 +620,7 @@ test('starting from bar 1 preserves the original earlier arming and audio in Tim
    if(fullDrop){
     audio.advance(96.4);
     assert.equal(audio.events.filter(e=>e.kind==='drop-lead').length,4);
-    assert.equal(audio.events.filter(e=>e.kind==='audition-bass').length,1);
+    assert.equal(bassSamples().length,1);
     assert.equal(engine.snapshot().lead.status,'OFF');
    }
   }
@@ -634,4 +640,128 @@ test('full-song preparation fixes tempo before starting and a newer seek cancels
  for(let tick=0;tick<=80;tick++)audio.advance(20+tick*.15);
  assert.equal(engine.snapshot().cycle,1);assert.equal(engine.snapshot().drop.status,'idle','short practice loops do not queue a full take');
  engine.dispose();
+});
+
+test('stale Recorded Loud Stabs requests cannot replace the finalized four-layer lead on any start or replay',async()=>{
+ const engine=await createEngine();engine.setDropLeadSound('loud-stabs');
+ for(const bar of [1,25,29,37])for(let replay=0;replay<2;replay++){
+  engine.reset(bar);audio.clearEvents();
+  assert.equal(await (bar===1?engine.startWithDrop(1,'timed'):bar===25?engine.rehearseFrom25('timed'):bar===29?engine.rehearseFrom29('timed'):engine.playDrop()),true);
+  const boundary=10+(37-bar)*2.4;
+  for(let tick=0;tick<=(45-bar)*16;tick++)audio.advance(10+tick*.15);
+  const hits=audio.events.filter(e=>e.kind==='drop-lead');
+  assert.equal(hits.length,224);assert.equal(hits.filter(e=>Math.abs(e.at-boundary)<1e-8).length,4);
+  assert.ok(hits.every(e=>e.at>=boundary-1e-8));assert.equal(audio.events.some(e=>e.name?.endsWith('/loud-stabs-recorded-fm7.wav')&&e.kind==='buildup-sample'),false);
+  assert.equal(bassSamples().length,1);assert.equal(engine.snapshot().drop.leadSound,'original');
+  assert.equal(engine.snapshot().status,'finished');assert.equal(engine.snapshot().lead.status,'OFF');
+ }
+ engine.dispose();
+});
+
+test('default full HWM arrangement arms E-major backing without changing earlier Roses arming',async()=>{
+ const engine=await createEngine();engine.setBackingMode('hwm-build');
+ assert.equal(await engine.startWithDrop(1,'timed'),true);
+ assert.equal(engine.snapshot().buildup.status,'ARMED');
+ assert.equal(engine.snapshot().synthActive,false);assert.equal(engine.snapshot().bassActive,false);
+ for(let tick=0;tick<=704;tick++)audio.advance(10+tick*.15);
+ const prepared=audio.events.filter(e=>e.kind==='buildup-sample'&&e.name.includes('/hwm-backing/'));
+ assert.equal(prepared.length,6);assert.equal(prepared.filter(e=>e.at<96.4-1e-8).length,4);
+ assert.equal(bassSamples().length,1);assert.equal(engine.snapshot().status,'finished');engine.dispose();
+});
+
+test('Roses drop choice and preset survive every section start with exactly one original bass and four chord tracks',async()=>{
+ const engine=await createEngine();engine.setDropBackingSource('roses');engine.setDropChordPreset('bright');
+ for(const bar of [1,25,29,37]){
+  engine.reset(bar);audio.clearEvents();
+  assert.equal(await (bar===1?engine.startWithDrop(1,'timed'):bar===25?engine.rehearseFrom25('timed'):bar===29?engine.rehearseFrom29('timed'):engine.playDrop()),true);
+  for(let tick=0;tick<=(45-bar)*16;tick++)audio.advance(10+tick*.15);
+  const boundary=10+(37-bar)*2.4;
+  assert.equal(engine.snapshot().drop.backingSource,'roses');assert.equal(engine.snapshot().drop.chordPreset,'bright');
+  const bass=audio.events.filter(e=>e.kind==='audition-bass');assert.equal(bass.length,35);assert.ok(bass.every(e=>e.at>=boundary-1e-8));
+  const tracks=dropSamples();assert.equal(tracks.length,4);assert.ok(tracks.every(e=>e.name.includes('/chord-cache/')&&Math.abs(e.at-boundary)<1e-8));
+  assert.equal(audio.events.filter(e=>e.kind==='drop-lead'&&Math.abs(e.at-boundary)<1e-8).length,4);
+ }
+ engine.dispose();
+});
+
+test('bar-1 full starts arm exactly the selected buildup source on fresh starts, restarts, completion and reset',async()=>{
+ const engine=await createEngine();
+ for(const source of ['roses','hwm-build','hwm-drop']){
+  engine.reset(1);engine.setBackingMode(source);
+  for(const previousState of ['fresh','armed','playing','finished','after-finish','reset']){
+   if(previousState==='armed'){engine.reset(1);engine.armBuildup();}
+   if(previousState==='reset')engine.reset(1);
+   if(previousState==='after-finish')assert.equal(engine.snapshot().status,'finished');
+   audio.clearEvents();
+   assert.equal(await engine.startWithDrop(1,'timed'),true,`${source}/${previousState}`);
+   assert.equal(engine.snapshot().buildup.mode,source);assert.equal(engine.snapshot().buildup.status,'ARMED');
+   for(let tick=0;tick<448;tick++)audio.advance(10+tick*.15);
+   assert.equal(audio.events.some(e=>e.kind==='buildup-sample'&&!e.dropBacking),false,'buildup must stay silent through bar 28');
+   audio.advance(77.2);
+   const samples=audio.events.filter(e=>e.kind==='buildup-sample'&&!e.dropBacking);
+   assert.equal(engine.snapshot().buildup.status,'PLAYING');
+   if(source==='roses'){
+    assert.ok(samples.some(e=>e.name.includes('/roses/buildup/')));assert.equal(samples.some(e=>e.name.includes('/hwm-backing/')),false);
+   }else{
+    const prefix=source==='hwm-build'?'build':'drop';
+    assert.deepEqual(samples.map(e=>e.name.split('/').at(-1)),['chords','bass','drums','fx'].map(group=>`${prefix}-${group}.wav`));
+    samples.forEach(e=>{assert.ok(Math.abs(e.at-77.2)<1e-8);assert.equal(e.offset,0);});
+   }
+   // Leave different real lifecycle states behind for the next full restart.
+   if(previousState==='playing')engine.pause();
+   if(previousState==='finished')for(let tick=449;tick<=704;tick++)audio.advance(10+tick*.15);
+  }
+ }
+ engine.dispose();
+});
+
+test('switching buildup source during the bar-1 lead-in uses the latest selection at bar 29',async()=>{
+ const engine=await createEngine();
+ for(const [from,to] of [['roses','hwm-build'],['hwm-build','hwm-drop'],['hwm-drop','roses']]){
+  engine.reset(1);engine.setBackingMode(from);audio.clearEvents();assert.equal(await engine.startWithDrop(1,'performance'),true);
+  for(let tick=0;tick<224;tick++)audio.advance(10+tick*.15);
+  engine.setBackingMode(to);assert.equal(engine.snapshot().buildup.status,'ARMED');
+  for(let tick=224;tick<=448;tick++)audio.advance(10+tick*.15);
+  const samples=audio.events.filter(e=>e.kind==='buildup-sample'&&!e.dropBacking);
+  assert.equal(engine.snapshot().buildup.mode,to);
+  if(to==='roses'){assert.ok(samples.some(e=>e.name.includes('/roses/buildup/')));assert.equal(samples.some(e=>e.name.includes('/hwm-backing/')),false);}
+  else {const prefix=to==='hwm-build'?'build':'drop';assert.deepEqual(samples.map(e=>e.name.split('/').at(-1)),['chords','bass','drums','fx'].map(group=>`${prefix}-${group}.wav`));}
+ }
+ engine.dispose();
+});
+
+test('Hybrid starts from 25/29/33/36 and preserves the exact existing drop at 37, including replay',async()=>{
+ const engine=await createEngine();engine.setBackingMode('hybrid');
+ for(const bar of [25,29,33,36,37])for(let take=0;take<2;take++){
+  engine.reset(bar);audio.clearEvents();
+  assert.equal(await(bar===25?engine.rehearseFrom25('timed'):bar===29?engine.rehearseFrom29('timed'):bar===37?engine.playDrop():engine.rehearseBuildup(bar,'timed')),true);
+  for(let tick=0;tick<=(45-bar)*16;tick++)audio.advance(10+tick*.15);
+  const samples=audio.events.filter(e=>e.kind==='buildup-sample'),hybrid=samples.filter(e=>e.name.includes('/roses/hybrid/')),riser=hybrid.filter(e=>e.name.includes('riser-'));
+  assert.equal(hybrid.length,bar===37?0:5);assert.equal(riser.length,bar===37?0:2);
+  if(bar!==37){
+   for(const event of hybrid.filter(e=>!e.name.includes('riser-'))){assert.ok(Math.abs(event.at-(10+Math.max(0,29-bar)*2.4))<1e-8);assert.ok(Math.abs(event.offset-Math.max(0,bar-29)*2.4)<1e-8);}
+   riser.forEach(e=>assert.ok(Math.abs(e.at-(10+(36-bar)*2.4))<1e-8));
+   const voices=audio.events.filter(e=>e.kind==='start'&&e.name.includes('here_with_me_chorus_e_major'));assert.equal(voices.length,1);assert.ok(Math.abs(voices[0].offset-(bar<29?0:4.62+(bar-29)*2.4))<1e-8);
+  }
+  assert.equal(samples.some(e=>e.name.includes('/roses/buildup/')||e.name.includes('/hwm-backing/')&&!e.dropBacking),false);
+  assert.equal(audio.events.filter(e=>e.kind==='build-note'&&e.at>=10+Math.max(0,29-bar)*2.4).length,0);
+  const leads=audio.events.filter(e=>e.kind==='drop-lead');assert.equal(leads.length,224);assert.equal(leads.filter(e=>Math.abs(e.at-(10+(37-bar)*2.4))<1e-8).length,4);
+  assert.equal(bassSamples().length,1);assert.equal(engine.snapshot().status,'finished');
+ }
+ engine.dispose();
+});
+
+test('Hybrid pause/seek/reset and mode changes remove old sources; riser controls remain separate from the drop',async()=>{
+ const engine=await createEngine();engine.setBackingMode('hybrid');engine.setPreDropRiser({volume:.8,intensity:.2,enabled:false});
+ assert.deepEqual(engine.snapshot().buildup.riser,{enabled:false,volume:.8,intensity:.2});
+ await engine.rehearseBuildup(36,'timed');audio.advance(10);
+ const first=audio.sampleSources.filter(source=>source.options.url.name.includes('/hybrid/'));assert.equal(first.length,5);
+ assert.equal(engine.snapshot().buildup.status,'BREAK');assert.equal(engine.snapshot().buildup.bass,false);
+ engine.previewPreDropRiser();assert.equal(audio.sampleSources.filter(source=>source.options.url.name.includes('/hybrid/')).length,5,'no preview can double the running riser');
+ audio.Transport.ticks=2*audio.Transport.PPQ;audio.flushDraw(11.2);engine.pause();assert.ok(first.every(source=>source.disposed));
+ engine.resume();const resumed=audio.events.filter(e=>e.kind==='buildup-sample'&&e.name.includes('riser-')).slice(-2);assert.ok(resumed.every(e=>Math.abs(e.offset-1.2)<1e-8));
+ const all=audio.sampleSources.filter(source=>source.options.url.name.includes('/hybrid/'));engine.setBackingMode('hwm-drop');assert.ok(all.every(source=>source.disposed));assert.equal(engine.snapshot().buildup.mode,'hwm-drop');
+ engine.reset();const count=audio.events.length;audio.advance(100);assert.equal(audio.events.length,count);
+ engine.setBackingMode('hybrid');engine.previewPreDropRiser();assert.equal(audio.events.filter(e=>e.kind==='buildup-sample'&&e.name.includes('riser-')).length,resumed.length+4); // first pair + resume pair + preview pair
+ const preview=audio.sampleSources.slice(-2);engine.reset();assert.ok(preview.every(source=>source.disposed));engine.dispose();
 });

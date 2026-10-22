@@ -1,3 +1,9 @@
+import { interstellarRobloxMap, interstellarAssistedCode, interstellarThemeShortcut } from './piano/interstellarRoblox';
+import { interstellarKeyGuide, interstellarProminentPitches } from './piano/interstellarPresentation';
+import { rosesKeyGuide } from './piano/rosesPresentation';
+import {backingFrame} from "./piano/backingVisuals";
+import {defaultBackingMode} from "./piano/rosesBacking";
+import RosesBackingControls from "./components/RosesBackingControls";
 import {
   useEffect,
   useMemo,
@@ -53,7 +59,7 @@ import { hereWithMeChordShortcuts, validHereWithMeChordSound } from "./piano/her
 import { RosesChordStabEngine } from "./piano/rosesChordStabEngine";
 import { validRosesDropSettings } from "./piano/rosesDropSettings";
 import { RosesIntroEngine, type LiveDrumHit, type RosesIntroSnapshot } from "./piano/rosesIntroEngine";
-import { rosesIntroBars, rosesVocalCue } from "./piano/rosesIntro";
+import { rosesVocalCue } from "./piano/rosesIntro";
 import { migrateCloserSettings, validCloserSettings, type RosesCloserSettings } from "./piano/rosesCloser";
 import { loadRosesCalibration, saveRosesCalibration, type RosesCalibrationSettings } from "./piano/rosesCalibration";
 import { SynthEngine, presetSettings, validSynthSettings, type SynthSettings } from "./piano/synthEngine";
@@ -114,6 +120,10 @@ export default function App() {
     catch { return validRosesDropSettings(); }
   });
   const [rosesIntroSnapshot, setRosesIntroSnapshot] = useState<RosesIntroSnapshot | null>(null);
+  const [hereWithMeHarmonyVolume, setHereWithMeHarmonyVolume] = useState(() => {
+    const value=Number(savedValue("stage-piano-hwm-harmony-volume", "4"));
+    return Number.isFinite(value) ? Math.max(0,Math.min(8,value)) : 4;
+  });
   const [hereWithMeChordSound, setHereWithMeChordSound] = useState(() => validHereWithMeChordSound(savedValue("stage-piano-hwm-chord-sound", "keys678")));
   const [rosesIntroLoadState, setRosesIntroLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [rosesVocalOffset, setRosesVocalOffset] = useState(() => {
@@ -267,6 +277,7 @@ export default function App() {
     const chordStabEngine = new RosesChordStabEngine();
     chordStabEngine.setSettings(rosesDropSettings);
     chordStabEngine.setHereWithMeSound(hereWithMeChordSound);
+    chordStabEngine.setHereWithMeHarmonyVolume(hereWithMeHarmonyVolume);
     chordStabs.current = chordStabEngine;
     void chordStabEngine.load().catch(() => { /* Explicit Enable audio retries and reports failure. */ });
     chordStabEngine.setGlobalVolume(volume / 100);
@@ -310,7 +321,8 @@ export default function App() {
         }
         if (songRef.current === "interstellar" && viewRef.current === "performance") {
           const section = performanceSectionRef.current;
-          const plan = planInterstellarPress(section, code, midi, assistedCursor.current, mixRef.current);
+          const scoreCode = section === 2 ? interstellarAssistedCode(code, midi, assistedCursor.current) : code;
+          const plan = planInterstellarPress(section, scoreCode, midi, assistedCursor.current, mixRef.current);
           assistedCursor.current = plan.nextCursor;
           const sources: { source: string; midi: number }[] = [];
           for (const voice of plan.voices) {
@@ -457,6 +469,11 @@ export default function App() {
     try { localStorage.setItem("stage-piano-hwm-chord-sound", hereWithMeChordSound); } catch { /* storage unavailable */ }
   }, [hereWithMeChordSound]);
   useEffect(() => {
+    chordStabs.current?.setHereWithMeHarmonyVolume(hereWithMeHarmonyVolume);
+    try { localStorage.setItem("stage-piano-hwm-harmony-volume",String(hereWithMeHarmonyVolume)); } catch { /* storage unavailable */ }
+  },[hereWithMeHarmonyVolume]);
+
+  useEffect(() => {
     rosesIntro.current?.setBassVolumes(rosesBassLevels.bass, rosesBassLevels.sub);
     try { localStorage.setItem("stage-piano-roses-bass-levels", JSON.stringify(rosesBassLevels)); } catch { /* storage unavailable */ }
   }, [rosesBassLevels]);
@@ -544,28 +561,34 @@ export default function App() {
   useEffect(() => {
     keyboard.current?.setReservedCodes(
       view === "performance"
-        ? [themeShortcut, "F7", "F8", "F9", "Escape", "Space", "ArrowLeft", "ArrowRight"]
+        ? [songId === "interstellar" ? interstellarThemeShortcut(themeShortcut) : themeShortcut, "F7", "F8", "F9", "Escape", "Space", "ArrowLeft", "ArrowRight"]
         : ["F9", "Space"],
     );
-  }, [view, themeShortcut]);
+  }, [view, themeShortcut, songId]);
   useEffect(() => {
     rosesIntro.current?.setBuildupSettings(rosesBuildupSettings);
     try { localStorage.setItem("stage-piano-roses-buildup-v1", JSON.stringify(rosesBuildupSettings)); } catch { /* local settings are optional */ }
   }, [rosesBuildupSettings]);
-  const activeProfile = songId === "roses" ? rosesMap : songId === "levels" ? levelsMap(levelsSection, levelsChords) : songId === "rush-e" ? profiles.find(profile => profile.id === "rush-e") ?? standardMap :
+  const activeProfile = songId === "interstellar" && view === "performance" ? interstellarRobloxMap : songId === "roses" ? rosesMap : songId === "levels" ? levelsMap(levelsSection, levelsChords) : songId === "rush-e" ? profiles.find(profile => profile.id === "rush-e") ?? standardMap :
     profiles.find((profile) => profile.id === profileId) ?? profiles[0] ?? standardMap;
   profileRef.current = activeProfile.id;
   const isBundledInterstellar = activeProfile.id === interstellarMap.id || activeProfile.id === assistedInterstellarMap.id;
-  const keyboardRange = pianoRange(songId === "levels" ? levelsMap("main", levelsChords).bindings : activeProfile.bindings);
+  const keyboardRange = songId === "interstellar" && view === "performance" ? { low: 36, high: 96 } : pianoRange(songId === "levels" ? levelsMap("main", levelsChords).bindings : activeProfile.bindings);
   const activeTranspose = songId === "roses" ? rosesTranspose - 4 : transpose;
-  const stagePresentation: StagePresentation | undefined = songId === "interstellar" || songId === "levels" ? songId : undefined;
+  if (songId === "roses") keyboardRange.low = Math.min(keyboardRange.low, Math.min(...Object.values({...rosesChordShortcuts, ...hereWithMeChordShortcuts}).flat()) - activeTranspose);
+  const stagePresentation: StagePresentation | undefined = songId === "interstellar" || songId === "levels" || songId === "roses" ? songId : undefined;
+  const selectedBacking=rosesIntroSnapshot?.buildup?.mode??defaultBackingMode;
+  const rosesBeat=rosesIntroSnapshot?(rosesIntroSnapshot.measure-1)*4+rosesIntroSnapshot.beat-1:0;
+  const rosesBackingView=useMemo(()=>backingFrame(selectedBacking,rosesBeat,rosesIntroSnapshot?.drop?.backingSource,rosesIntroSnapshot?.buildup,rosesIntroSnapshot?.drop?.rows),[selectedBacking,rosesBeat,rosesIntroSnapshot?.buildup,rosesIntroSnapshot?.drop]);
+  const rosesHwmScene=rosesBackingView.hwm;
+  const rosesAutomatic=rosesBackingView.events;
   const stageTheme: Theme = songId === "interstellar" ? "cosmic" : songId === "levels" ? "levels" : songId === "roses" ? "roses" : theme;
   const stageChords = songId === "levels" ? levelsSection === "main" ? levelsChords : levelsSection === "transition" ? levelsTransitionChords : levelsRosesChords : undefined;
   const performanceGuide = useMemo(() => {
-    const guide = stageKeyGuide(activeProfile, activeTranspose, stageChords);
-    if (songId === "interstellar" && performanceSection === 3 && interstellarMix.octaveEnabled) guide[highEOctaveMidi] = [{ code: "KeyF", label: "F", hand: "neutral" }];
+    const guide = songId === "roses" ? rosesKeyGuide(activeProfile, activeTranspose, rosesVocalKey) : stageKeyGuide(activeProfile, activeTranspose, stageChords);
+    if (songId === "interstellar") return interstellarKeyGuide(activeProfile, activeTranspose, performanceSection, interstellarMix.octaveEnabled);
     return guide;
-  }, [activeProfile, activeTranspose, stageChords, songId, performanceSection, interstellarMix.octaveEnabled]);
+  }, [activeProfile, activeTranspose, stageChords, songId, performanceSection, interstellarMix.octaveEnabled, rosesVocalKey]);
   useEffect(() => {
     keyboard.current?.setMap(activeProfile, songId === "levels" || (songId === "interstellar" && view === "performance"));
   }, [songId, levelsSection, levelsChords, profileId, profiles, view]);
@@ -652,7 +675,7 @@ export default function App() {
       } else if (event.code === "F8") {
         event.preventDefault();
         setShowHud((value) => !value);
-      } else if (event.code === themeShortcut && !event.repeat) {
+      } else if (event.code === (songId === "interstellar" ? interstellarThemeShortcut(themeShortcut) : themeShortcut) && !event.repeat) {
         event.preventDefault();
         setTheme(
           (value) => themes[(themes.indexOf(value) + 1) % themes.length],
@@ -743,7 +766,7 @@ export default function App() {
     performanceSectionRef.current = next;
     if (next === 2) assistedCursor.current = 0;
     const map = mapForInterstellarSection(next);
-    keyboard.current?.setMap(map, true);
+    keyboard.current?.setMap(interstellarRobloxMap, true);
     profileRef.current = map.id;
     setProfileId(map.id);
     setPerformanceSection(next);
@@ -888,7 +911,7 @@ export default function App() {
       setPerformanceMeasure(1);
       profileRef.current = interstellarMap.id;
       setProfileId(interstellarMap.id);
-      keyboard.current?.setMap(interstellarMap);
+      keyboard.current?.setMap(interstellarRobloxMap);
     }
     liveNotes.current.clear();
     setStartedAt(performance.now());
@@ -1008,7 +1031,7 @@ export default function App() {
     }, 600);
   }
 
-  if (view === "sandbox") return <SandboxMode hereWithMeChordSound={hereWithMeChordSound} onHereWithMeChordSound={setHereWithMeChordSound} closerSettings={rosesCloserSettings} onCloserSettings={setRosesCloserSettings} introEngine={rosesIntro.current} introClock={rosesIntroSnapshot} buildupSettings={rosesBuildupSettings} onBuildupSettings={setRosesBuildupSettings} dropSettings={rosesDropSettings} setDropSettings={setRosesDropSettings} compareLoudStab={async side => { if (audioState !== "ready") await startAudio(); if (chordStabs.current?.isReady()) chordStabs.current.compareLoudStab(side); }} songId={songId} map={activeProfile} transpose={activeTranspose} range={keyboardRange} snapshot={snapshot} activePitches={activePitches} liveNotes={liveNotes.current} audioReady={audioState === "ready"} startAudio={startAudio} volume={volume} setVolume={setVolume} rosesTranspose={rosesTranspose} setRosesTranspose={setRosesTranspose} synthSettings={synthSettings} setSynthSettings={setSynthSettings} instrumentId={instrumentId} setInstrumentId={selectRosesInstrument} instrumentError={instrumentError} previewInstrument={(midi) => synth.current?.preview(midi)} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} onSongChange={selectSong} onSheet={sandboxToSheet} onExit={exitSandbox} onPerformance={enterPerformance} />;
+  if (view === "sandbox") return <SandboxMode vocalKey={rosesVocalKey} hereWithMeHarmonyVolume={hereWithMeHarmonyVolume} onHereWithMeHarmonyVolume={setHereWithMeHarmonyVolume} hereWithMeChordSound={hereWithMeChordSound} onHereWithMeChordSound={setHereWithMeChordSound} closerSettings={rosesCloserSettings} onCloserSettings={setRosesCloserSettings} introEngine={rosesIntro.current} introClock={rosesIntroSnapshot} buildupSettings={rosesBuildupSettings} onBuildupSettings={setRosesBuildupSettings} dropSettings={rosesDropSettings} setDropSettings={setRosesDropSettings} compareLoudStab={async side => { if (audioState !== "ready") await startAudio(); if (chordStabs.current?.isReady()) chordStabs.current.compareLoudStab(side); }} songId={songId} map={activeProfile} transpose={activeTranspose} range={keyboardRange} snapshot={snapshot} activePitches={activePitches} liveNotes={liveNotes.current} audioReady={audioState === "ready"} startAudio={startAudio} volume={volume} setVolume={setVolume} rosesTranspose={rosesTranspose} setRosesTranspose={setRosesTranspose} synthSettings={synthSettings} setSynthSettings={setSynthSettings} instrumentId={instrumentId} setInstrumentId={selectRosesInstrument} instrumentError={instrumentError} previewInstrument={(midi) => synth.current?.preview(midi)} sustainSettings={sustainSettings} setSustainSettings={setSustainSettings} sustainActive={sustainActive} onSongChange={selectSong} onSheet={sandboxToSheet} onExit={exitSandbox} onPerformance={enterPerformance} />;
 
   if (view === "studio")
     return songId === "roses"
@@ -1021,29 +1044,30 @@ export default function App() {
     return (
       <main
         ref={stage}
-        className={`performance-stage theme-${stageTheme} ${stagePresentation ? `stage-presentation stage-${stagePresentation}` : ""} ${cursorHidden ? "cursor-hidden" : ""}`}
+        className={`performance-stage ${songId==="roses"&&rosesHwmScene&&rosesBeat>=144&&rosesBeat<176?"hwm-drop-scene":""} ${rosesHwmScene&&songId==="roses"?"hwm-scene":""} theme-${stageTheme} ${stagePresentation ? `stage-presentation stage-${stagePresentation}` : ""} ${cursorHidden ? "cursor-hidden" : ""}`}
       >
         <PerformanceVisualizer
           notes={liveNotes.current}
           map={activeProfile}
           transpose={activeTranspose}
           theme={stageTheme}
+          automaticGuide={songId==="roses"?{events:rosesAutomatic,hwm:rosesHwmScene,intensity:rosesBeat>=144?1:rosesBackingView.intensity,riserProgress:rosesBackingView.riserProgress,riserIntensity:rosesBackingView.riserIntensity,beat:rosesBeat,playing:rosesIntroSnapshot?.status==="running"&&(rosesBeat>=144?rosesIntroSnapshot?.drop?.status==="running":["PLAYING","BREAK"].includes(rosesIntroSnapshot?.buildup?.status??"")),getBeat:()=>rosesIntro.current?.scoreBeat()??rosesBeat}:undefined}
           presentation={stagePresentation}
           keyGuide={performanceGuide}
           notesPerSecond={snapshot.notesPerSecond}
           showAssisted={!!stagePresentation || showAssistedNotes}
-          range={songId === "levels" || songId === "roses" ? keyboardRange : undefined}
+          range={songId === "interstellar" || songId === "levels" || songId === "roses" ? keyboardRange : undefined}
         />
-        {stagePresentation && <PerformanceHeader song={stagePresentation} measure={performanceMeasure} bpm={songId === "levels" ? performanceMeasure >= 12 ? 100 : 126 : 100} beat={songId === "levels" && drumSnapshot?.status === "running" ? drumSnapshot.beat : undefined} sustain={sustainActive} showPedal={sustainSettings.showIndicator} elapsed={showHud ? elapsed : undefined} />}
+        {stagePresentation && <PerformanceHeader song={stagePresentation} title={songId==="roses"?(rosesHwmScene?"Here With Me":"Roses"):undefined} section={songId==="roses"?rosesBackingView.role:undefined} chord={songId==="roses"?rosesBackingView.chord:undefined} measure={songId==="roses"?rosesIntroSnapshot?.measure??1:performanceMeasure} bpm={songId === "levels" ? performanceMeasure >= 12 ? 100 : 126 : 100} beat={songId === "roses"?rosesIntroSnapshot?.beat:songId === "levels" && drumSnapshot?.status === "running" ? drumSnapshot.beat : undefined} sustain={sustainActive} showPedal={sustainSettings.showIndicator} elapsed={showHud ? elapsed : undefined} />}
         {!stagePresentation && sustainSettings.showIndicator && <div className={`performance-sustain ${sustainActive ? "is-active" : ""}`}>PEDAL {sustainActive ? "ON" : "OFF"}</div>}
         {!stagePresentation && <div className="performance-profile">
           {activeProfile.name}{" "}
           <span>· F7 LABELS {performanceLabels ? "ON" : "OFF"}</span>
         </div>}
-        {songId === "roses" && <div className="roses-performance-status">
-          <strong>ROSES · BAR {String(rosesIntroSnapshot?.measure ?? 1).padStart(2, "0")} / {rosesIntroBars} · BEAT {(rosesIntroSnapshot?.beat ?? 1).toFixed(2)} · 100 BPM{rosesIntroSnapshot?.status === "finished" ? " · FINISHED" : ""}</strong>
+        {songId === "roses" && <details className="roses-performance-controls"><summary>Performance controls</summary><div className="roses-performance-status">
+          <strong>{rosesHwmScene?"HERE WITH ME":"ROSES"} · BAR {String(rosesIntroSnapshot?.measure ?? 1).padStart(2, "0")} / 44 · BEAT {(rosesIntroSnapshot?.beat ?? 1).toFixed(2)} · 100 BPM{rosesIntroSnapshot?.status === "finished" ? " · FINISHED" : ""}</strong>
           <span>SYNTH {rosesIntroSnapshot?.synthPending !== undefined ? rosesIntroSnapshot.synthPending ? "ARMED" : "STOP QUEUED" : rosesIntroSnapshot?.synthActive ? "ON" : "OFF"} · BASS/SUB {rosesIntroSnapshot?.bassPending !== undefined ? rosesIntroSnapshot.bassPending ? "ARMED" : "STOP QUEUED" : rosesIntroSnapshot?.bassActive ? "PLAYING" : "NOT ARMED"} · BUILD {rosesIntroSnapshot?.buildPending ? "ARMED" : rosesIntroSnapshot?.buildActive ? "PLAYING" : "NOT ARMED"} · VOCAL {rosesIntroSnapshot?.vocalStatus ?? "NOT ARMED"}</span>
-          <span>{rosesIntroSnapshot?.status === "finished" ? "Finished · Reset to rehearse" : rosesIntroSnapshot?.missedBassHandoff && !rosesIntroSnapshot.bassActive ? "MISSED BASS HANDOFF · N recovers on the next bar" : (rosesIntroSnapshot?.measure ?? 1) === 4 ? `Arm V synth and ${rosesVocalKey.replace("Key", "")} vocal for bar 5` : (rosesIntroSnapshot?.measure ?? 1) < 5 ? "Play live synth · V arms synth for bar 5" : (rosesIntroSnapshot?.measure ?? 1) < 13 ? "Play Z/X drums · N arms bass for bar 13" : (rosesIntroSnapshot?.measure ?? 1) >= 21 ? "Guitar + build bass · no required drums" : (rosesIntroSnapshot?.measure ?? 1) >= 20 ? "Play X clap · M accent optional" : "Play Z kick / X clap · M accent at bar 16"}</span>
+          <span>{rosesIntroSnapshot?.status === "finished" ? "Finished · Reset to rehearse" : rosesIntroSnapshot?.missedBassHandoff && !rosesIntroSnapshot.bassActive ? "MISSED BASS HANDOFF · N recovers on the next bar" : (rosesIntroSnapshot?.measure ?? 1) === 4 ? `Arm V synth and ${rosesVocalKey.replace("Key", "")} vocal for bar 5` : (rosesIntroSnapshot?.measure ?? 1) < 5 ? "Play live synth · V arms synth for bar 5" : (rosesIntroSnapshot?.measure ?? 1) < 13 ? "Play Z/X drums · N arms bass for bar 13" : (rosesIntroSnapshot?.measure ?? 1) >= 29 ? `${rosesBackingView.source} · ${rosesBackingView.chord??"automatic backing"}` : (rosesIntroSnapshot?.measure ?? 1) >= 21 ? "Guitar + build bass · no required drums" : (rosesIntroSnapshot?.measure ?? 1) >= 20 ? "Play X clap · M accent optional" : "Play Z kick / X clap · M accent at bar 16"}</span>
           {rosesIntroSnapshot?.lastDrum && <span className="roses-drum-flash" key={rosesIntroSnapshot.lastDrum.sequence}>{rosesIntroSnapshot.lastDrum.kind.toUpperCase()} HIT</span>}
           {rosesIntroSnapshot?.lastAccent && <span className="roses-drum-flash" key={`accent-${rosesIntroSnapshot.lastAccent}`}>VOCAL ACCENT HIT</span>}
           <div><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError || rosesIntroSnapshot?.drop?.status === "loading"} onClick={() => rosesIntro.current?.startWithDrop(1, "performance")}>Start bar 1</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(5, "performance")}>Start bar 5</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(9, "performance")}>Start bar 9</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(13, "performance")}>Start bar 13</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(21, "performance")}>Start bar 21</button><button onClick={() => rosesIntro.current?.armSynth()}>V Arm synth</button><button onClick={() => rosesIntro.current?.armBass()}>N Arm bass</button><button onClick={() => rosesIntro.current?.armBuild()} disabled={rosesIntroSnapshot?.status === "running" && rosesIntroSnapshot.measure >= 21}>F6 Arm build</button><button onClick={() => rosesIntro.current?.armVocal()} disabled={!rosesIntroSnapshot?.vocalReady || rosesIntroSnapshot.status === "running" && rosesIntroSnapshot.measure !== 4}>{rosesVocalKey.replace("Key", "")} Arm vocal</button><button disabled={!rosesIntroSnapshot || !["running", "paused"].includes(rosesIntroSnapshot.status)} onClick={() => rosesIntroSnapshot?.status === "paused" ? rosesIntro.current?.resume() : rosesIntro.current?.pause()}>{rosesIntroSnapshot?.status === "paused" ? "Resume" : "Pause"}</button><button onClick={() => setRosesBeatHud(value => !value)}>Beat HUD {rosesBeatHud ? "ON" : "OFF"}</button><button onClick={() => rosesIntro.current?.stopLoop()}>B Stop backing</button><button onClick={() => rosesIntro.current?.reset()}>Reset</button></div>
@@ -1051,24 +1075,31 @@ export default function App() {
           <label className="roses-performance-synth-level">Synth lead <output>{rosesSynthLeadMs} ms</output><input aria-label="V Synth timing lead" type="range" min="0" max="60" step="5" value={rosesSynthLeadMs} onChange={event => setRosesSynthLeadMs(Number(event.target.value))} /></label>
           <small>{rosesChordHint}</small>
           <small>V synth · N bass/sub · F6 build at bar 21 · {rosesVocalKey.replace("Key", "")} vocal at bar 4 for bar 5 · Z kick · X clap · M accent · B stop · Space pedal {sustainActive ? "ON" : "OFF"} · samples {rosesIntroLoadState}{instrumentError ? ` · ${instrumentError}` : ""}</small>
+          <RosesBackingControls engine={rosesIntro.current} clock={rosesIntroSnapshot} audioReady={audioState==="ready"} startAudio={startAudio} vocalLevel={rosesCloserSettings.closerLevel} onVocalLevel={level=>setRosesCloserSettings({...rosesCloserSettings,closerLevel:level})}/>
           <RosesBuildupControls engine={rosesIntro.current} clock={rosesIntroSnapshot} settings={rosesBuildupSettings} onChange={setRosesBuildupSettings} compact />
           <HereWithMeLeadControls engine={rosesIntro.current} clock={rosesIntroSnapshot} compact />
           <RosesCloserControls settings={rosesCloserSettings} onChange={setRosesCloserSettings} status={rosesIntroSnapshot?.closerStatus} compact />
           <div><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(25, "performance")}>Start bar 25</button><button disabled={rosesIntroLoadState !== "ready" || !!instrumentError} onClick={() => rosesIntro.current?.startAt(27, "performance")}>Start bar 27</button></div>
           {rosesIntroSnapshot?.status === "finished" && <span>{rosesIntroSnapshot.sectionTails ? "Roses section complete · audio tails releasing" : "Roses section complete"}{rosesIntroSnapshot.closerStatus === "PLAYING" ? " · Here With Me continues" : ""}</span>}
-        </div>}
+        </div></details>}
         {songId === "roses" && rosesBeatHud && <div className="roses-performance-beat"><RosesBeatClock engine={rosesIntro.current} clock={rosesIntroSnapshot} leadMs={rosesCalibration.leadMs} closerSettings={rosesCloserSettings} compact /></div>}
         {songId === "levels" && performanceMeasure >= 9 && performanceMeasure <= 11 && <div className="performance-drum-pulse" key={drumSnapshot?.pulse} />}
         <div className="performance-piano">
+          {songId === "roses" && <div className="piano-input-legend"><span>● LIVE · KEYCAPS</span><span>━ AUTO · ACTIVITY</span></div>}
           <PianoCanvas
             active={activePitches}
+            automatic={songId==="roses"&&rosesIntroSnapshot?.status==="running"&&(rosesBeat>=144?rosesIntroSnapshot?.drop?.status==="running":["PLAYING","BREAK"].includes(rosesIntroSnapshot?.buildup?.status??""))?rosesBackingView.active.flatMap(e=>e.pitches):[]}
             map={activeProfile}
-            range={songId === "levels" || songId === "roses" ? keyboardRange : undefined}
+            range={songId === "interstellar" || songId === "levels" || songId === "roses" ? keyboardRange : undefined}
             transpose={activeTranspose}
             showLabels={performanceLabels}
             presentation={stagePresentation}
             keyGuide={performanceGuide}
+            prominentPitches={songId === "interstellar" ? interstellarProminentPitches(performanceSection, interstellarMix.octaveEnabled, activeTranspose) : undefined}
+            coolLighting={songId === "roses" && rosesHwmScene}
             pressedCodes={snapshot.pressed.map(key => key.code)}
+            pressedKeys={songId === "interstellar" ? snapshot.pressed : undefined}
+            starlightNotes={songId === "interstellar" ? liveNotes.current : undefined}
           />
         </div>
         {showHud && !stagePresentation && (

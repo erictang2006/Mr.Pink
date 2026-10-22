@@ -120,7 +120,7 @@ test('manual arm schedules only the first two source phrases through bar 44 at e
   const names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   source.events.filter(event => event.repeat_index < 2).forEach((event, i) => {
     const actual = attacks[i];
-    assert.equal(actual.note, names[event.midi_pitch % 12] + (Math.floor(event.midi_pitch / 12) - 1));
+    assert.equal(actual.note, names[(event.midi_pitch + 1) % 12] + (Math.floor((event.midi_pitch + 1) / 12) - 1));
     near(actual.at, event.absolute_roses_transport_seconds);
     near(actual.duration, event.duration_seconds);
     near(actual.velocity, event.velocity_raw / 127);
@@ -188,7 +188,7 @@ test('the bar-29 instance reuses every source event with an exact eight-bar shif
   assert.equal(new Set(attacks.map(event => event.voice)).size, 4);
   const names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   source.events.filter(event => event.repeat_index < 2).forEach((event, i) => {
-    assert.equal(attacks[i].note, names[event.midi_pitch % 12] + (Math.floor(event.midi_pitch / 12) - 1));
+    assert.equal(attacks[i].note, names[(event.midi_pitch + 1) % 12] + (Math.floor((event.midi_pitch + 1) / 12) - 1));
     near(attacks[i].at, event.absolute_roses_transport_seconds - 19.2);
     near(attacks[i].duration, event.duration_seconds);
     near(attacks[i].velocity, event.velocity_raw / 127);

@@ -1,0 +1,797 @@
+{
+  "bpm": 100,
+  "key": "E major / C♯ minor",
+  "transposeApplied": 0,
+  "harmony": "Existing E-major HWM Drop Backing; amplitude processing only",
+  "harmonySilenceBeat": 140,
+  "riserStartBeat": 140,
+  "riserEndBeat": 143.8,
+  "snapBeat": 143,
+  "inputs": {
+    "public/roses/hwm-backing/drop-chords.wav": "2afea9d9756267b116dd207c659a05c81d17910d34696a50127f36c4ecbde770",
+    "public/roses/hwm-backing/drop-bass.wav": "25c414c1be34057974943e88ce017a6cbe2f0074587d46e43ce99601e9c4be05",
+    "public/roses/buildup/spacy drum.wav": "9a083089e3d2d3c41332ef9dd42ec75d007b0574920e392d9c4e519351be68d2",
+    "public/roses/buildup/Snare Drum 005 808 Double Beam.wav": "5e3fd991acbdaca5898c09a1b6c4cc0b01a43f40096ebe29185e3b24673c512e",
+    "public/roses/buildup/snap for drop.wav": "3964cf4c0583b4e2d1ccd35dbd228dbc33c4c76fbf9afea25fe8a13729c9271c"
+  },
+  "sourceHashes": {
+    "scripts/prepare-hybrid-backing.mjs": "5f0170bbbbb5bfcdbb65e9aa498f091fe76a999683f867ba3acfed4e1f5b4177",
+    "src/piano/hybridBacking.ts": "d026eb0562bc7b48201c9640232ccec121559ed6155e28412c516a450b71b2b5",
+    "src/piano/rosesBuildup.ts": "d4192876913ed38fab2d4d358d2ecbbd5da8fb5a0c3e7d60bbc1744427959073",
+    "src/piano/roses_buildup_manifest.json": "6fd3cd9ad61633bf93f073352c4383af7365753e8e06a704371a2f900654ed0e"
+  },
+  "percussion": [
+    {
+      "layer": "spacy",
+      "beat": 112,
+      "end": 112.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 113,
+      "end": 113.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 114,
+      "end": 114.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 115,
+      "end": 115.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 116,
+      "end": 116.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 117,
+      "end": 117.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 118,
+      "end": 118.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 119,
+      "end": 119.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 120,
+      "end": 120.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 121,
+      "end": 121.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 122,
+      "end": 122.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 123,
+      "end": 123.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 124,
+      "end": 124.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 125,
+      "end": 125.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 126,
+      "end": 126.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 127,
+      "end": 127.875,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 128,
+      "end": 128.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 128,
+      "end": 128.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 128.5,
+      "end": 129,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 128.5,
+      "end": 129,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 129,
+      "end": 129.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 129,
+      "end": 129.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 129.5,
+      "end": 130,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 129.5,
+      "end": 130,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 130,
+      "end": 130.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 130,
+      "end": 130.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 130.5,
+      "end": 131,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 130.5,
+      "end": 131,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 131,
+      "end": 131.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 131,
+      "end": 131.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 131.5,
+      "end": 132,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 131.5,
+      "end": 132,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 132,
+      "end": 132.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 132,
+      "end": 132.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 132.5,
+      "end": 133,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 132.5,
+      "end": 133,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 133,
+      "end": 133.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 133,
+      "end": 133.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 133.5,
+      "end": 134,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 133.5,
+      "end": 134,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 134,
+      "end": 134.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 134,
+      "end": 134.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 134.5,
+      "end": 135,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 134.5,
+      "end": 135,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 135,
+      "end": 135.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 135,
+      "end": 135.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 135.5,
+      "end": 136,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 135.5,
+      "end": 136,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 136,
+      "end": 136.25,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 136,
+      "end": 136.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 136.25,
+      "end": 136.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 136.5,
+      "end": 136.75,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.0594630943592953,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 136.5,
+      "end": 137,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 136.75,
+      "end": 137,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.0594630943592953,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 137,
+      "end": 137.25,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.122462048309373,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 137,
+      "end": 137.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 137.25,
+      "end": 137.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.189207115002721,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 137.5,
+      "end": 137.75,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.2599210498948732,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 137.5,
+      "end": 138,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 137.75,
+      "end": 138,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.2599210498948732,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 138,
+      "end": 138.25,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.2599210498948732,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 138,
+      "end": 138.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 138.25,
+      "end": 138.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.3348398541700344,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 138.5,
+      "end": 138.75,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.3348398541700344,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 138.5,
+      "end": 139,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 138.75,
+      "end": 139,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.4142135623730951,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 139,
+      "end": 139.25,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.4142135623730951,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 139,
+      "end": 139.5,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 139.25,
+      "end": 139.5,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.5874010519681994,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 139.5,
+      "end": 139.75,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.5874010519681994,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "spacy",
+      "beat": 139.5,
+      "end": 140,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.26,
+      "file": "/roses/buildup/spacy drum.wav"
+    },
+    {
+      "layer": "roll",
+      "beat": 139.75,
+      "end": 140,
+      "offset": 0,
+      "gain": 0.19778633318973074,
+      "rate": 1.5874010519681994,
+      "level": 0.3,
+      "file": "/roses/buildup/Snare Drum 005 808 Double Beam.wav"
+    },
+    {
+      "layer": "snap",
+      "beat": 143,
+      "end": 143.79115649975026,
+      "offset": 0,
+      "gain": 1,
+      "rate": 1,
+      "level": 0.6,
+      "file": "/roses/buildup/snap for drop.wav"
+    }
+  ],
+  "files": [
+    {
+      "file": "chords.wav",
+      "frames": 846720,
+      "rate": 44100,
+      "sha256": "fa2acc45dd734ba609d82bbe05109ab62b2390f59c786f1000f3d47d7f8a3cb3",
+      "peakDb": -16.830158726512604,
+      "rmsDb": -32.644407540321154
+    },
+    {
+      "file": "bass.wav",
+      "frames": 846720,
+      "rate": 44100,
+      "sha256": "b1a4f89d03fd3a8279161b13fb78f35591f9fcf6a6220ed02f2769025d0de007",
+      "peakDb": -19.674095596522857,
+      "rmsDb": -33.31497872573753
+    },
+    {
+      "file": "drums.wav",
+      "frames": 846720,
+      "rate": 44100,
+      "sha256": "0ceeb02eb4a6d6ae66d0e8d8c790ed645eea6eb923d58fa4c866d7601f6d5f90",
+      "peakDb": -5.094872601119017,
+      "rmsDb": -33.402462407161664
+    },
+    {
+      "file": "riser-soft.wav",
+      "frames": 100548,
+      "rate": 44100,
+      "sha256": "f7227a141c8b275bcaf5409143fb2de4ffc666bda88f92c46925bdfc298a7460",
+      "peakDb": -5.2962527926834415,
+      "rmsDb": -25.00000000122135
+    },
+    {
+      "file": "riser-strong.wav",
+      "frames": 100548,
+      "rate": 44100,
+      "sha256": "4a30ab169613017aad82b0fc3f36dce52927b9cb7f91f38b6c03fa0b07f2fc84",
+      "peakDb": -5.509870738105477,
+      "rmsDb": -25.000000002577213
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "pitchShiftVersusPreviousEbVocalSemitones": 0.9977262634974409,
+  "method": "Independent YIN-style waveform fundamental estimates; excludes octave ambiguity and low-confidence frames",
+  "pairedVoicedFrames": 417,
+  "nonOctaveAmbiguousFrames": 417,
+  "additionalPitchShiftVersusSuppliedAudioSemitones": 1.68534188560443e-06,
+  "pitchShift10th90thPercentileSemitones": [
+    -2.7171870900133396e-05,
+    4.5721331900949756e-05
+  ],
+  "sourcePitchClasses": [
+    [
+      "E",
+      193
+    ],
+    [
+      "A\u266d",
+      94
+    ],
+    [
+      "B",
+      50
+    ],
+    [
+      "C\u266f",
+      17
+    ],
+    [
+      "A",
+      15
+    ],
+    [
+      "F\u266f",
+      8
+    ],
+    [
+      "D",
+      3
+    ],
+    [
+      "E\u266d",
+      2
+    ],
+    [
+      "B\u266d",
+      1
+    ]
+  ],
+  "processedPitchClasses": [
+    [
+      "E",
+      193
+    ],
+    [
+      "A\u266d",
+      94
+    ],
+    [
+      "B",
+      50
+    ],
+    [
+      "C\u266f",
+      17
+    ],
+    [
+      "A",
+      15
+    ],
+    [
+      "F\u266f",
+      8
+    ],
+    [
+      "D",
+      3
+    ],
+    [
+      "E\u266d",
+      2
+    ],
+    [
+      "B\u266d",
+      1
+    ]
+  ],
+  "vocalFrames": 1853082,
+  "vocalDurationSeconds": 42.02,
+  "playbackRate": 1,
+  "changedPreexistingPublicAssets": [
+    "public/roses/hwm-backing/drop-chords.wav",
+    "public/roses/hwm-backing/build-bass.wav",
+    "public/roses/hwm-backing/drop-bass.wav",
+    "public/roses/hwm-backing/build-chords.wav"
+  ],
+  "allOtherPreexistingPublicAssetsUnchanged": true
+}

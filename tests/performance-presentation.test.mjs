@@ -4,12 +4,16 @@ import { build } from 'esbuild';
 
 const bundle = await build({ stdin: { contents: `
   export * from './src/piano/performancePresentation';
+  export {rosesKeyGuide} from './src/piano/rosesPresentation';
+  export {rosesMap} from './src/piano/roses';
+  export {rosesChordShortcuts} from './src/piano/rosesChords';
+  export {hereWithMeChordShortcuts} from './src/piano/hereWithMeChords';
   export { levelsMap, levelsChordDefaults, levelsTransitionChords } from './src/piano/levels';
   export { interstellarMap, assistedInterstellarMap } from './src/piano/profiles';
   export { LiveNotes } from './src/piano/liveNotes';
   export { LevelsOrb, orbDirection } from './src/components/levelsOrb';
 `, resolveDir: process.cwd() }, bundle: true, platform: 'node', format: 'esm', write: false });
-const { stageKeyGuide, stageSourceCode, levelsMap, levelsChordDefaults, levelsTransitionChords, interstellarMap, assistedInterstellarMap, LiveNotes, physicalNoteBar, LevelsOrb, orbDirection } = await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
+const { rosesKeyGuide, rosesMap, rosesChordShortcuts, hereWithMeChordShortcuts, stageKeyGuide, stageSourceCode, levelsMap, levelsChordDefaults, levelsTransitionChords, interstellarMap, assistedInterstellarMap, LiveNotes, physicalNoteBar, LevelsOrb, orbDirection } = await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
 
 test('Levels labels every chord pitch and preserves all shared physical bindings', () => {
   const guide = stageKeyGuide(levelsMap('main'), 0, levelsChordDefaults);
@@ -110,4 +114,15 @@ test('dense chord activity drives stronger reactions, and all secondary effects 
   for (let frame = 0; frame < 240; frame++) chord.update(1000 / 60);
   assert.equal(chord.bursts.length + chord.sparks.length + chord.ghosts.length, 0);
   assert.ok(chord.shape.every(value => Math.abs(value) < .0001));
+});
+
+
+test('Roses and HWM stage labels follow fixed physical chord bindings and omit transport/drum controls',()=>{
+ const guide=rosesKeyGuide(rosesMap,-4,'KeyL');
+ for(const [code,pitches] of Object.entries({...rosesChordShortcuts,...hereWithMeChordShortcuts})){
+  assert.deepEqual(Object.entries(guide).filter(([,labels])=>labels.some(label=>label.code===code)).map(([midi])=>Number(midi)),[...pitches].sort((a,b)=>a-b));
+ }
+ const labels=Object.values(guide).flat();for(const code of ['KeyZ','KeyX','KeyV','KeyN','KeyL','KeyB','KeyM'])assert.ok(labels.every(label=>label.code!==code));
+ assert.ok(labels.some(label=>label.code==='Equal'&&label.label==='='));assert.ok(labels.some(label=>label.code==='Minus'&&label.label==='-'));
+ assert.equal(stageSourceCode('roses-chord:Equal:61'),'Equal');assert.equal(stageSourceCode('roses-chord:Minus:59'),'Minus');
 });

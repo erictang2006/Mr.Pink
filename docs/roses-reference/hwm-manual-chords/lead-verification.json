@@ -2,172 +2,172 @@
   "renderer": "Actual live chord engine through real Tone.js and native OfflineAudioContext; not browser/device listening",
   "sound": "lead",
   "seconds": 10,
-  "peakDb": -18.187491736745656,
-  "rmsDb": -40.3939696391014,
+  "peakDb": -18.126238486184295,
+  "rmsDb": -40.44016609227036,
   "heldAfterRelease": 0,
   "attacks": [
     {
       "code": "Equal",
-      "midi": 48,
+      "midi": 49,
       "time": 0.1
     },
     {
       "code": "Equal",
-      "midi": 60,
+      "midi": 61,
       "time": 0.1
     },
     {
       "code": "Equal",
+      "midi": 64,
+      "time": 0.1
+    },
+    {
+      "code": "Equal",
+      "midi": 68,
+      "time": 0.1
+    },
+    {
+      "code": "Minus",
+      "midi": 47,
+      "time": 2.1000000000000005
+    },
+    {
+      "code": "Minus",
+      "midi": 59,
+      "time": 2.1000000000000005
+    },
+    {
+      "code": "Minus",
       "midi": 63,
-      "time": 0.1
-    },
-    {
-      "code": "Equal",
-      "midi": 67,
-      "time": 0.1
-    },
-    {
-      "code": "Minus",
-      "midi": 46,
       "time": 2.1000000000000005
     },
     {
       "code": "Minus",
-      "midi": 58,
-      "time": 2.1000000000000005
-    },
-    {
-      "code": "Minus",
-      "midi": 62,
-      "time": 2.1000000000000005
-    },
-    {
-      "code": "Minus",
-      "midi": 65,
+      "midi": 66,
       "time": 2.1000000000000005
     },
     {
       "code": "Digit0",
-      "midi": 44,
+      "midi": 45,
       "time": 4.1
     },
     {
       "code": "Digit0",
+      "midi": 57,
+      "time": 4.1
+    },
+    {
+      "code": "Digit0",
+      "midi": 61,
+      "time": 4.1
+    },
+    {
+      "code": "Digit0",
+      "midi": 64,
+      "time": 4.1
+    },
+    {
+      "code": "Digit0",
+      "midi": 71,
+      "time": 4.1
+    },
+    {
+      "code": "Digit9",
+      "midi": 40,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit9",
+      "midi": 52,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit9",
       "midi": 56,
-      "time": 4.1
-    },
-    {
-      "code": "Digit0",
-      "midi": 60,
-      "time": 4.1
-    },
-    {
-      "code": "Digit0",
-      "midi": 63,
-      "time": 4.1
-    },
-    {
-      "code": "Digit0",
-      "midi": 70,
-      "time": 4.1
-    },
-    {
-      "code": "Digit9",
-      "midi": 39,
       "time": 6.099999999999999
     },
     {
       "code": "Digit9",
-      "midi": 51,
+      "midi": 59,
       "time": 6.099999999999999
     },
     {
       "code": "Digit9",
-      "midi": 55,
-      "time": 6.099999999999999
-    },
-    {
-      "code": "Digit9",
-      "midi": 58,
-      "time": 6.099999999999999
-    },
-    {
-      "code": "Digit9",
-      "midi": 67,
+      "midi": 68,
       "time": 6.099999999999999
     }
   ],
   "releases": [
     {
-      "midi": 48,
+      "midi": 49,
       "time": 0.9
     },
     {
-      "midi": 60,
+      "midi": 61,
       "time": 0.9
+    },
+    {
+      "midi": 64,
+      "time": 0.9
+    },
+    {
+      "midi": 68,
+      "time": 0.9
+    },
+    {
+      "midi": 47,
+      "time": 2.9000000000000004
+    },
+    {
+      "midi": 59,
+      "time": 2.9000000000000004
     },
     {
       "midi": 63,
-      "time": 0.9
-    },
-    {
-      "midi": 67,
-      "time": 0.9
-    },
-    {
-      "midi": 46,
       "time": 2.9000000000000004
     },
     {
-      "midi": 58,
+      "midi": 66,
       "time": 2.9000000000000004
     },
     {
-      "midi": 62,
-      "time": 2.9000000000000004
-    },
-    {
-      "midi": 65,
-      "time": 2.9000000000000004
-    },
-    {
-      "midi": 44,
+      "midi": 45,
       "time": 4.9
+    },
+    {
+      "midi": 57,
+      "time": 4.9
+    },
+    {
+      "midi": 61,
+      "time": 4.9
+    },
+    {
+      "midi": 64,
+      "time": 4.9
+    },
+    {
+      "midi": 71,
+      "time": 4.9
+    },
+    {
+      "midi": 40,
+      "time": 6.9
+    },
+    {
+      "midi": 52,
+      "time": 6.9
     },
     {
       "midi": 56,
-      "time": 4.9
-    },
-    {
-      "midi": 60,
-      "time": 4.9
-    },
-    {
-      "midi": 63,
-      "time": 4.9
-    },
-    {
-      "midi": 70,
-      "time": 4.9
-    },
-    {
-      "midi": 39,
       "time": 6.9
     },
     {
-      "midi": 51,
+      "midi": 59,
       "time": 6.9
     },
     {
-      "midi": 55,
-      "time": 6.9
-    },
-    {
-      "midi": 58,
-      "time": 6.9
-    },
-    {
-      "midi": 67,
+      "midi": 68,
       "time": 6.9
     }
   ]

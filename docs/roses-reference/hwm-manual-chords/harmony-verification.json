@@ -1,0 +1,175 @@
+{
+  "harmonyVolume": 8,
+  "renderer": "Actual live chord engine through real Tone.js and native OfflineAudioContext; not browser/device listening",
+  "sound": "harmony",
+  "seconds": 13.5,
+  "peakDb": -15.212886952561433,
+  "rmsDb": -28.0246743846567,
+  "heldAfterRelease": 0,
+  "attacks": [
+    {
+      "code": "Equal",
+      "midi": 49,
+      "time": 0.1
+    },
+    {
+      "code": "Equal",
+      "midi": 61,
+      "time": 0.1
+    },
+    {
+      "code": "Equal",
+      "midi": 64,
+      "time": 0.1
+    },
+    {
+      "code": "Equal",
+      "midi": 68,
+      "time": 0.1
+    },
+    {
+      "code": "Minus",
+      "midi": 47,
+      "time": 3.1000000000000005
+    },
+    {
+      "code": "Minus",
+      "midi": 59,
+      "time": 3.1000000000000005
+    },
+    {
+      "code": "Minus",
+      "midi": 63,
+      "time": 3.1000000000000005
+    },
+    {
+      "code": "Minus",
+      "midi": 66,
+      "time": 3.1000000000000005
+    },
+    {
+      "code": "Digit0",
+      "midi": 45,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit0",
+      "midi": 57,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit0",
+      "midi": 61,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit0",
+      "midi": 64,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit0",
+      "midi": 71,
+      "time": 6.099999999999999
+    },
+    {
+      "code": "Digit9",
+      "midi": 40,
+      "time": 9.1
+    },
+    {
+      "code": "Digit9",
+      "midi": 52,
+      "time": 9.1
+    },
+    {
+      "code": "Digit9",
+      "midi": 56,
+      "time": 9.1
+    },
+    {
+      "code": "Digit9",
+      "midi": 59,
+      "time": 9.1
+    },
+    {
+      "code": "Digit9",
+      "midi": 68,
+      "time": 9.1
+    }
+  ],
+  "releases": [
+    {
+      "midi": 49,
+      "time": 2.5
+    },
+    {
+      "midi": 61,
+      "time": 2.5
+    },
+    {
+      "midi": 64,
+      "time": 2.5
+    },
+    {
+      "midi": 68,
+      "time": 2.5
+    },
+    {
+      "midi": 47,
+      "time": 5.5
+    },
+    {
+      "midi": 59,
+      "time": 5.5
+    },
+    {
+      "midi": 63,
+      "time": 5.5
+    },
+    {
+      "midi": 66,
+      "time": 5.5
+    },
+    {
+      "midi": 45,
+      "time": 8.5
+    },
+    {
+      "midi": 57,
+      "time": 8.5
+    },
+    {
+      "midi": 61,
+      "time": 8.5
+    },
+    {
+      "midi": 64,
+      "time": 8.5
+    },
+    {
+      "midi": 71,
+      "time": 8.5
+    },
+    {
+      "midi": 40,
+      "time": 11.5
+    },
+    {
+      "midi": 52,
+      "time": 11.5
+    },
+    {
+      "midi": 56,
+      "time": 11.5
+    },
+    {
+      "midi": 59,
+      "time": 11.5
+    },
+    {
+      "midi": 68,
+      "time": 11.5
+    }
+  ]
+}

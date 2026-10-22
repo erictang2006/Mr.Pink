@@ -76,7 +76,11 @@ for(const mode of modes){
    }
   },'16n');
  }else{
-  engine=new RosesDropAuditionEngine(()=>{},process.env.DROP_CHORD_MODE==='synth'?'synth':'cached');await engine.prepare();if(process.env.DROP_CHORD_PRESET==='bright')engine.setChordPreset('bright');engine.setMaster(mode==='maximum'?1:.72);
+  engine=new RosesDropAuditionEngine(()=>{},process.env.DROP_CHORD_MODE==='synth'?'synth':'cached');
+  if(process.env.DROP_BACKING_SOURCE==='roses')engine.setBackingSource('roses');
+  engine.setLeadSettings({...defaultRosesDropSettings,brightness:Number(process.env.DROP_LEAD_BRIGHTNESS??2800)});
+  if(process.env.DROP_LEAD_SOUND==='loud-stabs')engine.setLeadSound('loud-stabs');
+  await engine.prepare();if(process.env.DROP_CHORD_PRESET==='bright')engine.setChordPreset('bright');engine.setMaster(mode==='maximum'?1:.72);
   if(process.env.DROP_CHORD_SOUND==='bonk')engine.setRow('chords',{enabled:false});
   if(process.env.DROP_CHORD_SOUND==='original'||process.env.DROP_CHORD_MODE==='synth')engine.setRow('bonkChords',{enabled:false});
   if(mode==='maximum'){for(const id of Object.keys(engine.snapshot().rows))engine.setRow(id,{volume:1});engine.setChordLevel(0,1.5);engine.setChordLevel(1,1.5);}
@@ -134,11 +138,11 @@ for(const mode of modes){
  for(let i=0;i<audio.length;i++)for(let c=0;c<2;c++){
   const x=channels[c][i];if(!Number.isFinite(x))finite=false;peak=Math.max(peak,Math.abs(x));power+=x*x;if(i>rate*22)tail=Math.max(tail,Math.abs(x));wave.writeInt16LE(Math.max(-32768,Math.min(32767,Math.round(x*32767))),44+(i*2+c)*2);
  }
- const metrics={mode,seconds,chordPlayback:engine.snapshot().chordPlayback,chordPreset:engine.snapshot().chordPreset,...(presetSwitches.length?{presetSwitches}:{}),chordRows:engine.snapshot().rows,renderWallSeconds,audioNodeCreations,peakDb:20*Math.log10(peak),rmsDb:10*Math.log10(power/(audio.length*2)),tailPeakDb:tail>0?20*Math.log10(tail):null,finite};
+ const metrics={mode,seconds,leadSound:engine.snapshot().leadSound,leadBrightness:engine.snapshot().leadBrightness,chordPlayback:engine.snapshot().chordPlayback,chordPreset:engine.snapshot().chordPreset,...(presetSwitches.length?{presetSwitches}:{}),chordRows:engine.snapshot().rows,renderWallSeconds,audioNodeCreations,peakDb:20*Math.log10(peak),rmsDb:10*Math.log10(power/(audio.length*2)),tailPeakDb:tail>0?20*Math.log10(tail):null,finite};
  console.log(JSON.stringify(metrics));report.cases.push(metrics);
  await writeFile(path.join(out,`${mode}-verification.json`),JSON.stringify(metrics,null,2)+'\n');
  await writeFile(path.join(out,'verification.json'),JSON.stringify(report,null,2)+'\n');
- if(!finite||peak>=1)throw Error('Invalid or clipped render');
+ if(!finite||peak>=1||peak===0)throw Error('Invalid, silent or clipped render');
  // Keep separate solo previews as well as the combined listening reference.
  await writeFile(path.join(out,`${mode}-preview.wav`),wave);
  engine.dispose();await context.dispose();

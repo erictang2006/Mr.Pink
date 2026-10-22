@@ -1,4 +1,9 @@
 import * as Tone from "tone";
+import { LiveBonkBank } from "./liveBonkBank";
+import { LiveBonkRoom } from "./liveBonkRoom";
+import { rosesChordShortcuts } from "./rosesChords";
+import { hereWithMeChordShortcuts } from "./hereWithMeChords";
+type BonkBank = Tone.PolySynth<Tone.MonoSynth> | LiveBonkBank;
 import type { RosesDropSettings } from "./rosesDropSettings";
 
 // The recording's missing fundamental is C2 (~65.2 Hz), not its louder C3 overtone.
@@ -12,9 +17,9 @@ const releaseCurve = [1, .8, .6, .43, .29, .18, .105, .055, .022, .006, 0];
 
 /** A recorded impact plus a MIDI-exact chord body; never plays a recorded chord loop. */
 export class RosesFutureBassLayers {
-  private left = this.body(-4, false);
-  private right = this.body(4, true);
-  private center = new Tone.PolySynth({ voice: Tone.MonoSynth, maxPolyphony: 24, options: {
+  private left: BonkBank = this.body(-4, false);
+  private right: BonkBank = this.body(4, true);
+  private center: BonkBank = new Tone.PolySynth({ voice: Tone.MonoSynth, maxPolyphony: 24, options: {
     oscillator: { type: "sawtooth4" },
     envelope: { attack: .004, decay: .55, sustain: .34, release: .85, releaseCurve },
     filter: { type: "lowpass", Q: .7, rolloff: -24 },
@@ -30,7 +35,7 @@ export class RosesFutureBassLayers {
   private warmth = new Tone.EQ3({ low: 2, mid: 1, high: -3, lowFrequency: 380, highFrequency: 2200 });
   private spaceHighPass = new Tone.Filter({ type: "highpass", frequency: 450, Q: .5, rolloff: -24 });
   private spaceLowPass = new Tone.Filter({ type: "lowpass", frequency: 2300, Q: .5, rolloff: -24 });
-  private ambience = new Tone.JCReverb({ roomSize: .22, wet: 1 });
+  private ambience: Tone.JCReverb | LiveBonkRoom;
   private spaceGain = new Tone.Gain(.042);
   private mix = new Tone.Gain(1);
   // Bound extreme stacked hits before the shared compressor; normal hits stay in its gentle region.
@@ -44,8 +49,17 @@ export class RosesFutureBassLayers {
   private offlineEnded = new Set<Tone.ToneBufferSource>();
   private loading: Promise<void> | null = null;
   private disposed = false;
+  private voicesReady = true;
 
-  constructor(private readonly profile: "roses" | "closer" = "roses") {
+  constructor(private readonly profile: "roses" | "closer" = "roses", live = false) {
+    if(live){
+      this.voicesReady=false;
+      const pitches=Object.values({...rosesChordShortcuts,...hereWithMeChordShortcuts}).flat();
+      this.left=new LiveBonkBank(this.left as Tone.PolySynth<Tone.MonoSynth>,pitches,"left");
+      this.right=new LiveBonkBank(this.right as Tone.PolySynth<Tone.MonoSynth>,pitches,"right");
+      this.center=new LiveBonkBank(this.center as Tone.PolySynth<Tone.MonoSynth>,pitches,"center");
+    }
+    this.ambience=live?new LiveBonkRoom():new Tone.JCReverb({roomSize:.22,wet:1});
     this.left.chain(this.leftPan, this.bodyGain);
     this.right.chain(this.rightPan, this.bodyGain);
     this.center.connect(this.bodyGain);
@@ -76,10 +90,11 @@ export class RosesFutureBassLayers {
       volume: right ? -15 : -14,
     } });
   }
-  isReady(): boolean { return this.bonkBuffer.loaded && !this.disposed; }
+  isReady(): boolean { return this.bonkBuffer.loaded && this.voicesReady && !this.disposed; }
   load(): Promise<void> {
-    if (this.bonkBuffer.loaded) return Promise.resolve();
-    if (!this.loading) this.loading = this.bonkBuffer.load(bonkSampleUrl).then(() => {
+    if (this.bonkBuffer.loaded && this.voicesReady) return Promise.resolve();
+    if (!this.loading) this.loading = Promise.all([this.bonkBuffer.load(bonkSampleUrl),...[this.left,this.right,this.center].map(bank=>bank instanceof LiveBonkBank?bank.load():Promise.resolve())]).then(() => {
+      this.voicesReady=true;
       if (this.disposed) { this.bonkBuffer.dispose(); return; }
       const original = this.bonkBuffer.get()!;
       // Center the actual recording without changing its envelope or normalizing up its tail.

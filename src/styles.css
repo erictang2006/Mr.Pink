@@ -1300,3 +1300,60 @@ input:focus-visible {
 @media (max-width: 550px) {
   .stage-header { padding: 16px; gap: 12px; }.stage-identity h1 { margin-top: 12px; font-size: 30px; }.stage-wordmark { font-size: 10px; }.stage-status { max-width: 145px; gap: 10px; }.stage-title-line { display: none; }
 }
+
+/* Selected backing guides remain separate from physical keypress state. */
+.backing-guide { margin: 8px 18px; padding: 12px 16px; border: 1px solid #72577d55; border-radius: 10px; background: #11101c; color: #ced2e5; font-size: 12px; }
+.backing-guide > div:first-child { display:flex; align-items:center; flex-wrap:wrap; gap:10px 18px; }
+.backing-guide strong { letter-spacing:.12em; font-size:12px; }
+.backing-guide span b { margin-left:10px; color:#91e7f2; font-size:16px; }
+.backing-guide small { color:#94a2bc; }
+.backing-guide p { margin:8px 0; color:#a9bfce; font-size:11px; }
+.backing-guide.is-hwm { border-color:#4299bc55; background:linear-gradient(110deg,#0c1b28,#161329); }
+.backing-guide.is-hwm strong { color:#78deec; }
+.backing-guide.compact { margin:4px 0; padding:7px; }
+.backing-upcoming { display:flex; gap:6px; flex-wrap:wrap; }
+.backing-upcoming span { font-size:10px; padding:4px 7px; border:1px solid #69a8bc33; border-radius:5px; color:#b4c7d9; }
+.hwm-backing-grid { min-height:196px; }
+.hwm-backing-grid .roses-layer-row { min-height:23px; }
+.hwm-backing-grid .roses-layer-row b { font-size:8px; letter-spacing:.025em; }
+.backing-event { position:absolute; top:4px; height:15px; font:8px/15px "DM Mono",monospace; color:#b9f2fb; background:#1b678c77; border-left:1px solid #84e7f3; white-space:nowrap; overflow:hidden; border-radius:2px; }
+.backing-event.bass { background:#725aa566; color:#e0d6ff; border-color:#b7a5ef; }
+.backing-event.lead { background:#456fa966; border-color:#a0c2fa; }
+.backing-event.sample-activity { height:7px; top:8px; border:0; background:repeating-linear-gradient(90deg,#67b8c366 0 2px,#67b8c322 2px 5px); }
+.stage-section { display:flex; align-items:center; gap:20px; margin:10px 0 0; font:11px "DM Mono",monospace; letter-spacing:.08em; color:#96aec5; }
+.stage-section b { font-size:23px; letter-spacing:0; color:#8bdfed; font-weight:500; }
+.stage-roses .performance-piano { transition:box-shadow 800ms,border-color 800ms; border-color:#e1a0d0; box-shadow:0 -4px 30px #a35b9b33; }
+.stage-roses.hwm-scene .performance-piano { border-color:#78dce9; box-shadow:0 -5px 40px #388fc544; }
+.roses-performance-controls { position:absolute; z-index:12; right:22px; bottom:calc(30dvh + 20px); color:#9caec4; font:11px "DM Mono",monospace; }
+.roses-performance-controls > summary { cursor:pointer; padding:8px 12px; border:1px solid #6c7c9855; border-radius:7px; background:#0b1320aa; list-style:none; text-align:right; }
+.roses-performance-controls .roses-performance-status { position:relative; top:auto; left:auto; transform:none; margin-top:8px; width:min(650px,calc(100vw - 50px)); max-height:48dvh; }
+.roses-performance-controls .roses-closer-controls.compact { width:100%; }
+.stage-roses .roses-performance-beat { opacity:.85; }
+@media(max-width:700px){.stage-section{font-size:9px;gap:8px}.stage-section b{font-size:18px}.roses-performance-controls{right:10px;bottom:calc(30dvh + 10px)}.backing-guide{margin-inline:8px}.hwm-backing-grid .roses-layer-row b{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.stage-roses .performance-piano{transition:none}}
+
+/* Quiet live/automatic legend stays outside the keycaps. */
+.piano-input-legend { position:absolute; bottom:calc(100% + 7px); left:22px; display:flex; gap:18px; color:#d4c4dc; font:9px "DM Mono",monospace; letter-spacing:.08em; pointer-events:none; }
+.piano-input-legend span + span { color:#69c6dc; }
+.stage-roses.hwm-drop-scene .performance-piano { border-color:#b3f6ff; box-shadow:0 -7px 54px #3ba8ef66,0 -2px 90px #8059ed33; }
+.stage-roses.hwm-scene .piano-input-legend { color:#b4edf7; }
+
+/* Keep every source lane accessible while retaining the large live piano. */
+.roses-practice .practice-sheet { overflow-y: auto; }
+.roses-practice .practice-sheet > * { flex-shrink: 0; }
+.roses-practice .practice-measures { min-height: 280px; }
+.roses-practice .practice-controls > .backing-guide { margin: 0 0 8px; }
+
+/* Interstellar piano: restrained blue rim, with the existing galaxy left intact. */
+.stage-interstellar .performance-piano { border-top-color:#99d9ef99; box-shadow:0 -2px 24px #5ab9ec24; }
+.stage-interstellar .stage-identity h1 { text-transform:uppercase; font-size:clamp(28px,3vw,44px); color:#b7daee; }
+.stage-interstellar .stage-composer { margin:8px 0 0; color:#7c92a8; font:11px Inter,system-ui,sans-serif; letter-spacing:.08em; }
+.stage-interstellar .stage-live,.stage-interstellar .stage-measure,.stage-interstellar .stage-time { display:none; }
+.stage-interstellar .stage-wordmark { color:#b4c3d1; }
+
+/* Hybrid bar-36 FX remain automatic activity, independent from piano keycaps. */
+.pre-drop-riser { border-top: 1px solid #47738a55; padding-top: 8px; margin-top: 8px; }
+.pre-drop-sweep { height: 4px; max-width: 360px; margin: 8px 0; background: #19333e; border-radius: 4px; overflow: hidden; }
+.pre-drop-sweep i { display: block; height: 100%; background: linear-gradient(90deg,#4269ad,#8fe6f1); box-shadow: 0 0 9px #6ad8ed77; transition: width 140ms linear; }
+.backing-event.riser { height: 11px; color: #a6e8f7; background: linear-gradient(90deg,#284d7133,#64cae388); border-radius: 2px 8px 2px 2px; }
+@media(prefers-reduced-motion:reduce){.pre-drop-sweep i{transition:none}}

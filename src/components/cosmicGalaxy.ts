@@ -77,7 +77,7 @@ export function drawCosmicGalaxy(ctx: CanvasRenderingContext2D, width: number, h
   ctx.save();
   ctx.translate(width * .8, height * .49 + drift);
   ctx.rotate(reducedMotion ? 0 : Math.sin(now * .000035) * .012);
-  ctx.globalAlpha = .9;
+  ctx.globalAlpha *= .9;
   ctx.drawImage(sprite, -radius, -radius, radius * 2, radius * 2);
   ctx.restore();
 }

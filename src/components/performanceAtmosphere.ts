@@ -14,26 +14,30 @@ function glow(ctx: CanvasRenderingContext2D, x: number, y: number, radius: numbe
 }
 
 export function drawCosmicScene(ctx: CanvasRenderingContext2D, width: number, height: number, now: number, reducedMotion: boolean) {
-  ctx.fillStyle = "#030711"; ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = "#080D19"; ctx.fillRect(0, 0, width, height);
+  ctx.save(); ctx.globalAlpha = .65;
   glow(ctx, width * .58, height * .34, width * .46, "#172c5148");
   glow(ctx, width * .25, height * .64, width * .31, "#153f552a");
   glow(ctx, width * .82, height * .5, width * .3, "#34354e28");
+  ctx.save(); ctx.globalAlpha = .65;
   drawCosmicGalaxy(ctx, width, height, now, reducedMotion);
+  ctx.restore();
   for (let i = 0; i < stars.length; i++) {
     const star = stars[i];
     const drift = reducedMotion ? 0 : Math.sin(now * .000025 + i) * 3;
     const x = star.x * width + drift, y = star.y * height * .94;
-    ctx.globalAlpha = .18 + (i % 7) * .055 + (reducedMotion ? 0 : Math.sin(now * .00035 + i) * .06);
+    ctx.globalAlpha = .65 * (.18 + (i % 7) * .055 + (reducedMotion ? 0 : Math.sin(now * .00035 + i) * .06));
     ctx.fillStyle = i % 13 === 0 ? "#e9d9b6" : "#c3dcf6";
     ctx.beginPath(); ctx.arc(x, y, star.size, 0, Math.PI * 2); ctx.fill();
     if (star.size > 1) {
       ctx.globalAlpha *= .3; ctx.fillRect(x - 4, y - .3, 8, .6); ctx.fillRect(x - .3, y - 4, .6, 8);
     }
   }
-  ctx.globalAlpha = 1;
+  ctx.globalAlpha = .65;
   const horizon = ctx.createLinearGradient(0, height - 95, 0, height);
   horizon.addColorStop(0, "#15325200"); horizon.addColorStop(1, "#2c638730");
   ctx.fillStyle = horizon; ctx.fillRect(0, Math.max(0, height - 95), width, 95);
+  ctx.restore();
 }
 
 export function drawLevelsScene(ctx: CanvasRenderingContext2D, width: number, height: number, now: number, energy: number, reducedMotion: boolean, orb: LevelsOrb) {

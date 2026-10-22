@@ -1,0 +1,50 @@
+{
+  "mode": "all",
+  "seconds": 23,
+  "leadSound": "original",
+  "leadBrightness": 2800,
+  "chordPlayback": "cached",
+  "chordPreset": "original",
+  "chordRows": {
+    "lead": {
+      "enabled": true,
+      "muted": false,
+      "solo": false,
+      "volume": 0.65
+    },
+    "bass": {
+      "enabled": true,
+      "muted": false,
+      "solo": false,
+      "volume": 0.55
+    },
+    "chords": {
+      "enabled": true,
+      "muted": false,
+      "solo": false,
+      "volume": 0.32
+    },
+    "bonkChords": {
+      "enabled": true,
+      "muted": false,
+      "solo": false,
+      "volume": 0.32
+    },
+    "drums": {
+      "enabled": true,
+      "muted": false,
+      "solo": false,
+      "volume": 0.65
+    }
+  },
+  "renderWallSeconds": 1.1160544589999999,
+  "audioNodeCreations": {
+    "oscillators": 329,
+    "filters": 6,
+    "waveshapers": 3
+  },
+  "peakDb": -10.500065732683714,
+  "rmsDb": -28.288870659108525,
+  "tailPeakDb": null,
+  "finite": true
+}

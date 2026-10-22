@@ -1,0 +1,171 @@
+{
+  "renderer": "Real Tone.js on native OfflineAudioContext; device listening not available",
+  "spectralBandsHz": {
+    "low": [
+      100,
+      1000
+    ],
+    "upper": [
+      4000,
+      8000
+    ]
+  },
+  "cases": [
+    {
+      "setting": "soft",
+      "upperToLowBandDb": -20.784751116439708,
+      "mode": "lead",
+      "seconds": 23,
+      "leadSound": "loud-stabs",
+      "leadBrightness": 650,
+      "chordPlayback": "cached",
+      "chordPreset": "original",
+      "chordRows": {
+        "lead": {
+          "enabled": true,
+          "muted": false,
+          "solo": true,
+          "volume": 0.65
+        },
+        "bass": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.55
+        },
+        "chords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "bonkChords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "drums": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.65
+        }
+      },
+      "renderWallSeconds": 1.3901845419999999,
+      "audioNodeCreations": {
+        "oscillators": 105,
+        "filters": 3,
+        "waveshapers": 3
+      },
+      "peakDb": -27.557523410350466,
+      "rmsDb": -44.215160729813114,
+      "tailPeakDb": null,
+      "finite": true
+    },
+    {
+      "setting": "recorded",
+      "upperToLowBandDb": -9.854701462728762,
+      "mode": "lead",
+      "seconds": 23,
+      "leadSound": "loud-stabs",
+      "leadBrightness": 2800,
+      "chordPlayback": "cached",
+      "chordPreset": "original",
+      "chordRows": {
+        "lead": {
+          "enabled": true,
+          "muted": false,
+          "solo": true,
+          "volume": 0.65
+        },
+        "bass": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.55
+        },
+        "chords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "bonkChords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "drums": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.65
+        }
+      },
+      "renderWallSeconds": 1.015896334,
+      "audioNodeCreations": {
+        "oscillators": 105,
+        "filters": 3,
+        "waveshapers": 3
+      },
+      "peakDb": -25.534061487337567,
+      "rmsDb": -43.47478527429935,
+      "tailPeakDb": null,
+      "finite": true
+    },
+    {
+      "setting": "bright",
+      "upperToLowBandDb": -4.280878682797952,
+      "mode": "lead",
+      "seconds": 23,
+      "leadSound": "loud-stabs",
+      "leadBrightness": 4000,
+      "chordPlayback": "cached",
+      "chordPreset": "original",
+      "chordRows": {
+        "lead": {
+          "enabled": true,
+          "muted": false,
+          "solo": true,
+          "volume": 0.65
+        },
+        "bass": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.55
+        },
+        "chords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "bonkChords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "drums": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.65
+        }
+      },
+      "renderWallSeconds": 1.3468147080000001,
+      "audioNodeCreations": {
+        "oscillators": 105,
+        "filters": 3,
+        "waveshapers": 3
+      },
+      "peakDb": -23.400048903354687,
+      "rmsDb": -42.274895973540595,
+      "tailPeakDb": null,
+      "finite": true
+    }
+  ]
+}

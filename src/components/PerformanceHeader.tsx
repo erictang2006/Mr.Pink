@@ -1,12 +1,14 @@
 import type { StagePresentation } from "../piano/performancePresentation";
 
-type Props = { song: StagePresentation; measure: number; bpm: number; beat?: number; sustain: boolean; showPedal: boolean; elapsed?: number };
+type Props = { song: StagePresentation; measure: number; bpm: number; beat?: number; sustain: boolean; showPedal: boolean; elapsed?: number; title?:string; section?:string; chord?:string };
 
-export default function PerformanceHeader({ song, measure, bpm, beat, sustain, showPedal, elapsed }: Props) {
+export default function PerformanceHeader({ song, measure, bpm, beat, sustain, showPedal, elapsed, title, section, chord }: Props) {
   return <header className="stage-header">
     <div className="stage-identity">
-      <div className="stage-wordmark"><span className="stage-mark" aria-hidden="true"><i /><i /><i /><i /></span>MR PINK <span className="stage-edition">{song === "interstellar" ? "01" : "02"} / LIVE PERFORMANCE</span></div>
-      <h1>{song === "interstellar" ? "Interstellar" : "Levels"}<span className="stage-title-line" /></h1>
+      <div className="stage-wordmark"><span className="stage-mark" aria-hidden="true"><i /><i /><i /><i /></span>MR PINK <span className="stage-edition">{song === "interstellar" ? "01" : song === "roses" ? "03" : "02"} / LIVE PERFORMANCE</span></div>
+      <h1>{title??(song === "interstellar" ? "Interstellar" : song === "roses" ? "Roses" : "Levels")}<span className="stage-title-line" /></h1>
+      {song === "interstellar" && <p className="stage-composer">Hans Zimmer</p>}
+      {section&&<p className="stage-section">{section}{chord&&<b>{chord}</b>}</p>}
     </div>
     <div className="stage-status" aria-label="Performance status">
       <span className="stage-live"><i />LIVE</span>

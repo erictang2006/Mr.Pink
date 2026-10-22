@@ -1,6 +1,6 @@
 // Generation-only: actual source MIDI and samples, cached before browser playback.
 import * as Tone from "tone";
-import source from "../../reference/here-with-me-remake/backing-source-events.json";
+import source from "../../reference/here-with-me-remake/backing-events-e-major.json";
 import { HereWithMeLeadEngine } from "./hereWithMeLeadEngine";
 import { midiToToneName } from "./noteMapping";
 import { DropChordAmbience } from "./dropChordAmbience";
@@ -22,7 +22,7 @@ export class HwmBackingRenderEngine {
   private guitarPump = new Tone.Gain(1);
   private lowGuitarPump = new Tone.Gain(1);
   readonly scheduled: { channel: number; tick: number; midi?: number; durationTicks: number; file?: string; offsetSeconds?: number }[] = [];
-  constructor(private mode: "build" | "drop") {
+  constructor(private mode: "build" | "drop", includeLead = true) {
     this.room.output.fade.value=.1;
     this.harmony.connect(this.room);this.room.connect(this.buses.chords);
     this.buses.bass.gain.value=3.2;
@@ -48,7 +48,7 @@ export class HwmBackingRenderEngine {
       voice.maxPolyphony=20;
       this.voices.set(spec.id,voice);this.nodes.push(voice,filter,pan);
     }
-    if (mode==="drop") {
+    if (mode==="drop" && includeLead) {
       this.lead = new HereWithMeLeadEngine(this.leadOutput);
       this.lead.configure({volume:1});this.lead.arm(0,false);this.lead.begin(144);this.lead.prepareVoices();
     }

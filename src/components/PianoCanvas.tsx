@@ -1,4 +1,8 @@
-import { useEffect, useRef } from "react";
+import { StarlightKeys } from './starlight';
+import type { LiveNotes } from '../piano/liveNotes';
+import { interstellarPianoGeometry } from '../piano/interstellarPresentation';
+import { drawInterstellarPiano } from './interstellarPiano';
+import { useEffect, useRef, useState } from "react";
 import {
   labelForMidi,
   midiToName,
@@ -10,6 +14,7 @@ import { drawPerformancePiano } from "./performancePiano";
 
 type Props = {
   active: number[];
+  automatic?: number[];
   expected?: number[];
   wrong?: number[];
   completed?: number[];
@@ -23,10 +28,15 @@ type Props = {
   presentation?: StagePresentation;
   keyGuide?: StageKeyGuide;
   pressedCodes?: string[];
+  coolLighting?: boolean;
+  prominentPitches?: Set<number>;
+  pressedKeys?: { code: string; midi: number }[];
+  starlightNotes?: LiveNotes;
 };
 
 export default function PianoCanvas({
   active,
+  automatic = [],
   expected = [],
   wrong = [],
   completed = [],
@@ -40,12 +50,25 @@ export default function PianoCanvas({
   presentation,
   keyGuide = {},
   pressedCodes = [],
+  coolLighting = false,
+  prominentPitches,
+  pressedKeys,
+  starlightNotes,
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const hoverStart = useRef(0);
+  const starlightKeys = useRef(new StarlightKeys());
+  const [hovered, setHovered] = useState<number | undefined>();
+
+  useEffect(() => () => starlightKeys.current.clear(), [presentation]);
 
   useEffect(() => {
     const canvas = ref.current!;
+    let hoverFrame = 0;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const draw = () => {
+      cancelAnimationFrame(hoverFrame);
+      const hoverProgress = reducedMotion ? 1 : Math.min(1, (performance.now() - hoverStart.current) / 90);
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const pixelWidth = Math.round(rect.width * dpr), pixelHeight = Math.round(rect.height * dpr);
@@ -57,7 +80,8 @@ export default function PianoCanvas({
       const range = rangeOverride ?? pianoRange(map.bindings);
       const start = range.low + transpose;
       const end = range.high + transpose;
-      const { whites, whiteWidth, blackWidth, keys } = pianoGeometry(
+      const geometryForPresentation = presentation === "interstellar" ? interstellarPianoGeometry : pianoGeometry;
+      const { whites, whiteWidth, blackWidth, keys } = geometryForPresentation(
         width,
         transpose,
         range.low,
@@ -65,9 +89,24 @@ export default function PianoCanvas({
       );
       const blackHeight = height * 0.62;
       const activeSet = new Set(active);
+      const automaticMarkers=()=>{
+        ctx.save();ctx.strokeStyle="#66d9ef99";ctx.lineWidth=1.2;ctx.fillStyle="#66d9ef66";
+        for(const midi of new Set(automatic)){const key=keys.get(midi);if(!key||activeSet.has(midi))continue;const y=(key.black?height*.62:height)-12;ctx.fillRect(key.x+key.width*.25,y,key.width*.5,2);}
+        ctx.restore();
+      };
+      if (presentation === "interstellar") {
+        const now = performance.now();
+        const lights = starlightKeys.current.update(activeSet, new Set(starlightNotes?.soundingPitches() ?? []), now, reducedMotion);
+        const depths = new Map([...lights].map(([midi, light]) => [midi, light.depth]));
+        drawInterstellarPiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), depths, hovered, hoverProgress, prominentPitches, pressedKeys, lights);
+        if (starlightKeys.current.needsFrame || (hovered !== undefined && hoverProgress < 1)) hoverFrame = requestAnimationFrame(draw);
+        return;
+      }
       if (presentation) {
         // `active` comes only from currently held physical input, never audio sustain.
-        drawPerformancePiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), presentation);
+        drawPerformancePiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), presentation, hovered, new Set(expected), new Set(wrong), coolLighting, hoverProgress);
+        automaticMarkers();
+        if (hovered !== undefined && hoverProgress < 1) hoverFrame = requestAnimationFrame(draw);
         return;
       }
       const expectedSet = new Set(expected);
@@ -103,7 +142,7 @@ export default function PianoCanvas({
         ctx.stroke();
 
         const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
-        const displayComputer = computer || (midi > range.high - 12 + transpose ? midiToName(midi) : "");
+        const displayComputer = computer;
         const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${displayComputer} · ${midiToName(midi)}` : displayComputer;
         const visibleLabel = mode === "none" && interstellarKeys && midi === 88 + transpose ? "E6" : mode === "none" ? "" : label;
         if (visibleLabel) {
@@ -145,7 +184,7 @@ export default function PianoCanvas({
         ctx.roundRect(x, 0, blackWidth, blackHeight, [0, 0, 4, 4]);
         ctx.fill();
         const computer = preferredLabels[midi] ?? labelForMidi(map, midi, transpose);
-        const displayComputer = computer || (midi > range.high - 12 + transpose ? midiToName(midi) : "");
+        const displayComputer = computer;
         const label = mode === "piano" ? midiToName(midi) : mode === "both" ? `${displayComputer}·${midiToName(midi)}` : displayComputer;
         if (mode !== "none" && label) {
           ctx.textAlign = "center";
@@ -174,17 +213,31 @@ export default function PianoCanvas({
           ctx.fillText("C6–C7 UPPER OCTAVE", c6.x + span / 2, 16, span - 8);
         }
       }
+      automaticMarkers();
     };
     const observer = new ResizeObserver(draw);
     observer.observe(canvas);
     draw();
-    return () => observer.disconnect();
-  }, [active, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels, rangeOverride, presentation, keyGuide, pressedCodes]);
+    return () => { observer.disconnect(); cancelAnimationFrame(hoverFrame); };
+  }, [active, automatic, expected, wrong, completed, map, transpose, showLabels, labelMode, practicePalette, preferredLabels, rangeOverride, presentation, keyGuide, pressedCodes, hovered, coolLighting, prominentPitches, pressedKeys, starlightNotes]);
 
   return (
     <canvas
       ref={ref}
       className="piano-canvas"
+      onPointerLeave={() => setHovered(undefined)}
+      onPointerMove={event => {
+        if (!presentation) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        const range = rangeOverride ?? pianoRange(map.bindings);
+        const geometryForPresentation = presentation === "interstellar" ? interstellarPianoGeometry : pianoGeometry;
+        const { keys } = geometryForPresentation(rect.width, transpose, range.low, range.high);
+        const x = event.clientX - rect.left, y = event.clientY - rect.top;
+        const entries = [...keys];
+        const key = entries.find(([, key]) => key.black && y <= rect.height * (presentation === "interstellar" ? .63 : .62) && x >= key.x && x <= key.x + key.width)
+          ?? entries.find(([, key]) => !key.black && x >= key.x && x <= key.x + key.width);
+        if (key?.[0] !== hovered) { hoverStart.current = performance.now(); setHovered(key?.[0]); }
+      }}
       role="img"
       aria-label={`Piano keyboard for ${map.name}, showing active notes${showLabels || presentation ? " and physical key labels" : ""}`}
     />

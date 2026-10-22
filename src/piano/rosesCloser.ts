@@ -1,6 +1,7 @@
-/** Temporary Here With Me overlay; original 44.1 kHz PCM, pitch and speed. */
+/** Permanent E-major vocal. Supplied take already contains +100 cents versus
+ * the old E-flat excerpt; never shift it again. Duration and cue are unchanged. */
 export const closerSource = {
-  file: "/roses/here_with_me_chorus_original.wav",
+  file: "/roses/here_with_me_chorus_e_major.wav",
   onsetSeconds: 34.100,
   excerptStartSeconds: 33.980,
   pickupSeconds: .120,

@@ -1,4 +1,4 @@
-import source from "../../reference/here-with-me-drop-lead/roses_37_52_here_with_me_lead_16bar_events.json";
+import source from "../../reference/here-with-me-drop-lead/lead-events-e-major.json";
 
 export const leadStartBeat = 144;
 export const leadEndBeat = 176;

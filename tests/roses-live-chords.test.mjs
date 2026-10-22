@@ -100,6 +100,7 @@ function setup() {
   const manualOn=(sound,midi,at)=>{const key=sound+':'+midi;manualActive.set(key,(manualActive.get(key)??0)+1);manualEvents.push(['on',sound,midi,at]);};
   const manualOff=(sound,midi,at,all=false)=>{const key=sound+':'+midi;manualActive.set(key,all?0:Math.max(0,(manualActive.get(key)??0)-1));manualEvents.push(['off',sound,midi,at]);};
   Object.assign(stabs,{hereWithMeSound:'keys678',manualSources:new Map(),manualSustained:[],
+    manualHarmony:{attack(code,at){manualOn('harmony',code,at);},release(code,at){manualOff('harmony',code,at,true);},cancel(){for(const key of manualActive.keys())if(key.startsWith('harmony:'))manualActive.set(key,0);}},
     manualLead:{prepareVoices(){},attackChordNote(midi,at){manualOn('lead',midi,at);},releaseChordNote(midi,at){manualOff('lead',midi,at);},stop(){for(const key of manualActive.keys())if(key.startsWith('lead:'))manualActive.set(key,0);}},
     stabNote:{triggerAttack(note,at){manualOn('stabs',note,at);},triggerRelease(note,at){manualOff('stabs',note,at,true);},releaseAll(){for(const key of manualActive.keys())if(key.startsWith('stabs:'))manualActive.set(key,0);}}
   });
@@ -142,7 +143,7 @@ test('live chords have the exact requested MIDI voicings and avoid all existing 
 });
 
 test('manual Here With Me keys use the four source harmony voicings in = - 0 9 order',()=>{
- const notes=JSON.parse(readFileSync('reference/here-with-me-remake/backing-source-events.json')).selections.drop.notes;
+ const notes=JSON.parse(readFileSync('reference/here-with-me-remake/backing-events-e-major.json')).selections.drop.notes;
  assert.deepEqual(hereWithMeChords.map(c=>c.code),['Equal','Minus','Digit0','Digit9']);
  for(const chord of hereWithMeChords){
   const pitches=notes.filter(n=>n.channel===2&&n.tick===chord.tick).map(n=>n.midi).sort((a,b)=>a-b);
@@ -205,8 +206,8 @@ test('sampled manual chords preserve pitches shared by another held chord and cl
   state.input.setChords({...rosesChordShortcuts,...hereWithMeChordShortcuts});
   state.stabs.settings.closerMode='loud';state.stabs.setHereWithMeSound('keys123');
   state.key('keydown','Equal');state.key('keydown','Digit0');state.key('keyup','Equal');
-  assert.ok(state.manualActive.get('stabs:C4')>0,'C4 belongs to both chords');
-  assert.ok(state.manualActive.get('stabs:D#4')>0,'E♭4 belongs to both chords');
+  assert.ok(state.manualActive.get('stabs:C#4')>0,'C♯4 belongs to both chords');
+  assert.ok(state.manualActive.get('stabs:E4')>0,'E4 belongs to both chords');
   state.key('keyup','Digit0');assert.ok([...state.manualActive.values()].every(n=>n===0));
   state.key('keydown','Digit9');state.stabs.releaseAll();assert.ok([...state.manualActive.values()].every(n=>n===0));
  }finally{state.input.dispose();}
@@ -459,4 +460,24 @@ test('Closer selection never routes keys 4–8 away from either of their current
       assert.equal((mode==='bonk'?state.impactEvents:state.bassEvents.filter(event=>event[0]==='on')).length,5);
     } finally {state.input.dispose();}
   }
+});
+
+
+test('HWM chord/guitar/pad option plays one full chord per key, preserves old keys and releases under pedal and sound changes',()=>{
+ const state=setup();try{
+  state.input.setChords({...rosesChordShortcuts,...hereWithMeChordShortcuts});state.stabs.setHereWithMeSound('harmony');
+  for(const chord of hereWithMeChords){
+   const count=state.manualEvents.length;state.key('keydown',chord.code);state.key('keydown',chord.code,{repeat:true});
+   assert.deepEqual(state.manualEvents.slice(count),[['on','harmony',chord.code,42]]);assert.equal(state.active.size,0);
+   assert.deepEqual(state.snapshot().pressed.map(n=>n.midi),[...chord.notes]);state.key('keyup',chord.code);
+   assert.equal(state.manualActive.get('harmony:'+chord.code),0);
+  }
+  state.key('keydown','Equal');state.stabs.setSustain(true);state.key('keyup','Equal');assert.ok(state.manualActive.get('harmony:Equal')>0);
+  state.key('keydown','Equal');state.stabs.setSustain(false);assert.ok(state.manualActive.get('harmony:Equal')>0,'pedal up cannot silence a re-held chord');
+  state.key('keyup','Equal');assert.equal(state.manualActive.get('harmony:Equal'),0);
+  state.key('keydown','Minus');state.stabs.setSustain(true);state.key('keyup','Minus');state.stabs.setHereWithMeSound('keys678');
+  assert.ok([...state.manualActive.values()].every(n=>n===0));assert.equal(state.stabs.manualSources.size,0);
+  state.stabs.setSustain(false);state.key('keydown','Digit8');assert.ok(state.active.size>0,'physical 1–8 retain their own instrument');state.key('keyup','Digit8');
+  assert.equal(state.graded(),0);
+ }finally{state.input.dispose();}
 });

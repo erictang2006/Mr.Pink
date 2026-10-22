@@ -33,6 +33,7 @@ export class RosesLoudStabsEngine {
   private tone = new Tone.Filter({ type: "highshelf", frequency: 2800, gain: 0 });
   private rawReference = new Tone.Gain(.37).toDestination();
   private samples = new Set<RecordedVoice>();
+  private offlineEnded = new Set<RecordedVoice>();
   private heldSamples = new Map<CloserKey, RecordedVoice[]>();
   private activeLoops = new Set<RecordedVoice>();
   private heldLoops = new Map<CloserKey, RecordedVoice[]>();
@@ -76,7 +77,8 @@ export class RosesLoudStabsEngine {
           }
         }
         if (this.previewSample === hit) this.previewSample = null;
-        source.dispose(); gain.dispose();
+        if (source.context?.isOffline) this.offlineEnded.add(hit);
+        else { source.dispose(); gain.dispose(); }
       },
     });
     hit.source = source;
@@ -99,7 +101,8 @@ export class RosesLoudStabsEngine {
           if (index >= 0) queue.splice(index, 1);
           if (!queue.length) this.heldLoops.delete(key);
         }
-        source.dispose(); gain.dispose();
+        if (source.context?.isOffline) this.offlineEnded.add(hit);
+        else { source.dispose(); gain.dispose(); }
       },
     });
     hit.source = source;
@@ -162,6 +165,8 @@ export class RosesLoudStabsEngine {
   }
   dispose(): void {
     this.disposed = true; this.releaseAll(Tone.immediate());
+    for (const hit of this.offlineEnded) { hit.source.dispose(); hit.gain.dispose(); }
+    this.offlineEnded.clear();
     this.reference.dispose();
     for (const buffer of Object.values(this.hits)) buffer.dispose();
     for (const buffer of Object.values(this.sustains)) buffer.dispose();

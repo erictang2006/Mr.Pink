@@ -1,8 +1,27 @@
 # Roses × Here With Me · Drop Layer Mixer (bars 37–44)
 
+**Current arrangement: permanently E major / C♯ minor.** The mixer now contains Here With Me Lead, Here With Me Bass, Here With Me Chords / Guitar / Pad, and unchanged Roses Drop Drums. The default HWM backing excludes Roses harmony and Bonk; the Recorded Loud Stabs lead route remains disabled. Physical keys 1–8 retain their instruments and pitches. See [the finalized key-change notes](HWM-E-MAJOR.md) for source provenance and verification.
+
+**Roses options restored:** use **Drop backing → Roses · Original drop** to hear the original Roses bass and Original Roses Drop Chords, alongside the separate Keys 6–8 · Bonk + Future Bass row. Original and Brighter / Punchier presets and shared A/B chord balance are available there. Each row retains enable, volume, mute and solo. Choose **Here With Me · E major** to return to the HWM backing; the E-major vocal and four-layer lead remain unchanged. Backing selection applies to Play Drop and starts from bars 1, 25 and 29, and survives stop/replay. This selector changes the backing arrangement, not its key.
+
+
+## Historical implementation notes — superseded by the finalized arrangement
+
+The descriptions below document previous experiments and their playback fixes. They do not describe the current automatic harmony or available drop presets.
+
 Open **Roses → Sandbox → Drop Layer Mixer**. The same mixer is also available in Timed Practice. **Play Drop** starts directly at bar 37 at 100 BPM (Practice speed stays at 100% during the take) and automatically auditions the enabled lead, bass, chord and drum groups. Enable audio first, or let Play Drop request it. **Stop** and **Return to bar 37** cancel the take without starting another. Press Play Drop again to replay. Looping is not implemented.
 
 The mixer now has two separate chord rows: **Original Roses Drop Chords** and **Keys 6–8 · Bonk + Future Bass**. Both are enabled by default at 32% volume. Each has its own Enable, Volume, Mute and Solo controls, so they can play together or be auditioned separately. The two rows can still play together; the separate preset selector changes only the Original row. Both play the original source chord pitches, timings, durations and velocities. The Keys 6–8 row uses the existing default RosesFutureBassLayers preset and adds its recorded Bonk attack once per unique source onset in each track, rooted at that onset's lowest note. Live chord settings and physical key mappings remain independent.
+
+## Here With Me lead sound
+
+The mixer also has **Here With Me lead sound → Recorded Loud Stabs · Keys 1–3**, alongside **Original Here With Me Lead** (the default). This replaces the lead instrument in bars 37–44, including full takes from bars 1, 25 and 29. Lead row Enable/Volume/Mute/Solo still apply. The selection and linked settings survive stop, replay and pause; switching instruments cancels old queued voices and continues at the next MIDI onset without restarting the phrase.
+
+This option reuses the actual `loud-stabs-recorded-fm7.wav` from Key 3, pitched relative to its F4 root. It keeps all 224 source MIDI pitches, onsets, gates, octave relationships, velocities and relative bank balances. Because the asset is a whole recorded chord, its chord harmonics remain in each hit; this is a chord-stab texture following the lead MIDI, not an isolated single-note instrument or the earlier harmonic reconstruction. The <140 ms source gates finish before the live key's long-hold loop enters. Its compressor, keyup fade and output trim match the recorded live-key path, with a fixed +7 dB post-path calibration to match the original lead's default RMS level.
+
+**Shared Brightness** is the same control under **Sandbox → Keys 1–8 · Roses drop synth**. It now affects the actual Recorded Loud Stabs keys as well as this drop option. Recorded audio retains its original bright tone at 2800; lower values soften it and higher values brighten it using the same 2.8 kHz high-shelf EQ on both paths (−12 to +6 dB). This preserves the original recording at the default instead of imposing the synth's low-pass filter. The slider's existing Hz readout is retained as the shared macro value. Closer keyup fade and Output are linked too. Body, Bonk, Space and Decay remain synth controls; the recordings contain their own baked sound. The Original Here With Me synth lead and both cached chord rows keep their existing processing.
+
+Real Tone/native offline previews are saved under `docs/roses-reference/drop-lead-sound/`: original/default mix, recorded mix and solo lead, soft/bright solos, and a complete bar-1 take. Original and recorded solo RMS levels are −43.36 and −43.47 dBFS at defaults; the recorded full mix peaks at −10.25 dBFS. Brightness checks confirm increasing 4–8 kHz energy relative to 100–1000 Hz across the three settings. All these renders are audible, finite and unclipped. Browser/device listening is not available. Recorded-source cleanup is deferred correctly during offline rendering; real-time completion still disposes sources immediately.
 
 ## Original / Brighter / Punchier comparison
 

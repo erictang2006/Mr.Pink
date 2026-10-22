@@ -1,0 +1,23 @@
+// Cache only oscillator waveforms. Live filters/envelopes/effects remain unchanged.
+import {build} from 'esbuild';import {readFile,writeFile,mkdir} from 'node:fs/promises';import {pathToFileURL} from 'node:url';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
+const modulePath=process.env.NODE_AUDIO_MODULE;assert.ok(modulePath);const native=await import(pathToFileURL(modulePath).href);
+globalThis.self={TONE_SILENCE_LOGGING:true,BaseAudioContext:native.BaseAudioContext,AudioWorkletNode:native.AudioWorkletNode};
+const shim=`import * as N from ${JSON.stringify(pathToFileURL(modulePath).href)};export const AudioContext=N.AudioContext,OfflineAudioContext=N.OfflineAudioContext,AudioWorkletNode=N.AudioWorkletNode,AudioBuffer=N.AudioBuffer;export const isAnyAudioContext=x=>x instanceof N.AudioContext,isAnyOfflineAudioContext=x=>x instanceof N.OfflineAudioContext,isAnyAudioNode=x=>x instanceof N.AudioNode,isAnyAudioParam=x=>x instanceof N.AudioParam;export const isSupported=async()=>true;`;
+const bundle=await build({stdin:{contents:`export * as Tone from 'tone';export {RosesFutureBassLayers} from './src/piano/rosesFutureBassLayers';export {rosesChordShortcuts} from './src/piano/rosesChords';export {hereWithMeChordShortcuts} from './src/piano/hereWithMeChords';export {midiToToneName} from './src/piano/noteMapping';`,resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'native',setup(b){b.onResolve({filter:/^standardized-audio-context$/},()=>({path:'audio',namespace:'native'}));b.onLoad({filter:/.*/,namespace:'native'},()=>({contents:shim}));b.onResolve({filter:/node-web-audio-api\/index.js$/},a=>({path:a.path,external:true}));}}]});
+const {Tone,RosesFutureBassLayers,rosesChordShortcuts,hereWithMeChordShortcuts,midiToToneName}=await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
+const pitches=[...new Set(Object.values({...rosesChordShortcuts,...hereWithMeChordShortcuts}).flat())].sort((a,b)=>a-b),rate=44100;
+const context=new Tone.OfflineContext(new native.OfflineAudioContext(3,rate*(pitches.length*4+2),rate));Tone.setContext(context);
+const reference=new RosesFutureBassLayers(),merge=new Tone.Merge(3).connect(context.rawContext.destination);
+const voices=['left','right','center'].map((bank,index)=>{const voice=new Tone.MonoSynth(reference[bank].get());voice.oscillator.disconnect();voice.oscillator.connect(merge,0,index);return voice;});
+pitches.forEach((midi,index)=>context.transport.schedule(time=>voices.forEach(voice=>voice.triggerAttackRelease(midiToToneName(midi),3.2,time,.86)),.1+index*4));
+context.transport.start(0);await context.workletsAreReady();const audio=(await context.render()).get();const channels=[0,1,2].map(i=>audio.getChannelData(i));
+const out='public/roses/live-bonk-waves';await mkdir(out,{recursive:true});const files=[],frames=3*rate,crossfade=Math.round(.04*rate);
+for(const [index,midi] of pitches.entries())for(const [bank,channel] of ['left','right','center'].entries()){
+ const data=Float64Array.from(channels[bank].slice(Math.round((.1+index*4)*rate),Math.round((.1+index*4)*rate)+frames));
+ for(let j=0;j<crossfade;j++){const end=Math.round(2.8*rate)-crossfade+j,begin=rate-crossfade+j,t=j/(crossfade-1);data[end]=data[end]*(1-t)+data[begin]*t;}
+ const wave=Buffer.alloc(44+frames*4);wave.write('RIFF');wave.writeUInt32LE(wave.length-8,4);wave.write('WAVEfmt ',8);wave.writeUInt32LE(16,16);wave.writeUInt16LE(3,20);wave.writeUInt16LE(1,22);wave.writeUInt32LE(rate,24);wave.writeUInt32LE(rate*4,28);wave.writeUInt16LE(4,32);wave.writeUInt16LE(32,34);wave.write('data',36);wave.writeUInt32LE(frames*4,40);
+ let peak=0;for(let i=0;i<frames;i++){const x=data[i];assert.ok(Number.isFinite(x));peak=Math.max(peak,Math.abs(x));wave.writeFloatLE(x,44+i*4);}
+ assert.ok(peak>.01);const file=`${channel}-${midi}.wav`;await writeFile(out+'/'+file,wave);files.push({file,bank:channel,midi,peak,loopStart:1,loopEnd:2.8,sha256:createHash('sha256').update(wave).digest('hex')});
+}
+const sourceHashes={};for(const file of ['scripts/prepare-live-bonk-waves.mjs','src/piano/rosesFutureBassLayers.ts','src/piano/rosesChords.ts','src/piano/hereWithMeChords.ts','package-lock.json'])sourceHashes[file]=createHash('sha256').update(await readFile(file)).digest('hex');
+await writeFile(out+'/manifest.json',JSON.stringify({description:'Raw original oscillator banks, including fat spread/detune; no filter, envelope, velocity scaling, effects, or pitch shift. Runtime target pitch is baked in.',files,sourceHashes},null,2)+'\n');console.log(JSON.stringify({pitches,files:files.length}));for(const voice of voices)voice.dispose();reference.dispose();merge.dispose();await context.dispose();

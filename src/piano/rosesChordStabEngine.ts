@@ -2,6 +2,7 @@ import * as Tone from "tone";
 import { midiToToneName } from "./noteMapping";
 import { rosesChordShortcuts } from "./rosesChords";
 import { hereWithMeChordShortcuts, validHereWithMeChordSound, type HereWithMeChordSound } from "./hereWithMeChords";
+import { HwmManualHarmonyEngine } from "./hwmManualHarmonyEngine";
 import { HereWithMeLeadEngine } from "./hereWithMeLeadEngine";
 import { voxStabNoteUrl } from "./voxMelodyEngine";
 import { RosesFutureBassLayers } from "./rosesFutureBassLayers";
@@ -12,7 +13,7 @@ import { defaultRosesDropSettings, validRosesDropSettings, type RosesDropSetting
 /** Dedicated live chord timbre; the Roses lead and scheduled backing have separate voices. */
 export class RosesChordStabEngine {
   private voice = new RosesDropLayers();
-  private future = new RosesFutureBassLayers();
+  private future = new RosesFutureBassLayers("roses", true);
   private closer = new RosesLoudStabsEngine();
   private closerSources = new Set<string>();
   private closerSustained = new Map<number, number>();
@@ -39,12 +40,13 @@ export class RosesChordStabEngine {
   private bassOwners = new Map<string, { midi: number; held: boolean }>();
   private bassCurrentCode: string | null = null;
   private hereWithMeSound: HereWithMeChordSound = "keys678";
+  private manualHarmony?: HwmManualHarmonyEngine;
   private manualLead?: HereWithMeLeadEngine;
   private stabNote?: Tone.Sampler;
   private stabNoteReady = false;
   private stabNoteLoading?: Promise<void>;
-  private manualSources = new Map<string, "lead" | "stabs">();
-  private manualSustained: { midi: number; sound: "lead" | "stabs" }[] = [];
+  private manualSources = new Map<string, "lead" | "stabs" | "harmony">();
+  private manualSustained: { midi: number; sound: "lead" | "stabs" | "harmony" }[] = [];
 
   constructor() {
     this.voice.connect(this.originalBus);
@@ -67,14 +69,19 @@ export class RosesChordStabEngine {
         onload: () => { this.stabNoteReady = true; resolve(); }, onerror: reject,
       }).connect(this.compressor);
     }).catch(error => { this.stabNote?.dispose(); this.stabNote = undefined; this.stabNoteLoading = undefined; throw error; });
-    await Promise.all([this.future.load(), this.closer.load(), this.stabNoteLoading]);
+    await Promise.all([this.future.load(), this.closer.load(), this.getManualHarmony().load(), this.stabNoteLoading]);
   }
-  isReady(): boolean { return this.future.isReady() && this.closer.isReady() && this.stabNoteReady; }
+  isReady(): boolean { return this.future.isReady() && this.closer.isReady() && this.stabNoteReady && !!this.manualHarmony?.isReady(); }
   setHereWithMeSound(value: HereWithMeChordSound): void {
     const next = validHereWithMeChordSound(value);
     if (next === this.hereWithMeSound) return;
     this.releaseAll(); this.hereWithMeSound = next;
     if (next === "lead") this.getManualLead().prepareVoices();
+  }
+  setHereWithMeHarmonyVolume(value: number): void { this.getManualHarmony().setVolume(value); }
+  private getManualHarmony(): HwmManualHarmonyEngine {
+    if (!this.manualHarmony) this.manualHarmony = new HwmManualHarmonyEngine(this.compressor);
+    return this.manualHarmony;
   }
   private getManualLead(): HereWithMeLeadEngine {
     if (!this.manualLead) {
@@ -136,6 +143,11 @@ export class RosesChordStabEngine {
     // shared pitches are balanced by one release per attack, not cut on retrigger.
     this.held.set(source, midi);
     const manual = hereWithMeChordShortcuts[code];
+    if (manual && this.hereWithMeSound === "harmony") {
+      this.manualSources.set(source,"harmony");
+      if (midi === manual[0]) this.getManualHarmony().attack(code,time);
+      return true;
+    }
     if (manual && (this.hereWithMeSound === "lead" || this.hereWithMeSound === "keys123" && this.settings.closerMode === "loud")) {
       const sound = this.hereWithMeSound === "lead" ? "lead" : "stabs";
       this.manualSources.set(source, sound);
@@ -162,7 +174,7 @@ export class RosesChordStabEngine {
     return true;
   }
 
-  noteOff(source: string): void {
+  noteOff(source: string, time = Tone.immediate()): void {
     const midi = this.held.get(source);
     if (midi === undefined) return;
     this.held.delete(source);
@@ -170,13 +182,13 @@ export class RosesChordStabEngine {
     if (manual) {
       this.manualSources.delete(source);
       if (this.pedal) this.manualSustained.push({ midi, sound: manual });
-      else this.releaseManualNote(midi, manual, Tone.immediate());
+      else this.releaseManualNote(midi, manual, time);
       return;
     }
     // Bind release to the instrument that received keydown, even if A/B changed meanwhile.
     if (this.closerSources.delete(source)) {
       if (this.pedal) this.closerSustained.set(midi, (this.closerSustained.get(midi) ?? 0) + 1);
-      else if (midi === rosesChordShortcuts[source.split(":")[1]]?.[0]) this.closer.release(source.split(":")[1], Tone.immediate());
+      else if (midi === rosesChordShortcuts[source.split(":")[1]]?.[0]) this.closer.release(source.split(":")[1], time);
       return;
     }
     const code = source.split(":")[1];
@@ -184,10 +196,10 @@ export class RosesChordStabEngine {
       const owner = this.bassOwners.get(code);
       if (this.pedal && owner) owner.held = false;
       else this.bassOwners.delete(code);
-      this.syncBass(Tone.immediate());
+      this.syncBass(time);
     }
     if (this.pedal) this.sustained.set(midi, (this.sustained.get(midi) ?? 0) + 1);
-    else this.activeVoice.triggerRelease(midiToToneName(midi), Tone.immediate());
+    else this.activeVoice.triggerRelease(midiToToneName(midi), time);
   }
 
   setSustain(enabled: boolean): void {
@@ -203,9 +215,13 @@ export class RosesChordStabEngine {
     for (const [code, owner] of this.bassOwners) if (!owner.held) this.bassOwners.delete(code);
     this.syncBass(Tone.immediate());
   }
-  private releaseManualNote(midi: number, sound: "lead" | "stabs", time: number): void {
+  private releaseManualNote(midi: number, sound: "lead" | "stabs" | "harmony", time: number): void {
     if (sound === "lead") this.manualLead?.releaseChordNote(midi, time);
-    else {
+    else if (sound === "harmony") {
+      if ([...this.manualSources].some(([source, route]) => route === "harmony" && this.held.get(source) === midi)) return;
+      const code=Object.keys(hereWithMeChordShortcuts).find(code=>hereWithMeChordShortcuts[code][0]===midi);
+      if(code)this.manualHarmony?.release(code,time);
+    } else {
       // Sampler releases every copy of a pitch. Keep shared notes sounding
       // until the last physical chord containing that pitch is released.
       if ([...this.manualSources].some(([source, route]) => route === "stabs" && this.held.get(source) === midi)) return;
@@ -227,13 +243,13 @@ export class RosesChordStabEngine {
   }
 
   releaseAll(): void {
-    this.manualLead?.stop(); this.stabNote?.releaseAll(Tone.immediate());
+    this.manualHarmony?.cancel(); this.manualLead?.stop(); this.stabNote?.releaseAll(Tone.immediate());
     this.manualSources?.clear(); if (this.manualSustained) this.manualSustained.length = 0;
     this.held.clear(); this.sustained.clear(); this.closerSources.clear(); this.closerSustained.clear(); this.bassOwners.clear(); this.bassCurrentCode = null;
     this.voice.releaseAll(Tone.immediate()); this.future.releaseAll(Tone.immediate()); this.closer.releaseAll(Tone.immediate()); this.bass.triggerRelease(Tone.immediate());
   }
   dispose(): void {
-    this.releaseAll(); this.manualLead?.dispose(); this.stabNote?.dispose();
+    this.releaseAll(); this.manualHarmony?.dispose(); this.manualLead?.dispose(); this.stabNote?.dispose();
     this.voice.dispose(); this.future.dispose(); this.closer.dispose(); this.bass.dispose(); this.bassHighPass.dispose();
     this.bassGain.dispose(); this.originalBus.dispose(); this.futureBus.dispose(); this.compressor.dispose(); this.duckGain.dispose(); this.output.dispose(); this.limiter.dispose();
   }

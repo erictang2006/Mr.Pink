@@ -1,0 +1,290 @@
+{
+  "renderer": "Existing HWM drop render graph; only chord channel 2, pad channel 3 and original Piezo samples channel 14. No transport phrase, bass, lead, drums or FX.",
+  "key": "E major / C♯ minor",
+  "normalizationGain": 0.3441941079567844,
+  "files": [
+    {
+      "code": "Equal",
+      "file": "Equal.wav",
+      "notes": [
+        49,
+        61,
+        64,
+        68
+      ],
+      "loopStart": 0.8,
+      "loopEnd": 1.4,
+      "seconds": 1.6,
+      "peak": 0.17648999090871856,
+      "rmsDb": -30.861366285427497,
+      "sha256": "50edd6a391828e6933f3e264e34eb37083f3931bbf578f8548f128285eb9c67d"
+    },
+    {
+      "code": "Minus",
+      "file": "Minus.wav",
+      "notes": [
+        47,
+        59,
+        63,
+        66
+      ],
+      "loopStart": 0.8,
+      "loopEnd": 1.4,
+      "seconds": 1.6,
+      "peak": 0.13693410977775475,
+      "rmsDb": -31.657487950944283,
+      "sha256": "7db2b21de91f2d97157acde77f73df8d6eb64c76a8bb74baf053502cf90274a3"
+    },
+    {
+      "code": "Digit0",
+      "file": "Digit0.wav",
+      "notes": [
+        45,
+        57,
+        61,
+        64,
+        71
+      ],
+      "loopStart": 0.8,
+      "loopEnd": 1.4,
+      "seconds": 1.6,
+      "peak": 0.1568037138989989,
+      "rmsDb": -30.314263648272593,
+      "sha256": "46852b86444a7fe1ef9caf2575ab2734876da04c64868a6d7745e43a6c371d8d"
+    },
+    {
+      "code": "Digit9",
+      "file": "Digit9.wav",
+      "notes": [
+        40,
+        52,
+        56,
+        59,
+        68
+      ],
+      "loopStart": 0.8,
+      "loopEnd": 1.4,
+      "seconds": 1.6,
+      "peak": 0.16680389394447442,
+      "rmsDb": -29.55890258641102,
+      "sha256": "cb97ddc99392ee33302be4107d7b324fa3553df063c519a2a4c60b2dddcdf9a9"
+    }
+  ],
+  "notes": [
+    {
+      "code": "Equal",
+      "midi": 49,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 48,
+      "guitarRate": 1.0594630943592953
+    },
+    {
+      "code": "Equal",
+      "midi": 61,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 60,
+      "guitarRate": 1.0594630943592953
+    },
+    {
+      "code": "Equal",
+      "midi": 64,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 64,
+      "guitarRate": 1
+    },
+    {
+      "code": "Equal",
+      "midi": 68,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 68,
+      "guitarRate": 1
+    },
+    {
+      "code": "Minus",
+      "midi": 47,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 48,
+      "guitarRate": 0.9438743126816935
+    },
+    {
+      "code": "Minus",
+      "midi": 59,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 60,
+      "guitarRate": 0.9438743126816935
+    },
+    {
+      "code": "Minus",
+      "midi": 63,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 64,
+      "guitarRate": 0.9438743126816935
+    },
+    {
+      "code": "Minus",
+      "midi": 66,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 64,
+      "guitarRate": 1.122462048309373
+    },
+    {
+      "code": "Digit0",
+      "midi": 45,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 44,
+      "guitarRate": 1.0594630943592953
+    },
+    {
+      "code": "Digit0",
+      "midi": 57,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 56,
+      "guitarRate": 1.0594630943592953
+    },
+    {
+      "code": "Digit0",
+      "midi": 61,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 60,
+      "guitarRate": 1.0594630943592953
+    },
+    {
+      "code": "Digit0",
+      "midi": 64,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 64,
+      "guitarRate": 1
+    },
+    {
+      "code": "Digit0",
+      "midi": 71,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 72,
+      "guitarRate": 0.9438743126816935
+    },
+    {
+      "code": "Digit9",
+      "midi": 40,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 40,
+      "guitarRate": 1
+    },
+    {
+      "code": "Digit9",
+      "midi": 52,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 52,
+      "guitarRate": 1
+    },
+    {
+      "code": "Digit9",
+      "midi": 56,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 56,
+      "guitarRate": 1
+    },
+    {
+      "code": "Digit9",
+      "midi": 59,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 60,
+      "guitarRate": 0.9438743126816935
+    },
+    {
+      "code": "Digit9",
+      "midi": 68,
+      "channels": [
+        2,
+        3,
+        14
+      ],
+      "guitarRoot": 68,
+      "guitarRate": 1
+    }
+  ],
+  "sourceHashes": {
+    "scripts/render-hwm-manual-harmony.mjs": "27952cff6d8976386f8819c759994babdb8ea38541353ec7b1f9e56986ccbd5e",
+    "src/piano/hwmBackingRenderEngine.ts": "73cb4de86daa992bef498d4b2cecb6cc6cbd4711916087f901d4c132d38a95b2",
+    "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
+    "src/piano/hereWithMeChords.ts": "0eab851acd1d0df9975b1b6f9913a8d24e217fd5edc13256e543357eac97be95",
+    "reference/here-with-me-remake/backing-events-e-major.json": "1c3fce17f0c52454aee315776450ae87e0dccea3452e4862d1d5cf008263afa5",
+    "reference/here-with-me-remake/analysis/drop-render.json": "028a711cfdc27829f889754bd81d96c94ca650409785e176678f636ec02fbfd0",
+    "reference/here-with-me-remake/normalized-samples/Piezo (3).wav.wav": "55a232b0d31aad892d64bbad6f1a6c96dc742f0b6ee3fbad1e5ff331b608c736",
+    "reference/here-with-me-remake/normalized-samples/Piezo (6).wav.wav": "1268b86792770d43e434829d613eded6d755a24b18f324d55f9d57fe2a1e9dcc",
+    "reference/here-with-me-remake/normalized-samples/Piezo (7).wav.wav": "5f7716947d29ac00b154b741a1a7ecd02588c12e8f3459759e750fe4e99de137",
+    "reference/here-with-me-remake/normalized-samples/Piezo (8).wav.wav": "6f2616014753b4d075256fcf94be613fec2eca50fa1407496cacf482068b9959",
+    "reference/here-with-me-remake/normalized-samples/Piezo (2).wav.wav": "39a5b9e0510c1b8c9ca69c5f703d22fb8847a53cdbe6cb50dca2380813a5e4c5",
+    "reference/here-with-me-remake/normalized-samples/Piezo (5).wav.wav": "856a411e8312c247a717fcda1d4410e296e5e0de26c93317fc27cda003d2da55",
+    "reference/here-with-me-remake/normalized-samples/Piezo (9).wav.wav": "aa7c3aeeaa554c948407426c8ad4bcb732b1b6daacb767e6bdfcda92ef5f120a",
+    "reference/here-with-me-remake/normalized-samples/Piezo (1).wav.wav": "f285b12269d6bffbb51c67e522727dc01e01136a465099d5520e12ee07b1a99a",
+    "reference/here-with-me-remake/normalized-samples/Piezo (4).wav.wav": "fadebe186b992423e008e928b3cdbf00d52d5480dd43029fb1c925ba9ed70728"
+  }
+}

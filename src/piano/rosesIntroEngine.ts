@@ -1,3 +1,4 @@
+import type {RiserSettings} from "./hybridBacking";
 import * as Tone from "tone";
 import { RosesBackingEngine } from "./rosesBackingEngine";
 import type { BackingMode, BackingGroup } from "./rosesBacking";
@@ -9,7 +10,7 @@ import type { CloserStatus, RosesCloserSettings } from "./rosesCloser";
 import type { SynthEngine } from "./synthEngine";
 import { HereWithMeLeadEngine, type LeadSnapshot } from "./hereWithMeLeadEngine";
 import { leadEndBar } from "./hereWithMeLead";
-import { RosesDropAuditionEngine, type DropSnapshot, type DropDrum } from "./rosesDropAuditionEngine";
+import { RosesDropAuditionEngine, type DropSnapshot, type DropDrum, type DropBackingSource } from "./rosesDropAuditionEngine";
 import type { DropLayer, DropRow } from "./rosesDropMixer";
 import type { DropChordPreset } from "./rosesDropPresets";
 import type { DropLeadSound } from "./recordedDropLeadEngine";
@@ -122,6 +123,9 @@ export class RosesIntroEngine {
     const token = ++this.generation;
     if (!await this.drop.prepare() || token !== this.generation || this.disposed) return false;
     this.setSpeed(1);
+    // A new full take always queues the selected source. Reset first: arm()
+    // toggles an existing arm and rejects a previously PLAYING/BREAK take.
+    this.buildup.stop(); this.buildup.arm(0, false);
     return this.startAt(bar, mode, preserveSynth, lower);
   }
   async playDrop(): Promise<boolean> {
@@ -133,6 +137,7 @@ export class RosesIntroEngine {
     this.setSpeed(1);
     return this.startAt(37, "timed", false, lower);
   }
+  setDropBackingSource(value: DropBackingSource): void { this.drop.setBackingSource(value); }
   setDropRow(id: DropLayer, patch: Partial<DropRow>): void { this.drop.setRow(id, patch); }
   setDropChordPreset(value: DropChordPreset): void { this.drop.setChordPreset(value); }
   setDropLeadSound(value: DropLeadSound): void { this.drop.setLeadSound(value); }
@@ -160,9 +165,11 @@ export class RosesIntroEngine {
   setBuildupSettings(settings: BuildupSettings): void { this.buildup.configure(settings); this.emit(); }
   setBackingMode(mode: BackingMode): void {
     this.buildup.setMode(mode);
-    if (mode !== "roses" && ["ARMED", "PLAYING"].includes(this.buildup.snapshot().status)) this.setSpeed(1);
+    if (mode !== "roses" && ["ARMED", "PLAYING", "BREAK"].includes(this.buildup.snapshot().status)) this.setSpeed(1);
     this.emit();
   }
+  setPreDropRiser(patch:Partial<RiserSettings>):void {this.buildup.setRiser(patch);this.emit();}
+  previewPreDropRiser():void {if(this.state.status!=="running"&&this.state.status!=="paused")this.buildup.previewRiser();}
   setBackingMix(patch: { gain?: number; group?: BackingGroup; level?: number; solo?: BackingGroup | null }): void { this.buildup.setMix(patch); this.emit(); }
   armBuildup(): boolean {
     const armed = this.buildup.arm(this.scoreBeat(), this.state.status === "running" || this.state.status === "paused");
@@ -172,7 +179,7 @@ export class RosesIntroEngine {
   /** Prepare the full drop before starting; its existing scheduler stays silent until bar 37. */
   rehearseFrom25(mode: RosesClockMode): Promise<boolean> { return this.rehearseIntoDrop(25, mode); }
   rehearseFrom29(mode: RosesClockMode): Promise<boolean> { return this.rehearseIntoDrop(29, mode); }
-  private async rehearseIntoDrop(bar: 25 | 29, mode: RosesClockMode): Promise<boolean> {
+  private async rehearseIntoDrop(bar: 25 | 29 | 33 | 36, mode: RosesClockMode): Promise<boolean> {
     if (!this.ready || !this.synth.isPlayable()) return false;
     const lower = this.lead.snapshot().lower;
     this.reset(bar); this.practiceLoop = null; this.setSpeed(1);
@@ -182,9 +189,10 @@ export class RosesIntroEngine {
     if (bar === 25) this.armBuild();
     this.armBuildup();
     // The mixer owns the only drop lead. Do not arm the standalone lead as well.
-    return this.startAt(bar, mode, false, lower, bar === 29);
+    return this.startAt(bar, mode, false, lower, bar >= 29);
   }
-  rehearseBuildup(bar: 29 | 33 | 36, mode: RosesClockMode): boolean {
+  rehearseBuildup(bar: 29 | 33 | 36, mode: RosesClockMode): boolean | Promise<boolean> {
+    if(this.buildup.snapshot().mode==="hybrid")return this.rehearseIntoDrop(bar,mode);
     if (!this.ready || !this.synth.isPlayable()) return false;
     this.buildup.stop(); this.buildup.arm(0, false);
     this.practiceLoop = null;
@@ -225,7 +233,7 @@ export class RosesIntroEngine {
   setSpeed(value: number): void {
     const dropStatus = this.drop.snapshot().status;
     const backing = this.buildup.snapshot();
-    const fixedBacking = backing.mode !== "roses" && ["ARMED", "PLAYING"].includes(backing.status);
+    const fixedBacking = backing.mode !== "roses" && ["ARMED", "PLAYING", "BREAK"].includes(backing.status);
     this.speed = dropStatus === "running" || dropStatus === "paused" || fixedBacking ? 1 : Math.max(.5, Math.min(1.25, value));
     Tone.Transport.bpm.rampTo(rosesIntroTempo * this.speed, .05);
     this.guitar.playbackRate = this.speed; this.vocal.playbackRate = this.speed;
@@ -322,7 +330,7 @@ export class RosesIntroEngine {
     this.closer.reset(); this.buildup.begin((bar - 1) * 4); this.clipSources.clear(); this.pausedClips.clear(); this.loopEntryBacking = null;
     Tone.Transport.stop(); this.players.stopAll(); this.stopClip(this.vocal, Tone.immediate()); this.synth.stopLoop(); this.bass.releaseAll(); this.stopBuild();
     this.generation++; this.anchorBar = bar; this.transportStartBar = bar; this.step = 0; this.finishTime = null;
-    this.joinCloserAtStart = joinCloser;
+    this.joinCloserAtStart = joinCloser || this.buildup.snapshot().mode==="hybrid"&&bar>=29&&bar<=36;
     this.state = { ...initial(), status: "running", mode, measure: bar, beat: 1, pulse: 0, synthActive: active, synthPending: pending, bassActive, bassPending, missedBassHandoff: false, buildActive: false, buildPending, vocalStatus, vocalReady: this.state.vocalReady, cycle: 0 };
     this.vocalGain.gain.cancelScheduledValues(Tone.immediate());
     this.vocalGain.gain.setValueAtTime(this.vocalLevel, Tone.immediate());

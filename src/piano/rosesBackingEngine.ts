@@ -1,14 +1,17 @@
+import {PreDropRiserEngine} from "./preDropRiserEngine";
+import {hybridBreakBeat,hybridRiserEndBeat,hybridPercussion,type RiserSettings} from "./hybridBacking";
 import * as Tone from "tone";
 import { RosesBuildupEngine, type BuildupStatus } from "./rosesBuildupEngine";
 import type { BuildupSettings } from "./rosesBuildup";
 import type { RosesBassEngine } from "./rosesBassEngine";
-import { backingChoices, backingGroups, backingStemUrl, type BackingGroup, type BackingMode } from "./rosesBacking";
+import { defaultBackingMode, backingChoices, backingGroups, backingStemUrl, type BackingGroup, type BackingMode } from "./rosesBacking";
 
 /** One region router, driven only by the existing Roses transport callback.
- * Mode A delegates to the original engine. B/C use separately rendered submixes.
+ * Roses delegates to the original engine; HWM/Hybrid use prepared submixes.
  */
 export class RosesBackingEngine {
   private original: RosesBuildupEngine;
+  private riser: PreDropRiserEngine;
   private originalOutput: Tone.Gain;
   private output: Tone.Gain;
   private limiter: Tone.Limiter;
@@ -16,7 +19,7 @@ export class RosesBackingEngine {
   private groups = new Map<BackingGroup,Tone.Gain>();
   private buffers = new Map<string,Tone.ToneAudioBuffer>();
   private sources = new Set<Tone.ToneBufferSource>();
-  private mode: BackingMode = "roses";
+  private mode: BackingMode = defaultBackingMode;
   private gain = 1;
   private levels: Record<BackingGroup,number> = {chords:1,bass:1,drums:1,fx:1};
   private solo: BackingGroup | null = null;
@@ -41,9 +44,10 @@ export class RosesBackingEngine {
     this.safety = new Tone.WaveShaper(value=>.9*Math.tanh(value/.9),2048).connect(destination);
     this.limiter = new Tone.Limiter(-3).connect(this.safety);this.output.connect(this.limiter);
     for(const group of backingGroups)this.groups.set(group,new Tone.Gain(1).connect(this.output));
+    this.riser=new PreDropRiserEngine(this.groups.get("fx")!);
   }
   async load():Promise<void> {
-    await Promise.all([this.original.load(),...(["hwm-build","hwm-drop"] as const).flatMap(mode=>backingGroups.map(async group=>{
+    await Promise.all([this.original.load(),this.riser.load(),...(["hwm-build","hwm-drop","hybrid"] as const).flatMap(mode=>backingGroups.filter(group=>mode!=="hybrid"||group!=="fx").map(async group=>{
       const buffer = new Tone.ToneAudioBuffer();this.buffers.set(`${mode}:${group}`,buffer);
       await buffer.load(backingStemUrl(mode,group));if(this.disposed)buffer.dispose();
     }))]);
@@ -52,8 +56,15 @@ export class RosesBackingEngine {
   configure(settings:BuildupSettings):void {this.original.configure(settings);}
   snapshot() {
     const current = this.mode==="roses" ? this.original.snapshot() : {status:this.status,ready:this.ready,layers:this.started&&!this.paused&&this.lastBeat<144?[...backingGroups]:[],bass:this.started&&!this.paused&&this.lastBeat<144};
-    return {...current,layers:current.layers as string[],mode:this.mode,gain:this.gain,levels:{...this.levels},solo:this.solo};
+    const hybridBreak=this.mode==="hybrid"&&this.lastBeat>=hybridBreakBeat;
+    const hybridLayers=this.started&&!this.paused&&this.lastBeat<144?(hybridBreak?[
+      ...(this.lastBeat<hybridRiserEndBeat&&this.riser.snapshot().enabled&&this.riser.snapshot().volume>0?["fx"]:[]),
+      ...(hybridPercussion.some(event=>event.beat<=this.lastBeat&&event.end>this.lastBeat)?["drums"]:[]),
+    ]:["chords","bass","drums"]):[];
+    return {...current,layers:this.mode==="hybrid"?hybridLayers:current.layers as string[],bass:hybridBreak?false:current.bass,riser:this.riser.snapshot(),mode:this.mode,gain:this.gain,levels:{...this.levels},solo:this.solo};
   }
+  setRiser(patch:Partial<RiserSettings>):void {this.riser.configure(patch);}
+  previewRiser():void {if(this.ready)this.riser.play(Tone.now()+.03);}
   setMode(mode:BackingMode):void {
     if(mode===this.mode||!backingChoices.some(choice=>choice.value===mode))return;
     const state=this.snapshot().status,beat=this.lastBeat,paused=this.paused;
@@ -92,13 +103,14 @@ export class RosesBackingEngine {
     if(this.mode==="roses"){this.original.tick(beat,time,secondsPerBeat);return;}
     if(!this.armed||this.paused||beat<this.entry)return;
     if(beat>=144){this.status="FINISHED";return;}
-    this.status="PLAYING";
+    this.status=this.mode==="hybrid"&&beat>=hybridBreakBeat?"BREAK":"PLAYING";
     if(!this.started){this.bass.releaseAll(time);this.startSources(time,(beat-112)*.6);}
   }
   private startSources(time:number,offset:number):void {
     if(this.mode==="roses"||offset>=19.2)return;
     this.anchorTime=time;this.anchorOffset=offset;this.started=true;
     for(const group of backingGroups){
+      if(this.mode==="hybrid"&&group==="fx")continue;
       const buffer=this.buffers.get(`${this.mode}:${group}`)!;
       if(offset>=buffer.duration)continue;
       const source=new Tone.ToneBufferSource({url:buffer,playbackRate:.6/this.secondsPerBeat,fadeIn:offset>0?.005:0,fadeOut:.01}).connect(this.groups.get(group)!);
@@ -106,8 +118,12 @@ export class RosesBackingEngine {
       this.sources.add(source);source.start(time,offset);
       source.stop(time+(19.35-offset)/(.6/this.secondsPerBeat));
     }
+    if(this.mode==="hybrid"){
+      const start=(hybridBreakBeat-112)*.6,rate=.6/this.secondsPerBeat;
+      this.riser.play(time+Math.max(0,start-offset)/rate,Math.max(0,offset-start),rate);
+    }
   }
-  private stopSources():void {for(const source of this.sources)source.dispose();this.sources.clear();}
+  private stopSources():void {this.riser.stop();for(const source of this.sources)source.dispose();this.sources.clear();}
   pause(time:number,beat:number):void {
     this.paused=true;
     if(this.mode==="roses"){this.original.pause(time,beat);return;}
@@ -124,7 +140,7 @@ export class RosesBackingEngine {
     this.original.stop(time);this.stopSources();this.armed=false;this.started=false;this.paused=false;this.lastBeat=-1;this.status="NOT ARMED";this.updateBassGain();
   }
   dispose():void {
-    this.disposed=true;this.stop();this.original.dispose();for(const buffer of this.buffers.values())buffer.dispose();
+    this.disposed=true;this.stop();this.riser.dispose();this.original.dispose();for(const buffer of this.buffers.values())buffer.dispose();
     for(const node of [...this.groups.values(),this.originalOutput,this.output,this.limiter,this.safety])node.dispose();
   }
 }

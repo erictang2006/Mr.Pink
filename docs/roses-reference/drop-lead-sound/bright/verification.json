@@ -1,0 +1,55 @@
+{
+  "renderer": "Actual Tone.js graph on node-web-audio-api OfflineAudioContext; not a browser or hardware latency test",
+  "cases": [
+    {
+      "mode": "lead",
+      "seconds": 23,
+      "leadSound": "loud-stabs",
+      "leadBrightness": 4000,
+      "chordPlayback": "cached",
+      "chordPreset": "original",
+      "chordRows": {
+        "lead": {
+          "enabled": true,
+          "muted": false,
+          "solo": true,
+          "volume": 0.65
+        },
+        "bass": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.55
+        },
+        "chords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "bonkChords": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.32
+        },
+        "drums": {
+          "enabled": true,
+          "muted": false,
+          "solo": false,
+          "volume": 0.65
+        }
+      },
+      "renderWallSeconds": 1.3468147080000001,
+      "audioNodeCreations": {
+        "oscillators": 105,
+        "filters": 3,
+        "waveshapers": 3
+      },
+      "peakDb": -23.400048903354687,
+      "rmsDb": -42.274895973540595,
+      "tailPeakDb": null,
+      "finite": true
+    }
+  ]
+}
