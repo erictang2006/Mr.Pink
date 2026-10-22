@@ -39,3 +39,11 @@ export function interstellarProminentPitches(section: InterstellarSection, octav
   if (section === 3 && octaveEnabled && transpose === 0) pitches.add(88);
   return pitches;
 }
+
+/** Roblox labels are a pitch reference, independent of the actual assisted fingering. */
+export function interstellarDisplayPressedKeys(pressed: readonly {code:string;midi:number}[], transpose=0): {code:string;midi:number}[] {
+  return pressed.map(key => {
+    const reference=interstellarRobloxMap.bindings.find(binding => binding.midi+transpose===key.midi || binding.shiftedMidi!==undefined && binding.shiftedMidi+transpose===key.midi);
+    return {code:reference?.code ?? key.code,midi:key.midi};
+  });
+}

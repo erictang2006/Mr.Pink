@@ -1,5 +1,5 @@
-import { interstellarRobloxMap, interstellarAssistedCode, interstellarThemeShortcut } from './piano/interstellarRoblox';
-import { interstellarKeyGuide, interstellarProminentPitches } from './piano/interstellarPresentation';
+import { interstellarRobloxMap, interstellarThemeShortcut } from './piano/interstellarRoblox';
+import { interstellarKeyGuide, interstellarProminentPitches, interstellarDisplayPressedKeys } from './piano/interstellarPresentation';
 import { rosesKeyGuide } from './piano/rosesPresentation';
 import {backingFrame} from "./piano/backingVisuals";
 import {defaultBackingMode} from "./piano/rosesBacking";
@@ -321,8 +321,7 @@ export default function App() {
         }
         if (songRef.current === "interstellar" && viewRef.current === "performance") {
           const section = performanceSectionRef.current;
-          const scoreCode = section === 2 ? interstellarAssistedCode(code, midi, assistedCursor.current) : code;
-          const plan = planInterstellarPress(section, scoreCode, midi, assistedCursor.current, mixRef.current);
+          const plan = planInterstellarPress(section, code, midi, assistedCursor.current, mixRef.current);
           assistedCursor.current = plan.nextCursor;
           const sources: { source: string; midi: number }[] = [];
           for (const voice of plan.voices) {
@@ -569,7 +568,7 @@ export default function App() {
     rosesIntro.current?.setBuildupSettings(rosesBuildupSettings);
     try { localStorage.setItem("stage-piano-roses-buildup-v1", JSON.stringify(rosesBuildupSettings)); } catch { /* local settings are optional */ }
   }, [rosesBuildupSettings]);
-  const activeProfile = songId === "interstellar" && view === "performance" ? interstellarRobloxMap : songId === "roses" ? rosesMap : songId === "levels" ? levelsMap(levelsSection, levelsChords) : songId === "rush-e" ? profiles.find(profile => profile.id === "rush-e") ?? standardMap :
+  const activeProfile = songId === "interstellar" && view === "performance" ? mapForInterstellarSection(performanceSection) : songId === "roses" ? rosesMap : songId === "levels" ? levelsMap(levelsSection, levelsChords) : songId === "rush-e" ? profiles.find(profile => profile.id === "rush-e") ?? standardMap :
     profiles.find((profile) => profile.id === profileId) ?? profiles[0] ?? standardMap;
   profileRef.current = activeProfile.id;
   const isBundledInterstellar = activeProfile.id === interstellarMap.id || activeProfile.id === assistedInterstellarMap.id;
@@ -586,12 +585,12 @@ export default function App() {
   const stageChords = songId === "levels" ? levelsSection === "main" ? levelsChords : levelsSection === "transition" ? levelsTransitionChords : levelsRosesChords : undefined;
   const performanceGuide = useMemo(() => {
     const guide = songId === "roses" ? rosesKeyGuide(activeProfile, activeTranspose, rosesVocalKey) : stageKeyGuide(activeProfile, activeTranspose, stageChords);
-    if (songId === "interstellar") return interstellarKeyGuide(activeProfile, activeTranspose, performanceSection, interstellarMix.octaveEnabled);
+    if (songId === "interstellar") return interstellarKeyGuide(interstellarRobloxMap, activeTranspose, performanceSection, interstellarMix.octaveEnabled);
     return guide;
   }, [activeProfile, activeTranspose, stageChords, songId, performanceSection, interstellarMix.octaveEnabled, rosesVocalKey]);
   useEffect(() => {
     keyboard.current?.setMap(activeProfile, songId === "levels" || (songId === "interstellar" && view === "performance"));
-  }, [songId, levelsSection, levelsChords, profileId, profiles, view]);
+  }, [songId, levelsSection, levelsChords, profileId, profiles, view, performanceSection]);
   useEffect(() => {
     keyboard.current?.setChords(songId === "roses" ? { ...rosesChordShortcuts, ...hereWithMeChordShortcuts } : {});
   }, [songId]);
@@ -766,7 +765,7 @@ export default function App() {
     performanceSectionRef.current = next;
     if (next === 2) assistedCursor.current = 0;
     const map = mapForInterstellarSection(next);
-    keyboard.current?.setMap(interstellarRobloxMap, true);
+    keyboard.current?.setMap(map, true);
     profileRef.current = map.id;
     setProfileId(map.id);
     setPerformanceSection(next);
@@ -911,7 +910,7 @@ export default function App() {
       setPerformanceMeasure(1);
       profileRef.current = interstellarMap.id;
       setProfileId(interstellarMap.id);
-      keyboard.current?.setMap(interstellarRobloxMap);
+      keyboard.current?.setMap(mapForInterstellarSection(1));
     }
     liveNotes.current.clear();
     setStartedAt(performance.now());
@@ -1098,7 +1097,7 @@ export default function App() {
             prominentPitches={songId === "interstellar" ? interstellarProminentPitches(performanceSection, interstellarMix.octaveEnabled, activeTranspose) : undefined}
             coolLighting={songId === "roses" && rosesHwmScene}
             pressedCodes={snapshot.pressed.map(key => key.code)}
-            pressedKeys={songId === "interstellar" ? snapshot.pressed : undefined}
+            pressedKeys={songId === "interstellar" ? interstellarDisplayPressedKeys(snapshot.pressed, activeTranspose) : undefined}
             starlightNotes={songId === "interstellar" ? liveNotes.current : undefined}
           />
         </div>
