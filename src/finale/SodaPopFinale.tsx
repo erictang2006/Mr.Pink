@@ -7,7 +7,7 @@ const colors=['#52eeff','#ff65cc','#bdff68','#f5ffff'];
 export function drawSodaPop(ctx:CanvasRenderingContext2D,w:number,h:number,frame:SodaPopFrame,reduced:boolean){
  const {phase,music,pulse,progress,elapsed}=frame;
  ctx.clearRect(0,0,w,h);
- const playing=['playing','burst','finished'].includes(phase);
+ const playing=['playing','fading','finished'].includes(phase);
  if(!playing){
   if(phase==='braking')return;
   ctx.fillStyle=`rgba(3,5,20,${phase==='scratch'?.2:.94})`;ctx.fillRect(0,0,w,h);
@@ -40,8 +40,8 @@ export function drawSodaPop(ctx:CanvasRenderingContext2D,w:number,h:number,frame
   for(let i=0;i<12;i++){const a=i*Math.PI/6+(reduced?0:t*.035),r=Math.min(w,h)*(.3+(i%3)*.035);ctx.strokeStyle=colors[i%4];ctx.globalAlpha=.25+pulse*.18;ctx.lineWidth=2+i%3;ctx.beginPath();ctx.arc(w*.5+Math.cos(a)*r,h*.5+Math.sin(a)*r*.7,6+i%4,a,a+1.9);ctx.stroke();}
  }
  ctx.restore();
- if(phase==='burst'){ctx.fillStyle=`rgba(235,255,255,${Math.max(0,.32-frame.ending*.9)})`;ctx.fillRect(0,0,w,h);}
- else if(playing&&music<.16&&!reduced){ctx.fillStyle=`rgba(232,255,255,${Math.max(0,.16-music)})`;ctx.fillRect(0,0,w,h);}
+ if(playing&&music<.16&&!reduced){ctx.fillStyle=`rgba(232,255,255,${Math.max(0,.16-music)})`;ctx.fillRect(0,0,w,h);}
+ if(frame.fade>0){ctx.fillStyle=`rgba(0,0,0,${frame.fade})`;ctx.fillRect(0,0,w,h);}
 }
 export default function SodaPopFinale({level}:{level?:MutableRefObject<number>}){
  const root=useRef<HTMLElement>(null),canvas=useRef<HTMLCanvasElement>(null),count=useRef<HTMLDivElement>(null);
@@ -58,6 +58,7 @@ export default function SodaPopFinale({level}:{level?:MutableRefObject<number>})
    const visual={...value,pulse:value.phase==='playing'?Math.max(value.pulse*.75,Math.min(1,(level?.current??0)*1.3)):value.pulse};
    host.style.setProperty('--soda-pulse',String(reduced?0:visual.pulse));
    host.style.setProperty('--soda-reveal',String(reduced?1:Math.min(1,value.music/.4)));
+   host.style.setProperty('--soda-fade',String(value.fade));
    drawSodaPop(ctx,width,height,visual,reduced);
   };
   frameId=requestAnimationFrame(draw);return()=>{cancelAnimationFrame(frameId);observer.disconnect();};
@@ -66,7 +67,6 @@ export default function SodaPopFinale({level}:{level?:MutableRefObject<number>})
   <canvas ref={canvas} aria-hidden="true"/>
   <div ref={count} className="soda-count-in" hidden aria-label="Four-beat metronome"/>
   <div className="soda-pop-identity"><span className="soda-pop-kicker">MR. PINK · THE FINALE</span><h1>SODA<span>POP</span></h1><p>SAJA BOYS</p><div className="soda-can" aria-hidden="true"><i/><strong>POP!</strong><b>✦</b></div></div>
-  <div className="soda-finish"><span>MR. PINK</span><h2>THAT’S A WRAP.</h2><p>Thanks for being here.</p><button onClick={()=>sodaPop.restart()}>Replay finale</button><button onClick={()=>sodaPop.back()}>Return to DJ</button></div>
 
  </section>;
 }

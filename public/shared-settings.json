@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e2ee8a4d-900d-4435-9352-ceac92ef563b",
+  "revision": "71ff5fca-59f5-42b6-90b2-c5423ab3132d",
   "settings": {
     "mr-pink-camera-frame": "{\"width\":338.55078125,\"x\":8,\"y\":14.91796875}",
     "stage-piano-active-profile": "levelsEMajor",
@@ -42,7 +42,7 @@
     "stage-piano-roses-vocal-key": "KeyG",
     "stage-piano-roses-vocal-offset-v2": "10.14",
     "stage-piano-sandbox-labels": "computer",
-    "stage-piano-soda-pop-v1": "{\"automatic\":false,\"countIn\":true,\"speed\":1,\"start\":41,\"end\":80,\"transition\":1.975,\"firstBeat\":0,\"bpm\":128,\"scratch\":0.22,\"glitch\":0.43,\"can\":0.68}",
+    "stage-piano-soda-pop-v1": "{\"automatic\":false,\"countIn\":true,\"speed\":1,\"start\":41,\"end\":82,\"fadeSeconds\":6,\"transition\":1.975,\"firstBeat\":0,\"bpm\":128,\"scratch\":0.22,\"glitch\":0.43,\"can\":0.68}",
     "stage-piano-song": "roses",
     "stage-piano-sustain-settings": "{\"releaseSeconds\":0.55,\"showIndicator\":true}",
     "stage-piano-theme": "rush",

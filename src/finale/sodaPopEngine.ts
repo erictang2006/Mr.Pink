@@ -53,13 +53,18 @@ export class SodaPopEngine {
   for(const [key,at,level] of cues){const buffer=this.buffers.get(key)!;this.play(buffer,time+Math.max(0,at-position)/rate,Math.max(0,position-at),buffer.duration,level);}
   const musicAt=settings.transition-settings.firstBeat;
   if(settings.countIn)for(let beat=0;beat<4;beat++){const at=musicAt-(4-beat)*60/settings.bpm,buffer=this.buffers.get('click')!;if(at<position-1e-8)continue;this.play(buffer,time+Math.max(0,at-position)/rate,Math.max(0,position-at),buffer.duration,beat===0?.65:.42,false,1);}
-  const music=Math.max(0,position-musicAt),length=settings.end-settings.start;
-  if(music<length){
+  const music=Math.max(0,position-musicAt),length=settings.end-settings.start,finish=length+settings.fadeSeconds;
+  if(music<finish){
    const start=time+Math.max(0,musicAt-position)/rate,reveal=time+Math.max(0,settings.transition-position)/rate;
    this.songOutput!.gain.cancelScheduledValues(time);
-   this.songOutput!.gain.setValueAtTime(position>=settings.transition?1:.25,start);
-   this.songOutput!.gain.linearRampToValueAtTime(1,reveal);
-   this.play(this.buffers.get('song')!,start,settings.start+music,length-music,1,true);
+   const currentGain=music>=length?Math.max(0,1-(music-length)/settings.fadeSeconds):position>=settings.transition?1:.25;
+   this.songOutput!.gain.setValueAtTime(currentGain,start);
+   if(music<length){
+    if(position<settings.transition)this.songOutput!.gain.linearRampToValueAtTime(1,reveal);
+    this.songOutput!.gain.setValueAtTime(1,start+(length-music)/rate);
+   }
+   this.songOutput!.gain.linearRampToValueAtTime(0,start+(finish-music)/rate);
+   this.play(this.buffers.get('song')!,start,settings.start+music,finish-music,1,true);
   }
  }
  private play(buffer:Tone.ToneAudioBuffer,time:number,offset:number,duration:number,level:number,music=false,rate=this.takeSettings.speed){
@@ -72,7 +77,7 @@ export class SodaPopEngine {
  private clear(){for(const source of this.sources)source.dispose();this.sources.clear();}
  pause(){if(this.state.status!=='running')return;this.position=this.elapsed();this.clear();this.publish({status:'paused'});}
  resume(){if(this.state.status!=='paused')return;const now=Tone.immediate()+.015;this.origin=now-this.position/this.takeSettings.speed;this.schedule(this.position,now);this.publish({status:'running'});}
- seek(elapsed:number){if(!this.active())return;const paused=this.state.status==='paused';this.clear();this.position=Math.max(0,Math.min(this.takeSettings.transition-this.takeSettings.firstBeat+this.takeSettings.end-this.takeSettings.start,Number.isFinite(elapsed)?elapsed:0));this.origin=Tone.immediate()+.015-this.position/this.takeSettings.speed;if(!paused)this.schedule(this.position,this.origin+this.position/this.takeSettings.speed);this.publish({status:paused?'paused':'running'});}
+ seek(elapsed:number){if(!this.active())return;const paused=this.state.status==='paused';this.clear();this.position=Math.max(0,Math.min(this.takeSettings.transition-this.takeSettings.firstBeat+this.takeSettings.end-this.takeSettings.start+this.takeSettings.fadeSeconds,Number.isFinite(elapsed)?elapsed:0));this.origin=Tone.immediate()+.015-this.position/this.takeSettings.speed;if(!paused)this.schedule(this.position,this.origin+this.position/this.takeSettings.speed);this.publish({status:paused?'paused':'running'});}
  update(){if(this.state.status==='running'&&this.frame().phase==='finished'){this.position=this.elapsed();this.clear();this.publish({status:'finished'});}}
  stop(){this.generation++;this.pending=false;this.forceAuto=false;this.clear();this.position=0;this.publish({status:'idle',error:''});}
  restart(){this.stop();void this.launch();}
