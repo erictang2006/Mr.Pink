@@ -7,10 +7,12 @@ export function drawPerformancePiano(
   ctx: CanvasRenderingContext2D, width: number, height: number,
   geometry: ReturnType<typeof pianoGeometry>, guide: StageKeyGuide,
   active: Set<number>, pressedCodes: Set<string>, presentation: StagePresentation,
-  hovered?: number, expected = new Set<number>(), wrong = new Set<number>(), coolLighting = false, hoverProgress = 1,
+  hovered?: number, expected = new Set<number>(), wrong = new Set<number>(), coolLighting = false, hoverProgress = 1, showKeyLabels = true, cinematicLighting = false,
 ) {
   const blackHeight = height * .62;
-  ctx.fillStyle = "#040a12"; ctx.fillRect(0, 0, width, height);
+  const roses = presentation === 'roses' && cinematicLighting;
+  if (roses) ctx.clearRect(0, 0, width, height);
+  else { ctx.fillStyle = "#040a12"; ctx.fillRect(0, 0, width, height); }
   const drawKey = (midi: number, black: boolean) => {
     const key = geometry.keys.get(midi)!;
     const labels = guide[midi] ?? [];
@@ -21,8 +23,8 @@ export function drawPerformancePiano(
     const x = key.x + (black ? 0 : 1), w = key.width - (black ? 0 : 2);
     const h = (black ? blackHeight : height - 3) - (sounding ? 2 : 0);
     const fill = ctx.createLinearGradient(0, 0, 0, h);
-    fill.addColorStop(0, sounding || cue ? color : black ? "#303947" : "#f4f3ef");
-    fill.addColorStop(.72, sounding ? color : black ? "#080d16" : "#e7e8e5");
+    fill.addColorStop(0, sounding || cue ? color : black ? roses ? "#3c3d59" : "#303947" : roses ? "#edf0ff" : "#f4f3ef");
+    fill.addColorStop(.72, sounding ? color : black ? "#080d16" : roses ? "#dfe5f0" : "#e7e8e5");
     fill.addColorStop(.96, sounding ? "#e8fcff" : black ? "#17202d" : "#c2c8cc");
     fill.addColorStop(1, sounding ? color : black ? "#060b12" : "#8e9aa5");
     ctx.save();
@@ -32,17 +34,23 @@ export function drawPerformancePiano(
       ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
     }
     ctx.fillStyle = fill;
-    if (sounding) { ctx.shadowColor = color; ctx.shadowBlur = 13; }
-    ctx.beginPath(); ctx.roundRect(x, black ? 0 : 2, w, h - 2, [0, 0, 4, 4]); ctx.fill();
+    if (sounding) { ctx.shadowColor = color; ctx.shadowBlur = roses ? 21 : 13; }
+    ctx.beginPath(); ctx.roundRect(x, black ? 0 : roses && sounding ? 4 : 2, w, h - 2, [0, 0, 4, 4]); ctx.fill();
     ctx.shadowBlur = 0;
     if (over && !sounding) {
       ctx.fillStyle = `rgba(195,224,255,${hoverProgress * (black ? .12 : .2)})`;
       ctx.fill();
     }
     ctx.strokeStyle = sounding ? "#effaff" : black ? "#58647a66" : "#eff9ff44"; ctx.lineWidth = sounding ? 1.5 : .7; ctx.stroke();
+    if (roses) {
+      ctx.fillStyle = sounding ? '#fceeff99' : black ? '#c1bcff24' : '#ffffff99';
+      ctx.fillRect(x + 1, black ? 3 : 5, 1, Math.max(1, h - 13));
+      ctx.fillStyle = sounding ? `${color}cc` : black ? '#07091b99' : '#667aa15c';
+      ctx.fillRect(x + 1, h - 5, Math.max(1, w - 2), 2);
+    }
     if (mapped || sounding) {
       ctx.fillStyle = sounding ? "#f2fcff" : `${color}99`;
-      ctx.shadowColor = color; ctx.shadowBlur = sounding ? 15 : 0;
+      ctx.shadowColor = color; ctx.shadowBlur = sounding ? roses ? 22 : 15 : 0;
       ctx.fillRect(x + 1, 1, Math.max(1, w - 2), sounding ? 4 : 2);
       ctx.shadowBlur = 0;
     }
@@ -50,12 +58,12 @@ export function drawPerformancePiano(
       ctx.strokeStyle = sounding ? `${color}aa` : "#66748a44";
       ctx.beginPath(); ctx.moveTo(x + 3, h - 7); ctx.lineTo(x + w - 3, h - 7); ctx.stroke();
     }
-    if (mapped) {
+    if (mapped && showKeyLabels) {
       const cols = w >= 29 && labels.length > 2 ? 2 : 1;
       const rows = Math.ceil(labels.length / cols);
       const available = black ? h - 30 : height - blackHeight - 18;
-      const slot = Math.max(10, Math.min(22, available / rows));
-      const capWidth = Math.min(cols === 2 ? 20 : 30, (w - 4) / cols - (cols === 2 ? 1 : 0));
+      const slot = Math.max(10, Math.min(28, available / rows));
+      const capWidth = Math.min(cols === 2 ? 24 : 40, (w - 4) / cols - (cols === 2 ? 1 : 0));
       const startY = h - rows * slot - (black ? 10 : 13);
       for (let i = 0; i < labels.length; i++) {
         const entry = labels[i];
@@ -69,7 +77,7 @@ export function drawPerformancePiano(
         ctx.shadowColor = tint; ctx.shadowBlur = pressed ? 9 : 0;
         ctx.beginPath(); ctx.roundRect(cx - capWidth / 2, cy, capWidth, slot - 3, 3); ctx.fill(); ctx.stroke(); ctx.shadowBlur = 0;
         ctx.fillStyle = pressed ? "#06111f" : tint;
-        ctx.font = `600 ${Math.min(14, Math.max(10, slot * .66))}px Inter, system-ui, sans-serif`;
+        ctx.font = `600 ${Math.min(18, Math.max(10, slot * .68))}px Inter, system-ui, sans-serif`;
         ctx.textAlign = "center"; ctx.textBaseline = "middle";
         ctx.fillText(entry.label, cx, cy + (slot - 3) / 2, capWidth - 2);
       }

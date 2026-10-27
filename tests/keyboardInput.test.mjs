@@ -75,3 +75,56 @@ test('section map changes preserve the original held pitch until keyup', () => {
   assert.deepEqual(state.attacks, [60, 68]);
   state.manager.dispose();
 });
+
+test('unchanged polling does not refresh the app; physical changes and note-rate expiry still publish',()=>{
+ const oldWindow=globalThis.window,oldDocument=globalThis.document,oldPerformance=globalThis.performance;
+ globalThis.window=new EventTargetMock();globalThis.document=new EventTargetMock();document.hidden=false;
+ let poll,now=0;window.setInterval=callback=>{poll=callback;return 1;};window.clearInterval=()=>{};
+ globalThis.performance={now:()=>now};
+ const changes=[],attacks=[],releases=[];
+ const manager=new KeyboardInputManager({id:'load-test',bindings:[{code:'KeyZ',label:'Z',midi:48}]},{noteOn:pitch=>attacks.push(pitch),noteOff:pitch=>releases.push(pitch),change:snapshot=>changes.push(snapshot)});
+ const key=type=>window.dispatch(type,{code:'KeyZ',shiftKey:false,repeat:false,target:null,preventDefault(){}});
+ try{
+  manager.setEnabled(true);
+  for(let index=0;index<1000;index++)poll();
+  assert.equal(changes.length,1,'1,000 identical idle polls produce one UI update');
+  key('keydown');assert.deepEqual(attacks,[48]);assert.equal(changes.at(-1).pressed.length,1);assert.equal(changes.at(-1).notesPerSecond,1);
+  const before=changes.length;for(let index=0;index<1000;index++)poll();assert.equal(changes.length,before);
+  now=1001;poll();assert.equal(changes.length,before+1);assert.equal(changes.at(-1).notesPerSecond,0);assert.equal(changes.at(-1).pressed.length,1);
+  key('keyup');assert.deepEqual(releases,[48]);assert.equal(changes.at(-1).pressed.length,0);
+  const after=changes.length;window.dispatch('blur');poll();assert.equal(changes.length,after);
+ }finally{manager.dispose();globalThis.window=oldWindow;globalThis.document=oldDocument;globalThis.performance=oldPerformance;}
+});
+
+test('rapid Roses keys sound and release synchronously while UI snapshots coalesce per frame',()=>{
+ const names=['window','document','requestAnimationFrame','cancelAnimationFrame'];
+ const saved=Object.fromEntries(names.map(name=>[name,globalThis[name]]));
+ globalThis.window=new EventTargetMock();globalThis.document=new EventTargetMock();
+ window.setInterval=()=>1;window.clearInterval=()=>{};
+ const frames=new Map();let serial=0;
+ globalThis.requestAnimationFrame=callback=>{frames.set(++serial,callback);return serial;};
+ globalThis.cancelAnimationFrame=id=>frames.delete(id);
+ const changes=[],audio=[],letters=[...'TEPURYOWEIQT'];
+ const bindings=[...new Set(letters)].map((label,index)=>({code:`Key${label}`,label,midi:60+index}));
+ const manager=new KeyboardInputManager({id:'rapid-input',bindings},{
+  noteOn:(midi,code)=>audio.push(['on',code,midi]),noteOff:(midi,code)=>audio.push(['off',code,midi]),change:snapshot=>changes.push(snapshot),
+ },{batchChanges:true});
+ const key=(type,label,repeat=false)=>window.dispatch(type,{code:`Key${label}`,shiftKey:false,repeat,target:null,preventDefault(){}});
+ const tick=()=>{const callbacks=[...frames.values()];frames.clear();callbacks.forEach(callback=>callback());};
+ try{
+  manager.setEnabled(true);
+  for(const letter of letters){key('keydown',letter);key('keydown',letter,true);key('keyup',letter);}
+  assert.equal(audio.length,letters.length*2,'all audio runs before any animation frame');
+  assert.deepEqual(audio.map(event=>event.slice(0,2)),letters.flatMap(letter=>[['on',`Key${letter}`],['off',`Key${letter}`]]));
+  assert.equal(changes.length,0);assert.equal(frames.size,1);
+  tick();assert.equal(changes.length,1);assert.equal(changes[0].notesPerSecond,letters.length);
+  assert.deepEqual(changes[0].pressed,[]);assert.deepEqual(changes[0].detected,[]);
+  key('keydown','P');key('keydown','O');tick();
+  assert.deepEqual(changes.at(-1).pressed.map(key=>key.code),['KeyP','KeyO']);
+  const before=changes.length;window.dispatch('blur');
+  assert.deepEqual(audio.slice(-2).map(event=>event.slice(0,2)),[['off','KeyP'],['off','KeyO']]);
+  assert.equal(changes.length,before);tick();assert.deepEqual(changes.at(-1).pressed,[]);
+  key('keydown','T');manager.dispose();assert.equal(frames.size,0);
+  assert.deepEqual(audio.at(-1).slice(0,2),['off','KeyT']);
+ }finally{manager.dispose();for(const [name,value] of Object.entries(saved))if(value===undefined)delete globalThis[name];else globalThis[name]=value;}
+});

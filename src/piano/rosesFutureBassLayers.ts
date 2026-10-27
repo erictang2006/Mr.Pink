@@ -131,10 +131,12 @@ export class RosesFutureBassLayers {
   triggerAttackRelease(note: string, duration: number, time: number, velocity: number): void {
     for (const voice of [this.left, this.right, this.center]) voice.triggerAttackRelease(note, duration, time, velocity);
   }
-  triggerImpact(root: number, time: number, velocity: number): void {
+  triggerImpact(root: number, time: number, velocity: number, individualNote = false): void {
     if (!this.bonkBuffer.loaded || this.disposed || this.impacts.size >= 16) return;
     const source = new Tone.ToneBufferSource({ url: this.bonkBuffer, loop: false,
-      playbackRate: 2 ** ((bonkPitchForRoot(root) - bonkRootMidi) / 12), fadeIn: .001, fadeOut: .008,
+      // Chord roots retain their original folded register. Individual notes
+      // follow one consistent octave offset, so ascending keys never wrap down.
+      playbackRate: 2 ** (((individualNote ? root - 24 : bonkPitchForRoot(root)) - bonkRootMidi) / 12), fadeIn: .001, fadeOut: .008,
       onended: () => { this.impacts.delete(source); if (source.context.isOffline) this.offlineEnded.add(source); else source.dispose(); },
     });
     source.connect(this.bonkHighPass);

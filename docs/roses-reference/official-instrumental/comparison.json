@@ -1,0 +1,269 @@
+{
+  "cases": {
+    "start1": {
+      "startBar": 1,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -11.081549325583989,
+      "rmsDb": -30.074234988513126,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 282,
+        "filters": 17,
+        "waveshapers": 10,
+        "bufferSources": 86
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 86.45,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "start25": {
+      "startBar": 25,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -11.081549325583989,
+      "rmsDb": -27.751686524722174,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 140,
+        "filters": 17,
+        "waveshapers": 10,
+        "bufferSources": 84
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 28.85,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "start29": {
+      "startBar": 29,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -10.990529177066861,
+      "rmsDb": -27.843558863137968,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 134,
+        "filters": 17,
+        "waveshapers": 10,
+        "bufferSources": 82
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 19.25,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "start37": {
+      "startBar": 37,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -12.272110625855168,
+      "rmsDb": -28.271922770650704,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 0,
+        "filters": 9,
+        "waveshapers": 5,
+        "bufferSources": 1
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 0.05,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      },
+      "nativeFirstNonzeroSeconds": 0.011519274376417234
+    },
+    "start39": {
+      "startBar": 39,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -12.272111157522485,
+      "rmsDb": -29.666623918251695,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 0,
+        "filters": 9,
+        "waveshapers": 5,
+        "bufferSources": 1
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 0.05,
+        "offset": 4.8,
+        "duration": 14.389999999999999,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "start41": {
+      "startBar": 41,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -12.285539220320551,
+      "rmsDb": -31.676170681094817,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 0,
+        "filters": 9,
+        "waveshapers": 5,
+        "bufferSources": 1
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 0.05,
+        "offset": 9.6,
+        "duration": 9.59,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "early": {
+      "startBar": 25,
+      "recordedOffsetMs": -500,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -10.714183007613977,
+      "rmsDb": -27.75055493927429,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 138,
+        "filters": 13,
+        "waveshapers": 5,
+        "bufferSources": 84
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 28.349999999999994,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "late": {
+      "startBar": 37,
+      "recordedOffsetMs": 500,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -12.272112220857219,
+      "rmsDb": -28.276057076722246,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 0,
+        "filters": 9,
+        "waveshapers": 5,
+        "bufferSources": 1
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 0.5500000000000057,
+        "offset": 0,
+        "duration": 18.689999999999994,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    },
+    "volume200": {
+      "startBar": 37,
+      "recordedOffsetMs": 0,
+      "dropEvents": 0,
+      "dropDrums": {
+        "kick": 0,
+        "clap": 0,
+        "hat": 0
+      },
+      "peakDb": -5.257364664441912,
+      "rmsDb": -20.669618663770073,
+      "originalRecordingTracks": 1,
+      "audioNodeCreations": {
+        "oscillators": 0,
+        "filters": 9,
+        "waveshapers": 5,
+        "bufferSources": 1
+      },
+      "recordedSource": {
+        "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "time": 0.05,
+        "offset": 0,
+        "duration": 19.189999999999998,
+        "fadeOut": 0.01,
+        "playbackRate": 1
+      }
+    }
+  },
+  "regressions": {
+    "hwmOtherDropModeMaximumPcm16Difference": 0,
+    "rosesOtherDropModeMaximumPcm16Difference": 0,
+    "start1-roses-vocal-bitIdentical": true,
+    "start1-hwm-vocal-bitIdentical": true,
+    "start1-melody-tap-bitIdentical": true,
+    "start25-roses-vocal-bitIdentical": true,
+    "start25-hwm-vocal-bitIdentical": true,
+    "start25-melody-tap-bitIdentical": true,
+    "start29-roses-vocal-bitIdentical": true,
+    "start29-hwm-vocal-bitIdentical": true,
+    "start29-melody-tap-bitIdentical": true
+  },
+  "renderer": "Actual Tone/native OfflineAudioContext; no human/browser listening",
+  "changedRuntimeAndAudioFiles": [
+    "src/piano/rosesRecordedEnvelope.json",
+    "src/piano/rosesRecordedDrop.ts",
+    "src/components/DropLayerMixer.tsx",
+    "public/roses/drop/roses-original-recording-8bars-100bpm.wav"
+  ],
+  "handoffAndTransportCodeUnchanged": true
+}

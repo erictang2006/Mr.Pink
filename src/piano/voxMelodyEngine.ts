@@ -16,6 +16,7 @@ export class VoxMelodyEngine {
   private offlineEnded = new Set<Tone.ToneBufferSource>();
   private lastBeat = -1;
   private disposed = false;
+  private manualNotes = new Map<string,number>();
 
   constructor(private output: Tone.InputNode) {
     this.lead = new HereWithMeLeadEngine(output);
@@ -42,17 +43,27 @@ export class VoxMelodyEngine {
     }
   }
   prepareLead(): void { this.lead.prepareVoices(); }
+  manualNoteOn(code:string,midi:number,time=Tone.immediate()):boolean {
+    if(this.disposed||this.manualNotes.has(code))return false;
+    this.manualNotes.set(code,midi);this.lead.attackMelodyNote(midi,time);return true;
+  }
+  manualNoteOff(code:string,time=Tone.immediate()):void {
+    const midi=this.manualNotes.get(code);if(midi===undefined)return;
+    this.manualNotes.delete(code);this.lead.releaseMelodyNote(midi,time);
+  }
   pause(): void {
     const beat = this.lastBeat;
     this.stop(); this.lastBeat = beat;
   }
   stop(): void {
+    this.manualNotes.clear();
     this.lead.stop();
     for (const source of this.sources) source.dispose();
     this.sources.clear();
     this.lastBeat = -1;
   }
   dispose(): void {
+    this.manualNotes.clear();
     this.disposed = true; this.lead.dispose();
     for (const source of this.sources) source.dispose();
     for (const source of this.offlineEnded) source.dispose();

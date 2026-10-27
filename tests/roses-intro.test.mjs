@@ -45,7 +45,66 @@ test('only the armed synth handoff is scheduled; drums remain physical targets',
   assert.deepEqual(intro.rosesDrumTargets.filter(hit => hit.bar === 9).map(hit => [hit.code, hit.beatInBar]), [['KeyZ', 1], ['KeyX', 2], ['KeyZ', 2.5], ['KeyX', 4]]);
 });
 
-test('V synth lead moves attack earlier without moving the written note ending', () => {
+test('Intro Loop display begins at bar 13 while bars 5–20 silence duplicate live notes', () => {
+  const active=code=>intro.rosesIntroLoopGesture(code,'running',5,true);
+  for(const code of ['KeyL','Semicolon','Quote'])assert.equal(active(code),true);
+  for(const code of ['KeyS','KeyV','KeyC'])assert.equal(active(code),false);
+  for(const bar of [5,12])assert.equal(intro.rosesIntroLoopActive('running',bar,true),false);
+  for(const bar of [13,20])assert.equal(intro.rosesIntroLoopActive('running',bar,true),true);
+  assert.equal(intro.rosesIntroLoopActive('running',21,true),false);
+  assert.equal(intro.rosesIntroLoopActive('paused',13,true),true);
+  assert.equal(intro.rosesIntroLoopGesture('KeyL','running',12,true),true);
+  assert.equal(intro.rosesIntroLoopGesture('KeyL','running',13,true),true);
+  for(const [status,bar,armed] of [['idle',5,true],['running',4,true],['running',5,false],['running',21,true]])
+    assert.equal(intro.rosesIntroLoopGesture('KeyL',status,bar,armed),false);
+  assert.deepEqual(intro.rosesIntroLoopVisual(16).keys.filter(key=>key.active).map(key=>key.label),['L']);
+  assert.deepEqual(intro.rosesIntroLoopVisual(17.5).keys.filter(key=>key.active).map(key=>key.label),['L',"'"]);
+  assert.deepEqual(intro.rosesIntroLoopVisual(21.5).keys.filter(key=>key.active).map(key=>key.label),['L',';']);
+  assert.deepEqual(intro.rosesIntroLoopVisual(32),intro.rosesIntroLoopVisual(16),'the same source phrase repeats after four bars');
+  assert.equal(intro.rosesIntroLoopVisual(79).bar,4);
+});
+
+test('bar-13 intro loop lights the actual L / ; / apostrophe piano keys without generating audio events',()=>{
+ const visual=(beat,bar,active=true,transpose=0,status='running')=>intro.rosesIntroLoopPianoKeys(beat,status,bar,active,transpose);
+ assert.deepEqual(visual(47.75,12),[]);
+ assert.deepEqual(visual(48,13),[{code:'KeyL',midi:64}]);
+ assert.deepEqual(visual(49.5,13),[{code:'KeyL',midi:64},{code:'Quote',midi:68}]);
+ assert.deepEqual(visual(53.5,14),[{code:'KeyL',midi:64},{code:'Semicolon',midi:66}]);
+ assert.deepEqual(visual(64,17, true, 1),[{code:'KeyL',midi:65}]);
+ assert.deepEqual(visual(48,13,false),[]);
+ assert.deepEqual(visual(48,13,true,0,'paused'),[]);
+ assert.deepEqual(visual(80,21),[]);
+});
+
+test('intro loop rising trails reuse source MIDI gates, repeat at bar 17 and rebuild cleanly after seeks',()=>{
+ const trails=(beat,now=10000,transpose=0,status='running',armed=true)=>intro.rosesIntroLoopTrails(beat,status,armed,100,now,4400,transpose);
+ assert.deepEqual(trails(47.99),[]);
+ const first=trails(48);
+ assert.equal(first.length,1);assert.equal(first[0].midi,64);assert.equal(first[0].startMs,10000);assert.equal(first[0].physicalEndMs,null);
+ const pair=trails(49.5);
+ assert.deepEqual(pair.map(note=>note.midi),[64,68]);
+ assert.equal(pair[0].startMs,9100);assert.equal(pair[1].startMs,10000);
+ const boundary=trails(52);
+ assert.equal(boundary.filter(note=>note.physicalEndMs===10000).length,2,'both finished notes rise independently of the next E');
+ assert.equal(boundary.filter(note=>note.physicalEndMs===null).length,1);
+ for(const beat of [48,49.5,53.75,63.99,64,65.5,79.5]){
+  const actual=trails(beat),later=trails(beat,12000);
+  assert.ok(actual.length<=16);assert.equal(new Set(actual.map(note=>note.id)).size,actual.length);
+  assert.deepEqual(actual.map(note=>({midi:note.midi,start:note.startMs-10000,end:note.physicalEndMs===null?null:note.physicalEndMs-10000})),later.map(note=>({midi:note.midi,start:note.startMs-12000,end:note.physicalEndMs===null?null:note.physicalEndMs-12000})),'positions follow the transport, not elapsed render time');
+  for(const note of actual){
+   const start=beat-(10000-note.startMs)/600;
+   const phraseStart=start>=64?64:48;
+   const source=intro.rosesIntroLoopEvents.find(event=>event.midi===note.midi&&Math.abs(event.startBeat-(start-phraseStart))<1e-8);
+   assert.ok(source);if(note.physicalEndMs!==null)assert.ok(Math.abs(note.physicalEndMs-note.startMs-source.durationBeats*600)<1e-8);
+  }
+ }
+ assert.deepEqual(trails(64,10000,1).filter(note=>note.physicalEndMs===null).map(note=>note.midi),[65]);
+ for(const status of ['paused','idle','finished'])assert.deepEqual(trails(49.5,10000,0,status),[]);
+ assert.deepEqual(trails(49.5,10000,0,'running',false),[]);
+ assert.deepEqual(trails(80),[]);
+});
+
+test('signed V synth lead moves attack earlier or later without moving the written note ending', () => {
   const onBeat = 12;
   const duration = 2.4;
   const early = intro.rosesSynthTiming(onBeat, duration, 20, 11.8);
@@ -53,6 +112,11 @@ test('V synth lead moves attack earlier without moving the written note ending',
   assert.ok(Math.abs(early.start + early.duration - (onBeat + duration)) < 1e-9);
   assert.deepEqual(intro.rosesSynthTiming(onBeat, duration, 0, 11.8), { start: onBeat, duration });
   assert.equal(intro.rosesSynthTiming(onBeat, duration, 60, 11.97).start, 11.97);
+  for(const leadMs of [-5,-10,-60]){
+    const late=intro.rosesSynthTiming(onBeat,duration,leadMs,11.8);
+    assert.ok(Math.abs(late.start-(onBeat-leadMs/1000))<1e-9);
+    assert.ok(Math.abs(late.start+late.duration-(onBeat+duration))<1e-9);
+  }
 });
 
 function midiTracks(path, offset = 48) {

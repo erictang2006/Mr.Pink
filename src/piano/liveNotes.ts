@@ -49,6 +49,12 @@ export class LiveNotes {
     return [...this.released, ...this.sustained.filter(note => now - (note.physicalEndMs ?? note.startMs) < travelMs), ...this.active.values()];
   }
 
+  recentReleases(now: number, fadeMs: number): readonly LiveNote[] {
+    return this.released.filter(note => note.endMs !== null && now - note.endMs < fadeMs);
+  }
+
+  soundingNotes(): readonly LiveNote[] { return [...this.active.values(), ...this.sustained]; }
+
   soundingPitches(): number[] { return [...new Set([...this.active.values(), ...this.sustained].map(note => note.midi))]; }
 
   clear(): void { this.active.clear(); this.sustained = []; this.released = []; }

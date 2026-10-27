@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-21",
+  "scope": "Re-verification of the existing Hybrid option; no arrangement or engine changes required",
+  "renderer": "Actual Tone.js engines on native OfflineAudioContext",
+  "limitations": "No connected browser or hardware listening test. Preview is available for listening review.",
+  "tests": {
+    "passed": 203,
+    "failed": 0,
+    "typecheck": "passed",
+    "productionBuild": "passed"
+  },
+  "timing": {
+    "instrumentalBreakBar": 36,
+    "instrumentalBreakSeconds": 84,
+    "snapBar": 36,
+    "snapBeat": 4,
+    "snapSeconds": 85.8,
+    "riserEndSeconds": 86.28,
+    "dropSeconds": 86.4,
+    "preDropGapSeconds": 0.12
+  },
+  "audioRenders": [
+    {
+      "startBar": 29,
+      "maximumControls": false,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 3,
+      "riserTracks": 2,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -12.898027714631388
+    },
+    {
+      "startBar": 33,
+      "maximumControls": false,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 3,
+      "riserTracks": 2,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -12.81293334164417
+    },
+    {
+      "startBar": 36,
+      "maximumControls": false,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 3,
+      "riserTracks": 2,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -13.138035643698103
+    },
+    {
+      "startBar": 37,
+      "maximumControls": false,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 0,
+      "riserTracks": 0,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -13.595358155602868
+    },
+    {
+      "startBar": 25,
+      "maximumControls": true,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 3,
+      "riserTracks": 2,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -7.419182591572033
+    },
+    {
+      "startBar": 25,
+      "maximumControls": false,
+      "key": "E major / C\u266f minor",
+      "transposeSemitones": 1,
+      "hybridTracks": 3,
+      "riserTracks": 2,
+      "dropEvents": 224,
+      "bar37Attacks": 4,
+      "dropBassTracks": 1,
+      "dropChordTracks": 1,
+      "dropDrums": {
+        "kick": 24,
+        "clap": 16,
+        "hat": 38
+      },
+      "finite": true,
+      "peakDb": -11.879645540562564
+    }
+  ]
+}

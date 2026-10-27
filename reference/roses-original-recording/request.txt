@@ -1,0 +1,260 @@
+# Mr Pink — Add Third Drop Option Using Original Roses Recording
+
+## Goal
+
+My Roses Performance Mode currently has two working drop options:
+
+1. Here With Me Drop
+2. Roses Drop (existing reconstructed instrument layers)
+
+I want to add a THIRD drop option:
+
+**Roses — Original Recording**
+
+This option should use the actual audio from my original Roses drop MOV instead of recreating the sound using Tone.js instruments.
+
+I prefer the brightness, heaviness, attack, and decay of this original recording.
+
+**Do not replace, remove, or modify either existing drop option.**
+
+## 1. Inspect the existing drop selector
+
+First inspect my current Roses Sandbox and Performance Mode implementation.
+
+Find:
+- The existing drop source selector.
+- The two current drop implementations.
+- The automatic drop scheduling system.
+- The shared 100 BPM transport.
+- The Start Bar 25 and Start Bar 29 controls.
+- Any existing direct drop-preview controls.
+- The drop mixer and gain routing.
+
+Reuse the existing infrastructure rather than creating an unrelated player.
+
+Add the third option to the existing dropdown.
+
+## 2. Import the original MOV audio
+
+Source file:
+
+`2026-10-22 17-41-09.mov`
+
+Locate it in my local reference files. I will place it in the project if it is not present.
+
+The MOV contains the original recording I want to hear.
+
+Extract the audio track from the MOV using FFmpeg or another suitable local tool.
+
+The entire screen recording is approximately 24.45 seconds, whereas eight musical bars at 100 BPM last 19.2 seconds.
+
+Therefore, do not blindly use the entire audio recording.
+
+Analyze the audio to find the actual first downbeat of the Roses drop.
+
+Create a clean, trimmed WAV or another suitable audio asset containing bars 37–44 of the drop.
+
+Requirements:
+- Preserve the actual recorded sound.
+- Do not rebuild it with synthesized oscillators.
+- Preserve its natural attack, decay and stereo character.
+- Do not automatically normalize or heavily process away its dynamics.
+- Avoid clipping or pops at sample boundaries.
+- Do not unnecessarily change tempo or pitch.
+
+Store the extracted audio locally in the existing project audio asset structure.
+
+If the recording contains unwanted screen-recording artifacts, other vocals or non-instrumental sounds, report that limitation. Prefer a clean instrumental export from the original Ableton remake if it is available, rather than pretending a full mix is an isolated instrumental.
+
+## 3. Add the third drop mode
+
+Update the existing drop dropdown:
+
+- Here With Me Drop
+- Roses Drop
+- **Roses — Original Recording**
+
+When `Roses — Original Recording` is selected:
+
+- Use the extracted prerecorded drop audio.
+- Do not simultaneously play the existing Roses reconstructed chords, bass, or drums.
+- Do not simultaneously play the Here With Me synthesized drop instrumental.
+- Avoid doubling any musical layers already contained within the recording.
+- Keep the Here With Me vocal cue independently controllable, but make sure it does not clash with vocals already present in the recording.
+
+This must be a selectable replacement for the drop backing, not an extra sound layered on top of it.
+
+The selected buildup option for bars 29–36 must remain independent of the selected drop option.
+
+## 4. Exact drop scheduling
+
+Roses transport:
+- BPM: 100
+- Time signature: 4/4
+- Bar 37 begins at 86.4 seconds.
+- Bar 45 begins at 105.6 seconds.
+
+The new recorded drop should play from bar 37 through bar 44.
+
+At bar 45, the intended eight-bar passage ends.
+
+Allow a short natural tail or fade if needed, without unintentionally continuing into another musical section.
+
+Use the existing synchronized audio transport, not independent timers.
+
+Preload and decode the audio so it starts immediately and without network or decoding delay when the drop arrives.
+
+## 5. Ensure it works from every start position
+
+This is extremely important.
+
+I currently rehearse by starting playback at different measures.
+
+The new drop must work correctly when I press:
+
+**Start Bar 25 + Backing + Lead**
+
+- Begin the earlier section at bar 25.
+- Play the selected buildup normally.
+- Wait until bar 37.
+- Automatically start the prerecorded Roses drop at bar 37.
+
+**Start Bar 29**
+
+- Play the selected buildup beginning at bar 29.
+- Wait until bar 37.
+- Automatically start the prerecorded Roses drop at bar 37.
+
+**Start Bar 37 / Play Drop**
+
+- Begin the prerecorded drop immediately at its correct first musical downbeat.
+
+The recorded audio must never restart at the wrong point, double-trigger, or begin early merely because the transport was started from another bar.
+
+Also support seeking into the middle of bars 37–44 by starting the sample at the corresponding source offset, instead of replaying it from the beginning.
+
+## 6. Add a timing-offset slider
+
+In Roses Sandbox, next to the new recorded drop option, add:
+
+**Recorded Drop Sync Offset**
+
+Range:
+- −500 ms to +500 ms
+- Default: 0 ms
+- Step: 10 ms
+
+Behavior:
+- Negative offset means the recorded drop starts earlier.
+- Positive offset means the recorded drop starts later.
+- Zero means exact alignment with bar 37.
+
+Display the current offset clearly, such as:
+
+`−80 ms` or `+120 ms`
+
+This slider should only affect the timing of the prerecorded Roses drop.
+
+It must NOT move:
+- Here With Me vocals
+- Other backing tracks
+- The shared transport
+- Earlier buildup layers
+- Existing synthesized drop options
+
+Save the offset in the existing local Sandbox preferences.
+
+IMPORTANT: Distinguish between the source recording's trim/in-point and the user's musical sync offset. First trim the MOV to its correct musical start; the slider is only for fine alignment.
+
+Make sure the offset is applied consistently from bar 25, bar 29, bar 37, and after seeking or looping.
+
+When changing the offset during playback, apply the new offset safely at the next playback/restart rather than abruptly skipping the active audio.
+
+## 7. Add basic recorded-drop controls
+
+In the existing Drop Mixer, when the third option is selected, show:
+
+- Recorded Drop Volume (0–100%)
+- Recorded Drop Sync Offset (−500 to +500 ms)
+- Mute
+- Solo / Preview
+
+Use the existing mixer layout and styling.
+
+Do not create a completely new audio control panel.
+
+The new recorded drop should route through an appropriate gain bus and master limiter.
+
+Do not overcompress the recording.
+
+Preserve its dynamic character.
+
+## 8. Keep all existing options
+
+The existing two drop options must continue functioning exactly as before.
+
+Do not remove:
+- Here With Me Drop
+- Roses Drop
+- Any existing chord/bass/drum mixer controls
+- Existing backing-mode dropdown options
+
+Do not change:
+- Here With Me vocals
+- Here With Me transposition to E major
+- Roses bars 1–28
+- Buildup bars 29–36
+- Existing Hybrid buildup/sweep
+- Original Roses buildup option
+- Chord keybindings 1–8
+- Live kick/clap keys
+- Interstellar or Levels
+- Piano visualization design
+
+Only add the third recorded drop option and its relevant playback controls.
+
+## 9. Visual feedback
+
+When the recorded drop is selected, display:
+
+**ROSES — ORIGINAL RECORDING**
+
+During bars 37–44:
+- Preserve the current drop visual theme.
+- Keep music-reactive visual effects.
+- Do not fake individual piano key presses from the recording.
+- If useful, drive visual intensity from the recorded audio's actual level or a precomputed envelope.
+
+Do not redesign Performance Mode.
+
+## 10. Testing and verification
+
+Test these cases:
+
+1. Start at bar 25 → recorded drop begins at bar 37.
+2. Start at bar 29 → recorded drop begins at bar 37.
+3. Start at bar 37 → recorded drop begins immediately.
+4. Seek into bar 39 → recording plays from the correct musical offset.
+5. Negative sync offset shifts the recording earlier.
+6. Positive sync offset shifts it later.
+7. The sync offset remains saved after restarting.
+8. No doubled synthesized drop layers.
+9. No unexpected original vocals over Here With Me vocals.
+10. All three drop modes remain selectable.
+11. Original and Hybrid buildup modes remain unchanged.
+12. No clipping, popping, missing samples, or stuck audio after stop/reset.
+13. The recorded audio preserves its original brightness, punch, and natural decay.
+
+Test the complete transition at bar 36 into bar 37.
+
+Report:
+- Exact source MOV used.
+- The selected source in-point timestamp.
+- Exported WAV duration.
+- Whether the audio contains drums, bass, chords or vocals.
+- How synchronization and fine offsets are implemented.
+- All files modified.
+
+Run TypeScript and build checks.
+
+**Keep everything local. Do not deploy, publish, or push.**

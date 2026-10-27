@@ -1,0 +1,16 @@
+{
+  "fadeStart": "28:4&",
+  "fadeEnd": "29:1",
+  "fadeDurationSeconds": 0.3,
+  "songFadeStartSeconds": 66.9,
+  "songFadeEndSeconds": 67.2,
+  "beforeFadeBitIdenticalToUnfadedVocal": true,
+  "bar28VocalPeak": 0.785311222076416,
+  "rosesVocalPeakFromBar29": 0,
+  "maxLinearFadeError": 2.554484890282538e-08,
+  "hereWithMeVocalBitIdentical": true,
+  "voxMelodyBitIdentical": true,
+  "validation": "Actual Tone.js native offline audio; browser/device listening not verified",
+  "testsPassed": 273,
+  "buildAndTypecheck": "passed"
+}

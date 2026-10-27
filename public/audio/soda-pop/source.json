@@ -1,0 +1,17 @@
+{
+  "originalFilename": "Saja Boys - Soda Pop (Lyrics) KPop Demon Hunters.mp3",
+  "sha256": "b2e72733db4a64480c305aedac3d0f00da342478aea80f2c3db2a63e7a66657d",
+  "audio": {
+    "channels": 2,
+    "sampleRate": 44100,
+    "duration": 151.02258503401362
+  },
+  "excerpt": {
+    "start": 41,
+    "end": 80,
+    "endpointStatus": "Operator-selected 01:20 endpoint; adjustable.",
+    "firstBeatAfterCut": 0,
+    "firstBeatStatus": "Reveal at the selected cut; configurable first-beat offset."
+  },
+  "processing": "Original MP3 bytes copied without re-encoding. PCM decoding was used only to verify the asset."
+}

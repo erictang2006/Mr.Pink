@@ -1,0 +1,144 @@
+{
+  "renderer": "Actual Tone.js/native OfflineAudioContext; no browser/device listening",
+  "tempoBpm": 100,
+  "rosesSourceOffsetSeconds": 9.6,
+  "targetPhraseApproximateSourceSeconds": [
+    64.8,
+    67.4
+  ],
+  "phraseAssessment": "Local speech alignment is approximate; the phrase crosses bar 29. End in the preceding waveform trough without starting a partial phrase.",
+  "fadeStart": {
+    "beat": 104.5,
+    "seconds": 62.7
+  },
+  "fadeEnd": {
+    "beat": 107.875,
+    "seconds": 64.725
+  },
+  "preFadeRosesVocalBitIdentical": true,
+  "rosesPeakAfterFade": 0,
+  "maximumLinearEnvelopeError": 4.201809511439336e-08,
+  "hwmVocalBitIdenticalBeforeAfter": true,
+  "voxMelodyBitIdenticalBeforeAfter": true,
+  "comparisons": {
+    "roses-start1": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 0,
+        "rmsError": 0.0
+      },
+      "melodyRmsDb": -30.6949893824861,
+      "separateRosesChopClips": 5,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 62.63,
+          "offset": 0,
+          "duration": 42,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    },
+    "roses-start25": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 0,
+        "rmsError": 0.0
+      },
+      "melodyRmsDb": -30.694989383448615,
+      "separateRosesChopClips": 5,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 5.0299999999999985,
+          "offset": 0,
+          "duration": 42,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    },
+    "roses-start29": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 99,
+        "rmsError": 1.4067567013719384e-08
+      },
+      "melodyRmsDb": -30.69557211330633,
+      "separateRosesChopClips": 5,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 0.052244897959183655,
+          "offset": 4.620000000000002,
+          "duration": 37.379999999999995,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    },
+    "hwm-drop-start1": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 0,
+        "rmsError": 0.0
+      },
+      "melodyRmsDb": -31.78017957865912,
+      "separateRosesChopClips": 0,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 62.63,
+          "offset": 0,
+          "duration": 42,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    },
+    "hwm-drop-start25": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 0,
+        "rmsError": 0.0
+      },
+      "melodyRmsDb": -31.78017957865912,
+      "separateRosesChopClips": 0,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 5.0299999999999985,
+          "offset": 0,
+          "duration": 42,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    },
+    "hwm-drop-start29": {
+      "rosesVocalPeakBars29To36": 0,
+      "hwmVocal": {
+        "nativeAlignmentFrames": 99,
+        "rmsError": 1.4067567013719384e-08
+      },
+      "melodyRmsDb": -31.78017957865912,
+      "separateRosesChopClips": 0,
+      "hwmVocalPlayerStarts": [
+        {
+          "url": "/roses/here_with_me_chorus_e_major.wav",
+          "time": 0.052244897959183655,
+          "offset": 4.620000000000002,
+          "duration": 37.379999999999995,
+          "fadeOut": 0.02,
+          "playbackRate": 1
+        }
+      ]
+    }
+  },
+  "assetSha256": {
+    "public/roses/roses_vocals_original_timeline.wav": "32082fae8650ab6b51001c63dfeb16d966bea1a7a5ebd6d55b65648697b625ae",
+    "public/roses/here_with_me_chorus_e_major.wav": "40fc1dc7d0991c3c30cf5bc4c0ff1efdeab77bccdb26064a692016634e5e7dcb",
+    "public/roses/aah vocal chop loop 2.wav": "2cd6845e18fa44de33505d67da2ea895b9995c9a57f1e289141d265f8665ddbe"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "source": "/Users/etang1/Downloads/1_Roses - The Chainsmokers; Rozes - EDM_(Instrumental).wav",
+  "storedSource": "reference/roses-original-recording/official-instrumental-source.wav",
+  "sourceSha256": "bf51820c6d7b3c8c00eb79f307845148175b120dd54d5ced22fa94e04f0037a6",
+  "sourceAudioSeconds": 226.76897959183674,
+  "sourceSampleRate": 44100,
+  "sourceChannels": 2,
+  "sourceBitsPerSample": 16,
+  "sourceLeadingSilenceAboveMinus60DbSeconds": 0.0,
+  "method": "Full-song energy survey; first high-confidence kick-template match following each main pre-drop break. Independently fit sixteen clap attacks to the 100 BPM grid at native sample rate.",
+  "mainDropEntrances": [
+    {
+      "frame": 3833743,
+      "seconds": 86.93294784580499,
+      "kickTemplateCorrelation": 0.9537414907912021
+    },
+    {
+      "frame": 8067343,
+      "seconds": 182.932947845805,
+      "kickTemplateCorrelation": 0.9526061424979136
+    }
+  ],
+  "inPointFrame": 3833743,
+  "inPointSeconds": 86.93294784580499,
+  "outPointFrame": 4680463,
+  "outPointSeconds": 106.13294784580499,
+  "clapOnsetsSeconds": [
+    87.53335600907029,
+    88.73335600907029,
+    89.9333560090703,
+    91.1333560090703,
+    92.3333560090703,
+    93.53335600907029,
+    94.73335600907029,
+    95.9333560090703,
+    97.1333560090703,
+    98.3333560090703,
+    99.53335600907029,
+    100.73335600907029,
+    101.9333560090703,
+    103.1333560090703,
+    104.3333560090703,
+    105.53335600907029
+  ],
+  "measuredBpm": 99.99999999999997,
+  "maxTimingResidualSeconds": 4.263256414560601e-14,
+  "clapGridOffsetFromKickSeconds": 0.00040816326534243164,
+  "precedingPickup": "Pre-drop snap/build sounds precede the first drop kick and are excluded; low-level ambience at the cut receives a 0.5 ms safety ramp.",
+  "output": "public/roses/drop/roses-original-recording-8bars-100bpm.wav",
+  "sha256": "00ee86816be1c16a15dd0cb8b06c2233ad10747c541929a53df8e760da15a0f6",
+  "frames": 846720,
+  "sampleRate": 44100,
+  "channels": 2,
+  "bitsPerSample": 24,
+  "seconds": 19.2,
+  "separateReleaseTailSeconds": 0,
+  "bpm": 100,
+  "playbackRate": 1,
+  "pitchShiftSemitones": 0,
+  "normalization": false,
+  "eq": false,
+  "compression": false,
+  "startRampSamples": 22,
+  "startRampSeconds": 0.0004988662131519275,
+  "endFadeSeconds": 0.01,
+  "peakDbfs": 0.0,
+  "rmsDbfs": -11.357801270626231,
+  "sourceFullScaleSamplesInExtract": 452,
+  "bodyDifferenceFromSource": 0.0,
+  "previousMov": {
+    "inPointSeconds": 2.1425,
+    "sampleRate": 48000,
+    "peakDbfs": -15.652570003234185,
+    "rmsDbfs": -27.11771422618774
+  },
+  "rmsDifferenceVsMovDb": 15.759912955561509,
+  "vocalResidue": {
+    "localSpeechRecognition": {
+      "drop": [
+        {
+          "start": 90.02,
+          "end": 91.42,
+          "text": " Thanks for watching guys!",
+          "noSpeechProbability": 0.6167766451835632,
+          "averageLogProbability": -0.9234834611415863
+        }
+      ],
+      "second-drop": [
+        {
+          "start": 186.04,
+          "end": 187.44,
+          "text": " Thanks for watching guys!",
+          "noSpeechProbability": 0.5614100098609924,
+          "averageLogProbability": -0.9396235793828964
+        }
+      ]
+    },
+    "assessment": "No reliable sung lyric was recognized. Generic low-confidence recognition from both repeated drops is not reliable evidence of speech. Intentional vocal-like/chopped textures and faint separation remnants cannot be certified absent without human listening.",
+    "speechBandCorrelationWithSeparateVocalStem": 0.16210403184480307,
+    "correlationLimitation": "Shared musical material or bleed in either separated stem can produce coherence; this does not prove audible sung-vocal leakage.",
+    "humanListeningVerified": false
+  },
+  "limitations": "Supplied source already touches digital full scale; preparation preserves its level and does not repair pre-existing clipped peaks. No browser/device listening was available. No additional vocal masking or audio processing was applied."
+}

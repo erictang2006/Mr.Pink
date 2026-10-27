@@ -2,6 +2,7 @@ import * as Tone from "tone";
 import { buildupAssets, buildupBass, buildupBreak, buildupEnd, buildupEvents, buildupStart, defaultBuildupSettings, snareTranspose, validBuildupSettings, type BuildupEvent, type BuildupLayer, type BuildupSettings } from "./rosesBuildup";
 import type { RosesBassEngine } from "./rosesBassEngine";
 import { VoxMelodyEngine } from "./voxMelodyEngine";
+import type { BuildupLeadPlaybackMode } from './rosesManualBuildupLead';
 export type BuildupStatus = "NOT ARMED" | "ARMED" | "PLAYING" | "BREAK" | "FINISHED";
 type Clip = { event: BuildupEvent; source: Tone.ToneBufferSource; start: number; offset: number; duration: number; rate: number };
 /** Called by the existing sixteenth-note transport callback. No independent musical timer. */
@@ -34,6 +35,7 @@ export class RosesBuildupEngine {
   private safety = new Tone.WaveShaper(value => .9 * Math.tanh(value / .9), 2048);
   private limiter = new Tone.Limiter(-2);
   private loading: Promise<void> | null = null;
+  private leadPlaybackMode:BuildupLeadPlaybackMode='auto';
   constructor(output: Tone.InputNode, private bass: RosesBassEngine) {
     this.alternateGain.connect(this.mix);
     this.melody = new VoxMelodyEngine(this.alternateGain);
@@ -68,17 +70,23 @@ export class RosesBuildupEngine {
     }
     this.settings = next;
     for (const [layer, gain] of this.gains) gain.gain.rampTo(
-      layer === "vox" && (next.voxMode === "lead" || next.voxMode === "stabs") || layer === "chops" && next.chopsMuted ? 0 : layer === "snap" ? .6 : next[layer], .015,
+      layer === "vox" && (this.leadPlaybackMode==='manual' || next.voxMode === "lead" || next.voxMode === "stabs") || layer === "chops" && next.chopsMuted ? 0 : layer === "snap" ? .6 : next[layer], .015,
     );
     const alternate = next.voxMode === "lead" || next.voxMode === "stabs";
-    this.alternateGain.gain.rampTo(alternate ? next.vox : 0, .015);
+    this.alternateGain.gain.rampTo(alternate || this.leadPlaybackMode==='manual' ? next.vox : 0, .015);
     this.voxOriginal.gain.rampTo(next.voxMode === "original" ? 1 : 0, .015);
     this.voxLight.gain.rampTo(next.voxMode === "light" ? 1.08 : 0, .015);
   }
+  setLeadPlaybackMode(mode:BuildupLeadPlaybackMode):void {
+    if(mode===this.leadPlaybackMode)return;
+    this.melody.stop();this.leadPlaybackMode=mode;this.configure(this.settings);if(mode==='manual')this.melody.prepareLead();
+  }
+  manualLeadNoteOn(code:string,midi:number):boolean {return this.ready&&this.leadPlaybackMode==='manual'&&this.melody.manualNoteOn(code,midi);}
+  manualLeadNoteOff(code:string):void {this.melody.manualNoteOff(code);}
   snapshot() {
     const layers = [...new Set([...this.sources].map(clip => clip.event.layer))];
-    if (this.authorized && this.lastBeat >= buildupStart && this.lastBeat < buildupBreak && (this.settings.voxMode === "lead" || this.settings.voxMode === "stabs")) layers.push("vox");
-    return { status: this.status, ready: this.ready, layers: [...new Set(layers)], bass: this.authorized && this.lastBeat >= buildupStart && this.lastBeat < buildupBreak };
+    if (this.leadPlaybackMode==='auto' && this.authorized && this.lastBeat >= buildupStart && this.lastBeat < buildupBreak && (this.settings.voxMode === "lead" || this.settings.voxMode === "stabs")) layers.push("vox");
+    return { status: this.status, ready: this.ready, leadPlaybackMode:this.leadPlaybackMode, layers: [...new Set(layers)], bass: this.authorized && this.lastBeat >= buildupStart && this.lastBeat < buildupBreak };
   }
   arm(scoreBeat: number, running: boolean): boolean {
     if (!this.ready || running && scoreBeat >= buildupStart || this.status === "PLAYING" || this.status === "BREAK") return false;
@@ -91,7 +99,7 @@ export class RosesBuildupEngine {
     this.stop(Tone.immediate());
     this.authorized = armed; this.status = armed ? "ARMED" : "NOT ARMED";
     this.entry = Math.max(buildupStart, startBeat); this.lastBeat = -1; this.initialized = false;
-    if (armed && this.settings.voxMode === "lead" && this.entry < buildupBreak) this.melody.prepareLead();
+    if (armed && (this.settings.voxMode === "lead" || this.leadPlaybackMode==='manual') && this.entry < buildupBreak) this.melody.prepareLead();
   }
   tick(beat: number, time: number, secondsPerBeat: number): void {
     this.beatsPerSecond = 1 / secondsPerBeat;
@@ -101,15 +109,16 @@ export class RosesBuildupEngine {
       this.status = "FINISHED"; return;
     }
     this.status = beat >= buildupBreak ? "BREAK" : "PLAYING";
+    if(beat===buildupBreak&&this.leadPlaybackMode==='manual')this.melody.stop();
     const seeking = !this.initialized;
     this.initialized = true;
     if (seeking) this.bass.releaseAll(time);
     const alternate = this.settings.voxMode === "lead" || this.settings.voxMode === "stabs";
-    if (alternate) {
+    if (alternate && this.leadPlaybackMode==='auto') {
       this.melody.tick(beat, time, secondsPerBeat, this.settings.voxMode as "lead" | "stabs");
     }
     for (const event of buildupEvents) {
-      if (event.layer === "vox" && alternate) continue;
+      if (event.layer === "vox" && (alternate || this.leadPlaybackMode==='manual')) continue;
       if (event.beat === beat || (seeking || this.refreshVox && event.layer === "vox") && ["vox", "chops"].includes(event.layer) && event.beat < beat && beat < event.end) {
         const offset = event.offset + (beat - event.beat) * .6;
         this.play(event, time, offset, (event.end - beat) * secondsPerBeat, event.layer === "roll" ? 2 ** (snareTranspose(beat) / 12) : 1);
@@ -118,14 +127,20 @@ export class RosesBuildupEngine {
     this.refreshVox = false;
     for (const note of buildupBass) if (note.beat === beat || seeking && note.beat < beat && beat < note.end) this.playBass(note, beat, time, secondsPerBeat);
   }
+  /** Live X shares the loaded sample, gain and bounded source lifecycle. */
+  hitSpacy(time: number): boolean {
+    if (!this.ready || this.disposed) return false;
+    const event = buildupEvents.find(event => event.layer === "spacy")!;
+    return this.play(event, time, event.offset, (event.end - event.beat) * .6, 1);
+  }
   private playBass(note: typeof buildupBass[number], beat: number, time: number, secondsPerBeat: number): void {
     this.bass.triggerBuild([{ midi: note.midi, velocity: note.velocity, startBeat: beat, durationBeats: note.end - beat, bar: Math.floor(beat / 4) + 1, beatInBar: beat % 4 + 1 }], time, secondsPerBeat, true);
   }
-  private play(event: BuildupEvent, time: number, offset: number, duration: number, rate: number): void {
-    if ([...this.sources].filter(clip => clip.start + clip.duration > time).length >= 24) return;
+  private play(event: BuildupEvent, time: number, offset: number, duration: number, rate: number): boolean {
+    if ([...this.sources].filter(clip => clip.start + clip.duration > time).length >= 24) return false;
     const buffer = this.buffers.get(event.layer)!;
     const length = Math.min(duration, (buffer.duration - offset) / rate);
-    if (length <= 0) return;
+    if (length <= 0) return false;
     const source = new Tone.ToneBufferSource({ url: buffer, playbackRate: rate, loop: false, fadeIn: .001, fadeOut: .003,
       onended: () => {
         this.sources.delete(clip);
@@ -137,6 +152,7 @@ export class RosesBuildupEngine {
     source.connect(this.gains.get(event.layer)!); this.sources.add(clip);
     source.start(time, offset, undefined, event.gain);
     source.stop(time + Math.max(.001, length - .003));
+    return true;
   }
   pause(time: number, beat: number): void {
     this.melody.pause();
@@ -151,10 +167,10 @@ export class RosesBuildupEngine {
     this.pausedBeat = beat;
   }
   resume(time: number): void {
-    for (const clip of this.paused) if (clip.event.layer !== "vox" || (this.settings.voxMode === "original" || this.settings.voxMode === "light")) this.play(clip.event, time, clip.offset, clip.duration, clip.rate);
+    for (const clip of this.paused) if (clip.event.layer !== "vox" || this.leadPlaybackMode==='auto' && (this.settings.voxMode === "original" || this.settings.voxMode === "light")) this.play(clip.event, time, clip.offset, clip.duration, clip.rate);
     this.paused = [];
     const beat = this.pausedBeat;
-    if (this.authorized && this.settings.voxMode === "lead" && beat !== null && beat < buildupBreak) this.melody.prepareLead();
+    if (this.authorized && (this.settings.voxMode === "lead" || this.leadPlaybackMode==='manual') && beat !== null && beat < buildupBreak) this.melody.prepareLead();
     if (beat !== null && this.authorized) for (const note of buildupBass) if (note.beat < beat && beat < note.end) this.playBass(note, beat, time, 1 / this.beatsPerSecond);
     this.pausedBeat = null;
   }

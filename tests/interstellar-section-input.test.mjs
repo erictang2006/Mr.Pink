@@ -88,3 +88,25 @@ test('Roblox visual labels stay fixed while assisted input illuminates the corre
  assert.notEqual(labels.find(item=>item.label==='c').color,'#09273a');
  assert.deepEqual(physical,[{code:'KeyC',midi:69},{code:'KeyB',midi:72},{code:'KeyM',midi:76}],'display conversion never mutates actual held input');
 });
+
+
+test('full Interstellar display labels all 61 C2–C7 keys once and highlights every sounding assisted/octave pitch',()=>{
+ for(const transpose of [0,2,-3]){
+  const guide=interstellarKeyGuide(interstellarRobloxMap,transpose,1,false);
+  const geometry=interstellarPianoGeometry(1920,transpose,36,96);
+  assert.equal(geometry.keys.size,61);assert.equal(Object.keys(guide).length,61);
+  for(const midi of geometry.keys.keys())assert.equal(guide[midi]?.length,1,`one label at MIDI ${midi}`);
+  for(const section of [1,2,3]){
+   const map=mapForInterstellarSection(section);
+   for(const binding of map.bindings){
+    const pitches=planInterstellarPress(section,binding.code,binding.midi+transpose,0,defaultInterstellarMix).voices.map(voice=>voice.midi);
+    const display=interstellarDisplayPressedKeys(pitches.map(midi=>({code:'',midi})),transpose);
+    const labels=[];
+    const ctx=new Proxy({fillStyle:'',createLinearGradient:()=>({addColorStop(){}}),fillText(label){labels.push({label,color:this.fillStyle});}},{get(target,key){return key in target?target[key]:()=>{};}});
+    drawInterstellarPiano(ctx,1920,324,geometry,guide,new Set(pitches),new Set(),new Map(),undefined,1,undefined,display);
+    assert.equal(labels.length,61);
+    for(const midi of pitches)assert.equal(labels.find(entry=>entry.label===guide[midi][0].label)?.color,'#09273a');
+   }
+  }
+ }
+});

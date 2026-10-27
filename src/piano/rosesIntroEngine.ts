@@ -1,9 +1,12 @@
+import { readObjectPreference, writeObjectPreference } from '../settings/objectPreference';
+import { rosesXUsesSpacy } from "./rosesDrumInput";
+import type {HybridDrumSettings} from "./hybridDrumTransition";
 import type {RiserSettings} from "./hybridBacking";
 import * as Tone from "tone";
 import { RosesBackingEngine } from "./rosesBackingEngine";
 import type { BackingMode, BackingGroup } from "./rosesBacking";
 import type { BuildupSettings } from "./rosesBuildup";
-import { applyRosesCue, rosesBassAtBeat, rosesBuildBassNotes, rosesBuildStartBeat, rosesDrumTargets, rosesEventsAtBeat, rosesGuitarRepeat, rosesIntroBars, rosesIntroTempo, rosesSynthTiming, rosesVocalCue, type RosesDrumKind } from "./rosesIntro";
+import { applyRosesCue, rosesBassAtBeat, rosesDrumTargets, rosesEventsAtBeat, rosesIntroBars, rosesIntroLoopGesture, rosesIntroTempo, rosesSynthTiming, rosesVocalCue, type RosesDrumKind } from "./rosesIntro";
 import { RosesBassEngine } from "./rosesBassEngine";
 import { RosesCloserEngine } from "./rosesCloserEngine";
 import type { CloserStatus, RosesCloserSettings } from "./rosesCloser";
@@ -15,6 +18,9 @@ import type { DropLayer, DropRow } from "./rosesDropMixer";
 import type { DropChordPreset } from "./rosesDropPresets";
 import type { DropLeadSound } from "./recordedDropLeadEngine";
 import type { RosesDropSettings } from "./rosesDropSettings";
+import { rosesVocalHandoff, rosesVocalHandoffGain } from "./rosesVocalTransition";
+import { loadRosesBassPlayback, saveRosesBassPlayback, rosesManualBassNote, silentAutomaticBassActive, type RosesBassPlaybackMode } from "./rosesManualBass";
+import { loadBuildupLeadPlayback,saveBuildupLeadPlayback,manualBuildupLeadActive,manualBuildupLeadKey,silentBuildupLeadGesture,type BuildupLeadPlaybackMode } from './rosesManualBuildupLead';
 
 export type RosesClockMode = "step" | "timed" | "performance";
 export type LiveDrumHit = { kind: RosesDrumKind; bar: number; beat: number; scoreBeat: number };
@@ -23,9 +29,12 @@ export type RosesIntroSnapshot = {
   mode: RosesClockMode; measure: number; beat: number; pulse: number;
   synthActive: boolean; synthPending?: boolean;
   bassActive: boolean; bassPending?: boolean; missedBassHandoff: boolean;
+  bassPlaybackMode?: RosesBassPlaybackMode;
+  buildupLeadPlaybackMode?:BuildupLeadPlaybackMode;
+  manualBuildupLeadActive?:boolean;
   buildActive: boolean; buildPending: boolean;
   sectionTails: boolean;
-  vocalStatus: "NOT ARMED" | "ARMED" | "PLAYING" | "FADING";
+  vocalStatus: "NOT ARMED" | "ARMED" | "PLAYING" | "FADING" | "FINISHED";
   vocalReady: boolean;
   closerStatus: CloserStatus; closerReady: boolean;
   buildup?: ReturnType<RosesBackingEngine["snapshot"]>;
@@ -45,21 +54,20 @@ export class RosesIntroEngine {
   private bass = new RosesBassEngine();
   private vocal: Tone.Player;
   private vocalGain: Tone.Gain;
+  private vocalHandoffGain: Tone.Gain;
+  private vocalHandoffScheduled = false;
   private closer: RosesCloserEngine;
   private buildup: RosesBackingEngine;
   private lead: HereWithMeLeadEngine;
   private drop = new RosesDropAuditionEngine(() => this.emit());
-  private guitar!: Tone.Player;
-  private guitarLeft?: Tone.Player;
-  private guitarRight?: Tone.Player;
-  private guitarLeftPan?: Tone.Panner;
-  private guitarRightPan?: Tone.Panner;
   private click: Tone.Synth;
   private vocalOffset: number = rosesVocalCue.sourceOffsetSeconds;
   private vocalConfirmed = false;
   private vocalLevel = 1;
   private disposed = false;
   private audibleClick = false;
+  private bassPlaybackMode = loadRosesBassPlayback();
+  private buildupLeadPlaybackMode = loadBuildupLeadPlayback();
   private loaded: Promise<void>;
   private ready = false;
   private eventId: number;
@@ -78,6 +86,18 @@ export class RosesIntroEngine {
   private pausedClips = new Map<Tone.Player, { offset: number; duration: number; delay: number }>();
   private practiceLoop: { start: number; end: number } | null = null;
   private loopEntryBacking: { synth: boolean; bass: boolean; build: boolean } | null = null;
+  private finale?: { ready: () => boolean; start: (time: number) => boolean };
+  setPerformanceFinale(finale?: { ready: () => boolean; start: (time: number) => boolean }): void { this.finale = finale; }
+  stopForFinale(time: number): void {
+    this.generation++;
+    Tone.Transport.stop(time); this.drop.turntableStop(time); this.lead.stop();
+    this.closer.stop(time, true); this.buildup.stop(time);
+    if (this.ready) this.players.stopAll(time);
+    this.stopClip(this.vocal,time); this.synth.stopLoop(time); this.bass.releaseAll(time);
+    this.clipSources.clear(); this.pausedClips.clear();
+    this.state.status = "finished"; this.state.measure = 44; this.state.beat = 4; this.finishTime = time;
+    this.emitAt(time);
+  }
 
   constructor(private synth: SynthEngine, private onChange: (snapshot: RosesIntroSnapshot) => void, private getTranspose: () => number) {
     const drumsLoaded = new Promise<void>((resolve, reject) => {
@@ -85,15 +105,14 @@ export class RosesIntroEngine {
     });
     this.output = new Tone.Volume(-18).toDestination();
     this.lead = new HereWithMeLeadEngine(this.output);
+    this.lead.configure(readObjectPreference<Partial<LeadSnapshot>>('stage-piano-standalone-lead-v1',value=>value));
     this.buildup = new RosesBackingEngine(this.output, this.bass);
-    this.vocalGain = new Tone.Gain(1).connect(this.output);
+    this.buildup.setLeadPlaybackMode(this.buildupLeadPlaybackMode);
+    this.vocalHandoffGain = new Tone.Gain(1).connect(this.output);
+    this.vocalGain = new Tone.Gain(1).connect(this.vocalHandoffGain);
     this.closer = new RosesCloserEngine(this.output, () => this.emit());
     this.players.connect(this.output);
-    const guitarLoaded = new Promise<void>((resolve, reject) => {
-      this.guitar = new Tone.Player({ url: "/roses/Guitar build up bass compliment.wav", onload: resolve, onerror: reject }).connect(this.output);
-    });
-    this.loaded = Promise.all([drumsLoaded, guitarLoaded]).then(() => undefined);
-    this.guitar.fadeIn = .005; this.guitar.fadeOut = .02;
+    this.loaded = drumsLoaded;
     this.vocal = new Tone.Player({ url: "/roses/roses_vocals_original_timeline.wav", onload: () => { this.state.vocalReady = true; this.emit(); }, onerror: () => { this.state.vocalReady = false; this.emit(); } }).connect(this.vocalGain);
     this.vocal.fadeOut = .02;
     this.click = new Tone.Synth({ oscillator: { type: "sine" }, envelope: { attack: .001, decay: .025, sustain: 0, release: .015 }, volume: -9 }).connect(this.output);
@@ -102,17 +121,63 @@ export class RosesIntroEngine {
   async load(): Promise<void> {
     await Promise.all([this.loaded, this.buildup.load()]);
     if (this.disposed) return;
-    if (!this.guitarLeft) {
-      this.guitarLeftPan = new Tone.Panner(rosesGuitarRepeat.leftPan).connect(this.output);
-      this.guitarRightPan = new Tone.Panner(rosesGuitarRepeat.rightPan).connect(this.output);
-      // Reuse the existing WAV and preserve the mix level when summing the two source tracks.
-      this.guitarLeft = new Tone.Player({ url: this.guitar.buffer, volume: -6.0206, fadeIn: .005, fadeOut: .02 }).connect(this.guitarLeftPan);
-      this.guitarRight = new Tone.Player({ url: this.guitar.buffer, volume: -6.0206, fadeIn: .005, fadeOut: .02 }).connect(this.guitarRightPan);
-    }
     this.ready = true; this.setMaster(this.master); this.emit();
   }
   isReady(): boolean { return this.ready; }
-  snapshot(): RosesIntroSnapshot { return clone({ ...this.state, ...this.closer.snapshot(), buildup: this.buildup.snapshot(), lead: this.lead.snapshot(), drop: this.drop.snapshot() }); }
+  /** Stage illumination observes existing sample lifetimes without scheduling audio. */
+  isDrumPlaying(name: "kick" | "clap" | "accent"): boolean { return this.ready && this.players.player(name).state === "started"; }
+  snapshot(): RosesIntroSnapshot { return clone({ ...this.state, bassPlaybackMode: this.bassPlaybackMode,buildupLeadPlaybackMode:this.buildupLeadPlaybackMode,manualBuildupLeadActive:this.isManualBuildupLeadActive(), ...this.closer.snapshot(), buildup: this.buildup.snapshot(), lead: this.lead.snapshot(), drop: this.drop.snapshot() }); }
+  private isManualBuildupLeadActive():boolean {if(this.buildupLeadPlaybackMode!=='manual')return false;return manualBuildupLeadActive(this.buildupLeadPlaybackMode,this.state.status,this.state.measure,this.buildup.getMode());}
+  setBuildupLeadPlaybackMode(mode:BuildupLeadPlaybackMode):boolean {
+    if(!['auto','manual'].includes(mode)||['running','paused'].includes(this.state.status))return false;
+    this.buildupLeadPlaybackMode=mode;this.buildup.setLeadPlaybackMode(mode);saveBuildupLeadPlayback(mode);this.emit();return true;
+  }
+  isSilentBuildupLeadGesture(code:string):boolean {return silentBuildupLeadGesture(this.buildupLeadPlaybackMode,this.state.status,this.state.measure,this.buildup.getMode(),code);}
+  isSilentIntroLoopGesture(code:string):boolean {return rosesIntroLoopGesture(code,this.state.status,this.state.measure,this.state.synthActive);}
+  manualBuildupLeadPitch(code:string):number|undefined {return this.isManualBuildupLeadActive()?manualBuildupLeadKey(code)?.midi:undefined;}
+  manualBuildupLeadNoteOn(code:string):boolean {
+    const midi=this.manualBuildupLeadPitch(code);
+    return this.ready&&midi!==undefined&&this.buildup.manualLeadNoteOn(code,midi);
+  }
+  manualBuildupLeadNoteOff(code:string):void {this.buildup.manualLeadNoteOff(code);}
+  setBassPlaybackMode(mode: RosesBassPlaybackMode): boolean {
+    if (mode !== "auto" && mode !== "manual" || this.state.status === "running" || this.state.status === "paused") return false;
+    if (mode === this.bassPlaybackMode) return true;
+    this.bass.releaseAll();
+    this.bassPlaybackMode = mode;
+    this.state.bassActive = false; this.state.bassPending = undefined;
+    saveRosesBassPlayback(mode); this.emit(); return true;
+  }
+  isSilentBassGesture(code: string): boolean {
+    return !!rosesManualBassNote(code) && silentAutomaticBassActive({...this.state, bassPlaybackMode: this.bassPlaybackMode});
+  }
+  bassInputPitch(code: string): number | undefined {
+    return this.isSilentBassGesture(code) ? rosesManualBassNote(code)?.midi : this.manualBassPitch(code);
+  }
+  manualBassPitch(code: string): number | undefined {
+    return this.bassPlaybackMode === "manual" ? rosesManualBassNote(code)?.midi : undefined;
+  }
+  manualBassNoteOn(code: string): boolean {
+    const midi = this.manualBassPitch(code);
+    if (!this.ready || midi === undefined || ["running", "paused"].includes(this.state.status) && this.state.measure >= 21) return false;
+    this.bass.attackManual(midi); return true;
+  }
+  manualBassNoteOff(code: string): void {
+    const note = rosesManualBassNote(code);
+    if (note) this.bass.releaseManual(note.midi);
+  }
+  /** Queue the configured full performance without changing source/mixer choices. */
+  preparePerformanceAudio(): Promise<boolean> { return this.drop.prepare(); }
+  async startArmedPerformance(): Promise<boolean> {
+    const vocal = this.closer.snapshot();
+    if (!this.ready || !this.synth.isPlayable() || !this.state.vocalReady || !this.vocalConfirmed || !vocal.closerReady && vocal.closerStatus !== "OFF") return false;
+    this.reset(1);
+    this.armSynth(); this.armBass();
+    if (!this.armVocal()) return false;
+    // The drop mixer owns its lead; preserve its enabled rows and never add
+    // a standalone lead. armBass() also respects the saved manual mode.
+    return this.startWithDrop(1, "performance");
+  }
   /** A full take keeps the existing early-section arming and adds the drop at 37. */
   async startWithDrop(bar: number, mode: RosesClockMode, preserveSynth = false): Promise<boolean> {
     if (!this.ready || !this.synth.isPlayable() || !Number.isInteger(bar) || bar < 1 || bar > 36) return false;
@@ -128,15 +193,17 @@ export class RosesIntroEngine {
     this.buildup.stop(); this.buildup.arm(0, false);
     return this.startAt(bar, mode, preserveSynth, lower);
   }
-  async playDrop(): Promise<boolean> {
-    if (!this.ready || !this.synth.isPlayable()) return false;
+  async playDrop(bar = 37, mode: RosesClockMode = "timed", keepLoop = false): Promise<boolean> {
+    if (!this.ready || !this.synth.isPlayable() || !Number.isInteger(bar) || bar < 37 || bar > 44) return false;
     const lower = this.lead.snapshot().lower;
-    this.reset(37); this.practiceLoop = null; this.setSpeed(1);
+    const loop = keepLoop ? this.practiceLoop : null;
+    this.reset(bar); this.practiceLoop = loop; this.setSpeed(1);
     const token = this.generation;
     if (!await this.drop.prepare() || token !== this.generation || this.disposed) return false;
     this.setSpeed(1);
-    return this.startAt(37, "timed", false, lower);
+    return this.startAt(bar, mode, false, lower);
   }
+  setRecordedDropOffset(value: number): void { this.drop.setRecordedOffset(value); }
   setDropBackingSource(value: DropBackingSource): void { this.drop.setBackingSource(value); }
   setDropRow(id: DropLayer, patch: Partial<DropRow>): void { this.drop.setRow(id, patch); }
   setDropChordPreset(value: DropChordPreset): void { this.drop.setChordPreset(value); }
@@ -155,6 +222,8 @@ export class RosesIntroEngine {
   disarmLead(): void { this.lead.stop(); this.emit(); }
   setLeadSettings(settings: Partial<Omit<LeadSnapshot, "status">>): void {
     this.lead.configure(settings);
+    const {volume,lower,muted}=this.lead.snapshot();
+    writeObjectPreference('stage-piano-standalone-lead-v1',{volume,lower,muted});
     this.emit();
   }
   rehearseLead(bar: 36 | 37, mode: RosesClockMode): boolean {
@@ -168,6 +237,7 @@ export class RosesIntroEngine {
     if (mode !== "roses" && ["ARMED", "PLAYING", "BREAK"].includes(this.buildup.snapshot().status)) this.setSpeed(1);
     this.emit();
   }
+  setHybridDrums(patch:Partial<HybridDrumSettings>):void {this.buildup.setHybridDrums(patch);this.emit();}
   setPreDropRiser(patch:Partial<RiserSettings>):void {this.buildup.setRiser(patch);this.emit();}
   previewPreDropRiser():void {if(this.state.status!=="running"&&this.state.status!=="paused")this.buildup.previewRiser();}
   setBackingMix(patch: { gain?: number; group?: BackingGroup; level?: number; solo?: BackingGroup | null }): void { this.buildup.setMix(patch); this.emit(); }
@@ -186,7 +256,6 @@ export class RosesIntroEngine {
     const token = this.generation;
     if (!await this.drop.prepare() || token !== this.generation || this.disposed) return false;
     this.setSpeed(1);
-    if (bar === 25) this.armBuild();
     this.armBuildup();
     // The mixer owns the only drop lead. Do not arm the standalone lead as well.
     return this.startAt(bar, mode, false, lower, bar >= 29);
@@ -228,7 +297,8 @@ export class RosesIntroEngine {
     this.state.vocalStatus = "ARMED"; this.emit(); return true;
   }
   setPracticeLoop(range: { start: number; end: number } | null): void {
-    this.practiceLoop = range && range.start >= 1 && range.end <= rosesIntroBars && range.start <= range.end ? { ...range } : null;
+    const lastBar = this.drop.snapshot().backingSource === "recording" ? leadEndBar : rosesIntroBars;
+    this.practiceLoop = range && range.start >= 1 && range.end <= lastBar && range.start <= range.end ? { ...range } : null;
   }
   setSpeed(value: number): void {
     const dropStatus = this.drop.snapshot().status;
@@ -236,10 +306,9 @@ export class RosesIntroEngine {
     const fixedBacking = backing.mode !== "roses" && ["ARMED", "PLAYING", "BREAK"].includes(backing.status);
     this.speed = dropStatus === "running" || dropStatus === "paused" || fixedBacking ? 1 : Math.max(.5, Math.min(1.25, value));
     Tone.Transport.bpm.rampTo(rosesIntroTempo * this.speed, .05);
-    this.guitar.playbackRate = this.speed; this.vocal.playbackRate = this.speed;
-    if (this.guitarLeft) this.guitarLeft.playbackRate = this.speed; if (this.guitarRight) this.guitarRight.playbackRate = this.speed;
+    this.vocal.playbackRate = this.speed;
   }
-  setSynthLeadMs(value: number): void { this.synthLeadMs = Math.max(0, Math.min(60, Number.isFinite(value) ? value : 20)); }
+  setSynthLeadMs(value: number): void { this.synthLeadMs = Math.max(-60, Math.min(60, Number.isFinite(value) ? value : 20)); }
 
   armSynth(): void {
     const current = this.state.synthPending ?? this.state.synthActive;
@@ -247,18 +316,42 @@ export class RosesIntroEngine {
     this.emit();
   }
   armBass(): void {
+    if (this.bassPlaybackMode === "manual") return;
     if (this.state.bassActive || this.state.bassPending) return;
     this.state.bassPending = true;
     this.emit();
   }
+  /** Compatibility for older callers; the bars 21–28 guitar/build bass were removed. */
   armBuild(): void {
-    if (this.state.status === "running" && this.state.measure >= 21) return;
-    this.state.buildPending = !this.state.buildPending;
+    this.state.buildPending = false; this.state.buildActive = false;
     this.emit();
   }
   private playClip(player: Tone.Player, time: number, offset: number, duration?: number): void {
     this.clipSources.set(player, { time, offset, duration: duration ?? Math.max(0, player.buffer.duration - offset) });
     player.start(time, offset, duration);
+  }
+  private resetVocalHandoff(time: number, beat = 0): void {
+    this.vocalHandoffScheduled = false;
+    this.vocalHandoffGain.gain.cancelScheduledValues(time);
+    this.vocalHandoffGain.gain.setValueAtTime(rosesVocalHandoffGain(beat), time);
+  }
+  /** One continuous audio ramp, anchored to the transport. Pause/reset cancel
+   * it; resume schedules the remaining score duration. Mix edits cannot undo it.
+   */
+  private tickVocalHandoff(beat: number, time: number): void {
+    if (this.state.vocalStatus !== "PLAYING" && this.state.vocalStatus !== "FADING") return;
+    if (beat >= rosesVocalHandoff.endBeat) {
+      this.resetVocalHandoff(time, beat);
+      this.stopClip(this.vocal, time);
+      this.state.vocalStatus = "FINISHED";
+      return;
+    }
+    if (beat < rosesVocalHandoff.startBeat || this.vocalHandoffScheduled) return;
+    this.vocalHandoffGain.gain.cancelAndHoldAtTime(time);
+    this.vocalHandoffGain.gain.setValueAtTime(rosesVocalHandoffGain(beat), time);
+    this.vocalHandoffGain.gain.linearRampToValueAtTime(0, time + (rosesVocalHandoff.endBeat - beat) * 60 / (rosesIntroTempo * this.speed));
+    this.vocalHandoffScheduled = true;
+    this.state.vocalStatus = "FADING";
   }
   private stopClip(player: Tone.Player, time: number): void {
     player.stop(time); this.clipSources.delete(player); this.pausedClips.delete(player);
@@ -278,16 +371,8 @@ export class RosesIntroEngine {
     for (const [player, clip] of this.pausedClips) this.playClip(player, time + clip.delay, clip.offset, clip.duration);
     this.pausedClips.clear();
   }
-  private startGuitarRepeat(time: number, scoreBeat: number): void {
-    const offset = (scoreBeat - rosesGuitarRepeat.startBeat) * 60 / rosesIntroTempo;
-    this.guitarLeft!.playbackRate = this.speed; this.guitarRight!.playbackRate = this.speed;
-    this.playClip(this.guitarLeft!, time, offset, (rosesGuitarRepeat.leftEndBeat - scoreBeat) * 60 / rosesIntroTempo);
-    this.playClip(this.guitarRight!, time, offset, (rosesGuitarRepeat.rightEndBeat - scoreBeat) * 60 / rosesIntroTempo);
-  }
-  private stopBuild(time = Tone.now()): void {
-    this.stopClip(this.guitar, time);
-    if (this.guitarLeft) this.stopClip(this.guitarLeft, time); if (this.guitarRight) this.stopClip(this.guitarRight, time);
-    this.state.buildActive = false;
+  private stopBuild(): void {
+    this.state.buildPending = false; this.state.buildActive = false;
   }
   stopLoop(): void {
     this.generation++;
@@ -299,13 +384,18 @@ export class RosesIntroEngine {
     this.state.vocalStatus = "NOT ARMED";
     this.buildup.stop();
     this.closer.stop();
+    this.resetVocalHandoff(Tone.immediate(), rosesVocalHandoff.endBeat);
     this.stopClip(this.vocal, Tone.immediate()); this.synth.stopLoop(); this.bass.releaseAll(); this.emit();
   }
   /** A sample starts at audio-context time now, without transport quantization. */
-  hitDrum(kind: RosesDrumKind): LiveDrumHit | null {
-    if (!this.ready || this.state.measure < 5 || this.state.measure > rosesIntroBars || this.state.status === "finished" && (this.finishTime === null || Tone.immediate() >= this.finishTime)) return null;
+  hitDrum(kind: RosesDrumKind, allowFreestyle = false): LiveDrumHit | null {
+    // Stage warmup/count-in stays idle at bar 1: play the existing one-shot without starting transport.
+    const freestyle = allowFreestyle && this.state.status === "idle" && this.state.measure === 1;
+    if (!this.ready || !freestyle && (this.state.measure < 5 || this.state.measure > (kind === "clap" ? leadEndBar : rosesIntroBars) || this.state.status === "finished" && (this.finishTime === null || Tone.immediate() >= this.finishTime))) return null;
     const scoreBeat = this.state.status === "running" ? this.scoreBeat() : (this.state.measure - 1) * 4 + this.state.beat - 1;
-    this.players.player(kind).start(Tone.immediate());
+    if (kind === "clap" && rosesXUsesSpacy(this.state.measure)) {
+      if (!this.buildup.hitSpacy(Tone.immediate())) return null;
+    } else this.players.player(kind).start(Tone.immediate());
     this.state.lastDrum = { kind, sequence: ++this.drumSequence };
     this.emit();
     return { kind, bar: this.state.measure, beat: this.state.beat, scoreBeat };
@@ -325,7 +415,7 @@ export class RosesIntroEngine {
     const active = preserveSynth && this.state.synthActive;
     const bassActive = preserveSynth && this.state.bassActive;
     const vocalStatus = bar <= rosesVocalCue.startBar && this.state.vocalStatus === "ARMED" ? "ARMED" : "NOT ARMED";
-    const buildPending = this.state.buildPending || (preserveSynth && this.state.buildActive);
+    const buildPending = false;
     this.lead.begin((bar - 1) * 4);
     this.closer.reset(); this.buildup.begin((bar - 1) * 4); this.clipSources.clear(); this.pausedClips.clear(); this.loopEntryBacking = null;
     Tone.Transport.stop(); this.players.stopAll(); this.stopClip(this.vocal, Tone.immediate()); this.synth.stopLoop(); this.bass.releaseAll(); this.stopBuild();
@@ -334,27 +424,29 @@ export class RosesIntroEngine {
     this.state = { ...initial(), status: "running", mode, measure: bar, beat: 1, pulse: 0, synthActive: active, synthPending: pending, bassActive, bassPending, missedBassHandoff: false, buildActive: false, buildPending, vocalStatus, vocalReady: this.state.vocalReady, cycle: 0 };
     this.vocalGain.gain.cancelScheduledValues(Tone.immediate());
     this.vocalGain.gain.setValueAtTime(this.vocalLevel, Tone.immediate());
+    this.resetVocalHandoff(Tone.immediate(), (bar - 1) * 4);
     Tone.Transport.bpm.value = rosesIntroTempo * this.speed;
-    this.guitar.playbackRate = this.speed; this.vocal.playbackRate = this.speed;
+    this.vocal.playbackRate = this.speed;
     Tone.Transport.timeSignature = 4;
     Tone.Transport.position = 0;
     if (dropLowerLevel !== undefined) this.drop.start(dropLowerLevel);
     Tone.Transport.start("+0.05");
     this.emit(); return true;
   }
-  pause(): void { if (this.state.status === "running") { const time = Tone.immediate(); this.drop.pause(); this.lead.pause(); this.closer.pause(time); this.buildup.pause(time, this.scoreBeat()); this.pauseClips(time); Tone.Transport.pause(time); this.state.status = "paused"; this.emit(); } }
-  resume(): void { if (this.state.status === "paused" && this.state.mode !== "step") { const time = Tone.now() + .03; this.drop.resume(); this.closer.resume(time); this.buildup.resume(time); this.resumeClips(time); Tone.Transport.start(time); this.state.status = "running"; this.emit(); } }
+  pause(): void { if (this.state.status === "running") { const time = Tone.immediate(); if (this.bassPlaybackMode === "manual") this.bass.releaseManualNotes(time); this.drop.pause(); this.lead.pause(); this.closer.pause(time); this.buildup.pause(time, this.scoreBeat()); this.vocalHandoffGain.gain.cancelAndHoldAtTime(time); this.vocalHandoffScheduled = false; this.pauseClips(time); Tone.Transport.pause(time); this.state.status = "paused"; this.emit(); } }
+  resume(): void { if (this.state.status === "paused" && this.state.mode !== "step") { const time = Tone.now() + .03; this.drop.resume(this.scoreBeat(), time); this.closer.resume(time); this.buildup.resume(time); this.tickVocalHandoff(this.scoreBeat(), time); this.resumeClips(time); Tone.Transport.start(time); this.state.status = "running"; this.emit(); } }
   /** Step Mode pauses at every expected drum position until the performer plays it. */
   resumeStep(): void {
     if (this.state.status !== "paused" || this.state.mode !== "step") return;
     this.state.status = "running";
-    const time = Tone.now() + .03; this.drop.resume(); this.closer.resume(time); this.buildup.resume(time); this.resumeClips(time); Tone.Transport.start(time); this.emit();
+    const time = Tone.now() + .03; this.drop.resume(this.scoreBeat(), time); this.closer.resume(time); this.buildup.resume(time); this.tickVocalHandoff(this.scoreBeat(), time); this.resumeClips(time); Tone.Transport.start(time); this.emit();
   }
   reset(bar = 1): void {
     this.drop.stop();
     this.lead.stop();
     this.generation++; Tone.Transport.stop(); if (this.ready) this.players.stopAll(); this.stopClip(this.vocal, Tone.immediate()); this.synth.stopLoop(); this.bass.releaseAll(); this.stopBuild();
     this.closer.reset(); this.buildup.stop(); this.clipSources.clear(); this.pausedClips.clear(); this.loopEntryBacking = null;
+    this.resetVocalHandoff(Tone.immediate(), (bar - 1) * 4);
     this.step = 0; this.finishTime = null; this.state = { ...initial(), measure: bar, vocalReady: this.state.vocalReady }; this.emit();
   }
   private tick(time: number): void {
@@ -367,7 +459,7 @@ export class RosesIntroEngine {
       if (this.state.mode === "step") {
         Tone.Transport.stop(time);
         this.stopClip(this.vocal, time);
-        this.stopBuild(time);
+        this.stopBuild();
         this.state = { ...initial(), measure: this.practiceLoop.start, mode: "step", vocalReady: this.state.vocalReady, cycle: this.state.cycle + 1 };
         const token = this.generation;
         Tone.Draw.schedule(() => { if (token === this.generation) { this.synth.stopLoop(); this.bass.releaseAll(); } }, time);
@@ -376,18 +468,20 @@ export class RosesIntroEngine {
       this.anchorBar = this.practiceLoop.start;
       this.step = 1;
       bar = this.practiceLoop.start;
+      this.resetVocalHandoff(time, (bar - 1) * 4);
       this.state.cycle++;
+      this.drop.restartRecordedLoop(time);
       if (bar === 19 && this.practiceLoop.end >= 24 && this.loopEntryBacking) {
         this.state.synthActive = this.loopEntryBacking.synth;
         this.state.bassActive = this.loopEntryBacking.bass;
         this.state.buildPending = this.loopEntryBacking.build;
         if (this.state.vocalStatus === "PLAYING") {
           this.stopClip(this.vocal, time);
-          this.vocal.start(time, this.vocalOffset + ((bar - rosesVocalCue.startBar) * 4) * 60 / rosesIntroTempo);
+          this.playClip(this.vocal, time, this.vocalOffset + ((bar - rosesVocalCue.startBar) * 4) * 60 / rosesIntroTempo);
         }
       }
       if (bar >= 21 && this.state.buildActive) this.state.buildPending = true;
-      this.stopBuild(time);
+      this.stopBuild();
       if (bar <= rosesVocalCue.startBar) { this.stopClip(this.vocal, time); this.state.vocalStatus = "NOT ARMED"; }
       if (bar === 1) {
         this.state.synthActive = false; this.state.synthPending = undefined;
@@ -397,10 +491,12 @@ export class RosesIntroEngine {
     }
     const tickInBar = index % 16;
     const absoluteBeat = (bar - 1) * 4 + tickInBar / 4;
+    if (this.state.mode === "performance" && absoluteBeat >= 176 && this.finale?.ready() && this.finale.start(time)) return;
+    this.tickVocalHandoff(absoluteBeat, time);
     if (bar >= 29) {
       const auditioning = this.drop.snapshot().status === "running";
       this.drop.tick(absoluteBeat, time, 60 / (rosesIntroTempo * this.speed));
-      if (auditioning && this.drop.snapshot().status === "done") {
+      if (auditioning && this.drop.snapshot().status === "done" && !(this.state.mode === "performance" && absoluteBeat < 176 && this.finale?.ready())) {
         Tone.Transport.stop(time); this.state.status = "finished"; this.state.measure = 44; this.state.beat = 4; this.finishTime = time;
         this.emitAt(time); return;
       }
@@ -418,21 +514,12 @@ export class RosesIntroEngine {
       this.emitAt(time); return;
     }
     if (tickInBar === 0) {
-      const startBuild = bar === 21 || bar >= 21 && this.state.buildPending && !this.state.buildActive;
-      if (startBuild) {
-        if (bar === 21 && this.loopEntryBacking) this.loopEntryBacking.build = this.state.buildPending;
+      if (bar === 21) {
+        // Retain the early synth/bass handoff without starting the removed parts.
         this.state.synthActive = false; this.state.synthPending = undefined;
         this.state.bassActive = false; this.state.bassPending = undefined;
-        this.synth.stopLoop(time);
-        this.bass.releaseAll(time);
-        this.state.buildActive = this.state.buildPending;
-        this.state.buildPending = false;
-        if (this.state.buildActive) {
-          if (bar >= 25) this.startGuitarRepeat(time, absoluteBeat);
-          else this.playClip(this.guitar, time, (bar - 21) * 4 * 60 / rosesIntroTempo);
-        }
+        this.synth.stopLoop(time); this.bass.releaseAll(time); this.stopBuild();
       }
-      if (bar === 25 && this.state.buildActive && !startBuild) this.startGuitarRepeat(time, absoluteBeat);
       if (bar === rosesVocalCue.startBar && this.state.vocalStatus === "ARMED" && this.state.vocalReady && this.vocalConfirmed) {
         this.playClip(this.vocal, time, this.vocalOffset);
         this.state.vocalStatus = "PLAYING";
@@ -460,11 +547,8 @@ export class RosesIntroEngine {
       const timing = rosesSynthTiming(time, event.durationBeats * 60 / (rosesIntroTempo * this.speed), this.synthLeadMs, Tone.immediate());
       this.synth.triggerLoopNote(event.midi + this.getTranspose() - 4, timing.start, timing.duration);
     }
-    const bass = rosesBassAtBeat(absoluteBeat, this.state.bassActive);
+    const bass = rosesBassAtBeat(absoluteBeat, this.state.bassActive && this.bassPlaybackMode === "auto");
     this.bass.trigger(bass.bass, bass.sub, time, 60 / (rosesIntroTempo * this.speed));
-    if (this.state.buildActive && absoluteBeat >= rosesBuildStartBeat) {
-      this.bass.triggerBuild(rosesBuildBassNotes.filter(note => note.startBeat === absoluteBeat), time, 60 / (rosesIntroTempo * this.speed));
-    }
     this.state.measure = bar; this.state.beat = 1 + tickInBar / 4; this.state.pulse++;
     if (this.state.mode === "step" && rosesDrumTargets.some(target => target.startBeat === absoluteBeat)) {
       this.closer.pause(time);
@@ -478,5 +562,5 @@ export class RosesIntroEngine {
     Tone.Draw.schedule(() => { if (token === this.generation) this.onChange(value); }, time);
   }
   private emit(): void { this.onChange(this.snapshot()); }
-  dispose(): void { this.disposed = true; this.reset(); this.drop.dispose(); this.lead.dispose(); Tone.Transport.clear(this.eventId); this.players.dispose(); this.vocal.dispose(); this.vocalGain.dispose(); this.closer.dispose(); this.guitar.dispose(); this.guitarLeft?.dispose(); this.guitarRight?.dispose(); this.guitarLeftPan?.dispose(); this.guitarRightPan?.dispose(); this.click.dispose(); this.buildup.dispose(); this.output.dispose(); this.bass.dispose(); }
+  dispose(): void { this.disposed = true; this.reset(); this.drop.dispose(); this.lead.dispose(); Tone.Transport.clear(this.eventId); this.players.dispose(); this.vocal.dispose(); this.vocalGain.dispose(); this.vocalHandoffGain.dispose(); this.closer.dispose(); this.click.dispose(); this.buildup.dispose(); this.output.dispose(); this.bass.dispose(); }
 }

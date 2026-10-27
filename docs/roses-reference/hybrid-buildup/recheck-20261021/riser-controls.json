@@ -1,0 +1,60 @@
+{
+  "renderer": "Actual Tone.js/native offline playback; not browser listening",
+  "reports": [
+    {
+      "name": "off",
+      "enabled": false,
+      "volume": 1,
+      "intensity": 1,
+      "peakDb": null,
+      "rmsDb": null,
+      "highFrequencyRatio": 0,
+      "oscillators": 0,
+      "tailAfterEnd": 0
+    },
+    {
+      "name": "soft",
+      "enabled": true,
+      "volume": 1,
+      "intensity": 0,
+      "peakDb": -5.2962527926834415,
+      "rmsDb": -26.191902413365206,
+      "highFrequencyRatio": 0.10777572980662498,
+      "oscillators": 0,
+      "tailAfterEnd": 0
+    },
+    {
+      "name": "strong",
+      "enabled": true,
+      "volume": 1,
+      "intensity": 1,
+      "peakDb": -5.509870738105477,
+      "rmsDb": -26.191910045445724,
+      "highFrequencyRatio": 0.7883071206812962,
+      "oscillators": 0,
+      "tailAfterEnd": 0
+    },
+    {
+      "name": "quiet",
+      "enabled": true,
+      "volume": 0.25,
+      "intensity": 0.65,
+      "peakDb": -19.545635831886404,
+      "rmsDb": -40.08200958341856,
+      "highFrequencyRatio": 0.5295280571951294,
+      "oscillators": 0,
+      "tailAfterEnd": 0
+    },
+    {
+      "name": "loud",
+      "enabled": true,
+      "volume": 0.75,
+      "intensity": 0.65,
+      "peakDb": -10.003210328048747,
+      "rmsDb": -30.53958448696335,
+      "highFrequencyRatio": 0.5295280571088757,
+      "oscillators": 0,
+      "tailAfterEnd": 0
+    }
+  ]
+}

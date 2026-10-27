@@ -3,6 +3,8 @@ import manifest from "./roses_first12_manifest.json";
 import continuation from "./roses_bars13_to20_manifest.json";
 import build from "./roses_bars21_to24_manifest.json";
 import extension from "./roses_bars25_to28_manifest.json";
+import { rosesIntroKeys } from "./rosesIntroKeys";
+import type { LiveNote } from './liveNotes';
 
 export const rosesIntroTempo = 100;
 export const rosesIntroBars = 36;
@@ -10,9 +12,9 @@ export const rosesIntroBeats = 144;
 export const rosesBuildStartBeat = 80;
 export const rosesVocalCue = { armBar: 4, startBar: 5, sourceOffsetSeconds: 9.6 } as const;
 export const rosesVocalPerformanceSeconds = (rosesVocalCue.startBar - 1) * 4 * 60 / rosesIntroTempo;
-/** Start the backing early for its attack while keeping the written note-off on the beat grid. */
+/** Signed attack lead: negative delays the onset; the written note-off stays on the beat grid. */
 export function rosesSynthTiming(beatTime: number, durationSeconds: number, leadMs: number, earliestStart: number) {
-  const leadSeconds = Math.max(0, Math.min(60, Number.isFinite(leadMs) ? leadMs : 0)) / 1000;
+  const leadSeconds = Math.max(-60, Math.min(60, Number.isFinite(leadMs) ? leadMs : 0)) / 1000;
   const start = Math.max(earliestStart, beatTime - leadSeconds);
   return { start, duration: durationSeconds + (beatTime - start) };
 }
@@ -42,6 +44,49 @@ export const rosesAccentTargets: RosesDrum[] = continuation.events.whoo_accent.m
 export const rosesIntroNoteAt = new Map(rosesIntroNotes.map(event => [event.startBeat, event]));
 export const rosesIntroBarNotes = (bar: number) => rosesIntroNotes.filter(event => event.bar === bar);
 export const rosesIntroLoopEvents = rosesIntroNotes.filter(event => event.bar <= 4);
+const introLoopKeys = rosesIntroKeys('KeyG');
+/** The audience loop deck enters at bar 13, after the live-looking intro passage. */
+export function rosesIntroLoopActive(status: string, measure: number, synthActive: boolean): boolean {
+  return (status === 'running' || status === 'paused') && measure >= 13 && measure <= 20 && synthActive;
+}
+/** Physical L / ; / ' gestures remain visible but silent throughout the armed loop. */
+export function rosesIntroLoopGesture(code: string, status: string, measure: number, synthActive: boolean): boolean {
+  return (status === 'running' || status === 'paused') && measure >= 5 && measure <= 20 && synthActive && introLoopKeys.some(key => key.code === code);
+}
+export function rosesIntroLoopVisual(scoreBeat: number) {
+  const sourceBeat = ((scoreBeat - 16) % 16 + 16) % 16;
+  return {
+    progress: sourceBeat / 16,
+    bar: Math.floor(sourceBeat / 4) + 1,
+    keys: introLoopKeys.map(key => ({
+      code: key.code, label: key.label,
+      active: rosesIntroLoopEvents.some(event => event.midi === key.midi && event.startBeat <= sourceBeat && sourceBeat < event.startBeat + event.durationBeats),
+    })),
+  };
+}
+/** Visual-only piano presses for the audience loop deck; uses the actual source MIDI gates. */
+export function rosesIntroLoopPianoKeys(scoreBeat: number, status: string, measure: number, synthActive: boolean, transpose = 0) {
+  if (status !== 'running' || !rosesIntroLoopActive(status, measure, synthActive)) return [];
+  const sourceBeat = ((scoreBeat - 16) % 16 + 16) % 16;
+  return introLoopKeys.filter(key => rosesIntroLoopEvents.some(event =>
+    event.midi === key.midi && event.startBeat <= sourceBeat && sourceBeat < event.startBeat + event.durationBeats,
+  )).map(key => ({ code: key.code, midi: key.midi + transpose }));
+}
+const introLoopTrailEvents = [48, 64].flatMap(start => rosesIntroLoopEvents.map(event => ({
+  start: start + event.startBeat, end: start + event.startBeat + event.durationBeats,
+  midi: event.midi, code: introLoopKeys.find(key => key.midi === event.midi)!.code,
+})));
+/** Read-only note bars reconstructed from the transport, without live input or audio dispatch. */
+export function rosesIntroLoopTrails(scoreBeat: number, status: string, synthActive: boolean, tempo: number, now: number, travelMs = 4400, transpose = 0): LiveNote[] {
+  if (status !== 'running' || !synthActive || scoreBeat < 48 || scoreBeat >= 80 || !Number.isFinite(tempo) || tempo <= 0) return [];
+  const msPerBeat = 60000 / tempo;
+  return introLoopTrailEvents.flatMap((event, index) => {
+    if (event.start > scoreBeat || (scoreBeat - event.end) * msPerBeat >= travelMs) return [];
+    const endMs = event.end <= scoreBeat ? now - (scoreBeat - event.end) * msPerBeat : null;
+    return [{ id: -index - 1, code: `intro-loop:${event.code}:${event.start}`, midi: event.midi + transpose,
+      startMs: now - (scoreBeat - event.start) * msPerBeat, physicalEndMs: endMs, endMs, assisted: false, octave: false }];
+  });
+}
 export type RosesDrumKind = "kick" | "clap";
 export type RosesDrumTarget = RosesDrum & { kind: RosesDrumKind; code: "KeyZ" | "KeyX"; id: string };
 export const rosesDrumTargets: RosesDrumTarget[] = [

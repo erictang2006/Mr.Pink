@@ -59,6 +59,8 @@ export class DrumEngine {
     }
   }
   isReady(): boolean { return this.ready; }
+  /** Read-only observer for stage pads; never create a player before loading. */
+  isLayerPlaying(name: DrumName): boolean { return this.ready && this.players.player(name).state === "started"; }
   snapshot(): DrumSnapshot { return copy(this.state); }
 
   setMix(mix: DrumMix): void {

@@ -1,0 +1,64 @@
+{
+  "fullyArmed": false,
+  "captureMelody": false,
+  "earlyNotes": [],
+  "earlyStops": [],
+  "earlyBass": [],
+  "rosesVocalArmed": false,
+  "originalRosesVocalStreams": 0,
+  "dropBackingSource": "recording",
+  "recordedOffsetMs": 500,
+  "originalRecordingPitchShiftSemitones": 0,
+  "originalRecordingTracks": 1,
+  "rosesInstrumentalTracks": 0,
+  "hybridHwmDrumTracks": 0,
+  "hybridDrumSettings": {
+    "hwmVolume": 1,
+    "rosesVolume": 1,
+    "balance": 0.5
+  },
+  "hybridTracks": 0,
+  "riserTracks": 0,
+  "renderer": "Actual section start through Tone.js on a native OfflineAudioContext; not a browser or hardware listening test",
+  "startBar": 37,
+  "mode": "lead",
+  "backingMode": "roses",
+  "leadSound": "original",
+  "key": "E major / C♯ minor",
+  "transposeSemitones": 1,
+  "dropBassEvents": 0,
+  "dropBassTracks": 0,
+  "dropChordTracks": 0,
+  "dropDrums": {
+    "kick": 0,
+    "clap": 0,
+    "hat": 0
+  },
+  "maximumControls": false,
+  "audioNodeCreations": {
+    "oscillators": 0,
+    "filters": 9,
+    "waveshapers": 5,
+    "bufferSources": 1
+  },
+  "samples": [
+    {
+      "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+      "time": 0.5500000000000057,
+      "offset": 0,
+      "duration": 18.689999999999994,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    }
+  ],
+  "seconds": 56,
+  "prerollSeconds": 0.05,
+  "voxSynthEvents": 0,
+  "voxMelodyRetained": true,
+  "dropEvents": 0,
+  "bar37Attacks": 0,
+  "finite": true,
+  "peakDb": -12.272112220857219,
+  "rmsDb": -28.276057076722246,
+  "attacks": []
+}

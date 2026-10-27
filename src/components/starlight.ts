@@ -90,11 +90,12 @@ export class StarlightScene {
   particles: StarParticle[] = [];
   pulses: ContactPulse[] = [];
   private seen = new Map<number, {released:boolean; end:number; shimmer:number}>();
-  update(notes: LiveNote[], now:number, reducedMotion=false): void {
+  update(notes: LiveNote[], now:number, reducedMotion=false, economical=false): void {
     const recent = notes.filter(note=>!this.seen.has(note.id)&&now-note.startMs<120);
     const heldCount=notes.filter(note=>note.physicalEndMs===null).length;
     const chordStrength=Math.min(1,.48+Math.sqrt(recent.length)*.18);
-    let shimmerBudget=starlightLimits.shimmerPerFrame;
+    const particleLimit=economical?192:starlightLimits.particles;
+    let shimmerBudget=economical?3:starlightLimits.shimmerPerFrame;
     for(const note of notes) {
       let seen=this.seen.get(note.id);
       if(!seen) {
@@ -103,7 +104,7 @@ export class StarlightScene {
           const strength=chordStrength*(note.assisted?.55:1);
           this.pulses.push({midi:note.midi,born:note.startMs,strength});
           if(!reducedMotion) {
-            const count=Math.min(2*Math.round(12+strength*14),Math.max(8,Math.floor(starlightLimits.particles*.8/Math.max(1,recent.length))));
+            const count=Math.min((economical?1:2)*Math.round(12+strength*14),Math.max(4,Math.floor(particleLimit*.8/Math.max(1,recent.length))));
             this.emit(note.midi,note.id,note.startMs,strength,count,'impact');
           }
         }
@@ -122,7 +123,7 @@ export class StarlightScene {
         shimmerBudget-=count;seen.shimmer=now;
       }
     }
-    this.particles=this.particles.filter(star=>now-star.born<star.life).slice(-starlightLimits.particles);
+    this.particles=this.particles.filter(star=>now-star.born<star.life).slice(-particleLimit);
     this.pulses=this.pulses.filter(pulse=>now-pulse.born<420).slice(-starlightLimits.pulses);
     for(const [id,state] of this.seen)if(now-state.end>4600)this.seen.delete(id);
   }

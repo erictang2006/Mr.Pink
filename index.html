@@ -6,9 +6,50 @@
     <meta name="theme-color" content="#0a0b10" />
     <meta name="description" content="A responsive keyboard-first virtual piano for live performance." />
     <title>Stage Piano</title>
+    <style>
+      .startup-screen { position:fixed; inset:0; display:grid; place-items:center; padding:24px; background:#0a0b10; color:#eee7ed; font:15px/1.6 system-ui,sans-serif; }
+      .startup-screen > div { width:min(100%,520px); }
+      .startup-brand { color:#dca6c1; font-size:12px; letter-spacing:.25em; }
+      .startup-screen h1 { font-size:26px; font-weight:500; }
+      .startup-screen button,.camera-failure button { margin-top:12px; padding:10px 16px; color:#f7edf3; background:#24212e; border:1px solid #e7a4c744; border-radius:8px; cursor:pointer; }
+      .startup-screen pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:12px; color:#c7acba; }
+      .camera-failure { position:fixed; bottom:12px; right:12px; z-index:2147483646; max-width:320px; padding:16px; background:#15121e; border:1px solid #e7a4c744; border-radius:12px; color:#eee7ed; font:13px/1.5 system-ui,sans-serif; }
+      .camera-failure span { display:block; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <section id="startup-screen" class="startup-screen" aria-label="Starting Mr. Pink">
+        <div><p class="startup-brand">MR. PINK</p><h1>Preparing the performance</h1>
+          <p id="startup-status" role="status">Loading the performance…</p>
+          <pre id="startup-error" hidden></pre>
+          <button type="button" onclick="window.location.reload()">Reload Mr. Pink</button>
+          <noscript><p>JavaScript must be enabled to run Mr. Pink.</p></noscript>
+        </div>
+      </section>
+    </div>
+    <script>
+      // This fallback is available even if the JavaScript entry or one of its imports fails.
+      (() => {
+        const showFailure = event => {
+          const status = document.getElementById('startup-status');
+          if (!status) return;
+          status.textContent = 'Mr. Pink could not finish loading. Reload to try again.';
+          const details = document.getElementById('startup-error');
+          if (details) {
+            details.hidden = false;
+            details.textContent = event.reason?.message || event.message || 'A required application file could not load.';
+          }
+        };
+        window.addEventListener('error', showFailure, true);
+        window.addEventListener('unhandledrejection', showFailure);
+        const delayed = window.setTimeout(() => {
+          const status = document.getElementById('startup-status');
+          if (status && document.getElementById('startup-error')?.hidden) status.textContent = 'Still loading. If this does not finish, check the local server and reload.';
+        }, 12000);
+        window.addEventListener('pagehide', () => window.clearTimeout(delayed), { once:true });
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

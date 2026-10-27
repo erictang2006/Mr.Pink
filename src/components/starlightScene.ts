@@ -19,9 +19,9 @@ function starHalo(color:string): HTMLCanvasElement {
 export function drawStarlightScene(
   ctx: CanvasRenderingContext2D, width: number, height: number,
   geometry: ReturnType<typeof pianoGeometry>, notes: LiveNote[],
-  scene: StarlightScene, now: number, reducedMotion: boolean,
+  scene: StarlightScene, now: number, reducedMotion: boolean, economical=false,
 ) {
-  scene.update(notes, now, reducedMotion);
+  scene.update(notes, now, reducedMotion,economical);
   const illumination = new Map<number,number>();
   for(const note of notes) {
     const sinceRelease = note.physicalEndMs === null ? 0 : now-note.physicalEndMs;
@@ -54,7 +54,7 @@ export function drawStarlightScene(
     ctx.drawImage(starHalo(color),x-radius,height-radius,radius*2,radius*2);
     const edge=ctx.createLinearGradient(x-key.width*.32,0,x+key.width*.32,0);
     edge.addColorStop(0,`${color}00`);edge.addColorStop(.5,starlightBeamStops(color).at(-1)!.color);edge.addColorStop(1,`${color}00`);
-    ctx.fillStyle=edge;ctx.shadowColor=color;ctx.shadowBlur=reducedMotion?0:12;
+    ctx.fillStyle=edge;ctx.shadowColor=color;ctx.shadowBlur=reducedMotion||economical?0:12;
     ctx.fillRect(x-key.width*.32,height-3,key.width*.64,3);
     ctx.shadowBlur=0;
     if(!reducedMotion) {

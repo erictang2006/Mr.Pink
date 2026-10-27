@@ -1,0 +1,10 @@
+{
+  "start25-preDropMaximumPcm16Difference": 0,
+  "start29-negative-preDropMaximumPcm16Difference": 0,
+  "start37-positive-postBar45Pcm16Peak": 0,
+  "seek39-postBar45Pcm16Peak": 0,
+  "hwm-regression-peakDbDifference": 0.0,
+  "hwm-regression-rmsDbDifference": 0.0,
+  "roses-regression-peakDbDifference": 0.0,
+  "roses-regression-rmsDbDifference": 0.0
+}

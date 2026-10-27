@@ -1,6 +1,6 @@
 {
   "renderer": "Existing HWM drop render graph; only chord channel 2, pad channel 3 and original Piezo samples channel 14. No transport phrase, bass, lead, drums or FX.",
-  "key": "E major / C♯ minor",
+  "key": "E major / C\u266f minor",
   "normalizationGain": 0.3441941079567844,
   "files": [
     {
@@ -276,7 +276,7 @@
     "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
     "src/piano/hereWithMeChords.ts": "0eab851acd1d0df9975b1b6f9913a8d24e217fd5edc13256e543357eac97be95",
     "reference/here-with-me-remake/backing-events-e-major.json": "1c3fce17f0c52454aee315776450ae87e0dccea3452e4862d1d5cf008263afa5",
-    "reference/here-with-me-remake/analysis/drop-render.json": "028a711cfdc27829f889754bd81d96c94ca650409785e176678f636ec02fbfd0",
+    "reference/here-with-me-remake/analysis/drop-render.json": "0657e428b7ec116e9e23a91ff61a54f6a856189e74f112ea8ea367f4d9087561",
     "reference/here-with-me-remake/normalized-samples/Piezo (3).wav.wav": "55a232b0d31aad892d64bbad6f1a6c96dc742f0b6ee3fbad1e5ff331b608c736",
     "reference/here-with-me-remake/normalized-samples/Piezo (6).wav.wav": "1268b86792770d43e434829d613eded6d755a24b18f324d55f9d57fe2a1e9dcc",
     "reference/here-with-me-remake/normalized-samples/Piezo (7).wav.wav": "5f7716947d29ac00b154b741a1a7ecd02588c12e8f3459759e750fe4e99de137",
@@ -286,5 +286,14 @@
     "reference/here-with-me-remake/normalized-samples/Piezo (9).wav.wav": "aa7c3aeeaa554c948407426c8ad4bcb732b1b6daacb767e6bdfcda92ef5f120a",
     "reference/here-with-me-remake/normalized-samples/Piezo (1).wav.wav": "f285b12269d6bffbb51c67e522727dc01e01136a465099d5520e12ee07b1a99a",
     "reference/here-with-me-remake/normalized-samples/Piezo (4).wav.wav": "fadebe186b992423e008e928b3cdbf00d52d5480dd43029fb1c925ba9ed70728"
-  }
+  },
+  "runtimeOnlyAmendments": [
+    {
+      "date": "2026-10-23",
+      "source": "reference/here-with-me-remake/analysis/drop-render.json",
+      "previousHash": "3f038b5a2a22e1ce81ba25f4fa04383fa5117d4d5ab1c340ee42b499242f852d",
+      "currentHash": "0657e428b7ec116e9e23a91ff61a54f6a856189e74f112ea8ea367f4d9087561",
+      "reason": "Upstream provenance-only update for additive manual lead API; prepared harmony audio unchanged."
+    }
+  ]
 }

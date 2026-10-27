@@ -1,0 +1,1210 @@
+{
+  "cleanupRuntimeBundleByteIdentical": true,
+  "comparison": "Current code with versus without only the cleanup removals; unrelated concurrent Levels edits held constant",
+  "outputHashes": {
+    "main.js": "960046b402aaba9efd104d097a9cb88d7d19e4f19abce731b23242fcd38b56d9",
+    "main.css": "359eb8adcaea28c5e8259214c6bd89fb02e3234494091a4dadb1a6ed23c17a48"
+  },
+  "publicFiles": 172,
+  "verifiedBuiltInAssetUrls": 145,
+  "required": [
+    {
+      "url": "/branding/csa/logo-mask.png",
+      "reasons": [
+        "src/opening/OpeningReveal.tsx"
+      ],
+      "exists": true,
+      "bytes": 16130
+    },
+    {
+      "url": "/drums/clap.wav",
+      "reasons": [
+        "src/piano/drumEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 30032
+    },
+    {
+      "url": "/drums/fill.wav",
+      "reasons": [
+        "src/piano/drumEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 92654
+    },
+    {
+      "url": "/drums/hat.wav",
+      "reasons": [
+        "src/piano/drumEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 8864
+    },
+    {
+      "url": "/drums/kick.wav",
+      "reasons": [
+        "src/piano/drumEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 40616
+    },
+    {
+      "url": "/drums/riser.wav",
+      "reasons": [
+        "src/piano/drumEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 264644
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "reasons": [
+        "src/piano/rosesIntroEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 3398918
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts",
+        "src/piano/rosesIntroEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 194358
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts",
+        "src/piano/rosesIntroEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 205510
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "reasons": [
+        "src/piano/rosesBuildup.ts"
+      ],
+      "exists": true,
+      "bytes": 1212472
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "reasons": [
+        "src/piano/rosesBuildup.ts"
+      ],
+      "exists": true,
+      "bytes": 51648
+    },
+    {
+      "url": "/roses/buildup/Vox synth.wav",
+      "reasons": [
+        "src/piano/rosesBuildup.ts"
+      ],
+      "exists": true,
+      "bytes": 1939020
+    },
+    {
+      "url": "/roses/buildup/loud-stabs-single-E4.wav",
+      "reasons": [
+        "src/piano/voxMelodyEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 138520
+    },
+    {
+      "url": "/roses/buildup/snap for drop.wav",
+      "reasons": [
+        "src/piano/rosesBuildup.ts"
+      ],
+      "exists": true,
+      "bytes": 172902
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "reasons": [
+        "src/piano/rosesBuildup.ts"
+      ],
+      "exists": true,
+      "bytes": 314654
+    },
+    {
+      "url": "/roses/chords/future-house-bonk.wav",
+      "reasons": [
+        "src/piano/rosesFutureBassLayers.ts"
+      ],
+      "exists": true,
+      "bytes": 110366
+    },
+    {
+      "url": "/roses/chords/loud-stabs-am-hit.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 138594
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-dbadd9-sustain.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 60020
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-dbadd9.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 137612
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-eb-major-sustain.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 60020
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-eb-major.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 137996
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-fm7-sustain.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 60020
+    },
+    {
+      "url": "/roses/chords/loud-stabs-recorded-fm7.wav",
+      "reasons": [
+        "src/piano/rosesLoudStabsEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 134344
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 22094
+    },
+    {
+      "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+      "reasons": [
+        "src/piano/rosesRecordedDrop.ts"
+      ],
+      "exists": true,
+      "bytes": 5080364
+    },
+    {
+      "url": "/roses/drop/roses_punchy_Gsharp_subtle_echo_8bars_100bpm.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 5080364
+    },
+    {
+      "url": "/roses/experimental_E4_note_sample.wav",
+      "reasons": [
+        "src/piano/sampleLibrary.ts"
+      ],
+      "exists": true,
+      "bytes": 141164
+    },
+    {
+      "url": "/roses/here_with_me_chorus_e_major.wav",
+      "reasons": [
+        "src/piano/rosesCloser.ts"
+      ],
+      "exists": true,
+      "bytes": 7412372
+    },
+    {
+      "url": "/roses/hwm-backing/build-bass.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/build-chords.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/build-drums.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/build-fx.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/drop-bass.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts",
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/drop-chords.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/drop-drums.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/drop-fx.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-backing/drop-instrumental-chords.wav",
+      "reasons": [
+        "src/piano/rosesDropAuditionEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 3413384
+    },
+    {
+      "url": "/roses/hwm-manual-harmony/Digit0.wav",
+      "reasons": [
+        "HwmManualHarmonyEngine generated key code"
+      ],
+      "exists": true,
+      "bytes": 282284
+    },
+    {
+      "url": "/roses/hwm-manual-harmony/Digit9.wav",
+      "reasons": [
+        "HwmManualHarmonyEngine generated key code"
+      ],
+      "exists": true,
+      "bytes": 282284
+    },
+    {
+      "url": "/roses/hwm-manual-harmony/Equal.wav",
+      "reasons": [
+        "HwmManualHarmonyEngine generated key code"
+      ],
+      "exists": true,
+      "bytes": 282284
+    },
+    {
+      "url": "/roses/hwm-manual-harmony/Minus.wav",
+      "reasons": [
+        "HwmManualHarmonyEngine generated key code"
+      ],
+      "exists": true,
+      "bytes": 282284
+    },
+    {
+      "url": "/roses/hybrid/bass.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 6773804
+    },
+    {
+      "url": "/roses/hybrid/chords.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 6773804
+    },
+    {
+      "url": "/roses/hybrid/drums.wav",
+      "reasons": [
+        "backingStemUrl mode/group (hybrid FX deliberately excluded by engine)"
+      ],
+      "exists": true,
+      "bytes": 6773804
+    },
+    {
+      "url": "/roses/hybrid/riser-soft.wav",
+      "reasons": [
+        "src/piano/hybridBacking.ts"
+      ],
+      "exists": true,
+      "bytes": 804428
+    },
+    {
+      "url": "/roses/hybrid/riser-strong.wav",
+      "reasons": [
+        "src/piano/hybridBacking.ts"
+      ],
+      "exists": true,
+      "bytes": 804428
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-40.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-45.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-47.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-49.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-51.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-52.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-53.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-55.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-56.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-57.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-58.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-59.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-61.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-63.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-64.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-65.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-66.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-67.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-68.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-69.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-70.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-71.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-72.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-73.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/center-75.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-40.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-45.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-47.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-49.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-51.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-52.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-53.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-55.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-56.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-57.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-58.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-59.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-61.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-63.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-64.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-65.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-66.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-67.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-68.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-69.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-70.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-71.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-72.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-73.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/left-75.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-40.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-45.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-47.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-49.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-51.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-52.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-53.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-55.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-56.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-57.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-58.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-59.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-61.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-63.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-64.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-65.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-66.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-67.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-68.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-69.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-70.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-71.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-72.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-73.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/live-bonk-waves/right-75.wav",
+      "reasons": [
+        "LiveBonkBank generated chord pitch"
+      ],
+      "exists": true,
+      "bytes": 529244
+    },
+    {
+      "url": "/roses/original_intro_pad_bars_1_to_4.wav",
+      "reasons": [
+        "src/components/InstrumentLibrary.tsx"
+      ],
+      "exists": true,
+      "bytes": 1693484
+    },
+    {
+      "url": "/roses/roses_vocals_original_timeline.wav",
+      "reasons": [
+        "src/piano/rosesIntroEngine.ts"
+      ],
+      "exists": true,
+      "bytes": 40002092
+    },
+    {
+      "url": "/roses/woo weird sample roses.wav",
+      "reasons": [
+        "src/piano/rosesIntroEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 524310
+    },
+    {
+      "url": "/samples/A2.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 81678
+    },
+    {
+      "url": "/samples/A3.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 74526
+    },
+    {
+      "url": "/samples/A4.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 61148
+    },
+    {
+      "url": "/samples/A5.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 45747
+    },
+    {
+      "url": "/samples/A6.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 30013
+    },
+    {
+      "url": "/samples/C2.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 110357
+    },
+    {
+      "url": "/samples/C3.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 78036
+    },
+    {
+      "url": "/samples/C4.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 78718
+    },
+    {
+      "url": "/samples/C5.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 68920
+    },
+    {
+      "url": "/samples/C6.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 28065
+    },
+    {
+      "url": "/samples/C7.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 18963
+    },
+    {
+      "url": "/samples/Ds2.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 110796
+    },
+    {
+      "url": "/samples/Ds3.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 78717
+    },
+    {
+      "url": "/samples/Ds4.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 73519
+    },
+    {
+      "url": "/samples/Ds5.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 58179
+    },
+    {
+      "url": "/samples/Ds6.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 31395
+    },
+    {
+      "url": "/samples/Fs2.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 102320
+    },
+    {
+      "url": "/samples/Fs3.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 77933
+    },
+    {
+      "url": "/samples/Fs4.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 68219
+    },
+    {
+      "url": "/samples/Fs5.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 51597
+    },
+    {
+      "url": "/samples/Fs6.mp3",
+      "reasons": [
+        "src/piano/audioEngine.ts sampler baseUrl"
+      ],
+      "exists": true,
+      "bytes": 26478
+    }
+  ],
+  "cleanupChanges": [
+    "src/piano/recordedDropLeadEngine.ts",
+    "src/piano/rosesDropPresets.ts",
+    "public/roses/drop/chord-cache/bonkA-verification.json",
+    "public/roses/drop/chord-cache/bonkB-verification.json",
+    "public/roses/drop/chord-cache/brightA-verification.json",
+    "public/roses/drop/chord-cache/brightB-verification.json",
+    "public/roses/drop/chord-cache/chordA-verification.json",
+    "public/roses/drop/chord-cache/chordB-verification.json"
+  ],
+  "concurrentChanges": [
+    "src/App.tsx",
+    "src/components/LevelsIndividualSheet.tsx",
+    "src/components/LevelsPractice.tsx",
+    "src/components/SandboxMode.tsx"
+  ],
+  "audioMidiMappingsCssAndUiUntouchedByCleanup": true,
+  "localHttpSmokeCheck": {
+    "host": "http://127.0.0.1:4176",
+    "rootServed": true,
+    "compiledAssetsServed": [
+      "/assets/index-Dlws6Kn4.js",
+      "/assets/index-DrI--0zr.css"
+    ],
+    "builtInAssetsServed": 145,
+    "exactContentLengths": true,
+    "spaFallbackRuledOutForAssets": true
+  },
+  "finalTests": {
+    "passed": 281,
+    "failed": 0,
+    "build": "passed",
+    "typecheck": "passed",
+    "browserDeviceTest": "not available; no connected browser"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "defaultCue": "27:1&",
+  "wavPickupPerformanceSeconds": 62.58,
+  "bar36Seconds": 84,
+  "bar37Seconds": 86.4,
+  "bar37SourceOffsetSeconds": 23.82,
+  "nextStrongLineApproximatePerformanceSeconds": 88.2,
+  "nextStrongLineApproximateBarBeat": "37:4",
+  "bar37BeatRms": [
+    {
+      "bar": 37,
+      "beat": 1,
+      "time": 86.4,
+      "sourceRmsDb": -35.4222304683246
+    },
+    {
+      "bar": 37,
+      "beat": 2,
+      "time": 87.0,
+      "sourceRmsDb": -54.99234914659927
+    },
+    {
+      "bar": 37,
+      "beat": 3,
+      "time": 87.60000000000001,
+      "sourceRmsDb": -58.254180324375696
+    },
+    {
+      "bar": 37,
+      "beat": 4,
+      "time": 88.2,
+      "sourceRmsDb": -17.08023496462433
+    }
+  ],
+  "wavSha256": "40fc1dc7d0991c3c30cf5bc4c0ff1efdeab77bccdb26064a692016634e5e7dcb",
+  "matchesOriginalEmajorPreparation": true,
+  "freshRenderBitIdenticalToCompletedVocalHandoffBaseline": true,
+  "vocalPlayerStarts": [
+    {
+      "url": "/roses/here_with_me_chorus_e_major.wav",
+      "time": 5.0299999999999985,
+      "offset": 0,
+      "duration": 42,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    }
+  ],
+  "rawSuppliedSourceContainsSameQuietPassage": true,
+  "rawSourceWindowSecondsAtBar37": [
+    58.467,
+    60.267
+  ],
+  "suppliedSourceQuietWindowRmsDb": -40.123175685528466,
+  "playbackSourceQuietWindowRmsDb": -40.123437035876144,
+  "runtimeOrAudioChanges": false,
+  "listeningLimitation": "Local signal and offline scheduling analysis; no browser/device listening."
+}

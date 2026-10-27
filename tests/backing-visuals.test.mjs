@@ -18,7 +18,7 @@ test('selected source controls harmonic context, musical layers and bar-36 trans
   assert.equal(backingFrame(mode,111.99).hwm,false);assert.equal(backingFrame(mode,112).hwm,true);assert.equal(backingFrame(mode,144).inBuild,false);
   assert.equal(backingFrame(mode,140).transition,'Transition → drop at 37');
  }
- assert.equal(backingFrame('roses',112).title,'ROSES');assert.equal(backingFrame('roses',140).transition,'BREAK · chops only until beat 4');
+ assert.equal(backingFrame('roses',112).title,'ROSES');assert.equal(backingFrame('roses',140).transition,'BREAK · chops + pre-drop riser');
  assert.ok(backingVisualEvents['hwm-build'].filter(e=>e.layer==='lead').every(e=>e.channels.includes(18)));
  assert.ok(backingVisualEvents['hwm-drop'].filter(e=>e.layer==='lead').some(e=>e.channels.includes(19)&&e.channels.includes(22)));
  assert.notDeepEqual(backingBarEvents('hwm-build',29),backingBarEvents('hwm-drop',29));
@@ -41,4 +41,24 @@ test('automatic piano and live activity obey backing gain, solo and muted full-d
  const noHarmony=backingFrame('hwm-drop',112,undefined,{...mix,levels:{...mix.levels,chords:0}});assert.ok(noHarmony.events.every(e=>!['chords','pad','guitar','lead'].includes(e.layer)));
  const rows=Object.fromEntries(['lead','chords','bass','bonkChords','drums'].map(id=>[id,{enabled:true,muted:id==='lead',solo:false,volume:1}]));
  assert.ok(backingFrame('hwm-drop',144,'hwm',undefined,rows).events.every(e=>e.layer!=='lead'));
+});
+
+test('recording visuals follow the actual audio envelope and active offset without inventing piano pitches or changing buildup',()=>{
+ const envelope=JSON.parse(readFileSync('src/piano/rosesRecordedEnvelope.json'));
+ const rows=Object.fromEntries(['lead','bass','chords','bonkChords','drums','recorded'].map(id=>[id,{enabled:true,muted:false,solo:id==='lead',volume:.5}]));
+ const frame=backingFrame('hybrid',145,'recording',undefined,rows,{activeRecordedOffsetMs:100});
+ assert.equal(frame.title,'ROSES — ORIGINAL RECORDING');assert.equal(frame.recorded,true);assert.equal(frame.hwm,false);assert.equal(frame.chord,undefined);
+ assert.ok(frame.events.length>0);assert.ok(frame.events.every(e=>e.pitches.length===0&&e.channels.length===0));
+ assert.equal(frame.intensity,envelope.levels[10]*.5,'elapsed 0.6 minus 0.1 second offset');
+ rows.recorded.muted=true;assert.equal(backingFrame('hybrid',145,'recording',undefined,rows).intensity,0);assert.deepEqual(backingFrame('hybrid',145,'recording',undefined,rows).events,[]);
+ for(const mode of ['roses','hybrid'])assert.deepEqual(backingFrame(mode,140,'recording'),backingFrame(mode,140,'hwm'),'drop source cannot affect the bar-36 buildup');
+});
+
+
+test('manual buildup lead removes automatic piano markers without hiding backing or drop harmony',()=>{
+ const mix={gain:1,levels:{chords:1,bass:1,drums:1,fx:1},solo:null,leadPlaybackMode:'manual'};
+ const manual=backingFrame('roses',112.5,undefined,mix),automatic=backingFrame('roses',112.5,undefined,{...mix,leadPlaybackMode:'auto'});
+ assert.ok(automatic.events.some(e=>e.layer==='lead'));assert.ok(manual.events.every(e=>e.layer!=='lead'));assert.ok(manual.upcoming.every(e=>e.layer!=='lead'));
+ assert.deepEqual(manual.events,automatic.events.filter(e=>e.layer!=='lead'));
+ assert.deepEqual(backingFrame('roses',144,'hwm',mix).events,backingFrame('roses',144,'hwm',{...mix,leadPlaybackMode:'auto'}).events);
 });

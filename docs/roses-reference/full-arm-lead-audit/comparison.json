@@ -1,0 +1,72 @@
+{
+  "roses": {
+    "cases": [
+      {
+        "startBar": 1,
+        "rmsDbfs": -30.6949893824861,
+        "differenceFromFullRunDb": 0.0,
+        "peakDbfs": -13.114389642029936,
+        "earlySynthNotes": 32,
+        "earlyBassSubNotes": 48,
+        "originalRosesVocalStreams": 1,
+        "finite": true
+      },
+      {
+        "startBar": 25,
+        "rmsDbfs": -30.694989383448615,
+        "differenceFromFullRunDb": -9.62515400715347e-10,
+        "peakDbfs": -13.114391399448461,
+        "earlySynthNotes": 0,
+        "earlyBassSubNotes": 0,
+        "originalRosesVocalStreams": 0,
+        "finite": true
+      },
+      {
+        "startBar": 29,
+        "rmsDbfs": -30.69557211330633,
+        "differenceFromFullRunDb": -0.0005827308202306369,
+        "peakDbfs": -13.114391399448461,
+        "earlySynthNotes": 0,
+        "earlyBassSubNotes": 0,
+        "originalRosesVocalStreams": 0,
+        "finite": true
+      }
+    ],
+    "lastEarlySynthStop": 48.05
+  },
+  "hwm": {
+    "cases": [
+      {
+        "startBar": 1,
+        "rmsDbfs": -31.78017957865912,
+        "differenceFromFullRunDb": 0.0,
+        "peakDbfs": -16.830158726512604,
+        "earlySynthNotes": 32,
+        "earlyBassSubNotes": 48,
+        "originalRosesVocalStreams": 1,
+        "finite": true
+      },
+      {
+        "startBar": 25,
+        "rmsDbfs": -31.78017957865912,
+        "differenceFromFullRunDb": 0.0,
+        "peakDbfs": -16.830158726512604,
+        "earlySynthNotes": 0,
+        "earlyBassSubNotes": 0,
+        "originalRosesVocalStreams": 0,
+        "finite": true
+      },
+      {
+        "startBar": 29,
+        "rmsDbfs": -31.78017957865912,
+        "differenceFromFullRunDb": 0.0,
+        "peakDbfs": -16.830158726512604,
+        "earlySynthNotes": 0,
+        "earlyBassSubNotes": 0,
+        "originalRosesVocalStreams": 0,
+        "finite": true
+      }
+    ],
+    "lastEarlySynthStop": 48.05
+  }
+}

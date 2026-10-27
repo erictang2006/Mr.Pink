@@ -1278,6 +1278,11 @@ input:focus-visible {
 .stage-presentation .performance-piano { height: 30vh; height: 30dvh; border-top: 1px solid #b3dfff9c; box-shadow: 0 -2px 25px #86caff28; }
 .stage-levels .performance-piano { border-top-color: #83a5ff; box-shadow: 0 -3px 30px #7b4df448; }
 .stage-header { position: absolute; z-index: 5; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: clamp(24px, 3vw, 44px); pointer-events: none; background: linear-gradient(#03071195, #03071100); }
+.roses-stage-transport { pointer-events:auto; max-width:430px; text-align:right; }
+.roses-stage-transport > div { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px; }
+.roses-stage-transport button { padding:7px 10px; font-size:11px; }
+.roses-stage-transport small { display:block; margin-top:6px; color:#91a7bb; font:10px "DM Mono",monospace; }
+.roses-stage-transport [role="alert"] { color:#f3a8ba; }
 .stage-wordmark { display: flex; align-items: center; gap: 10px; color: #d8e6f0; font: 600 12px Inter, system-ui, sans-serif; letter-spacing: .22em; }
 .stage-mark { display: flex; align-items: center; gap: 3px; width: 23px; height: 18px; }
 .stage-mark i { width: 3px; height: 8px; background: var(--stage-accent); border-radius: 2px; }
@@ -1357,3 +1362,35 @@ input:focus-visible {
 .pre-drop-sweep i { display: block; height: 100%; background: linear-gradient(90deg,#4269ad,#8fe6f1); box-shadow: 0 0 9px #6ad8ed77; transition: width 140ms linear; }
 .backing-event.riser { height: 11px; color: #a6e8f7; background: linear-gradient(90deg,#284d7133,#64cae388); border-radius: 2px 8px 2px 2px; }
 @media(prefers-reduced-motion:reduce){.pre-drop-sweep i{transition:none}}
+
+/* The two Levels sheets share card dimensions and scroll position. */
+.levels-practice { height: auto; min-height: 100dvh; overflow-y: auto; grid-template-rows: auto minmax(215px, auto) minmax(280px, auto) auto minmax(220px, 28vh); }
+.levels-practice .practice-header { min-height: 68px; flex-wrap: wrap; }
+.levels-practice .practice-header-actions { flex-wrap: wrap; }
+.levels-practice .practice-measures { flex: none; min-height: 145px; }
+.levels-practice .practice-controls { max-height: none; }
+.levels-individual-sheet .practice-measures { min-height: 257px; }
+.levels-individual-lane { position: relative; height: 225px; margin: 0 24px; background: repeating-linear-gradient(to right, #45667438 0 1px, transparent 1px 25%); }
+.levels-practice .levels-individual-note { position: absolute; min-width: 25px; height: 30px; padding: 1px 2px; border: 0; border-left: 2px solid #64828d; border-radius: 3px; background: #243e4a; color: #d9edf2; text-align: left; overflow: hidden; }
+.levels-individual-note strong, .levels-individual-note small { display: block; line-height: 13px; }
+.levels-individual-note strong { font: 700 13px/13px "DM Mono", monospace; }
+.levels-individual-note small { font: 9px/12px "DM Mono", monospace; color: #a1b6c0; }
+.levels-practice .levels-individual-note.is-expected { background: #226574; border-color: #87efff; color: #e3fcff; box-shadow: 0 0 9px #6bddea40; }
+.levels-practice .levels-individual-note.is-done { opacity: .6; border-color: #69ae85; }
+.levels-practice .levels-individual-note.is-held, .levels-practice .levels-individual-note.is-collected { background: #684f85; border-color: #dfbaff; opacity: 1; }
+.levels-chord-guide { position: absolute; top: 3px; bottom: 24px; width: 1px; border-left: 1px dotted #69859344; }
+.levels-chord-guide.is-expected { border-color: #7debf9; }
+.levels-individual-rest { position: absolute; color: #78939f; font: 10px "DM Mono", monospace; border-bottom: 1px dotted #425f6b; overflow: hidden; }
+@media (max-width: 600px) { .levels-practice .practice-header-actions { gap: 5px; } .levels-practice .practice-sheet-top { font-size: 9px; padding-inline: 12px; } }
+
+.levels-individual-sheet .practice-beats { margin-left: 24px; }
+
+/* Levels fingering: separate hand lanes on the existing shared beat grid. */
+.levels-hand-reference { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 22px 8px; color: #91aab6; font: 10px "DM Mono", monospace; }
+.levels-hand-reference code { color: #b9f3fa; overflow-wrap: anywhere; }
+.levels-hand-heading { padding: 5px 24px; color: #8ee5ee; font: 700 10px "DM Mono", monospace; letter-spacing: .08em; }
+.levels-hand-left { border-top: 1px solid #354e5b; }
+.levels-hand-left .levels-hand-heading { color: #aebed8; }
+.levels-hand-sheet .levels-individual-lane { height: 160px; }
+.levels-hand-sheet .levels-empty { padding-top: 14px; }
+

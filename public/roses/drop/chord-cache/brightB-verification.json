@@ -31,7 +31,7 @@
     "src/piano/brightDropChordProfile.ts": "73b1b2716ab612f494dabbc97696e658953ca4b934978dfbad5e0309427350bf",
     "public/roses/drop/chord-cache/chordB.wav": "592ebc311f7e9d5ce50f5ca6becfd917c854ed0ba7dda1a468a391fb912bef1a",
     "src/piano/rosesDropSettings.ts": "1e110841d0dd2ade970561a51ad58f82afacaca63f6a76e01d711a7777079cf2",
-    "src/piano/noteMapping.ts": "c002368d092d0e1642d11ea66e3727f6733f73a73676857582f85f27bd89e8fa",
+    "src/piano/noteMapping.ts": "4e40e7651e77e20c08c2e68615583c0c5b09312d93e6df07d96b3c9c2eef8fc7",
     "package-lock.json": "e5f7927acc45e43deed4b98b57981cbf2e4f396ac19b6d48ca9cfbd2cab511d0"
   },
   "notes": [

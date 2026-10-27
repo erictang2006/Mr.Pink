@@ -1,0 +1,28 @@
+{
+  "startBar": 29,
+  "projectBpmThroughout": 100,
+  "hereWithMePlaybackRateThroughout": 1,
+  "recordingStartAtZeroOffset": {
+    "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+    "time": 19.25,
+    "offset": 0,
+    "duration": 19.189999999999998,
+    "fadeOut": 0.01,
+    "playbackRate": 1
+  },
+  "recordingStartAtMinus220": {
+    "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+    "time": 19.029999999999994,
+    "offset": 0,
+    "duration": 19.189999999999998,
+    "fadeOut": 0.01,
+    "playbackRate": 1
+  },
+  "recordingAdvancesSeconds": 0.22,
+  "vocalBetweenSettingsBitIdentical": true,
+  "leadAttacksBetweenSettingsIdentical": true,
+  "tempoOrVocalSpeedChangeAtBar37": false,
+  "vocalStart25Vs29ConstantNativeAlignmentMs": 2.2448979591836733,
+  "start25Vs29ProgressiveDrift": false,
+  "runtimeSettingsOrAudioAssetsChanged": false
+}

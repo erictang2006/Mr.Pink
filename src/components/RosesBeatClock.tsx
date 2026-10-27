@@ -29,7 +29,7 @@ export default function RosesBeatClock({ engine, clock, leadMs = 0, compact = fa
   }, [engine, clock?.status, clock?.mode, leadMs]);
 
   const scoreBeat = position.beat;
-  const view=backingFrame(clock?.buildup?.mode??defaultBackingMode,scoreBeat,clock?.drop?.backingSource,clock?.buildup,clock?.drop?.rows);
+  const view=backingFrame(clock?.buildup?.mode??defaultBackingMode,scoreBeat,clock?.drop?.backingSource,clock?.buildup,clock?.drop?.rows,clock?.drop);
   const bar = Math.floor(scoreBeat / 4) + 1;
   const beatInBar = Math.floor(scoreBeat % 4) + 1;
   const progress = scoreBeat % 1 * 100;
@@ -40,7 +40,7 @@ export default function RosesBeatClock({ engine, clock, leadMs = 0, compact = fa
     <div className="roses-beat-progress"><i style={{ width: `${progress}%` }} /></div>
     <div className="roses-beat-cues">{view.inBuild ? <><span>{view.title} · {view.chord??view.source} · AUTO</span>{view.upcoming.filter(event=>event.layer==='drums').slice(0,2).map(event=><span key={event.id}>{event.label} · {Math.floor(event.start/4)+1}:{Number((event.start%4+1).toFixed(2))}</span>)}</> : upcoming.length ? upcoming.map(target => <span key={target.id}>{target.code === "KeyZ" ? "Z KICK" : "X CLAP"} · {target.bar}:{target.beatInBar}</span>) : <span>No drum cue in next 4 beats</span>}</div>
     {closerSettings && <div className="roses-beat-cues"><span>HERE WITH ME → {closerTarget(closerSettings).label} · {closerSettings.enabled ? clock?.closerStatus ?? "WAITING" : "OFF"}</span></div>}
-    {compact && view.inBuild ? <small>{view.role} · {clock?.status === "paused"?"PAUSED":clock?.buildup?.status??"NOT ARMED"}</small> : compact && <small>BUILD {clock?.buildPending ? "ARMED" : clock?.buildActive ? "ON" : "OFF"} · VOCAL {clock?.vocalStatus ?? "NOT ARMED"}</small>}
+    {compact && view.inBuild ? <small>{view.role} · {clock?.status === "paused"?"PAUSED":clock?.buildup?.status??"NOT ARMED"}</small> : compact && <small>VOCAL {clock?.vocalStatus ?? "NOT ARMED"}</small>}
     {!compact && feedback && <small>{feedback}</small>}
   </div>;
 }

@@ -23,7 +23,7 @@ export default function RosesCloserControls({ settings, onChange, status = "LOAD
       <label>Here With Me vocal <output>{Math.round(settings.closerLevel * 100)}%</output><input aria-label="Here With Me vocal level" type="range" min="0" max="150" step="5" value={Math.round(settings.closerLevel * 100)} onChange={event => update({ closerLevel: Number(event.target.value) / 100 })} /></label>
       <label>Volume fade <input aria-label="Vocal volume fade seconds" type="number" min="0" max="3" step="0.05" value={settings.fadeSeconds} onChange={event => update({ fadeSeconds: Number(event.target.value) })} /> s</label>
     </div>
-    <small>Automatic entrance · original pitch and speed · source {closerSource.onsetSeconds.toFixed(3)} s. Roses stays on. Timing changes apply before entry or on the next restart/loop; negative offset = earlier.</small>
+    <small>Automatic entrance · original pitch and speed · source {closerSource.onsetSeconds.toFixed(3)} s. Roses sung vocal continues through bar 28, fading over its final 300 ms to silence at bar 29; vocal chops stay separate. Timing changes apply before entry or on the next restart/loop; negative offset = earlier.</small>
     {status === "MISSED" && <small className="practice-warning">The selected entrance is before this starting position. Restart before the selected entrance.</small>}
     {status === "UNAVAILABLE" && <small className="practice-warning">Here With Me audio could not load. Reload to retry; Roses remains available.</small>}
   </section>;

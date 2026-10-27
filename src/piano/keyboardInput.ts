@@ -7,6 +7,10 @@ export type InputSnapshot = {
   notesPerSecond: number;
 };
 type Callbacks = {
+  routeKeyDown?: (event: KeyboardEvent) => boolean;
+  routeKeyUp?: (event: KeyboardEvent) => boolean;
+  pitchForKey?: (event: KeyboardEvent, transpose: number) => number | undefined;
+  mappedKeyDown?: (key: {code:string;label:string;midi:number;at:number}) => void;
   noteOn: (midi: number, code: string, at: number) => void;
   noteOff: (midi: number, code: string, at: number) => void;
   change: (snapshot: InputSnapshot) => void;
@@ -19,6 +23,9 @@ type Callbacks = {
 export class KeyboardInputManager {
   private held = new Map<string, { label: string; midi: number; chord?: readonly number[] }>();
   private chords: Readonly<Record<string, readonly number[]>> = {};
+  // Several physical keys can own one effective key (e.g. 5 also holds ]).
+  private physicalNotes = new Map<string, string[]>();
+  private noteOwners = new Map<string, Set<string>>();
   private heldControls = new Set<string>();
   private detected = new Set<string>();
   private shift = false;
@@ -27,10 +34,13 @@ export class KeyboardInputManager {
   private reservedCodes = new Set<string>();
   private transpose = 0;
   private ticker: number;
+  private lastSnapshot?: InputSnapshot;
+  private changeFrame: number | null = null;
 
   constructor(
     private map: KeyboardMap,
     private callbacks: Callbacks,
+    private options: { batchChanges?: boolean } = {},
   ) {
     window.addEventListener("keydown", this.onKeyDown, { capture: true });
     window.addEventListener("keyup", this.onKeyUp, { capture: true });
@@ -54,6 +64,10 @@ export class KeyboardInputManager {
     this.map = map;
   }
 
+  heldPitches(): number[] {
+    return [...this.held.values()].flatMap(held => held.chord ?? [held.midi]);
+  }
+
   setReservedCodes(codes: string[]): void {
     this.reservedCodes = new Set(codes);
   }
@@ -64,6 +78,7 @@ export class KeyboardInputManager {
   }
 
   private onKeyDown = (event: KeyboardEvent): void => {
+    if (this.callbacks.routeKeyDown?.(event)) { event.preventDefault(); return; }
     if (!this.enabled) return;
     const target = event.target as HTMLElement | null;
     if (target?.closest('input, textarea, select, [contenteditable="true"]'))
@@ -91,7 +106,7 @@ export class KeyboardInputManager {
       this.emit();
       return;
     }
-    const midi = getPitch(this.map, event.code, event.shiftKey, this.transpose);
+    const midi = this.callbacks.pitchForKey?.(event, this.transpose) ?? getPitch(this.map, event.code, event.shiftKey, this.transpose);
     if (midi === null) {
       if (!event.repeat && !event.code.startsWith("Shift"))
         this.callbacks.unmappedKeyDown?.(event.code, performance.now());
@@ -99,19 +114,52 @@ export class KeyboardInputManager {
       return;
     }
     event.preventDefault();
-    if (event.repeat || this.held.has(event.code)) return;
-    const binding = this.map.bindings.find((item) => item.code === event.code)!;
-    this.held.set(event.code, { label: binding.label, midi });
+    if (event.repeat || this.physicalNotes.has(event.code)) return;
+    const pair = this.map.pairedKeys?.[event.code];
+    const codes = [event.code, ...(pair && pair !== event.code ? [pair] : [])];
     const at = performance.now();
-    this.recentAttacks.push(at);
-    this.callbacks.noteOn(midi, event.code, at);
+    const attacks: { code: string; label: string; midi: number }[] = [];
+    const owned: string[] = [];
+    for (const code of codes) {
+      const pitch = code === event.code ? midi : getPitch(this.map, code, event.shiftKey, this.transpose);
+      if (pitch === null) continue;
+      const owners = this.noteOwners.get(code) ?? new Set<string>();
+      owners.add(event.code); this.noteOwners.set(code, owners); owned.push(code);
+      if (this.held.has(code)) continue;
+      const binding = this.map.bindings.find(item => item.code === code);
+      const note = { code, label: binding?.label ?? event.key, midi: pitch };
+      this.held.set(code, note); attacks.push(note);
+    }
+    this.physicalNotes.set(event.code, owned);
+    // Register both keys before validation observes the simultaneous chord.
+    for (const note of attacks) {
+      this.recentAttacks.push(at);
+      this.callbacks.noteOn(note.midi, note.code, at);
+      this.callbacks.mappedKeyDown?.({ ...note, label: note.code === event.code && event.key?.length === 1 ? event.key.toUpperCase() : note.label, at });
+    }
     this.emit();
   };
 
   private onKeyUp = (event: KeyboardEvent): void => {
+    if (this.callbacks.routeKeyUp?.(event)) { event.preventDefault(); return; }
     this.detected.delete(event.code);
     this.shift = event.shiftKey && !event.code.startsWith("Shift");
     if (this.heldControls.delete(event.code)) { event.preventDefault(); this.emit(); return; }
+    const owned = this.physicalNotes.get(event.code);
+    if (owned) {
+      event.preventDefault();
+      this.physicalNotes.delete(event.code);
+      for (const code of owned) {
+        const owners = this.noteOwners.get(code);
+        owners?.delete(event.code);
+        if (owners?.size) continue;
+        this.noteOwners.delete(code);
+        const note = this.held.get(code);
+        if (note) { this.held.delete(code); this.releaseHeld(code, note, performance.now()); }
+      }
+      this.emit();
+      return;
+    }
     const held = this.held.get(event.code);
     if (!held) {
       this.emit();
@@ -137,6 +185,8 @@ export class KeyboardInputManager {
     for (const [code, held] of this.held)
       this.releaseHeld(code, held, at);
     this.held.clear();
+    this.physicalNotes.clear();
+    this.noteOwners.clear();
     this.heldControls.clear();
     this.detected.clear();
     this.shift = false;
@@ -146,17 +196,31 @@ export class KeyboardInputManager {
   private emit = (): void => {
     const now = performance.now();
     this.recentAttacks = this.recentAttacks.filter((time) => now - time < 1000);
-    this.callbacks.change({
+    const snapshot: InputSnapshot = {
       pressed: [...this.held].flatMap(([code, value]) =>
         (value.chord ?? [value.midi]).map(midi => ({ code, label: value.label, midi }))),
       detected: [...this.detected],
       shift: this.shift,
       notesPerSecond: this.recentAttacks.length,
+    };
+    const previous = this.lastSnapshot;
+    if (previous && previous.shift === snapshot.shift && previous.notesPerSecond === snapshot.notesPerSecond &&
+      previous.detected.length === snapshot.detected.length && previous.detected.every((code, index) => code === snapshot.detected[index]) &&
+      previous.pressed.length === snapshot.pressed.length && previous.pressed.every((key, index) => {
+        const next = snapshot.pressed[index]; return key.code === next.code && key.label === next.label && key.midi === next.midi;
+      })) return;
+    this.lastSnapshot = snapshot;
+    if (!this.options.batchChanges) this.callbacks.change(snapshot);
+    else if (this.changeFrame === null) this.changeFrame = requestAnimationFrame(() => {
+      this.changeFrame = null;
+      this.callbacks.change(this.lastSnapshot!);
     });
   };
 
   dispose(): void {
     this.releaseAll();
+    if (this.changeFrame !== null) cancelAnimationFrame(this.changeFrame);
+    this.changeFrame = null;
     window.removeEventListener("keydown", this.onKeyDown, true);
     window.removeEventListener("keyup", this.onKeyUp, true);
     window.removeEventListener("blur", this.releaseAll);

@@ -15,8 +15,8 @@ function midiNotes(path) {
    if(status===255){offset++;const n=variable();offset+=n;continue;}
    if(status===240||status===247){const n=variable();offset+=n;continue;}
    const kind=status>>4,pitch=b[offset++],velocity=kind===12||kind===13?0:b[offset++];
-   if(kind===9&&velocity)held.set(pitch,{tick,velocity});
-   if(kind===8||kind===9&&!velocity){const start=held.get(pitch);assert.ok(start);notes.push({beat:start.tick/ppq,midi:pitch,duration:(tick-start.tick)/ppq,velocity:start.velocity});held.delete(pitch);}
+   if(kind===9&&velocity)held.set(pitch,{tick,velocity,channel:status&15});
+   if(kind===8||kind===9&&!velocity){const start=held.get(pitch);assert.ok(start);notes.push({beat:start.tick/ppq,midi:pitch,duration:(tick-start.tick)/ppq,velocity:start.velocity,channel:start.channel});held.delete(pitch);}
   }
   assert.equal(held.size,0);
  }
@@ -58,8 +58,8 @@ export class Gain {constructor(value){this.gain=new Param(value);nodes.push(this
 export class Compressor extends Gain {} export class Volume extends Gain {constructor(value){super();this.volume=new Param(value);}}
 export class Limiter extends Gain {} export class WaveShaper extends Gain {} export class Filter extends Gain {} export class Panner extends Gain {} export class Synth {}
 export class PolySynth extends Gain {constructor(type,options){super();this.options=options;this.volume=new Param(options.volume);}triggerAttackRelease(note,duration,at,velocity){events.push({kind:'lead',note,duration,at,velocity,voice:this});}}
-export class ToneAudioBuffer {async load(name){this.name=name;this.loaded=true;this.duration=name.includes('hwm-backing')?19.35:name.includes('chord-cache')?22.9:name.includes('HiHat')?.25:name.includes('Kick')?.5355102041:.5671201814;}dispose(){this.disposed=true;}}
-export class ToneBufferSource extends Gain {constructor(options){super();this.options=options;this.context={isOffline:false};}start(at,offset,duration,gain){events.push({kind:this.options.url.name.includes('hwm-backing')?'hwm-backing':'drum',name:this.options.url.name,at,offset,gain,source:this});}stop(at){this.stopAt=at;}dispose(){this.disposed=true;}}
+export class ToneAudioBuffer {async load(name){this.name=name;this.loaded=true;this.duration=name.includes('original-recording-8bars')?19.2:name.includes('subtle_echo_8bars')?19.2:name.includes('hwm-backing')?19.35:name.includes('chord-cache')?22.9:name.includes('HiHat')?.25:name.includes('Kick')?.5355102041:.5671201814;}dispose(){this.disposed=true;}}
+export class ToneBufferSource extends Gain {constructor(options){super();this.options=options;this.context={isOffline:false};}start(at,offset,duration,gain){events.push({kind:this.options.url.name.includes('hwm-backing')?'hwm-backing':'drum',name:this.options.url.name,at,offset,duration,gain,source:this});}stop(at){this.stopAt=at;}dispose(){this.disposed=true;}}
 export let clockTime=0;export const setClock=value=>clockTime=value;
 export const immediate=()=>clockTime,now=immediate;
 export const context={lookAhead:.1,updateInterval:.05,isOffline:false},getContext=()=>context;
@@ -143,31 +143,152 @@ test('scheduling margin restores on finish, stop and replay and diagnostics repo
  engine.start();engine.pause();engine.resume();engine.stop();assert.equal(context.lookAhead,.1);assert.equal(context.updateInterval,.05);engine.dispose();setClock(0);
 });
 
-test('restored Roses backing schedules its original bass MIDI and both cached chord sounds without HWM harmony',async()=>{
+const rosesEvents=()=>events.filter(e=>e.name?.includes('subtle_echo_8bars'));
+test('approved finished Roses WAV is byte-identical to the supplied 24-bit stereo 8-bar render',()=>{
+ const manifest=JSON.parse(readFileSync('reference/roses-drop-replacement/installed-audio.json'));
+ const wav=readFileSync(manifest.file);
+ assert.equal(createHash('sha256').update(wav).digest('hex'),'a0867b153a72ac813fc9e6951561f1968bc549ca4f647329f90be17ed4c1f600');
+ assert.equal(wav.readUInt16LE(20),1);assert.equal(wav.readUInt16LE(22),2);assert.equal(wav.readUInt16LE(34),24);assert.equal(wav.readUInt32LE(24),44100);
+ assert.equal(wav.readUInt32LE(40)/6,846720);near(846720/44100,(arrangement.endBeat-arrangement.startBeat)*.6);
+ assert.ok(wav.subarray(-6).every(x=>x===0),'supplied end fade reaches silence without an extra tail');
+ const bass=midiNotes('reference/roses-drop-replacement/roses_drop_chords_and_bass_8bars.mid').filter(n=>n.channel===1);
+ assert.deepEqual([...new Set(bass.map(n=>n.midi%12))],[1,8,4],'C# → G# → E; no A bass');
+});
+test('Roses replaces every old instrumental route with one rate-1 finished mix; HWM lead remains separate',async()=>{
  const engine=await fresh();engine.setBackingSource('roses');engine.start();
- for(let beat=144;beat<=176;beat+=.25)engine.tick(beat,10+(beat-144)*.6,.6);
- assert.equal(backingEvents().length,0);
- const bass=events.filter(e=>e.kind==='bass');const expected=arrangement.notes.filter(e=>e.group==='bass');assert.equal(bass.length,35);
- expected.forEach((n,i)=>{assert.equal(bass[i].note,n.midi);near(bass[i].at,10+(n.beat-144)*.6);near(bass[i].duration,n.duration*.6);});
- const tracks=events.filter(e=>e.name?.includes('/chord-cache/'));assert.deepEqual(tracks.map(e=>e.name.split('/').at(-1)),['chordA.wav','chordB.wav','bonkA.wav','bonkB.wav']);
- tracks.forEach(e=>{near(e.at,10);assert.equal(e.offset,0);assert.equal(e.source.options.playbackRate,1);});
- assert.equal(events.filter(e=>e.kind==='lead').length,224);assert.equal(engine.snapshot().backingSource,'roses');
- engine.dispose();assert.ok(bass.every(e=>e.voice.disposed));
+ for(let beat=144;beat<=176;beat+=.25){engine.tick(beat,10+(beat-144)*.6,.6);engine.tick(beat,10+(beat-144)*.6,.6);}
+ assert.equal(backingEvents().length,0);assert.equal(rosesEvents().length,1);
+ const sample=rosesEvents()[0];near(sample.at,10);assert.equal(sample.offset,0);near(sample.duration,19.2);
+ assert.equal(sample.source.options.playbackRate,1);assert.equal(sample.source.options.fadeIn,0);assert.equal(sample.source.options.fadeOut,0);
+ assert.equal(sample.source.destination,engine.buses.get('chords'));
+ assert.equal(events.some(e=>e.kind==='bass'||e.name?.includes('/chord-cache/')),false);
+ assert.equal(events.filter(e=>e.source).length,1,'no old kick, clap, hat, stems or wet-only ambience underneath');
+ assert.equal(events.filter(e=>e.kind==='lead').length,224);assert.equal(engine.snapshot().backingSource,'roses');assert.equal(engine.snapshot().status,'done');engine.dispose();
 });
-test('Roses preset, separate chord-row controls and replay retain source choice and timing',async()=>{
- const engine=await fresh();engine.setBackingSource('roses');engine.setChordPreset('bright');engine.setChordLevel(0,.7);engine.start();engine.tick(144,10,.6);
- assert.equal(engine.chordBuses[0].gain.value,.7);assert.equal(engine.chordBuses[2].gain.value,.7);
- assert.equal(engine.buses.get('bonkChords').gain.value,.32);engine.setRow('bonkChords',{solo:true,volume:.4});assert.equal(engine.buses.get('chords').gain.value,0);assert.equal(engine.buses.get('bonkChords').gain.value,.4);
- engine.setRow('bonkChords',{solo:false,enabled:false});assert.equal(engine.buses.get('bonkChords').gain.value,0);
- engine.stop();engine.start();engine.tick(144,20,.6);assert.equal(engine.snapshot().backingSource,'roses');assert.equal(engine.snapshot().chordPreset,'bright');
- assert.deepEqual(events.filter(e=>e.name?.includes('/chord-cache/')).slice(-4).map(e=>e.name.split('/').at(-1)),['brightA.wav','brightB.wav','bonkA.wav','bonkB.wav']);engine.dispose();
+test('finished instrumental reuses existing gain/mute/solo controls and ignores hidden stem settings',async()=>{
+ const engine=await fresh();engine.setRow('bass',{solo:true});engine.setBackingSource('roses');engine.setChordPreset('bright');engine.setChordLevel(0,1.5);
+ engine.start();engine.tick(144,10,.6);const count=events.length;
+ assert.equal(engine.buses.get('chords').gain.value,.32,'a hidden HWM bass solo cannot mute the Roses instrumental');
+ for(const id of ['bass','bonkChords','drums'])assert.equal(engine.buses.get(id).gain.value,0);
+ engine.setRow('chords',{volume:.7,solo:true});assert.equal(engine.buses.get('chords').gain.value,.7);assert.equal(engine.buses.get('lead').gain.value,0);
+ engine.setChordPreset('original');engine.setChordLevel(1,0);engine.muteDrum('kick',true);engine.tick(144.25,10.15,.6);
+ assert.equal(rosesEvents().length,1,'legacy timbre/percussion controls never restart or alter the finished WAV');
+ engine.setRow('chords',{muted:true});assert.equal(engine.buses.get('chords').gain.value,0);
+ engine.allOn();assert.equal(engine.buses.get('chords').gain.value,.7);engine.muteAll();assert.equal(engine.buses.get('chords').gain.value,0);
+ engine.allOn();engine.resetVolumes();assert.equal(engine.buses.get('chords').gain.value,.32);assert.equal(events.length,count+4);engine.dispose();
 });
-test('backing source changes and paused changes cancel old harmony, retain lead voices and join at the current offset',async()=>{
- const engine=await fresh();engine.start();engine.tick(144,10,.6);const old=backingEvents();const banks=[...engine.lead.banks.values()];
+test('Roses pause, seek, replay and source switches keep one instrumental and cancel queued old percussion',async()=>{
+ const engine=await fresh();engine.start();engine.tick(144,10,.6);const old=events.filter(e=>e.source);const banks=[...engine.lead.banks.values()];
  engine.setBackingSource('roses');assert.ok(old.every(e=>e.source.disposed));assert.deepEqual([...engine.lead.banks.values()],banks);
- engine.tick(145,10.6,.6);events.filter(e=>e.name?.includes('/chord-cache/')).forEach(e=>near(e.offset,.6));
- engine.pause();engine.setBackingSource('hwm');engine.setBackingSource('roses');const bass=engine.rosesBass;
- engine.resume();assert.equal(engine.rosesBass,bass,'resume cannot create a second bass engine');engine.tick(145.25,11,.6);
- engine.setBackingSource('hwm');assert.ok(bass.disposed);engine.tick(145.5,11.15,.6);backingEvents().slice(-2).forEach(e=>near(e.offset,.9));
- assert.equal(engine.buses.get('bonkChords').gain.value,0);assert.equal(engine.snapshot().leadSound,'original');engine.dispose();
+ engine.tick(145,10.6,.6);near(rosesEvents()[0].offset,.6);near(rosesEvents()[0].duration,18.6);
+ engine.pause();assert.ok(rosesEvents()[0].source.disposed);engine.resume();engine.tick(145.25,11,.6);near(rosesEvents()[1].offset,.75);
+ engine.pause();engine.setBackingSource('hwm');engine.setBackingSource('roses');assert.equal(rosesEvents().length,2,'no source starts while paused');
+ engine.resume();engine.tick(145.5,12,.6);near(rosesEvents()[2].offset,.9);
+ engine.setBackingSource('hwm');assert.ok(rosesEvents()[2].source.disposed);engine.tick(145.75,12.15,.6);backingEvents().slice(-2).forEach(e=>near(e.offset,1.05));
+ engine.setBackingSource('roses');engine.stop();engine.start();engine.tick(144,20,.6);near(rosesEvents().at(-1).offset,0);
+ engine.stop();const count=events.length;engine.tick(145,21,.6);assert.equal(events.length,count);assert.ok(rosesEvents().every(e=>e.source.disposed));engine.dispose();
+});
+
+const recordedEvents=()=>events.filter(e=>e.name?.includes('original-recording-8bars'));
+test('recording optionally adds the exact four-bank HWM melody with separate level, mute and solo',async()=>{
+ const engine=await fresh();engine.setBackingSource('recording');assert.equal(engine.snapshot().rows.lead.enabled,false);
+ engine.setRow('lead',{enabled:true,volume:.7});engine.start();
+ for(let beat=144;beat<=176;beat+=.25)engine.tick(beat,10+(beat-144)*.6,.6);
+ const notes=events.filter(e=>e.kind==='lead');assert.equal(notes.length,224);assert.equal(recordedEvents().length,1);
+ assert.equal(events.length,225,'one recording and the existing lead, with no added bass/chords/drums');
+ assert.equal(new Set(notes.map(e=>e.voice)).size,4);
+ const source=JSON.parse(readFileSync('reference/here-with-me-drop-lead/roses_37_52_here_with_me_lead_16bar_events.json')).events.filter(e=>e.repeat_index<2);
+ source.forEach((n,i)=>{assert.equal(notes[i].note,midiName(n.midi_pitch+1));near(notes[i].at,10+n.start_seconds_relative_to_rose_bar37);near(notes[i].duration,n.duration_seconds);});
+ near(engine.buses.get('lead').gain.value,.7);engine.setRow('lead',{muted:true});near(engine.buses.get('lead').gain.value,0);
+ engine.setRow('lead',{muted:false,solo:true});near(engine.buses.get('recorded').gain.value,0);
+ engine.setRow('lead',{solo:false});near(engine.buses.get('recorded').gain.value,.8);
+ engine.stop();engine.start();assert.equal(engine.snapshot().rows.lead.enabled,true);engine.dispose();
+});
+
+test('optional recorded lead toggles and resumes in place without restarting audio or changing other modes enable state',async()=>{
+ const engine=await fresh();engine.setRow('lead',{enabled:false});engine.setBackingSource('recording');engine.start();
+ engine.tick(144,10,.6);engine.tick(152,14.8,.6);
+ engine.setRow('lead',{enabled:true});const original=engine.lead;
+ for(let b=152.25;b<=153;b+=.25)engine.tick(b,10+(b-144)*.6,.6);
+ assert.ok(events.some(e=>e.kind==='lead'&&e.at>=14.95));assert.equal(recordedEvents().length,1);
+ engine.setRow('lead',{enabled:false});assert.equal(engine.lead,undefined);assert.equal(original.banks.size,0);
+ engine.setRow('lead',{enabled:true});engine.pause();engine.resume(153,16);
+ engine.tick(153.25,16.15,.6);assert.equal(recordedEvents().length,2,'resume joins exactly one recording source');
+ near(recordedEvents()[1].offset,5.4);
+ engine.setBackingSource('hwm');assert.equal(engine.snapshot().rows.lead.enabled,false,'the separate original-mode enable setting was retained');
+ engine.setBackingSource('recording');assert.equal(engine.snapshot().rows.lead.enabled,true);engine.dispose();
+});
+test('original recording is preloaded and plays alone at the selected offset with no live lead or old percussion',async()=>{
+ for(const offset of [-500,-80,0,120,500]){
+  const engine=await fresh();engine.setBackingSource('recording');engine.setRecordedOffset(offset);engine.start();
+  for(let beat=140;beat<=176;beat+=.25){engine.tick(beat,10+(beat-144)*.6,.6);engine.tick(beat,10+(beat-144)*.6,.6);}
+  assert.equal(recordedEvents().length,1);assert.equal(events.length,1,'exactly one prerecorded instrumental and zero synth notes or drum hits');
+  const e=recordedEvents()[0];near(e.at,10+offset/1000);near(e.offset,0);near(e.duration+e.source.options.fadeOut,Math.min(19.2,19.2-offset/1000));
+  assert.equal(e.source.options.playbackRate,1);assert.equal(e.source.destination,engine.buses.get('recorded'));assert.equal(engine.lead,undefined);
+  assert.equal(engine.snapshot().status,'done');engine.dispose();assert.ok(e.source.disposed);
+ }
+});
+test('direct starts at 37, 39 and 41 join the correct source position for every offset; mid-take edits wait for restart',async()=>{
+ for(const entry of [144,152,160])for(const offset of [-500,0,500]){
+  const engine=await fresh();engine.setBackingSource('recording');engine.setRecordedOffset(offset);engine.start();
+  for(let beat=entry;beat<=entry+1;beat+=.25)engine.tick(beat,10+(beat-entry)*.6,.6);
+  assert.equal(recordedEvents().length,1);const e=recordedEvents()[0];
+  near(e.at,10+Math.max(0,offset/1000-(entry-144)*.6));near(e.offset,Math.max(0,(entry-144)*.6-offset/1000));
+  engine.setRecordedOffset(200);assert.equal(engine.snapshot().activeRecordedOffsetMs,offset);assert.equal(recordedEvents().length,1);
+  engine.pause();assert.ok(e.source.disposed);engine.resume();engine.tick(entry+1.25,11,.6);
+  near(recordedEvents()[1].offset,(entry+1.25-144)*.6-offset/1000);
+  engine.stop();engine.start();engine.tick(144,20,.6);engine.tick(144.25,20.15,.6);
+  near(recordedEvents().at(-1).at,20.2);engine.dispose();
+ }
+});
+test('switching to original recording cancels old instruments and switching back restores the same four lead banks',async()=>{
+ const engine=await fresh();engine.start();engine.tick(144,10,.6);const old=events.slice();
+ engine.setBackingSource('recording');assert.ok(old.filter(e=>e.source).every(e=>e.source.disposed));assert.ok(old.filter(e=>e.voice).every(e=>e.voice.disposed));
+ engine.tick(145,10.6,.6);near(recordedEvents()[0].offset,.6);assert.equal(engine.lead,undefined);
+ engine.setRow('recorded',{volume:.4,solo:true});assert.equal(engine.buses.get('recorded').gain.value,.4);
+ engine.muteAll();assert.equal(engine.buses.get('recorded').gain.value,0);engine.allOn();assert.equal(engine.buses.get('recorded').gain.value,.4);
+ engine.setBackingSource('hwm');assert.ok(recordedEvents()[0].source.disposed);engine.tick(145.25,10.75,.6);assert.equal(engine.lead.banks.size,4);
+ backingEvents().slice(-2).forEach(e=>near(e.offset,.75));assert.equal(engine.buses.get('recorded').gain.value,0);engine.dispose();
+});
+test('recorded-drop offset, volume, and operator solo settings survive a fresh engine without changing backing modes',async()=>{
+ const descriptor=Object.getOwnPropertyDescriptor(globalThis,'localStorage'),saved=new Map();
+ Object.defineProperty(globalThis,'localStorage',{configurable:true,value:{getItem:k=>saved.get(k)??null,setItem:(k,v)=>saved.set(k,v)}});
+ try{
+  const first=await fresh();first.setBackingSource('recording');first.setRecordedOffset(-83);first.setRow('recorded',{volume:2,solo:true});first.start();assert.equal(first.buses.get('recorded').gain.value,2);first.dispose();
+  const second=await fresh();assert.equal(second.snapshot().recordedOffsetMs,-80);assert.equal(second.snapshot().rows.recorded.volume,2);assert.equal(second.snapshot().rows.recorded.solo,true);assert.equal(second.snapshot().backingSource,'hwm');second.setRow('chords',{volume:2});assert.equal(second.snapshot().rows.chords.volume,1);second.dispose();
+ }finally{if(descriptor)Object.defineProperty(globalThis,'localStorage',descriptor);else delete globalThis.localStorage;}
+});
+
+test('official WAV extraction preserves source samples, stereo PCM24 level and the measured eight-bar phrase',()=>{
+ const analysis=JSON.parse(readFileSync('reference/roses-original-recording/analysis.json'));
+ const wav=readFileSync(analysis.output);
+ assert.equal(createHash('sha256').update(wav).digest('hex'),analysis.sha256);
+ assert.equal(wav.readUInt16LE(20),1);assert.equal(wav.readUInt16LE(22),2);assert.equal(wav.readUInt16LE(34),24);assert.equal(wav.readUInt32LE(24),44100);
+ near(wav.readUInt32LE(40)/6/44100,19.2);assert.equal(analysis.inPointFrame,3833743);assert.equal(analysis.outPointFrame,4680463);
+ assert.equal(analysis.normalization,false);assert.equal(analysis.pitchShiftSemitones,0);assert.equal(analysis.playbackRate,1);
+ assert.equal(analysis.clapOnsetsSeconds.length,16);assert.ok(Math.abs(analysis.measuredBpm-100)<.01);assert.ok(analysis.maxTimingResidualSeconds<.001);
+ assert.ok(wav.subarray(-6).every(x=>x===0));assert.ok(wav.subarray(44,50).every(x=>x===0));
+ assert.equal(analysis.bodyDifferenceFromSource,0);assert.equal(analysis.sourceFullScaleSamplesInExtract,452,'existing source peaks are reported, not silently processed');
+ const source=readFileSync(analysis.storedSource);assert.equal(createHash('sha256').update(source).digest('hex'),analysis.sourceSha256);
+ // Independently compare native PCM16 source frames to the packed PCM24 body.
+ const view=new DataView(source.buffer,source.byteOffset,source.byteLength);let at=12,dataOffset;
+ while(at<source.length){const name=source.toString('ascii',at,at+4),size=view.getUint32(at+4,true);if(name==='data'){dataOffset=at+8;break;}at+=8+size+(size%2);}
+ assert.ok(dataOffset);
+ for(let frame=analysis.startRampSamples;frame<analysis.frames-441;frame+=997)for(let channel=0;channel<2;channel++){
+  const sourceSample=source.readInt16LE(dataOffset+((analysis.inPointFrame+frame)*2+channel)*2);
+  const index=44+(frame*2+channel)*3;
+  const outputSample=(wav[index]|wav[index+1]<<8|wav[index+2]<<16)<<8>>8;
+  assert.equal(outputSample,sourceSample*256,'source stereo body is preserved without DSP or resampling');
+ }
+});
+
+test('the new source resets legacy MOV sync calibration once while retaining recorded volume',async()=>{
+ const descriptor=Object.getOwnPropertyDescriptor(globalThis,'localStorage');
+ const saved=new Map([['stage-piano-roses-recorded-drop-v1',JSON.stringify({offsetMs:-250,volume:1.25})]]);
+ Object.defineProperty(globalThis,'localStorage',{configurable:true,value:{getItem:k=>saved.get(k)??null,setItem:(k,v)=>saved.set(k,v)}});
+ try{
+  const first=await fresh();assert.equal(first.snapshot().recordedOffsetMs,0);assert.equal(first.snapshot().rows.recorded.volume,1.25);
+  first.setRecordedOffset(120);first.dispose();const second=await fresh();assert.equal(second.snapshot().recordedOffsetMs,120);assert.equal(second.snapshot().rows.recorded.volume,1.25);second.dispose();
+  assert.equal(JSON.parse(saved.get('stage-piano-roses-recorded-drop-v1')).offsetMs,-250);
+ }finally{if(descriptor)Object.defineProperty(globalThis,'localStorage',descriptor);else delete globalThis.localStorage;}
 });

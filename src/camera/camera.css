@@ -1,0 +1,32 @@
+.camera-settings { position:fixed; bottom:12px; left:12px; z-index:2147483646; max-width:min(350px,calc(100vw - 24px)); color:#e8e0ed; font:12px/1.5 'DM Sans',sans-serif; text-align:left; cursor:auto; }
+.camera-settings summary { width:fit-content; padding:8px 12px; border:1px solid #ffffff25; border-radius:8px; background:#12121be8; cursor:pointer; }
+.camera-settings[open] { padding:16px; border:1px solid #e7a4c744; border-radius:12px; background:#12121bf5; box-shadow:0 12px 50px #0008; max-height:calc(100dvh - 24px); overflow:auto; }
+.camera-settings[open] summary { margin-bottom:12px; }
+.camera-settings label,.camera-settings small { display:block; margin-top:10px; }
+.camera-settings small { color:#a9a3b4; }
+.camera-settings select { width:100%; margin:6px 0; }
+.camera-settings select,.camera-settings button,.camera-placeholder button { background:#24212e; color:#f4e9f0; border:1px solid #ffffff30; padding:7px 9px; border-radius:6px; font:inherit; }
+.camera-actions { display:flex; flex-wrap:wrap; gap:6px; }
+.camera-settings button:disabled { opacity:.5; }
+.camera-overlay { position:fixed; z-index:2147483645; aspect-ratio:16/9; overflow:hidden; isolation:isolate; border:1px solid #e8bad64d; border-radius:14px; background:#0d0b12; box-shadow:0 15px 55px #0009,0 0 24px #f297c315; color:#f7e9f1; cursor:auto; }
+.camera-overlay[hidden] { display:none; }
+.camera-overlay::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,#08050d80,transparent 27%,transparent 72%,#08050d55); }
+.camera-overlay video { width:100%; height:100%; object-fit:cover; display:block; }
+.camera-drag,.camera-hide,.camera-resize { position:absolute; z-index:2; color:#fff; border:0; background:transparent; padding:10px; }
+.camera-drag { top:0; left:0; width:calc(100% - 32px); display:flex; gap:7px; align-items:center; font:9px monospace; letter-spacing:.14em; cursor:move; touch-action:none; }
+.camera-drag i { width:5px; height:5px; background:#f2adc9; border-radius:50%; }
+.camera-drag span { margin-left:auto; opacity:.6; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:70%; }
+.camera-hide { top:0; right:0; cursor:pointer; }
+.camera-resize { bottom:0; right:0; cursor:nwse-resize; touch-action:none; }
+.camera-placeholder { position:absolute; inset:32px 14px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; font:11px/1.4 sans-serif; text-align:center; }
+.camera-placeholder button { z-index:3; }
+.camera-feed-status { position:absolute; inset:auto 20px 22px; z-index:2; font:11px/1.4 sans-serif; background:#12121be8; padding:8px; border-radius:6px; }
+
+.shared-settings-panel { padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid #ffffff25; }
+
+.camera-enable-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:12px 0; }
+.camera-enable-row label { margin:0; }
+.camera-settings .camera-enable-row .toggle { padding:3px; flex-shrink:0; border:0; border-radius:20px; background:#3a464d; }
+.camera-settings .camera-enable-row .toggle.on { background:#6ecfc6; box-shadow:0 0 12px #6ecfc622; }
+.camera-playback-error { position:absolute; inset:40px 12px auto; z-index:3; display:flex; align-items:center; justify-content:center; gap:8px; padding:8px; background:#12121be8; border-radius:6px; font:11px sans-serif; }
+.camera-playback-error button { background:#24212e; color:#f4e9f0; border:1px solid #ffffff30; padding:6px; border-radius:6px; }

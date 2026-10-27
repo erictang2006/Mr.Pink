@@ -4,16 +4,16 @@ import { build } from 'esbuild';
 import { readFileSync } from 'node:fs';
 
 const bundle = await build({
-  stdin: { contents: `export { hereWithMeChords, hereWithMeChordShortcuts } from './src/piano/hereWithMeChords';
+  stdin: { contents: `export * from './src/piano/visualDropChords';export {rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey} from './src/piano/rosesIntroKeys';export {silentBuildupLeadGesture} from './src/piano/rosesManualBuildupLead';export { impactSources } from 'tone';export { hereWithMeChords, hereWithMeChordShortcuts } from './src/piano/hereWithMeChords';
     export { HereWithMeLeadEngine } from './src/piano/hereWithMeLeadEngine';
     export { KeyboardInputManager } from './src/piano/keyboardInput';
     export { SynthEngine } from './src/piano/synthEngine';
     export { RosesChordStabEngine } from './src/piano/rosesChordStabEngine';
     export { LiveNotes } from './src/piano/liveNotes';
-    export { rosesChordShortcuts, rosesChordSource } from './src/piano/rosesChords';
+    export { rosesChordShortcuts, rosesChordSource } from './src/piano/rosesChords';export {rosesLiveChordShortcuts,rosesChordEngineCode,rosesChordBindings,rosesIndividualChordPitch,rosesIndividualChordNotes} from './src/piano/rosesIndividualChords';
     export { validRosesDropSettings } from './src/piano/rosesDropSettings';
     export { rosesMap } from './src/piano/roses';
-    export { bonkPitchForRoot } from './src/piano/rosesFutureBassLayers';`, resolveDir: process.cwd() },
+    export { bonkPitchForRoot, RosesFutureBassLayers } from './src/piano/rosesFutureBassLayers';`, resolveDir: process.cwd() },
   bundle: true, platform: 'node', format: 'esm', write: false,
   plugins: [{ name: 'audio-time', setup(builder) {
     builder.onResolve({ filter: /^tone$/ }, () => ({ path: 'tone', namespace: 'mock' }));
@@ -23,12 +23,12 @@ const bundle = await build({
       export class Gain {} export class Filter {} export class Chorus {}
       export class FeedbackDelay {} export class JCReverb {} export class Volume {}
       export class Distortion {} export class Compressor {}
-      export class WaveShaper {} export class ToneAudioBuffer {} export class ToneBufferSource {} export class ToneAudioNode {}
+      export class WaveShaper {} export class ToneAudioBuffer {} export const impactSources=[];export class ToneBufferSource {constructor(options){impactSources.push(options);}connect(){return this;}start(){}} export class ToneAudioNode {}
       export class Panner {} export class EQ3 {} export class Limiter {}
     ` }));
   } }],
 });
-const { hereWithMeChords, hereWithMeChordShortcuts, HereWithMeLeadEngine, KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot } =
+const { pressVisualDropChord, releaseVisualDropChord, visualDropChords, visualDropChordShortcuts, rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey, silentBuildupLeadGesture, hereWithMeChords, hereWithMeChordShortcuts, HereWithMeLeadEngine, KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesLiveChordShortcuts, rosesChordEngineCode, rosesChordBindings, rosesIndividualChordPitch, rosesIndividualChordNotes, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot, RosesFutureBassLayers, impactSources } =
   await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
 
 class Target {
@@ -50,7 +50,7 @@ test('drop controls reject invalid stored settings and retain independent layer 
   assert.equal(settings.bassEnabled, false, 'the optional bass can still be disabled');
   assert.equal(settings.duck, true);
 });
-function setup() {
+function setup(individual = false) {
   globalThis.window = new Target();
   window.setInterval = setInterval; window.clearInterval = clearInterval;
   globalThis.document = new Target(); document.hidden = false;
@@ -88,7 +88,7 @@ function setup() {
     releaseAll() { futureActive.clear(); },
     triggerAttack(note, at) { futureEvents.push(['on', note, at]); futureActive.set(note, (futureActive.get(note) ?? 0) + 1); },
     triggerRelease(note, at) { futureEvents.push(['off', note, at]); futureActive.set(note, Math.max(0, (futureActive.get(note) ?? 0) - 1)); },
-    triggerImpact(root, at, velocity) { impactEvents.push({ root, at, velocity }); },
+    triggerImpact(root, at, velocity, individualNote=false) { impactEvents.push({ root, at, velocity, individualNote }); },
   };
   const closerEvents = [], closerImpacts = [], closerActive = new Map();
   stabs.closer = {
@@ -106,23 +106,32 @@ function setup() {
   });
   let snapshot, graded = 0;
   const input = new KeyboardInputManager(rosesMap, {
-    noteOn(midi, code, at) { synth.noteOn(code, midi); notes.on(code, midi, at); graded++; },
-    noteOff(midi, code, at) { synth.noteOff(code); notes.off(code, at); },
+    pitchForKey: individual ? (event, transpose) => rosesIntroKeyPitch(event.code, transpose) ?? rosesIndividualChordPitch(event.code) : undefined,
+    noteOn(midi, code, at) {
+      if(individual && rosesIndividualChordPitch(code)!==undefined){const source=rosesChordSource(code,midi);notes.on(source,midi,at);}
+      else {synth.noteOn(code, midi); notes.on(code, midi, at);} graded++;
+    },
+    noteOff(midi, code, at) {
+      if(individual && rosesIndividualChordPitch(code)!==undefined){const source=rosesChordSource(code,midi);notes.off(source,at,false);}
+      else {synth.noteOff(code); notes.off(code, at);}
+    },
     chordOn(pitches, code, at) {
+      if(individual && pressVisualDropChord(notes,code,pitches,at))return;
       for (const midi of pitches) {
         const source = rosesChordSource(code, midi);
-        if (stabs.noteOn(source, midi, code, 42)) notes.on(source, midi, at);
+        if (stabs.noteOn(rosesChordSource(individual ? rosesChordEngineCode(code) : code, midi), midi, individual ? rosesChordEngineCode(code) : code, 42)) notes.on(source, midi, at);
       }
     },
     chordOff(pitches, code, at) {
+      if(individual && releaseVisualDropChord(notes,code,pitches,at))return;
       for (const midi of pitches) {
         const source = rosesChordSource(code, midi);
-        stabs.noteOff(source); notes.off(source, at);
+        stabs.noteOff(rosesChordSource(individual ? rosesChordEngineCode(code) : code, midi)); notes.off(source, at);
       }
     },
     change(value) { snapshot = value; },
   });
-  input.setEnabled(true); input.setChords(rosesChordShortcuts);
+  input.setEnabled(true); input.setChords(individual ? {...rosesLiveChordShortcuts,...visualDropChordShortcuts} : rosesChordShortcuts);
   const key = (type, code, extra = {}) => window.dispatch(type, {
     code, repeat: false, shiftKey: false, target: null, preventDefault() {}, ...extra,
   });
@@ -479,5 +488,175 @@ test('HWM chord/guitar/pad option plays one full chord per key, preserves old ke
   assert.ok([...state.manualActive.values()].every(n=>n===0));assert.equal(state.stabs.manualSources.size,0);
   state.stabs.setSustain(false);state.key('keydown','Digit8');assert.ok(state.active.size>0,'physical 1–8 retain their own instrument');state.key('keyup','Digit8');
   assert.equal(state.graded(),0);
+ }finally{state.input.dispose();}
+});
+
+
+test('P/O/I reproduce original 8/7/6 full-chord engine attacks, impacts, bass and release',()=>{
+ for(const mode of ['bonk','drop'])for(const [code,original] of [['KeyP','Digit8'],['KeyO','Digit7'],['KeyI','Digit6']]){
+  const legacy=setup();legacy.stabs.settings=validRosesDropSettings({mode});
+  legacy.key('keydown',original);legacy.key('keyup',original);legacy.input.dispose();
+  const state=setup(true);state.stabs.settings=validRosesDropSettings({mode});
+  try {
+   state.key('keydown',code);state.key('keydown',code,{repeat:true});
+   assert.deepEqual(state.snapshot().pressed.map(n=>n.midi),rosesChordShortcuts[original]);
+   assert.ok(state.snapshot().pressed.every(n=>n.code===code),'visual owner uses physical key');
+   state.key('keyup',code);
+   for(const field of ['events','futureEvents','impactEvents','bassEvents'])assert.deepEqual(state[field],legacy[field],field);
+   assert.equal(state.stabs.held.size,0);assert.equal(state.stabs.bassOwners.size,0);
+   assert.equal(state.melodyActive.size,0);
+   state.stabs.setSustain(true);state.key('keydown',code);state.key('keyup',code);
+   assert.equal(state.stabs.held.size,0);assert.ok(state.stabs.sustained.size>0);
+   state.stabs.setSustain(false);
+   assert.ok([...(mode==='bonk'?state.futureActive:state.active).values()].every(count=>count===0),'pedal release clears aliased chord voices');
+   state.key('keydown',code);window.dispatch('blur');
+   assert.equal(state.snapshot().pressed.length,0);assert.equal(state.stabs.held.size,0);
+  }finally{state.input.dispose();}
+ }
+});
+
+test('chord gesture notes are visual only, while explicit manual buildup lead retains its keys',()=>{
+ const state=setup(true);
+ try{
+  for(const [code,midi] of Object.entries(rosesIndividualChordNotes)){
+   if(['KeyP','KeyO','KeyI'].includes(code))continue;
+   state.key('keydown',code);state.key('keydown',code,{repeat:true});
+   assert.deepEqual(state.snapshot().pressed.map(note=>note.midi),[midi]);
+   state.key('keyup',code);
+  }
+  assert.equal(state.events.length,0);assert.equal(state.futureEvents.length,0);assert.equal(state.impactEvents.length,0);assert.equal(state.melodyActive.size,0);
+  state.key('keydown','KeyT');state.key('keydown','KeyU');window.dispatch('blur');assert.equal(state.snapshot().pressed.length,0);
+  for(const code of ['Digit1','Equal']){state.key('keydown',code);assert.equal(state.snapshot().pressed.length,code==='Equal'?visualDropChordShortcuts.Equal.length:4);state.key('keyup',code);}
+  assert.equal(rosesChordBindings(true).KeyP,undefined);
+  assert.equal(rosesChordBindings(true).KeyO,undefined);
+  assert.deepEqual(rosesChordBindings(false).KeyP,rosesChordShortcuts.Digit8);
+ }finally{state.input.dispose();}
+});
+
+test('actual Bonk source playback rates preserve ascending E/T/U/P intervals and retain legacy chord-root tuning',()=>{
+ const voice={bonkBuffer:{loaded:true},disposed:false,impacts:new Set(),bonkHighPass:{}};
+ const midiForRate=rate=>36+12*Math.log2(rate);
+ for(const midi of Object.values(rosesIndividualChordNotes)){
+  voice.impacts.clear();RosesFutureBassLayers.prototype.triggerImpact.call(voice,midi,42,.9,true);
+  assert.ok(Math.abs(midiForRate(impactSources.at(-1).playbackRate)-(midi-24))<1e-9);
+  voice.impacts.clear();RosesFutureBassLayers.prototype.triggerImpact.call(voice,midi,42,.9);
+  assert.ok(Math.abs(midiForRate(impactSources.at(-1).playbackRate)-bonkPitchForRoot(midi))<1e-9,'existing chord/root calls keep their original playback rates');
+ }
+ const pitches=[61,64,68,73];const actual=[];
+ for(const midi of pitches){voice.impacts.clear();RosesFutureBassLayers.prototype.triggerImpact.call(voice,midi,42,.9,true);actual.push(midiForRate(impactSources.at(-1).playbackRate));}
+ assert.deepEqual(actual.map((pitch,index)=>Math.round(pitch-actual[0])),[0,3,7,12]);
+ for(const midi of pitches){
+  const wave=readFileSync(`public/roses/live-bonk-waves/center-${midi}.wav`),rate=wave.readUInt32LE(24),crossings=[];
+  for(let i=rate+1;i<2*rate;i++)if(wave.readFloatLE(44+(i-1)*4)<=0&&wave.readFloatLE(44+i*4)>0)crossings.push(i);
+  const hz=(crossings.length-1)*rate/(crossings.at(-1)-crossings[0]);
+  assert.ok(Math.abs(69+12*Math.log2(hz/440)-midi)<.01,'the sustained WAV body is at the actual MIDI pitch, not an octave below');
+ }
+});
+
+
+test('both HWM gesture phrases including A–W depress keys and draw trails without live notes',()=>{
+ globalThis.window=new Target();window.setInterval=setInterval;window.clearInterval=clearInterval;globalThis.document=new Target();document.hidden=false;
+ let snapshot;const notes=new LiveNotes(),sounds=[],owners=new Set();let mode='auto',measure=29;
+ const input=new KeyboardInputManager(rosesMap,{
+  noteOn(midi,code,at){if(silentBuildupLeadGesture(mode,'running',measure,'roses',code)){owners.add(code);notes.on(`roses-gesture:${code}:${midi}`,midi,at);}else sounds.push(['on',code,midi]);},
+  noteOff(midi,code,at){if(owners.delete(code))notes.off(`roses-gesture:${code}:${midi}`,at,false);else sounds.push(['off',code,midi]);},change:value=>{snapshot=value;},
+ });input.setEnabled(true);
+ const key=(type,code)=>window.dispatch(type,{code,target:null,repeat:false,shiftKey:false,preventDefault(){}});
+ try{
+  for(const letter of 'jhhffdsjhhffdsaw'){
+   const code=`Key${letter.toUpperCase()}`;key('keydown',code);assert.equal(snapshot.pressed.length,1);assert.equal(snapshot.pressed[0].code,code);assert.equal(notes.soundingNotes().length,1);
+   key('keyup',code);assert.equal(snapshot.pressed.length,0);assert.equal(notes.soundingNotes().length,0);
+  }
+  assert.deepEqual(sounds,[],'gestures create neither synth attacks nor releases');assert.equal(notes.visible(performance.now(),4400).length,16,'both complete phrases, including A–W, leave silent trails');
+  measure=28;key('keydown','KeyF');key('keyup','KeyF');assert.equal(sounds.length,2,'earlier live input is unchanged');
+  measure=37;key('keydown','KeyJ');key('keyup','KeyJ');assert.equal(sounds.length,4,'drop input is unchanged');
+  measure=29;mode='manual';key('keydown','KeyH');key('keyup','KeyH');key('keydown','KeyS');key('keyup','KeyS');assert.equal(sounds.length,4,'visual gesture keys stay silent in manual mode too');
+  assert.equal(notes.visible(performance.now(),4400).length,18,'manual-mode gesture taps also leave visual trails');
+  measure=36;key('keydown','KeyS');key('keyup','KeyS');assert.equal(sounds.length,6,'the bar-36 break retains existing live-key routing');
+ }finally{input.dispose();}
+});
+
+
+test('separate original intro keys keep their sound while T/Y/U are silent gestures', () => {
+  const f=setup(true);
+  try {
+    for (const note of rosesIntroKeys()) f.key('keydown',note.code,{key:note.label});
+    assert.deepEqual(f.snapshot().pressed.map(key=>key.midi),[64,66,68]);
+    assert.equal(f.synth.held.size,3);
+    assert.equal(f.stabs.held.size,0);
+    assert.equal(f.impactEvents.length,0,'original synth has no chord Bonk attacks');
+    f.key('keydown','KeyL',{repeat:true});
+    assert.equal(f.synth.held.size,3);
+    f.key('keyup','Semicolon');
+    assert.equal(f.synth.held.size,2,'each note releases independently');
+    f.key('keydown','KeyT');
+    assert.equal(f.synth.held.size,2,'T cannot retrigger the intro synth');
+    assert.equal(f.stabs.held.size,0);
+    assert.ok(f.snapshot().pressed.some(note=>note.code==='KeyT'),'silent T still depresses its piano key');
+    window.dispatch('blur');
+    assert.equal(f.synth.held.size,0);
+    assert.equal(f.stabs.held.size,0);
+  } finally { f.input.dispose(); }
+});
+
+test('original intro note keys avoid G vocal and C accent, and transpose once', () => {
+  const keys=rosesIntroKeys('KeyG');
+  assert.deepEqual(keys.map(key=>key.code),['KeyL','Semicolon','Quote']);
+  assert.ok(keys.every(key=>key.code!=='KeyG'&&key.code!=='KeyC'));
+  for(const transpose of [-4,0,2])
+    assert.deepEqual(keys.map(key=>rosesIntroKeyPitch(key.code,transpose,'KeyG')),[64,66,68].map(midi=>midi+transpose));
+});
+
+
+test('saved C and retired L vocal cues migrate to G without taking an intro note or accent', () => {
+  for(const saved of ['KeyL','KeyC','KeyG','invalid']) {
+    const vocal=normalizeRosesVocalKey(saved);
+    assert.equal(vocal,'KeyG');
+    const keys=rosesIntroKeys(vocal);
+    assert.deepEqual(keys.map(key=>[key.code,key.midi]),[['KeyL',64],['Semicolon',66],['Quote',68]]);
+    assert.ok(keys.every(key=>key.code!==vocal));
+    assert.equal(rosesIntroKeyPitch('KeyC',0,vocal),undefined);
+    assert.equal(rosesIntroKeyPitch('KeyG',0,vocal),undefined);
+  }
+});
+
+
+test('drop visual chord keys use exact Roses MIDI plus an octave and never trigger audio',()=>{
+ const state=setup(true);state.stabs.setSustain(true);
+ const source=JSON.parse(readFileSync('src/piano/rosesDropArrangement.json'));
+ try{
+  for(const chord of visualDropChords){
+   const actual=[...new Set(source.notes.filter(note=>note.group==='chords'&&note.beat===chord.beat).map(note=>note.midi))].sort((a,b)=>a-b);
+   assert.deepEqual(chord.sourceNotes,actual);
+   assert.deepEqual(chord.notes,[...new Set([...actual,...actual.map(midi=>midi+12)])].sort((a,b)=>a-b));
+   state.key('keydown',chord.code);state.key('keydown',chord.code,{repeat:true});
+   assert.deepEqual(state.snapshot().pressed.map(n=>n.midi),chord.notes);
+   assert.deepEqual(state.notes.soundingPitches(),chord.notes,'piano and rising trails share the same visual notes');
+   state.key('keyup',chord.code);assert.equal(state.notes.soundingNotes().length,0,'pedal cannot latch visual-only chords');
+   state.key('keydown',chord.code);window.dispatch('blur');assert.equal(state.notes.soundingNotes().length,0);
+  }
+  for(const name of ['events','futureEvents','impactEvents','bassEvents','manualEvents','closerEvents'])assert.equal(state[name].length,0,`${name}: no instrument engine is called`);
+  assert.equal(state.melodyActive.size,0);assert.equal(state.stabs.held.size,0);
+  state.stabs.setSustain(false);state.key('keydown','KeyP');assert.ok(state.events.length>0,'P/O/I remain audible');state.key('keyup','KeyP');
+ }finally{state.input.dispose();}
+});
+
+test('Roses number keys 1–5 draw and release chord gestures without allocating any audio voices',()=>{
+ const state=setup(true);
+ try{
+  for(const mode of ['bonk','drop']){
+   state.stabs.settings=validRosesDropSettings({mode,closerMode:'loud'});
+   for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5']){
+    state.key('keydown',code);state.key('keydown',code,{repeat:true});
+    assert.deepEqual(state.snapshot().pressed.map(note=>note.midi),rosesChordShortcuts[code]);
+    assert.equal(state.notes.soundingNotes().length,4);
+    state.stabs.setSustain(true);state.key('keyup',code);
+    assert.equal(state.snapshot().pressed.length,0);assert.equal(state.notes.soundingNotes().length,0);
+    state.stabs.setSustain(false);
+   }
+  }
+  for(const field of ['events','futureEvents','impactEvents','bassEvents','closerEvents'])assert.deepEqual(state[field],[],field);
+  assert.equal(state.stabs.held.size,0);assert.equal(state.synth.held.size,0);
+  state.key('keydown','Digit2');window.dispatch('blur');assert.equal(state.notes.soundingNotes().length,0);
  }finally{state.input.dispose();}
 });

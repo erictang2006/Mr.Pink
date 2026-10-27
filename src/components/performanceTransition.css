@@ -1,0 +1,45 @@
+/* One brief scene bridge. Only transform/opacity animate; all glows are static. */
+.setlist-transition {
+  --bridge-color: #8eeaff;
+  --bridge-secondary: #9480f4;
+  position: absolute; inset: 0; z-index: 90; overflow: hidden;
+  pointer-events: none; isolation: isolate; color: #edfaff;
+  background: radial-gradient(ellipse at 50% 52%, #142644f5, #050916f7 72%);
+  animation: setlist-scene 1.9s ease both;
+}
+.transition-roses { --bridge-color: #ff95dc; --bridge-secondary: #7de8fa; }
+.transition-levels { --bridge-color: #9ef5da; --bridge-secondary: #72b9ff; }
+.setlist-curtain { position: absolute; top: 0; bottom: 0; width: 51%; background: linear-gradient(120deg, #0b1022, #17213c); animation: setlist-curtain 1.6s cubic-bezier(.22,.7,.25,1) both; }
+.curtain-left { left: 0; --exit: -105%; border-right: 1px solid var(--bridge-color); }
+.curtain-right { right: 0; --exit: 105%; border-left: 1px solid var(--bridge-secondary); }
+.setlist-horizon { position: absolute; left: 12%; right: 12%; top: 50%; height: 1px; background: linear-gradient(90deg, transparent, var(--bridge-color), #fff, var(--bridge-secondary), transparent); box-shadow: 0 0 26px 5px var(--bridge-color); animation: setlist-horizon 1.7s ease both; }
+.setlist-orbit { position: absolute; top: 50%; left: 50%; width: min(64vw, 75vh); aspect-ratio: 1; border: 1px solid var(--bridge-color); border-radius: 50%; box-shadow: 0 0 22px #8bdfff20, inset 0 0 22px #8bdfff10; animation: setlist-orbit 1.8s cubic-bezier(.16,.7,.25,1) both; }
+.orbit-two { width: min(73vw, 86vh); border-color: var(--bridge-secondary); animation-delay: .08s; }
+.orbit-three { width: min(85vw, 98vh); border-style: dashed; border-color: #9dbce13b; animation-delay: .14s; }
+.setlist-sweep { position: absolute; top: -25%; left: 0; height: 150%; width: 22%; background: linear-gradient(90deg, transparent, #d2f7ff12, #f7fbff38, transparent); transform: skewX(-22deg); animation: setlist-sweep 1.45s ease-in-out both; }
+.transition-roses .setlist-sweep { background: linear-gradient(90deg, transparent, #f49fe51a, #ffbce838, transparent); }
+.setlist-title-card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.setlist-chapter, .setlist-artist, .setlist-signature { font: 11px/1.5 "DM Mono", monospace; letter-spacing: .32em; }
+.setlist-chapter { color: var(--bridge-color); animation: setlist-caption 1.7s ease both; }
+.setlist-title-mask { overflow: hidden; padding: 12px 26px 20px; }
+.setlist-title-mask strong { display: block; font-size: clamp(36px, 8vw, 118px); font-weight: 400; line-height: 1.15; letter-spacing: .035em; text-shadow: 0 0 28px var(--bridge-color); animation: setlist-title 1.7s cubic-bezier(.2,.7,.2,1) both; }
+.setlist-title-rule { width: min(220px, 36vw); height: 1px; background: linear-gradient(90deg, transparent, var(--bridge-color), transparent); animation: setlist-rule 1.7s ease both; }
+.setlist-artist { margin-top: 20px; color: #b6c5da; font-size: 10px; animation: setlist-caption 1.7s .08s ease both; }
+.setlist-signature { position: absolute; bottom: 8%; width: 100%; text-align: center; color: #849ab5; font-size: 9px; animation: setlist-caption 1.7s ease both; }
+.setlist-sparks { position: absolute; left: 50%; top: 50%; }
+.setlist-sparks i { position: absolute; width: 2px; height: 42px; border-radius: 50%; background: linear-gradient(transparent, var(--bridge-color)); box-shadow: 0 0 8px var(--bridge-color); animation: setlist-spark 1.6s var(--delay) ease-out both; }
+.transition-roses .setlist-sparks i { width: 8px; height: 15px; border-radius: 80% 15% 70% 25%; background: linear-gradient(135deg, #ffc4ef, #cd4f99); box-shadow: 0 0 10px #ff8ad755; }
+@keyframes setlist-scene { 0% { opacity: 0; } 12%, 68% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
+@keyframes setlist-curtain { 0%, 12% { transform: translateX(0); } 75%, 100% { transform: translateX(var(--exit)); } }
+@keyframes setlist-horizon { 0% { opacity: 0; transform: scaleX(.02); } 22% { opacity: .85; transform: scaleX(1); } 75%, 100% { opacity: 0; transform: scaleX(1.2); } }
+@keyframes setlist-orbit { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.45) rotate(-25deg); } 28% { opacity: .55; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.55) rotate(30deg); } }
+@keyframes setlist-sweep { 0%, 12% { opacity: 0; transform: translateX(-130%) skewX(-22deg); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateX(600%) skewX(-22deg); } }
+@keyframes setlist-title { 0%, 12% { opacity: 0; transform: translateY(105%); } 35%, 75% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-15%); } }
+@keyframes setlist-caption { 0%, 22% { opacity: 0; transform: translateY(8px); } 42%, 75% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-5px); } }
+@keyframes setlist-rule { 0%, 25% { transform: scaleX(0); } 52%, 100% { transform: scaleX(1); } }
+@keyframes setlist-spark { 0%, 15% { opacity: 0; transform: rotate(var(--angle)) translateY(-55px) scaleY(.2); } 35% { opacity: .8; } 100% { opacity: 0; transform: rotate(var(--angle)) translateY(calc(-1 * var(--reach))) scaleY(.6); } }
+@media (prefers-reduced-motion: reduce) {
+  .setlist-transition { animation-duration: .45s; }
+  .setlist-transition * { animation: none; }
+  .setlist-curtain, .setlist-horizon, .setlist-sweep, .setlist-sparks, .setlist-orbit { display: none; }
+}

@@ -3,8 +3,10 @@ export type KeyBinding = {
   label: string;
   midi: number;
   shiftedMidi?: number;
+  /** Fixed visual slot when a song remaps the sounding pitch. */
+  positionMidi?: number;
 };
-export type KeyboardMap = { id: string; name: string; bindings: KeyBinding[] };
+export type KeyboardMap = { id: string; name: string; bindings: KeyBinding[]; displayPitchOffset?: number; pairedKeys?: Readonly<Record<string, string>> };
 
 // Each binding owns both pitches. A future mapping editor can replace this preset.
 export const standardMap: KeyboardMap = {

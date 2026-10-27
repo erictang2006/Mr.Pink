@@ -1,0 +1,11 @@
+Live keystroke HUD
+
+The Interstellar header displays LIVE KEYS below the BPM/pedal row. It shows only the visible Roblox piano labels for the actual sounding notes. Each live assisted gesture adds all its audible primary/supporting/octave voices together; for example the assisted C gesture sounding A4 and E4 displays p and u. A gesture sounding E4 and B4 displays u and a. No trigger letter or note name is shown. Shift+1 in the reveal displays !. Each entry fades over 1000 ms and is removed on expiry. Simultaneous presses remain separate entries. Keyup and sustain do not prolong the display.
+
+The typing-piano reveal always shows the brighter treatment. Normal performance uses a subdued treatment; the climax shows only three entries with reduced opacity. Uncheck “Live keys during performance” in setup to hide it after the reveal. No new keyboard shortcut is assigned. The option also stops history collection during normal performance while disabled.
+
+The existing live Interstellar noteOn path feeds all non-muted voices from its actual plan into a separate bounded LiveKeyHistory store, atomically per gesture. Repeats, held-key duplicates, unmapped characters, control shortcuts and unrelated automatic backing do not create entries. Assisted supporting notes are included because they are part of the live gesture. Only the small HUD subscribes to expiry updates; one cancellable timer handles expiry, with CSS handling fading. There is no new keyboard listener, frame loop, audio scheduling, or persistent typing log. Focus loss, panic, scene reset, leaving performance, and app cleanup clear the history/timer. The history survives the normal reveal-to-performance handoff.
+
+Relevant files: src/piano/liveKeyHistory.ts, src/components/LiveKeysHud.tsx, src/components/liveKeysHud.css; integration in KeyboardInputManager, App, and the optional PerformanceHeader slot. Headers for other songs retain their existing markup without the slot.
+
+Automated checks cover bounded history, simultaneous entries, expiry, cleanup, actual live-gesture voices, repeated/unmapped input, exclamation-note labels, assisted chord expansion, and reveal/reduced header rendering. Build/type checks pass. Browser preview is unavailable in this session; fullscreen appearance at laptop/projector resolutions remains a manual rehearsal check. All changes are local.

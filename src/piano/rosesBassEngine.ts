@@ -26,6 +26,7 @@ export class RosesBassEngine {
   private master = .72;
   private bassLevel = .45;
   private subLevel = .35;
+  private manualNotes = new Set<number>();
 
   constructor(destination?: Tone.InputNode) {
     // Audition instances can use a mixer bus; ordinary performance instances
@@ -55,6 +56,20 @@ export class RosesBassEngine {
     for (const note of bassNotes) this.bass.triggerAttackRelease(midiToToneName(note.midi), note.durationBeats * secondsPerBeat, time, .78);
     for (const note of subNotes) this.sub.triggerAttackRelease(midiToToneName(note.midi), note.durationBeats * secondsPerBeat, time, .68);
   }
+  attackManual(midi: number, time = Tone.immediate()): void {
+    if (this.manualNotes.has(midi)) return;
+    this.manualNotes.add(midi);
+    this.bass.triggerAttack(midiToToneName(midi), time, .78);
+    this.sub.triggerAttack(midiToToneName(midi), time, .68);
+  }
+  releaseManual(midi: number, time = Tone.immediate()): void {
+    if (!this.manualNotes.delete(midi)) return;
+    this.bass.triggerRelease(midiToToneName(midi), time);
+    this.sub.triggerRelease(midiToToneName(midi), time);
+  }
+  releaseManualNotes(time = Tone.immediate()): void {
+    for (const midi of this.manualNotes) this.releaseManual(midi, time);
+  }
   triggerBuild(notes: RosesNote[], time: number, secondsPerBeat: number, endAtBoundary = false): void {
     for (const note of notes) this.build.triggerAttackRelease(midiToToneName(note.midi), Math.max(.001, note.durationBeats * secondsPerBeat - (endAtBoundary ? .12 : 0)), time, note.velocity / 127);
   }
@@ -64,7 +79,7 @@ export class RosesBassEngine {
       this.sub.triggerAttackRelease(midiToToneName(note.midi), note.durationBeats * secondsPerBeat, time, note.velocity / 127);
     }
   }
-  releaseAll(time = Tone.now()): void { this.bass.releaseAll(time); this.sub.releaseAll(time); this.build.releaseAll(time); }
+  releaseAll(time = Tone.now()): void { this.manualNotes.clear(); this.bass.releaseAll(time); this.sub.releaseAll(time); this.build.releaseAll(time); }
   dispose(): void {
     this.releaseAll(); this.bass.dispose(); this.sub.dispose(); this.build.dispose();
     this.buildGain.dispose(); this.bassFilter.dispose(); this.bassDrive.dispose(); this.subFilter.dispose();

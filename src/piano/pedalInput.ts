@@ -1,4 +1,8 @@
 /** Space toggles the pedal once per physical press, independent of key repeat. */
+export function spaceStartsRosesPerformance(view: string, song: string, status: string | undefined): boolean {
+  return view === 'performance' && song === 'roses' && (status === 'idle' || status === 'finished');
+}
+
 export class PedalInput {
   private held = false;
 

@@ -1,0 +1,11 @@
+.galaxy-vinyl-transition {position:absolute;inset:0;width:100%;height:100%;z-index:50;pointer-events:none;}
+.galaxy-vinyl-running .record-orb {opacity:0;}
+.galaxy-vinyl-running .stage-header,.galaxy-vinyl-running .workstation-instrument-field,.galaxy-vinyl-running .workstation-live {animation:galaxy-ui-in var(--galaxy-duration,3.6s) ease both;}
+.galaxy-transition-trigger {pointer-events:auto;padding:8px 13px;border:1px solid #92c6ee66;border-radius:6px;background:#0d1a2bbf;color:#c6eaff;font:11px 'DM Mono',monospace;letter-spacing:.08em;cursor:pointer;}
+.record-orb.is-concealed .record-fallback-art {visibility:hidden!important;}
+.record-orb.is-concealed[data-renderer=fallback]::before {background:radial-gradient(ellipse,#01030b 12%,#3474b6 15%,#030817 22%,#143461 38%,#030817 65%)!important;border-color:#85ccff;}
+.roses-identity-hidden .stage-identity h1,.roses-identity-hidden .stage-section {visibility:hidden;}
+.roses-identity-reveal .stage-identity h1,.roses-identity-reveal .record-orb>span {animation:roses-identity-in .8s ease both;}
+@keyframes galaxy-ui-in {0%,65%{opacity:0}100%{opacity:1}}
+@keyframes roses-identity-in {from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.galaxy-vinyl-running .stage-header,.galaxy-vinyl-running .workstation-instrument-field,.galaxy-vinyl-running .workstation-live{animation:none}.roses-identity-reveal .stage-identity h1,.roses-identity-reveal .record-orb>span{animation:none}}

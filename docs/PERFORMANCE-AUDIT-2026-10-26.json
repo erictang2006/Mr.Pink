@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-26",
+  "checks": {
+    "build": "passed; includes TypeScript",
+    "fullSuite": {
+      "testsPerRun": 402,
+      "runs": 5,
+      "failures": 0
+    },
+    "repeatedRuns": [
+      {
+        "run": 1,
+        "exitCode": 0,
+        "passed": 402,
+        "failed": 0,
+        "wallMs": 2688
+      },
+      {
+        "run": 2,
+        "exitCode": 0,
+        "passed": 402,
+        "failed": 0,
+        "wallMs": 2966
+      },
+      {
+        "run": 3,
+        "exitCode": 0,
+        "passed": 402,
+        "failed": 0,
+        "wallMs": 2752
+      },
+      {
+        "run": 4,
+        "exitCode": 0,
+        "passed": 402,
+        "failed": 0,
+        "wallMs": 2744
+      }
+    ],
+    "stress": {
+      "createdAt": "2026-10-26T07:22:08.634Z",
+      "scope": "Headless JavaScript dispatch/state stress only. No browser paint, Web Audio rendering, speaker latency, GPU, or hardware keyboard rollover measurement.",
+      "input": {
+        "dispatched": 214500,
+        "cases": [
+          {
+            "name": "Levels real piano",
+            "cycles": 3000,
+            "attacks": 20329,
+            "releases": 20329,
+            "snapshots": 37278,
+            "jsStressDurationMs": 1334.28,
+            "remainingHeld": 0,
+            "remainingListeners": 0,
+            "remainingTimers": 0
+          },
+          {
+            "name": "Interstellar section 1",
+            "cycles": 3000,
+            "attacks": 19500,
+            "releases": 19500,
+            "snapshots": 37216,
+            "jsStressDurationMs": 1182.21,
+            "remainingHeld": 0,
+            "remainingListeners": 0,
+            "remainingTimers": 0
+          },
+          {
+            "name": "Interstellar section 2",
+            "cycles": 3000,
+            "attacks": 19500,
+            "releases": 19500,
+            "snapshots": 37218,
+            "jsStressDurationMs": 1174.09,
+            "remainingHeld": 0,
+            "remainingListeners": 0,
+            "remainingTimers": 0
+          },
+          {
+            "name": "Interstellar section 3",
+            "cycles": 3000,
+            "attacks": 19500,
+            "releases": 19500,
+            "snapshots": 37215,
+            "jsStressDurationMs": 1167.84,
+            "remainingHeld": 0,
+            "remainingListeners": 0,
+            "remainingTimers": 0
+          },
+          {
+            "name": "Roses live chords",
+            "cycles": 3000,
+            "attacks": 36843,
+            "releases": 36843,
+            "snapshots": 37764,
+            "jsStressDurationMs": 3509.72,
+            "remainingHeld": 0,
+            "remainingListeners": 0,
+            "remainingTimers": 0
+          }
+        ],
+        "dispatchJsMs": {
+          "median": 0.0301,
+          "p95": 0.1006,
+          "p99": 0.1338,
+          "max": 13.8997
+        }
+      },
+      "visualSoak": {
+        "simulatedMinutes": 10,
+        "frames": 36000,
+        "generatedNotes": 48000,
+        "peakParticles": 192,
+        "peakVisibleNotes": 360,
+        "remainingParticles": 0,
+        "remainingPulses": 0,
+        "remainingSoundingNotes": 0
+      }
+    },
+    "localHttp": [
+      {
+        "path": "/",
+        "status": 200,
+        "type": "text/html"
+      },
+      {
+        "path": "/assets/index-Ux7RN3KR.js",
+        "status": 206,
+        "type": "text/javascript"
+      },
+      {
+        "path": "/assets/index-7zbpMy2J.css",
+        "status": 206,
+        "type": "text/css"
+      },
+      {
+        "path": "/assets/roses-cover.png",
+        "status": 206,
+        "type": "image/png"
+      },
+      {
+        "path": "/samples/C4.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "path": "/samples/Ds6.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "path": "/roses/roses_vocals_original_timeline.wav",
+        "status": 206,
+        "type": "audio/wav"
+      },
+      {
+        "path": "/roses/here_with_me_chorus_e_major.wav",
+        "status": 206,
+        "type": "audio/wav"
+      },
+      {
+        "path": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+        "status": 206,
+        "type": "audio/wav"
+      },
+      {
+        "path": "/roses/live-bonk-waves/left-64.wav",
+        "status": 206,
+        "type": "audio/wav"
+      }
+    ],
+    "literalAssets": {
+      "scope": "Literal local asset references only; computed paths, user imports and browser decoding are excluded.",
+      "literalReferences": 21,
+      "missing": []
+    },
+    "wavFootprint": {
+      "scope": "All local WAV files on disk; not a measurement of assets simultaneously loaded or actual browser memory. MP3 decoding excluded.",
+      "wavFiles": 138,
+      "fileMiB": 216.54,
+      "decodedFloat32MiBIfAllLoaded": 314.99,
+      "largest": [
+        {
+          "path": "public/roses/roses_vocals_original_timeline.wav",
+          "durationSeconds": 226.769,
+          "fileMiB": 38.15,
+          "decodedFloat32MiB": 76.3
+        },
+        {
+          "path": "public/roses/here_with_me_chorus_e_major.wav",
+          "durationSeconds": 42.02,
+          "fileMiB": 7.07,
+          "decodedFloat32MiB": 14.14
+        },
+        {
+          "path": "public/roses/here_with_me_chorus_original.wav",
+          "durationSeconds": 42.02,
+          "fileMiB": 7.07,
+          "decodedFloat32MiB": 14.14
+        },
+        {
+          "path": "public/roses/closer_chorus_original.wav",
+          "durationSeconds": 32.0,
+          "fileMiB": 5.86,
+          "decodedFloat32MiB": 11.72
+        },
+        {
+          "path": "public/roses/drop/chord-cache/brightB.wav",
+          "durationSeconds": 25.9,
+          "fileMiB": 8.71,
+          "decodedFloat32MiB": 8.71
+        },
+        {
+          "path": "public/roses/drop/chord-cache/brightA.wav",
+          "durationSeconds": 25.9,
+          "fileMiB": 8.71,
+          "decodedFloat32MiB": 8.71
+        },
+        {
+          "path": "public/roses/drop/chord-cache/bonkB.wav",
+          "durationSeconds": 22.9,
+          "fileMiB": 7.7,
+          "decodedFloat32MiB": 7.7
+        },
+        {
+          "path": "public/roses/drop/chord-cache/bonkA.wav",
+          "durationSeconds": 22.9,
+          "fileMiB": 7.7,
+          "decodedFloat32MiB": 7.7
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "No browser connection was available.",
+    "No browser FPS, GPU load, actual browser heap or audible/speaker latency measurement.",
+    "Simulated input callbacks do not include real Web Audio processing, hardware keyboard rollover or Bluetooth/output-device latency."
+  ],
+  "fix": "Sampled-piano live attacks/releases/pedal/panic now use immediate audio context time rather than the look-ahead scheduler clock."
+}

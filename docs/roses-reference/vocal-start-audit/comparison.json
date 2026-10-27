@@ -1,0 +1,215 @@
+{
+  "sourceEntries": {
+    "full1-vocal": [
+      {
+        "url": "/roses/roses_vocals_original_timeline.wav",
+        "time": 9.650793650793235,
+        "offset": 9.6,
+        "duration": 217.14897959183673,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 48.0507936508107,
+        "offset": 0,
+        "duration": 9.59873015873016,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 57.65224489798157,
+        "offset": 0,
+        "duration": 9.598730175999997,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 57.65224489798157,
+        "offset": 0,
+        "duration": 9.58,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/here_with_me_chorus_e_major.wav",
+        "time": 62.63,
+        "offset": 0,
+        "duration": 42,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 67.25000000000001,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 72.05,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 76.85,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 81.65,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 84.05,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      }
+    ],
+    "full1-no-vocal": [
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 48.0507936508107,
+        "offset": 0,
+        "duration": 9.59873015873016,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 57.65224489798157,
+        "offset": 0,
+        "duration": 9.598730175999997,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 57.65224489798157,
+        "offset": 0,
+        "duration": 9.58,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/here_with_me_chorus_e_major.wav",
+        "time": 62.63,
+        "offset": 0,
+        "duration": 42,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 67.25000000000001,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 72.05,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 76.85,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 81.65,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 84.05,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      }
+    ],
+    "start25": [
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 0.052244897959183655,
+        "offset": 0,
+        "duration": 9.598730175999997,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/Guitar build up bass compliment.wav",
+        "time": 0.052244897959183655,
+        "offset": 0,
+        "duration": 9.58,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/here_with_me_chorus_e_major.wav",
+        "time": 5.0299999999999985,
+        "offset": 0,
+        "duration": 42,
+        "fadeOut": 0.02,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 9.65,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 14.45,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 19.25,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 24.05,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      },
+      {
+        "url": "/roses/aah vocal chop loop 2.wav",
+        "time": 26.45,
+        "offset": 0,
+        "fadeOut": 0.003,
+        "playbackRate": 1
+      }
+    ]
+  },
+  "bar25Through28ResidualVocalCorrelation": 0.9999997413459271,
+  "fittedVocalGain": 0.128030713066596,
+  "maximumResidualError": 3.968287584098229e-05,
+  "diagnosis": "No early automatic chop source or duplicate HWM vocal. Full bar-1 take adds exactly one ongoing L-armed Roses vocal absent from the bar-25 shortcut. It continues during Here With Me and past bar 28. Both entries start the same intended left/right guitar pair at bar 25. A short end tail from the bar-21 guitar can also cross into the bar-25 downbeat on full playback."
+}

@@ -1,4 +1,6 @@
 import * as Tone from "tone";
+import { PitchFirstSynth } from './pitchFirstSynth';
+import { NativeRoomReverb } from './nativeRoomReverb';
 import { midiToToneName } from "./noteMapping";
 import type { ImportedInstrument } from "./sampleLibrary";
 import { loadSampleBlobs } from "./sampleLibrary";
@@ -65,7 +67,7 @@ export class SynthEngine {
   private filter: Tone.Filter;
   private chorus: Tone.Chorus;
   private delay: Tone.FeedbackDelay;
-  private reverb: Tone.JCReverb;
+  private reverb: NativeRoomReverb;
   private output: Tone.Volume;
   private held = new Map<string, number>();
   private sustained = new Set<number>();
@@ -88,14 +90,14 @@ export class SynthEngine {
     this.filter = new Tone.Filter({ type: "lowpass", frequency: this.settings.cutoff, Q: this.settings.resonance });
     this.chorus = new Tone.Chorus({ frequency: 1.4, delayTime: 2.5, depth: .25, wet: this.settings.chorus });
     this.delay = new Tone.FeedbackDelay({ delayTime: .225, feedback: .15, wet: this.settings.delay });
-    this.reverb = new Tone.JCReverb({ roomSize: .42, wet: this.settings.reverb });
+    this.reverb = new NativeRoomReverb({ roomSize: .42, wet: this.settings.reverb });
     this.output = new Tone.Volume(-18).toDestination();
     this.connectVoice(this.voice);
     this.loopVoice.chain(this.loopGain, this.filter);
     this.setSettings(this.settings);
   }
   private makeSynth(s: SynthSettings): Tone.PolySynth {
-    return new Tone.PolySynth({ voice: Tone.Synth, maxPolyphony: 20, options: { oscillator: oscillator(s), envelope: envelope(s) } });
+    return new Tone.PolySynth<Tone.Synth>({ voice: PitchFirstSynth, maxPolyphony: 20, options: { oscillator: oscillator(s), envelope: envelope(s) } });
   }
   private connectVoice(voice: Voice): void { voice.connect(this.filter); this.filter.chain(this.chorus, this.delay, this.reverb, this.output); }
   async start(): Promise<void> { await Tone.start(); if (!this.ready) { this.chorus.start(); this.ready = true; } }
@@ -156,7 +158,8 @@ export class SynthEngine {
     const gain = this.globalVolume * this.settings.volume;
     this.output.volume.rampTo(gain <= 0 ? -60 : 20 * Math.log10(gain) - 15, .04);
   }
-  noteOn(code: string, midi: number, time = Tone.now(), velocity = .65): boolean {
+  // Physical playing bypasses transport look-ahead; scheduled callers retain their explicit time.
+  noteOn(code: string, midi: number, time = Tone.immediate(), velocity = .65): boolean {
     if (!this.ready || this.loading || this.held.has(code)) return false;
     const note = midiToToneName(midi);
     // Chords can share pitches with each other or the melody. Retrigger one
@@ -170,12 +173,12 @@ export class SynthEngine {
     const midi = this.held.get(code); if (midi === undefined) return;
     this.held.delete(code);
     if (this.pedal) this.sustained.add(midi);
-    else if (![...this.held.values()].includes(midi)) this.voice.triggerRelease(midiToToneName(midi), Tone.now());
+    else if (![...this.held.values()].includes(midi)) this.voice.triggerRelease(midiToToneName(midi), Tone.immediate());
   }
   setSustain(enabled: boolean): void {
     this.pedal = enabled;
     if (!enabled) {
-      for (const midi of this.sustained) if (![...this.held.values()].includes(midi)) this.voice.triggerRelease(midiToToneName(midi), Tone.now());
+      for (const midi of this.sustained) if (![...this.held.values()].includes(midi)) this.voice.triggerRelease(midiToToneName(midi), Tone.immediate());
       this.sustained.clear();
     }
   }
@@ -207,6 +210,6 @@ export class SynthEngine {
       this.loopStopTimer = null;
     }, Math.max(0, (stopAt - Tone.immediate()) * 1000) + 350);
   }
-  releaseAll(): void { this.held.clear(); this.sustained.clear(); this.voice.releaseAll(Tone.now()); this.stopLoop(); }
+  releaseAll(): void { this.held.clear(); this.sustained.clear(); this.voice.releaseAll(Tone.immediate()); this.stopLoop(); }
   dispose(): void { this.disposed = true; this.generation++; this.releaseAll(); this.clearLoopStopTimer(); this.voice.dispose(); this.loopVoice.dispose(); this.loopGain.dispose(); this.sampleUrls.forEach(URL.revokeObjectURL); this.filter.dispose(); this.chorus.dispose(); this.delay.dispose(); this.reverb.dispose(); this.output.dispose(); }
 }

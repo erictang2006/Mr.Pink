@@ -63,6 +63,14 @@ export class HereWithMeLeadEngine {
     this.ensureVoices();
     for (const bank of this.banks.values()) bank.voice.triggerAttackRelease(midiToToneName(midi), duration, time, velocity);
   }
+  /** Same unison four-bank voicing as the bars 29–35 automatic Vox melody. */
+  attackMelodyNote(midi: number, time: number, velocity = .6): void {
+    this.ensureVoices();
+    for (const bank of this.banks.values()) bank.voice.triggerAttack(midiToToneName(midi), time, velocity);
+  }
+  releaseMelodyNote(midi: number, time: number): void {
+    for (const bank of this.banks.values()) bank.voice.triggerRelease(midiToToneName(midi), time);
+  }
   /** Manual chords reuse these four voices, with the drop's upper-octave layering. */
   attackChordNote(midi: number, time: number, velocity = .6): void {
     this.ensureVoices();
@@ -76,6 +84,9 @@ export class HereWithMeLeadEngine {
   }
   /** Build effects before starting the clock rather than inside its first callback. */
   prepareVoices(): void { this.ensureVoices(); }
+  /** Reset only the score cursor at a scheduled loop boundary. Existing notes
+   * keep their timed releases, including notes inside transport lookahead. */
+  restartLoop(): void { this.status = "ARMED"; this.lastBeat = -1; }
   private ensureVoices(): void {
     if (this.banks.size) return;
     this.bus = new Tone.Gain(this.muted ? 0 : this.volume * leadGainBoost);

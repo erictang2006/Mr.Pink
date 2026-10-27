@@ -17,6 +17,7 @@ export class Gain {
       linearRampToValueAtTime: (value, time) => this.events.push(['ramp', value, time]),
       cancelAndHoldAtTime: time => this.events.push(['hold', time]),
       rampTo: value => { this.gain.value = value; },
+      linearRampTo: value => { this.gain.value = value; },
     };
   }
   connect() { return this; }

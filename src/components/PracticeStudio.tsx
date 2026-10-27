@@ -353,7 +353,7 @@ function RegularPractice({ map, snapshot, soundingPitches, audioReady, startAudi
     </section>
     <section className="practice-controls" aria-label="Practice controls">
       <div className="practice-control-row">
-        <label>Song<select value="interstellar" onChange={event => onSongChange(event.target.value as SongId)}><option value="interstellar">Interstellar — imported score</option><option value="levels">Levels — Avicii</option><option value="rush-e">Rush E — piano preset</option><option value="roses">Roses — The Chainsmokers</option></select></label>
+        <label>Song<select value="interstellar" onChange={event => onSongChange(event.target.value as SongId)}><option value="interstellar">Interstellar — imported score</option><option value="levels">Levels — Avicii</option><option value="roses">Roses — The Chainsmokers</option></select></label>
         <label>Mapping<select value={map.id} onChange={event => selectProfile(event.target.value)} disabled={!!current?.assistedEvent}>{profiles.filter(profile => profile.id !== assistedInterstellarMap.id || !!current?.assistedEvent).map(profile => <option value={profile.id} key={profile.id}>{profile.name}</option>)}</select></label>
         <div className="practice-segment"><button className={mode === "step" ? "selected" : ""} onClick={() => switchMode("step")}>Step</button><button className={mode === "timed" ? "selected" : ""} onClick={() => switchMode("timed")}>Timed</button><button onClick={onSandbox}>Sandbox</button></div>
         {mode === "timed" && <button className="practice-primary" onClick={toggleTimed} disabled={!audioReady || unmapped.length > 0}>{playing ? "Pause" : "Start"}</button>}

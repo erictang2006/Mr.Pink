@@ -1,0 +1,288 @@
+/* Cinematic presentation only. Audio, geometry and physical mappings are unchanged. */
+.workstation-stage {
+  --workstation-cyan:#6ceaff; --workstation-purple:#b5a0ff; --stage-piano-height:18dvh;
+  background:#030611; isolation:isolate;
+}
+.workstation-stage.stage-roses {
+  --roses-piano-height:clamp(112px,var(--stage-piano-height),250px);
+  background:radial-gradient(ellipse at 28% 68%,#20234a 0,transparent 65%),linear-gradient(125deg,#060b20,#100b23 68%,#090f25);
+}
+.workstation-stage.stage-roses::before {
+  content:''; position:absolute; z-index:1; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 38% 56% at 27% 49%,#b53a942b,transparent 78%),
+    radial-gradient(ellipse 48% 36% at 55% 88%,#4ba5cd24,transparent 80%),
+    radial-gradient(ellipse 35% 35% at 84% 63%,#8b47a921,transparent 85%),
+    linear-gradient(107deg,transparent 9%,#85aaff08 25%,transparent 39%),
+    linear-gradient(73deg,transparent 20%,#df76d309 33%,transparent 45%),
+    linear-gradient(0deg,#925fc013,transparent 19%);
+}
+.workstation-stage .visualizer-canvas { opacity:1; }
+.workstation-stage.stage-roses .visualizer-canvas {
+  position:absolute; z-index:0; inset:0; width:100%; height:100%; flex:none; pointer-events:none;
+}
+.performance-stage.workstation-stage .performance-piano {
+  height:18vh; height:var(--stage-piano-height); min-height:112px; max-height:250px;
+  border-top:1px solid #b1efffc4;
+  box-shadow:0 -1px 8px #8aeaff66,0 -16px 70px #507bc229,0 -35px 110px #9b46cb14;
+}
+.performance-stage.workstation-stage.stage-roses .performance-piano {
+  position:absolute; z-index:4; left:51%; right:0; bottom:0;
+  height:var(--roses-piano-height); min-height:0; max-height:none; overflow:hidden;
+  background:transparent; border-top:1px solid #a8dfff9c;
+  box-shadow:0 -2px 15px #8beaff70,0 -20px 65px #4f9de42e,0 -36px 100px #ce55b927;
+}
+.workstation-stage.stage-roses .performance-piano .piano-canvas {
+  position:relative; display:block; width:max(100%,60vw); height:100%; background:transparent;
+}
+.workstation-stage.stage-roses .performance-piano::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg,#53ddf520,transparent 40%,#ee6ac922),linear-gradient(#adcfff1c,transparent 26%);
+}
+.workstation-stage.stage-roses.hwm-scene .performance-piano { border-color:#78dce9; box-shadow:0 -2px 15px #8beaff70,0 -20px 65px #388fc544,0 -36px 100px #8059ed27; }
+.workstation-stage.stage-roses.hwm-drop-scene .performance-piano { border-color:#b3f6ff; box-shadow:0 -3px 20px #a5eeff88,0 -20px 65px #3ba8ef66,0 -36px 100px #8059ed33; }
+.workstation-stage .stage-header {
+  min-height:110px; padding:26px 3.2vw 12px; gap:24px;
+  display:grid; grid-template-columns:minmax(210px,1fr) minmax(240px,1fr) minmax(260px,1fr);
+  background:linear-gradient(#020510d9,#02051000);
+}
+.workstation-stage .stage-identity { grid-column:1; grid-row:1; }
+.workstation-stage .stage-wordmark { letter-spacing:.25em; font-size:11px; color:#b7c5d9; }
+.workstation-stage .stage-edition { display:none; }
+.workstation-stage .stage-identity h1 { margin-top:10px; font-weight:400; font-size:clamp(28px,2.3vw,46px); letter-spacing:-.04em; }
+.workstation-stage.stage-roses .stage-identity h1 { font-size:clamp(18px,1.65vw,34px); }
+.workstation-stage .stage-title-line { opacity:.55; width:65px; }
+.workstation-stage .stage-composer { margin:7px 0 0; color:#7e8ca6; font-size:11px; }
+.workstation-stage .stage-status-stack { display:contents; }
+.workstation-stage .stage-status { grid-column:3; grid-row:1; align-self:start; padding-top:5px; gap:12px; font-size:10px; }
+.workstation-stage .stage-status-stack>.live-keys-hud { grid-column:3; grid-row:1; align-self:end; }
+.workstation-stage .stage-section { margin-top:7px; color:#9baac3; font-size:10px; }
+.workstation-stage .stage-section b { font-size:19px; }
+.workstation-stage .roses-stage-transport,.workstation-stage .manual-stage-transport {
+  grid-column:2; grid-row:1; align-self:center; justify-self:center; pointer-events:auto;
+  width:100%; max-width:440px; text-align:center;
+}
+.workstation-stage .roses-stage-transport>div,.workstation-stage .manual-stage-transport>div { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; }
+.workstation-stage .stage-arm-start {
+  position:relative; min-width:260px; min-height:57px; padding:14px 32px; border:1px solid #b8e8ffb3; border-radius:10px;
+  background:linear-gradient(115deg,#134b68e8,#302858ef 65%,#54306ced); color:#effdff;
+  box-shadow:0 0 22px #60d7ff24,inset 0 1px 0 #d1faff44,0 10px 40px #5a28a51f;
+  font:600 14px 'DM Mono',monospace; letter-spacing:.2em; cursor:pointer;
+  transition:box-shadow 250ms,background 250ms,transform 250ms;
+}
+.workstation-stage .stage-arm-start:not(:disabled):hover { transform:translateY(-1px); box-shadow:0 0 36px #6be5ff55,inset 0 1px 0 #e5faff88; }
+.workstation-stage .stage-arm-start:focus-visible,.workstation-stage .stage-secondary-control:focus-visible { outline:2px solid #b4edff; outline-offset:4px; }
+.workstation-stage .stage-arm-start:disabled { opacity:.45; cursor:wait; }
+.workstation-stage.stage-roses .stage-arm-start {
+  border-color:#bfefffdb;
+  background:linear-gradient(110deg,#0f4969f2,#34245cf2 58%,#662c70ed);
+  box-shadow:0 0 30px #5cdbff39,0 0 52px #d463c11d,inset 0 1px 0 #edfbff80,0 12px 36px #07071db0;
+}
+.workstation-stage.stage-roses .stage-arm-start:not(:disabled):hover { box-shadow:0 0 42px #6be5ff70,0 0 60px #e684cf3a,inset 0 1px 0 #fff8ffb0; }
+.workstation-stage .stage-secondary-control { padding:8px 13px; border:1px solid #8097bf44; border-radius:6px; color:#c7d5e8; background:#11192b88; font:11px 'DM Mono',monospace; cursor:pointer; }
+.workstation-stage .stage-secondary-control:disabled { opacity:.35; cursor:default; }
+.workstation-stage .roses-stage-transport small,.manual-stage-transport small { display:block; margin-top:8px; color:#98adc3; font:9px/1.5 'DM Mono',monospace; letter-spacing:.03em; }
+.workstation-stage .roses-stage-transport [role=alert],.manual-stage-transport [role=alert] { color:#f6a5c4; }
+.workstation-stage .roses-stage-metronome {
+  position:absolute; top:66px; right:3.2vw; z-index:6; pointer-events:none;
+  display:flex; flex-direction:column; align-items:flex-end; gap:7px;
+  color:#bed3e8; font:600 10px 'DM Mono',monospace; letter-spacing:.1em;
+}
+.roses-stage-beat-lights { display:flex; gap:7px; }
+.roses-stage-beat-lights i {
+  width:25px; height:25px; display:grid; place-items:center; border-radius:50%;
+  border:1px solid #89a7c866; background:#101c2eaa; color:#a7bdd4;
+  font:600 12px 'DM Mono',monospace; font-style:normal;
+  transition:background 85ms,color 85ms,box-shadow 85ms,transform 85ms;
+}
+.roses-stage-beat-lights i.active { color:#081725; background:#a9f4ff; border-color:#e2ffff; box-shadow:0 0 15px #7ce8ffcc; transform:scale(1.14); }
+.roses-stage-metronome.is-counting .roses-stage-beat-lights i.active { background:#ffc4e6; box-shadow:0 0 25px #f69ddbcc; }
+.roses-stage-metronome.is-counting>span { color:#ffd3ea; font-size:12px; }
+.stage-start-symbol { margin-right:12px; color:#a5f6ff; font-size:15px; }
+.performance-workstation {
+  position:absolute; z-index:3; inset:132px 3.2vw calc(max(var(--stage-piano-height),112px) + 24px);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:minmax(0,1fr) 46px;
+  grid-template-areas:'orb instruments' 'live instruments'; gap:14px 4vw; pointer-events:none;
+}
+.workstation-orb { grid-area:orb; min-width:0; min-height:0; position:relative; pointer-events:none; }
+.workstation-orb canvas { position:relative; z-index:1; display:block; width:100%; height:100%; pointer-events:none; }
+.record-fallback-art { display:none; pointer-events:none; user-select:none; }
+.workstation-orb.record-orb[data-renderer=fallback]::before { inset:13% 16%; background:repeating-radial-gradient(circle,#161526 0 2px,#0c1020 3px 5px); border-color:#e5a6db; }
+.record-orb[data-renderer=fallback] .record-fallback-art { display:block; position:absolute; z-index:1; width:44%; height:auto; aspect-ratio:1; object-fit:cover; left:28%; top:50%; transform:translateY(-50%); border-radius:50%; box-shadow:0 0 18px #c37da055; }
+.workstation-orb::after {
+  content:''; position:absolute; width:84%; height:9%; left:8%; bottom:-2%; border-radius:50%;
+  background:radial-gradient(ellipse,#78e8ff70,#df72cd40 43%,transparent 74%); transform:scaleY(.5); opacity:.9;
+}
+.workstation-orb>span { position:absolute; inset:auto 0 3%; text-align:center; color:#9ab5d1; font:9px 'DM Mono',monospace; letter-spacing:.32em; }
+.workstation-orb[data-renderer=fallback]::before { content:''; position:absolute; inset:13% 16%; border-radius:50%; border:2px solid #a9b4ff; background:radial-gradient(circle at 30% 25%,#4ceaff33,transparent 45%),radial-gradient(circle at 70% 75%,#cb53d944,#0b1036aa 65%); box-shadow:0 0 40px #6cd9ff44,inset 0 0 45px #a07dff44; }
+.workstation-live { grid-area:live; align-self:center; display:flex; justify-content:center; align-items:center; gap:13px; min-width:0; }
+.workstation-live>span { color:#7597b8; font:9px 'DM Mono',monospace; letter-spacing:.2em; white-space:nowrap; }
+.workstation-live>div { display:flex; flex-wrap:wrap; justify-content:center; gap:5px; min-height:25px; align-items:center; }
+.workstation-live kbd { min-width:25px; padding:4px 7px; border:1px solid #81d9f470; border-radius:4px; color:#cbf7ff; background:#142b4444; font:13px 'DM Mono',monospace; box-shadow:0 0 12px #7cbeff16; }
+.workstation-live small { color:#7589a3; font:10px 'DM Mono',monospace; }
+.workstation-live>small { display:none; }
+.roses-intro-loop-deck {
+  position:relative; z-index:4;
+  box-sizing:border-box; width:100%; min-height:79px; padding:12px 14px;
+  display:flex; align-items:center; gap:13px; pointer-events:none;
+  border:1px solid #77b4d77a; border-radius:11px;
+  background:linear-gradient(120deg,#0a1c30e8,#181630e8); color:#d8efff;
+  box-shadow:0 0 24px #4eb9eb20,inset 0 1px 0 #c3e6ff27;
+  font-family:'DM Mono',monospace;
+}
+.workstation-intro-loop { grid-column:var(--loop-column-4) / span 2; grid-row:var(--loop-row-4); align-self:start; min-width:0; }
+.roses-intro-loop-dial { --loop-progress:0%; position:relative; flex:none; width:49px; height:49px; border-radius:50%; background:conic-gradient(from -90deg,#77eaff var(--loop-progress),#2c3859 0); box-shadow:0 0 17px #55cce855; display:grid; place-items:center; }
+.roses-intro-loop-dial::before { content:''; position:absolute; inset:5px; border-radius:50%; background:#0b1730; border:1px solid #75bce65e; }
+.roses-intro-loop-dial span { position:relative; color:#91eaff; font-size:26px; line-height:1; }
+.roses-intro-loop-content { min-width:0; flex:1; }
+.roses-intro-loop-heading { display:flex; justify-content:space-between; gap:8px; align-items:baseline; white-space:nowrap; }
+.roses-intro-loop-heading strong { color:#d8f8ff; font-size:11px; letter-spacing:.15em; }
+.roses-intro-loop-heading span { color:#a8b7d1; font-size:9px; }
+.roses-intro-loop-bars { display:flex; gap:4px; margin:8px 0 7px; }
+.roses-intro-loop-bars i { flex:1; height:3px; border-radius:3px; background:#304268; }
+.roses-intro-loop-bars i.complete { background:#5ca5c5; }
+.roses-intro-loop-bars i.active { background:#f5a8e3; box-shadow:0 0 8px #f3a7db9c; }
+.roses-intro-loop-keys { display:flex; align-items:center; gap:5px; }
+.roses-intro-loop-keys kbd { display:grid; place-items:center; width:24px; height:20px; border:1px solid #77a3c76b; border-radius:4px; color:#9db5d0; background:#18233b; font:11px 'DM Mono',monospace; }
+.roses-intro-loop-keys kbd.active { color:#0b1c2a; background:#9aebff; border-color:#d0faff; box-shadow:0 0 10px #75ddffae; }
+.roses-intro-loop-keys small { margin-left:auto; color:#88a5c5; white-space:nowrap; font-size:8px; }
+/* Keep the existing parallel audio observer; its diagnostic waveform is not a stage panel. */
+.workstation-instrument-field { grid-area:instruments; min-width:0; min-height:0; display:flex; flex-direction:column; gap:16px; }
+.workstation-field-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; color:#adbad0; padding:2px 3px 9px; border-bottom:1px solid #91a3cd24; }
+.workstation-field-heading>span { font:10px 'DM Mono',monospace; letter-spacing:.24em; }
+.workstation-field-heading>small { font:8px 'DM Mono',monospace; letter-spacing:.04em; color:#8394af; }
+.workstation-field-heading i { display:inline-block; width:4px; height:4px; border-radius:50%; margin:0 6px 1px 12px; background:#75dcfa; box-shadow:0 0 7px #70eaff66; }
+.workstation-field-heading i:last-of-type { background:#c69aff; }
+.workstation-instruments { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:minmax(78px,auto); align-content:start; min-height:0; overflow:auto; gap:11px; padding:7px 9px 10px 5px; pointer-events:auto; scrollbar-width:thin; scrollbar-color:#596c9e44 transparent; }
+.workstation-group,.workstation-pad-grid { display:contents; }
+.workstation-group>h2 { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.instrument-pad {
+  --pad-level:0; --pad-color:110,221,255;
+  position:relative; min-width:0; min-height:78px; padding:12px 13px 10px; border:1px solid rgba(var(--pad-color),.24); border-radius:9px;
+  background:linear-gradient(135deg,rgba(var(--pad-color),.055),#090e2185 55%,#12102e66);
+  box-shadow:inset 0 1px 0 #dbedff09,0 8px 24px #01040d44; overflow:hidden;
+  transform:translateZ(0); transition:border-color 230ms,background-color 230ms;
+}
+.instrument-pad[data-instrument=Chords],.instrument-pad[data-instrument=Vocal] { --pad-color:190,148,255; }
+.instrument-pad[data-instrument=FX] { --pad-color:219,136,230; }
+.instrument-pad[data-instrument=Bass] { --pad-color:100,188,254; }
+.instrument-pad::after { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background:radial-gradient(ellipse at 0 0,rgba(var(--pad-color),.25),rgba(var(--pad-color),.03) 70%); box-shadow:inset 0 0 20px rgba(var(--pad-color),.2); opacity:var(--pad-level); transition:opacity 100ms linear; }
+.instrument-pad::before { content:''; position:absolute; width:65%; height:1px; top:0; left:-70%; background:linear-gradient(90deg,transparent,rgba(var(--pad-color),1),#fff,transparent); box-shadow:0 0 9px rgba(var(--pad-color),.9); pointer-events:none; }
+.instrument-pad[data-strike=a]::before { animation:stage-border-a 500ms ease-out; }
+.instrument-pad[data-strike=b]::before { animation:stage-border-b 500ms ease-out; }
+@keyframes stage-border-a { to { transform:translateX(280%); opacity:0; } }
+@keyframes stage-border-b { to { transform:translateX(280%); opacity:0; } }
+.instrument-pad.is-lit { border-color:rgba(var(--pad-color),.8); }
+.stage-roses .instrument-pad { background:linear-gradient(135deg,rgba(var(--pad-color),.075),#090e2185 55%,#1d123966); }
+.stage-roses .instrument-pad.is-lit { box-shadow:inset 0 0 18px rgba(var(--pad-color),.17),0 0 14px rgba(var(--pad-color),.16); }
+.instrument-pad>div { display:flex; align-items:center; justify-content:space-between; gap:6px; position:relative; z-index:1; }
+.instrument-pad kbd { color:#e3efff; font:500 clamp(16px,1.25vw,25px) 'DM Mono',monospace; line-height:1; }
+.instrument-pad small,.pad-auto { font:7px 'DM Mono',monospace; letter-spacing:.07em; color:#a2b4d0; }
+.pad-kind { display:flex; align-items:center; gap:5px; text-transform:uppercase; }
+.pad-glyph { width:13px; height:13px; fill:none; stroke:rgba(var(--pad-color),.85); stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+.instrument-pad strong { position:relative; z-index:1; display:block; margin-top:9px; color:#c2d5ec; font:400 11px/1.35 Inter,system-ui,sans-serif; overflow-wrap:anywhere; }
+.instrument-pad>span { position:relative; z-index:1; display:block; margin-top:4px; color:#788caa; font:8px/1.35 'DM Mono',monospace; }
+.instrument-pad.is-automatic { --pad-color:171,145,247; border-style:dashed; background:linear-gradient(135deg,#34305a29,#0b102777); }
+.instrument-pad.is-automatic .pad-auto { color:#c7b4f1; font-size:12px; letter-spacing:.12em; }
+.instrument-pad.is-unavailable { opacity:.43; }
+.instrument-pad.is-unavailable.is-lit { opacity:1; }
+.workstation-stage .roses-performance-controls[hidden],.workstation-stage .roses-performance-beat { display:none !important; }
+.performance-workstation.is-piano-only { grid-template-columns:1fr; grid-template-areas:'orb' 'live'; margin-inline:12vw; }
+.workstation-stage .piano-input-legend { font-size:8px; top:-20px; opacity:.65; }
+@media(min-width:1900px) {
+  .workstation-instruments { grid-auto-rows:minmax(90px,auto); gap:13px; }
+  .instrument-pad { min-height:90px; padding:14px 15px 12px; }.instrument-pad strong { font-size:13px; }.instrument-pad small { font-size:8px; }.pad-glyph { width:15px;height:15px; }
+}
+@media(max-height:800px) {
+  .workstation-stage .stage-header { padding-top:17px; min-height:90px; }.workstation-stage .stage-identity h1 { font-size:29px; }
+  .performance-workstation { top:108px; bottom:calc(max(var(--stage-piano-height),112px) + 19px); row-gap:7px; }
+  .workstation-instrument-field { gap:7px; }.workstation-instruments { grid-auto-rows:minmax(63px,auto); gap:8px; }.instrument-pad { min-height:63px; padding:8px 10px; }.instrument-pad strong { font-size:10px;margin-top:6px; }.instrument-pad>span { font-size:7px; }.workstation-orb>span { font-size:8px; }
+}
+@media(max-width:1000px) {
+  .workstation-stage .stage-header { grid-template-columns:minmax(150px,1fr) minmax(200px,1fr) minmax(150px,1fr); padding-inline:20px; gap:12px; }
+  .workstation-stage .stage-status { font-size:9px; gap:7px; }.workstation-stage .stage-title-line { display:none; }.workstation-stage .stage-arm-start { min-width:200px; padding:13px 17px; }
+  .performance-workstation { left:20px;right:20px;column-gap:24px; }.workstation-instruments { grid-template-columns:repeat(3,minmax(0,1fr));gap:8px; }.instrument-pad { padding:9px; }.workstation-field-heading>small { display:none; }
+  .workstation-intro-loop { grid-column:var(--loop-column-3) / span 2; grid-row:var(--loop-row-3); }
+}
+@media(max-width:600px) {
+  .workstation-stage { --stage-piano-height:20dvh; }.workstation-stage .stage-header { grid-template-columns:1fr 1fr; padding:15px; }.workstation-stage .stage-identity h1 { font-size:23px; }.workstation-stage .stage-status { grid-column:2;justify-content:flex-end; }.workstation-stage .roses-stage-transport,.workstation-stage .manual-stage-transport { grid-column:1 / -1;grid-row:2;max-width:none; }.workstation-stage .stage-arm-start { min-height:42px;min-width:210px;padding:9px 16px;font-size:11px; }
+  .performance-workstation { top:155px; left:12px;right:12px;column-gap:12px;grid-template-columns:minmax(0,1fr) minmax(0,1fr); }.workstation-instruments { grid-template-columns:repeat(2,minmax(0,1fr)); }.workstation-live { gap:7px; }.workstation-live>span { display:none; }.instrument-pad small { font-size:6px; }.pad-glyph {display:none;}.workstation-orb>span {font-size:6px;letter-spacing:.12em;}
+}
+@media(max-width:600px) {
+  .workstation-stage .roses-stage-metronome { top:46px; right:15px; gap:4px; font-size:8px; }
+  .roses-stage-beat-lights { gap:4px; }
+  .roses-stage-beat-lights i { width:18px; height:18px; font-size:9px; }
+  .workstation-intro-loop { grid-column:var(--loop-column-2) / span 2; grid-row:var(--loop-row-2); }
+  .roses-intro-loop-deck { min-height:60px; padding:8px; gap:8px; }
+  .roses-intro-loop-dial { width:35px; height:35px; }.roses-intro-loop-dial span { font-size:20px; }
+  .roses-intro-loop-heading strong { font-size:9px; }.roses-intro-loop-heading span,.roses-intro-loop-keys small { font-size:7px; }
+  .roses-intro-loop-keys kbd { width:18px; height:17px; font-size:9px; }
+}
+@media(prefers-reduced-motion:reduce) { .instrument-pad,.instrument-pad::after,.workstation-stage .stage-arm-start { transition:none; }.instrument-pad::before { animation:none !important; }.workstation-stage .stage-arm-start:not(:disabled):hover {transform:none;} }
+
+/* Roses audience view keeps the music on stage and setup behind F10. */
+.audience-stage .roses-stage-transport[hidden] { display:none !important; }
+.performance-workstation.is-audience {
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-rows:minmax(0,1fr) 46px; grid-template-areas:'orb instruments' 'live instruments';
+}
+.is-audience .workstation-live>span { display:block; }
+.is-audience .workstation-live { justify-content:center; }
+.is-audience .workstation-instrument-field { justify-self:stretch; }
+.is-audience .workstation-instruments { grid-template-columns:repeat(6,minmax(0,1fr)); grid-auto-rows:minmax(68px,auto); gap:8px; overflow:auto; pointer-events:none; padding:7px 2px; }
+.is-audience .workstation-intro-loop { grid-column:var(--loop-column-6) / span 2; grid-row:var(--loop-row-6); }
+.is-audience .instrument-pad { min-height:68px; padding:9px 4px; text-align:center; }
+.is-audience .instrument-pad>div { justify-content:center; gap:5px; }
+.is-audience .instrument-pad .pad-glyph { display:block; width:16px; height:16px; }
+.is-audience .instrument-pad kbd { font-size:clamp(13px,1vw,20px); }
+.is-audience .instrument-pad strong { margin-top:8px; font-size:10px; line-height:1.15; text-transform:capitalize; }
+@media(max-width:1000px) {
+  .is-audience .workstation-instruments { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .is-audience .workstation-intro-loop { grid-column:var(--loop-column-4) / span 2; grid-row:var(--loop-row-4); }
+}
+@media(max-width:600px) {
+  .performance-workstation.is-audience { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+  .is-audience .workstation-instruments { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .is-audience .workstation-intro-loop { grid-column:var(--loop-column-3) / span 2; grid-row:var(--loop-row-3); }
+  .is-audience .instrument-pad { min-height:60px; padding:6px 2px; }
+  .is-audience .instrument-pad .pad-glyph { width:13px; height:13px; }
+  .is-audience .instrument-pad strong { margin-top:5px; font-size:8px; }
+}
+
+/* Roses projector layout: the record owns the left bay, and keys sit below the right bay. */
+@media(min-width:1100px) {
+  .workstation-stage.stage-roses .stage-header { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .workstation-stage.stage-roses .roses-stage-transport { grid-column:2; justify-self:center; }
+  .workstation-stage.stage-roses .stage-status { grid-column:2; justify-self:end; }
+  .workstation-stage.stage-roses .performance-workstation,
+  .workstation-stage.stage-roses .performance-workstation.is-audience {
+    inset:132px 2.5vw 0;
+    grid-template-columns:minmax(0,49%) minmax(0,1fr);
+    grid-template-rows:minmax(0,1fr) 46px var(--roses-piano-height);
+    grid-template-areas:'orb instruments' 'orb live' 'orb .';
+    column-gap:2.5vw;
+  }
+}
+@media(min-width:1100px) and (max-height:800px) {
+  .workstation-stage.stage-roses .performance-workstation,
+  .workstation-stage.stage-roses .performance-workstation.is-audience { top:108px; }
+}
+@media(min-width:1100px) and (max-width:1499px) {
+  .workstation-stage.stage-roses .roses-stage-transport { justify-self:start; width:calc(100% - 205px); }
+  .workstation-stage.stage-roses .is-audience .workstation-instruments { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .workstation-stage.stage-roses .is-audience .workstation-intro-loop { grid-column:var(--loop-column-4) / span 2; grid-row:var(--loop-row-4); }
+}
+
+/* The turntable stays mounted; only its artwork, caption, and local light evolve. */
+.record-hwm-fallback { display:none; }
+.record-hwm-source { display:block; width:100%; }
+.record-orb[data-renderer=fallback] .record-hwm-fallback { display:block; position:absolute; z-index:2; width:44%; aspect-ratio:1; left:28%; top:50%; transform:translateY(-50%); border-radius:50%; overflow:hidden; opacity:var(--hwm-art-mix,0); }
+.record-orb[data-renderer=fallback] .record-hwm-source { position:absolute; width:150%; max-width:none; height:150%; left:-22.5%; top:-26.25%; }
+.record-orb.is-concealed .record-hwm-fallback { visibility:hidden; }
+.record-artwork-warning { position:absolute; bottom:9%; left:0; right:0; color:#a6b8ca; text-align:center; font-size:10px; }
+.vinyl-song-caption,.stage-song-morph { display:grid; }
+.vinyl-song-caption>span,.stage-song-morph>span { grid-area:1 / 1; }
+.stage-song-morph { min-width:0; }
+.workstation-stage.stage-roses::before { opacity:calc(1 - var(--hwm-visual-mix,0) * .45); }
+.workstation-stage.stage-roses { background-color:#030611; }
+.record-orb::after { opacity:calc(.9 - var(--hwm-drop-contrast,0) * .3); }

@@ -1,0 +1,4222 @@
+{
+  "fullyArmed": true,
+  "captureMelody": true,
+  "earlyNotes": [
+    {
+      "midi": 64,
+      "time": 9.63,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 68,
+      "time": 10.530000000000001,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 12.030000000000001,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 66,
+      "time": 12.93,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 14.43,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 68,
+      "time": 15.33,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 16.830000000000005,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 66,
+      "time": 17.73,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 19.23,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 68,
+      "time": 20.13,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 21.63,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 66,
+      "time": 22.53,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 24.03,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 68,
+      "time": 24.93,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 26.43,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 66,
+      "time": 27.330000000000002,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 28.830000000000002,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 68,
+      "time": 29.73,
+      "duration": 1.5199999999999996
+    },
+    {
+      "midi": 64,
+      "time": 31.23,
+      "duration": 2.4199999999999995
+    },
+    {
+      "midi": 66,
+      "time": 32.13,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 33.63,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 68,
+      "time": 34.529999999999994,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 36.029999999999994,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 66,
+      "time": 36.93,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 38.43,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 68,
+      "time": 39.33,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 40.83,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 66,
+      "time": 41.73,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 43.23,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 68,
+      "time": 44.129999999999995,
+      "duration": 1.5200000000000031
+    },
+    {
+      "midi": 64,
+      "time": 45.629999999999995,
+      "duration": 2.420000000000003
+    },
+    {
+      "midi": 66,
+      "time": 46.529999999999994,
+      "duration": 1.5200000000000031
+    }
+  ],
+  "earlyStops": [
+    0,
+    48.05
+  ],
+  "earlyBass": [
+    {
+      "startBeat": 48,
+      "durationBeats": 0.5,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1,
+      "time": 28.85
+    },
+    {
+      "startBeat": 48,
+      "durationBeats": 0.5,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1,
+      "time": 28.85
+    },
+    {
+      "startBeat": 48.5,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1.5,
+      "time": 29.15
+    },
+    {
+      "startBeat": 48.5,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1.5,
+      "time": 29.15
+    },
+    {
+      "startBeat": 48.75,
+      "durationBeats": 0.75,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1.75,
+      "time": 29.3
+    },
+    {
+      "startBeat": 48.75,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 13,
+      "beatInBar": 1.75,
+      "time": 29.3
+    },
+    {
+      "startBeat": 52,
+      "durationBeats": 0.5,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1,
+      "time": 31.25
+    },
+    {
+      "startBeat": 52,
+      "durationBeats": 0.5,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1,
+      "time": 31.25
+    },
+    {
+      "startBeat": 52.5,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1.5,
+      "time": 31.55
+    },
+    {
+      "startBeat": 52.5,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1.5,
+      "time": 31.55
+    },
+    {
+      "startBeat": 52.75,
+      "durationBeats": 0.75,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1.75,
+      "time": 31.7
+    },
+    {
+      "startBeat": 52.75,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 14,
+      "beatInBar": 1.75,
+      "time": 31.7
+    },
+    {
+      "startBeat": 56,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1,
+      "time": 33.650000000000006
+    },
+    {
+      "startBeat": 56,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1,
+      "time": 33.650000000000006
+    },
+    {
+      "startBeat": 56.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1.5,
+      "time": 33.95
+    },
+    {
+      "startBeat": 56.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1.5,
+      "time": 33.95
+    },
+    {
+      "startBeat": 56.75,
+      "durationBeats": 0.75,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1.75,
+      "time": 34.1
+    },
+    {
+      "startBeat": 56.75,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 15,
+      "beatInBar": 1.75,
+      "time": 34.1
+    },
+    {
+      "startBeat": 60,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1,
+      "time": 36.05
+    },
+    {
+      "startBeat": 60,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1,
+      "time": 36.05
+    },
+    {
+      "startBeat": 60.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1.5,
+      "time": 36.35
+    },
+    {
+      "startBeat": 60.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1.5,
+      "time": 36.35
+    },
+    {
+      "startBeat": 60.75,
+      "durationBeats": 0.75,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1.75,
+      "time": 36.49999999999999
+    },
+    {
+      "startBeat": 60.75,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 16,
+      "beatInBar": 1.75,
+      "time": 36.49999999999999
+    },
+    {
+      "startBeat": 64,
+      "durationBeats": 0.5,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1,
+      "time": 38.45
+    },
+    {
+      "startBeat": 64,
+      "durationBeats": 0.5,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1,
+      "time": 38.45
+    },
+    {
+      "startBeat": 64.5,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1.5,
+      "time": 38.75
+    },
+    {
+      "startBeat": 64.5,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1.5,
+      "time": 38.75
+    },
+    {
+      "startBeat": 64.75,
+      "durationBeats": 0.75,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1.75,
+      "time": 38.9
+    },
+    {
+      "startBeat": 64.75,
+      "durationBeats": 0.25,
+      "midi": 49,
+      "velocity": 100,
+      "bar": 17,
+      "beatInBar": 1.75,
+      "time": 38.9
+    },
+    {
+      "startBeat": 68,
+      "durationBeats": 0.5,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1,
+      "time": 40.85
+    },
+    {
+      "startBeat": 68,
+      "durationBeats": 0.5,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1,
+      "time": 40.85
+    },
+    {
+      "startBeat": 68.5,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1.5,
+      "time": 41.15
+    },
+    {
+      "startBeat": 68.5,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1.5,
+      "time": 41.15
+    },
+    {
+      "startBeat": 68.75,
+      "durationBeats": 0.75,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1.75,
+      "time": 41.3
+    },
+    {
+      "startBeat": 68.75,
+      "durationBeats": 0.25,
+      "midi": 45,
+      "velocity": 100,
+      "bar": 18,
+      "beatInBar": 1.75,
+      "time": 41.3
+    },
+    {
+      "startBeat": 72,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1,
+      "time": 43.25
+    },
+    {
+      "startBeat": 72,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1,
+      "time": 43.25
+    },
+    {
+      "startBeat": 72.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1.5,
+      "time": 43.55
+    },
+    {
+      "startBeat": 72.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1.5,
+      "time": 43.55
+    },
+    {
+      "startBeat": 72.75,
+      "durationBeats": 0.75,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1.75,
+      "time": 43.7
+    },
+    {
+      "startBeat": 72.75,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 19,
+      "beatInBar": 1.75,
+      "time": 43.7
+    },
+    {
+      "startBeat": 76,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1,
+      "time": 45.65
+    },
+    {
+      "startBeat": 76,
+      "durationBeats": 0.5,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1,
+      "time": 45.65
+    },
+    {
+      "startBeat": 76.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1.5,
+      "time": 45.95
+    },
+    {
+      "startBeat": 76.5,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1.5,
+      "time": 45.95
+    },
+    {
+      "startBeat": 76.75,
+      "durationBeats": 0.75,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1.75,
+      "time": 46.1
+    },
+    {
+      "startBeat": 76.75,
+      "durationBeats": 0.25,
+      "midi": 40,
+      "velocity": 100,
+      "bar": 20,
+      "beatInBar": 1.75,
+      "time": 46.1
+    }
+  ],
+  "rosesVocalArmed": true,
+  "originalRosesVocalStreams": 1,
+  "dropBackingSource": "hwm",
+  "recordedOffsetMs": 0,
+  "originalRecordingPitchShiftSemitones": 0,
+  "originalRecordingTracks": 0,
+  "rosesInstrumentalTracks": 0,
+  "hybridHwmDrumTracks": 0,
+  "hybridDrumSettings": {
+    "hwmVolume": 1,
+    "rosesVolume": 1,
+    "balance": 0.5
+  },
+  "hybridTracks": 0,
+  "riserTracks": 2,
+  "renderer": "Actual section start through Tone.js on a native OfflineAudioContext; not a browser or hardware listening test",
+  "startBar": 1,
+  "mode": "lead",
+  "backingMode": "roses",
+  "leadSound": "original",
+  "key": "E major / C♯ minor",
+  "transposeSemitones": 1,
+  "dropBassEvents": 0,
+  "dropBassTracks": 1,
+  "dropChordTracks": 1,
+  "dropDrums": {
+    "kick": 24,
+    "clap": 16,
+    "hat": 38
+  },
+  "maximumControls": false,
+  "audioNodeCreations": {
+    "oscillators": 506,
+    "filters": 21,
+    "waveshapers": 10,
+    "bufferSources": 165
+  },
+  "samples": [
+    {
+      "url": "/roses/roses_vocals_original_timeline.wav",
+      "time": 9.650793650793235,
+      "offset": 9.6,
+      "duration": 217.14897959183673,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 48.0507936508107,
+      "offset": 0,
+      "duration": 9.59873015873016,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 57.65224489798157,
+      "offset": 0,
+      "duration": 9.598730175999997,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Guitar build up bass compliment.wav",
+      "time": 57.65224489798157,
+      "offset": 0,
+      "duration": 9.58,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/here_with_me_chorus_e_major.wav",
+      "time": 62.63,
+      "offset": 0,
+      "duration": 42,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 67.25000000000001,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 67.25000000000001,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 67.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 68.44999999999999,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 69.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 69.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 70.25000000000001,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 70.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 71.44999999999999,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 72.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 72.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 72.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 73.25000000000001,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 73.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 74.44999999999999,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 75.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 75.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 76.25000000000001,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 76.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 76.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 76.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 77.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 77.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 78.95,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 78.95,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.55,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.55,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 79.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 79.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 80.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 80.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 81.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.8,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 81.95,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.0594630943592953
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 81.95,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.1,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.0594630943592953
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.122462048309373
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.4,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.189207115002721
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.55,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.2599210498948732
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.55,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.7,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.2599210498948732
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 82.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.2599210498948732
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 82.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.3348398541700344
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.3348398541700344
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.3,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.4142135623730951
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.4142135623730951
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.6,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.5874010519681994
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.5874010519681994
+    },
+    {
+      "url": "/roses/buildup/spacy drum.wav",
+      "time": 83.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/Snare Drum 005 808 Double Beam.wav",
+      "time": 83.9,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1.5874010519681994
+    },
+    {
+      "url": "/roses/aah vocal chop loop 2.wav",
+      "time": 84.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/riser-soft.wav",
+      "time": 84.05,
+      "offset": 0,
+      "fadeOut": 0.005,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/riser-strong.wav",
+      "time": 84.05,
+      "offset": 0,
+      "fadeOut": 0.005,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/buildup/snap for drop.wav",
+      "time": 85.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hwm-backing/drop-instrumental-chords.wav",
+      "time": 86.45,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hwm-backing/drop-bass.wav",
+      "time": 86.45,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 86.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 87.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 87.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 88.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 88.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 89.3,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 89.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 89.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 90.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 90.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 91.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 91.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 92.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 93.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 93.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.1,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 94.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.55,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 94.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 95.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 96.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.35,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.65,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 96.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 96.95,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 96.95,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.25,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.55,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 97.85,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 97.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.15,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.1875,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.22500000000001,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.2625,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.3,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 98.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 98.75,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 98.9,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.05,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 99.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.35,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 99.35,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.65,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 99.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 99.95,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.1,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.25,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 100.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 100.55,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 100.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.15,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.45,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 101.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 101.75,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 101.75,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.05,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.35,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.65,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 102.65,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.95,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 102.9875,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.025,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.0625,
+      "offset": 0,
+      "fadeOut": 0.04375,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.1,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 103.25,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.55,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 103.7,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 103.85,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 103.85,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.15,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 104.15,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.45,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses Kick.wav",
+      "time": 104.45,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.75,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 104.9,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 105.05,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/Roses SnareClap.wav",
+      "time": 105.05,
+      "offset": 0,
+      "fadeOut": 0.003,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/HiHat Closed 004 Crunk.wav",
+      "time": 105.35,
+      "offset": 0,
+      "fadeOut": 0.05,
+      "playbackRate": 1
+    }
+  ],
+  "seconds": 113.6,
+  "prerollSeconds": 0.05,
+  "voxSynthEvents": 120,
+  "voxMelodyRetained": true,
+  "dropEvents": 224,
+  "bar37Attacks": 4,
+  "finite": true,
+  "peakDb": -11.146751133260238,
+  "rmsDb": -32.907448951322195,
+  "attacks": [
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 67.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 67.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 67.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 67.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 67.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 67.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 67.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 67.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 68.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 68.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 68.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 68.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.44999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.44999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.44999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.44999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 68.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 68.9,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 68.9,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 68.9,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 68.9,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 69.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 69.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 69.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 69.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 72.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 72.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 72.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 72.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.50000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.50000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.50000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.50000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.94999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.94999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.94999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 72.94999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.25000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.25000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.25000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.25000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 73.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 73.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 73.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 73.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 73.69999999999999,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 74.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 74.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 74.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 74.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "D#4",
+      "duration": 0.15,
+      "time": 74.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "D#4",
+      "duration": 0.15,
+      "time": 74.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "D#4",
+      "duration": 0.15,
+      "time": 74.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "D#4",
+      "duration": 0.15,
+      "time": 74.75000000000001,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B3",
+      "duration": 0.15,
+      "time": 75.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B3",
+      "duration": 0.15,
+      "time": 75.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B3",
+      "duration": 0.15,
+      "time": 75.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B3",
+      "duration": 0.15,
+      "time": 75.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 77.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 77.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 77.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 77.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 77.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.05,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.05,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.05,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.05,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 78.35,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 78.5,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 78.5,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 78.5,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 78.5,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 78.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 78.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 78.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 78.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 81.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 81.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 81.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "C#5",
+      "duration": 0.15,
+      "time": 81.95,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.1,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.1,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.1,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.1,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "B4",
+      "duration": 0.15,
+      "time": 82.55,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 82.85,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 82.85,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 82.85,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 82.85,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 83.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 83.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 83.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "G#4",
+      "duration": 0.15,
+      "time": 83.15,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 83.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 83.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 83.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "F#4",
+      "duration": 0.15,
+      "time": 83.3,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 83.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 83.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 83.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 112,
+      "note": "E4",
+      "duration": 0.15,
+      "time": 83.75,
+      "velocity": 0.6
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 86.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 86.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 86.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 87.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 87.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 87.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 88.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 88.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 89,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 89.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 89.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#3",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 90.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E3",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 90.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 91.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 91.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 91.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 92,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 92.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 92.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 93.65,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 93.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 94.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 94.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#3",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 94.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E3",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 95.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 95.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 96.05,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 96.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 96.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 96.8,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 97.1,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 97.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.15,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.45,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 98.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 98.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.2,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 99.5,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#3",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 99.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E3",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 100.55,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 100.85,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#4",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "D#5",
+      "duration": 0.13749999999999998,
+      "time": 101,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 101.6,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 101.9,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 102.95,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#4",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "C#5",
+      "duration": 0.13749999999999998,
+      "time": 103.25,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B3",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "B4",
+      "duration": 0.13749999999999998,
+      "time": 103.4,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E5",
+      "duration": 0.13749999999999998,
+      "time": 103.7,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 104,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#3",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "F#4",
+      "duration": 0.13749999999999998,
+      "time": 104.3,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E3",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "E4",
+      "duration": 0.13749999999999998,
+      "time": 104.75,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#3",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    },
+    {
+      "region": 144,
+      "note": "G#4",
+      "duration": 0.13749999999999998,
+      "time": 105.35,
+      "velocity": 0.5984251968503937
+    }
+  ]
+}

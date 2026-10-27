@@ -12,7 +12,7 @@ import { defaultRosesDropSettings, validRosesDropSettings, type RosesDropSetting
 
 /** Dedicated live chord timbre; the Roses lead and scheduled backing have separate voices. */
 export class RosesChordStabEngine {
-  private voice = new RosesDropLayers();
+  private voice = new RosesDropLayers(true);
   private future = new RosesFutureBassLayers("roses", true);
   private closer = new RosesLoudStabsEngine();
   private closerSources = new Set<string>();
@@ -171,6 +171,14 @@ export class RosesChordStabEngine {
       this.bassCurrentCode = null;
       this.syncBass(time);
     }
+    return true;
+  }
+
+  /** A manually played single pitch reuses the chord body and pitched impact.
+   * No chord expansion or automatic root/bass accompaniment is introduced. */
+  noteOnIndividual(source: string, midi: number, code: string, time = Tone.immediate()): boolean {
+    if (!this.noteOn(source, midi, code, time)) return false;
+    if (this.settings.mode === "bonk") this.future.triggerImpact(midi, time, .9, true);
     return true;
   }
 

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {build} from 'esbuild';
-const bundle=await build({stdin:{contents:`export * from './src/piano/hybridBacking';export * from './src/piano/backingVisuals';export {backingChoices,defaultBackingMode} from './src/piano/rosesBacking';`,resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false});
+const bundle=await build({stdin:{contents:`export * from './src/piano/hybridBacking';export * from './src/piano/hybridDrumTransition';export * from './src/piano/backingVisuals';export {backingChoices,defaultBackingMode} from './src/piano/rosesBacking';`,resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false});
 const model=await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
 const base='public/roses/hybrid/',manifest=JSON.parse(readFileSync(base+'manifest.json'));
 const hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
@@ -40,13 +40,33 @@ test('both prepared risers rise in energy, are equally loud at unity, and end be
  }
  assert.equal(model.hybridRiserEndBeat,143.8);assert.equal(model.validRiserSettings({intensity:2,volume:-1}).intensity,1);assert.equal(model.validRiserSettings({volume:-1}).volume,0);
 });
-test('Hybrid visuals use HWM pitches and only Roses percussion, then show a real breakdown/riser with no piano hits',()=>{
+test('Hybrid visuals preserve HWM pitches, show both real drum sources during handoff, then a clean breakdown',()=>{
  const source=model.backingVisualEvents['hwm-drop'],hybrid=model.backingVisualEvents.hybrid;
  for(const event of hybrid.filter(e=>e.pitches.length)){const original=source.find(e=>`hybrid:${e.id}`===event.id);assert.ok(original);assert.deepEqual(event.pitches,original.pitches);assert.equal(event.start,original.start);assert.equal(event.end,Math.min(original.end,140));}
- assert.equal(hybrid.filter(e=>e.layer==='drums').length,73);assert.ok(hybrid.filter(e=>e.layer==='drums'||e.layer==='riser').every(e=>e.pitches.length===0));
+ assert.equal(hybrid.filter(e=>e.drumSource==='roses').length,57);assert.ok(hybrid.filter(e=>e.drumSource==='hwm').length>0);assert.ok(hybrid.filter(e=>e.layer==='drums'||e.layer==='riser').every(e=>e.pitches.length===0));
  for(const beat of [112,128,136])assert.equal(model.backingFrame('hybrid',beat).chord,model.backingFrame('hwm-drop',beat).chord);
  for(const beat of [140,141,143]){const frame=model.backingFrame('hybrid',beat);assert.equal(frame.breakdown,true);assert.equal(frame.chord,undefined);assert.ok(frame.events.every(e=>e.pitches.length===0));assert.match(frame.role,/Breakdown/);assert.ok(frame.intensity<.3);}
  assert.equal(model.backingFrame('hybrid',143.9).riserProgress,0);assert.equal(model.backingFrame('hybrid',144,'hwm').intensity,1);
  const mix={gain:1,levels:{chords:1,bass:1,drums:1,fx:1},solo:null,riser:{enabled:false,volume:1,intensity:1}};
  assert.ok(model.backingFrame('hybrid',142,undefined,mix).events.every(e=>e.layer!=='riser'));
+});
+
+test('Hybrid drum handoff keeps the full HWM groove through 32, complements both buses through 34, and reaches Roses-only by 35',()=>{
+ for(let beat=112;beat<128;beat+=.125)assert.deepEqual(model.hybridDrumGains(beat),{hwm:1,roses:0});
+ assert.deepEqual(model.hybridDrumGains(130),{hwm:.75,roses:.25});assert.deepEqual(model.hybridDrumGains(134),{hwm:.25,roses:.75});
+ for(let beat=128;beat<136;beat+=.125){const mix=model.hybridDrumGains(beat);assert.equal(mix.hwm+mix.roses,1);}
+ for(let beat=136;beat<144;beat+=.125)assert.deepEqual(model.hybridDrumGains(beat),{hwm:0,roses:1});
+ assert.deepEqual(model.hybridDrumGains(144),{hwm:0,roses:0});
+ for(const balance of [0,.5,1]){const settings={...model.defaultHybridDrums,balance};assert.deepEqual(model.hybridDrumGains(112,settings),{hwm:1,roses:0});assert.deepEqual(model.hybridDrumGains(136,settings),{hwm:0,roses:1});}
+ assert.ok(model.hybridDrumGains(132,{...model.defaultHybridDrums,balance:1}).roses>model.hybridDrumGains(132,{...model.defaultHybridDrums,balance:0}).roses);
+ assert.deepEqual(model.validHybridDrums({hwmVolume:2,rosesVolume:-1,balance:NaN}),{hwmVolume:1,rosesVolume:0,balance:.5});
+});
+test('Hybrid visual groove is the existing HWM percussion source, while Roses lanes enter only at 33',()=>{
+ const drums=model.backingVisualEvents.hybrid.filter(e=>e.layer==='drums'),hwm=drums.filter(e=>e.drumSource==='hwm'),roses=drums.filter(e=>e.drumSource==='roses');
+ for(const event of hwm){const original=model.backingVisualEvents['hwm-drop'].find(e=>`hybrid-hwm:${e.id}`===event.id);assert.ok(original);assert.equal(event.start,original.start);assert.equal(event.end,Math.min(original.end,136));assert.deepEqual(event.channels,original.channels);}
+ assert.ok(roses.every(e=>e.start>=128));assert.equal(roses.filter(e=>e.label==='Snare roll').length,32);
+ assert.ok(model.backingFrame('hybrid',120).active.filter(e=>e.layer==='drums').every(e=>e.drumSource==='hwm'));
+ assert.ok(model.backingFrame('hybrid',136).active.filter(e=>e.layer==='drums').every(e=>e.drumSource==='roses'));
+ const mix={gain:1,levels:{chords:1,bass:1,drums:1,fx:1},solo:null,hybridDrums:{hwmVolume:0,rosesVolume:0,balance:.5}};
+ assert.ok(model.backingFrame('hybrid',132,undefined,mix).active.every(e=>e.layer!=='drums'));
 });

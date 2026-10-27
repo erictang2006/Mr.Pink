@@ -1,0 +1,6 @@
+{
+  "preDropMaximumPcm16Difference": 0,
+  "unchangedHwmPeakDb": -11.879645540562564,
+  "unchangedHwmRmsDb": -32.21155844887671,
+  "baseline": "docs/roses-reference/original-roses-riser/roses-vox-verification.json"
+}

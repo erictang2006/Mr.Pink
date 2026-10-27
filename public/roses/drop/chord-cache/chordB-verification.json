@@ -12,7 +12,7 @@
     "src/piano/rosesDropLayers.ts": "d0782273cc968b99527da74766966292c956af0c50a9a3822d6b6ac4d6ab4d17",
     "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
     "src/piano/rosesDropSettings.ts": "1e110841d0dd2ade970561a51ad58f82afacaca63f6a76e01d711a7777079cf2",
-    "src/piano/noteMapping.ts": "c002368d092d0e1642d11ea66e3727f6733f73a73676857582f85f27bd89e8fa",
+    "src/piano/noteMapping.ts": "4e40e7651e77e20c08c2e68615583c0c5b09312d93e6df07d96b3c9c2eef8fc7",
     "package-lock.json": "e5f7927acc45e43deed4b98b57981cbf2e4f396ac19b6d48ca9cfbd2cab511d0"
   },
   "notes": [

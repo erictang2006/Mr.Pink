@@ -1,0 +1,107 @@
+{
+  "dropBackingSource": "recording",
+  "recordedOffsetMs": -80,
+  "originalRecordingPitchShiftSemitones": 0,
+  "originalRecordingTracks": 1,
+  "rosesInstrumentalTracks": 0,
+  "hybridHwmDrumTracks": 1,
+  "hybridDrumSettings": {
+    "hwmVolume": 1,
+    "rosesVolume": 1,
+    "balance": 0.5
+  },
+  "hybridTracks": 3,
+  "riserTracks": 2,
+  "renderer": "Actual section start through Tone.js on a native OfflineAudioContext; not a browser or hardware listening test",
+  "startBar": 29,
+  "mode": "vox",
+  "backingMode": "hybrid",
+  "leadSound": "original",
+  "key": "E major / C♯ minor",
+  "transposeSemitones": 1,
+  "dropBassEvents": 0,
+  "dropBassTracks": 0,
+  "dropChordTracks": 0,
+  "dropDrums": {
+    "kick": 0,
+    "clap": 0,
+    "hat": 0
+  },
+  "maximumControls": false,
+  "audioNodeCreations": {
+    "oscillators": 0,
+    "filters": 9,
+    "waveshapers": 5,
+    "bufferSources": 8
+  },
+  "samples": [
+    {
+      "url": "/roses/hybrid/chords.wav",
+      "time": 0.05,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/bass.wav",
+      "time": 0.05,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hwm-backing/drop-drums.wav",
+      "time": 0.05,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/drums.wav",
+      "time": 0.05,
+      "offset": 0,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/riser-soft.wav",
+      "time": 16.85,
+      "offset": 0,
+      "fadeOut": 0.005,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/hybrid/riser-strong.wav",
+      "time": 16.85,
+      "offset": 0,
+      "fadeOut": 0.005,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/here_with_me_chorus_e_major.wav",
+      "time": 0.052244897959183655,
+      "offset": 4.620000000000002,
+      "duration": 37.379999999999995,
+      "fadeOut": 0.02,
+      "playbackRate": 1
+    },
+    {
+      "url": "/roses/drop/roses-original-recording-8bars-100bpm.wav",
+      "time": 19.17000000000001,
+      "offset": 0,
+      "duration": 19.189999999999998,
+      "fadeOut": 0.01,
+      "playbackRate": 1
+    }
+  ],
+  "seconds": 56,
+  "prerollSeconds": 0.05,
+  "voxSynthEvents": 0,
+  "voxMelodyRetained": true,
+  "dropEvents": 0,
+  "bar37Attacks": 0,
+  "finite": true,
+  "peakDb": -20.748671057900346,
+  "rmsDb": -38.189977338257705,
+  "attacks": []
+}

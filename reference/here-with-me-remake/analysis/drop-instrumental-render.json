@@ -9,14 +9,14 @@
     37,
     44
   ],
-  "key": "E major / C♯ minor",
+  "key": "E major / C\u266f minor",
   "transposeSemitones": 1,
   "includeLead": false,
   "bpm": 100,
   "ppq": 96,
   "normalizationGain": 0.3441941079567844,
   "rawMixPeak": 1.379738221236039,
-  "renderWallSeconds": 3.8044492500000002,
+  "renderWallSeconds": 7.707286125,
   "files": [
     {
       "group": "chords",
@@ -39,7 +39,7 @@
     "scripts/render-hwm-backing.mjs": "4ebcd0e39b5a9e801fefce03938ce6208a097aa46395c10b5d7627e3640538a2",
     "src/piano/hwmBackingRenderEngine.ts": "73cb4de86daa992bef498d4b2cecb6cc6cbd4711916087f901d4c132d38a95b2",
     "src/piano/dropChordAmbience.ts": "33e937996e6f44dcd712afcc31e8d550ad6ac93e38e429bc8fd6380044174a94",
-    "src/piano/hereWithMeLeadEngine.ts": "7703c6a0b76eacd1c9c6c7f789bae51094a7a1c06308cbda457a48c07d904647",
+    "src/piano/hereWithMeLeadEngine.ts": "1554f89a3c9fc2fe67c70d37758d8275fb329b160661237d215de5c071750732",
     "src/piano/hereWithMeLead.ts": "caef91a568f94c6146ff8aec5a25f137abe19b257974db8cef62d2f4c01af123",
     "reference/here-with-me-remake/analysis/normalized-samples.json": "75acbd019fc4ab5d79859117b4ec41ff91e6a3550305c0bbf8816029e292229d",
     "reference/here-with-me-remake/analysis/sample-fx-preparation.json": "5d398ca6c9bbbbaf002d9f3af470f4c405b258a2e2f6c855b6d30e83d915d791",
@@ -7167,6 +7167,15 @@
       "durationTicks": 24,
       "file": "Ultrasonic - Marshmello Essentials Vol.1 - Snare 09.wav",
       "offsetSeconds": 0
+    }
+  ],
+  "runtimeOnlyAmendments": [
+    {
+      "date": "2026-10-23",
+      "source": "src/piano/hereWithMeLeadEngine.ts",
+      "previousHash": "b1401e54c2d35d83147d077f4553144f8bbfc312551aa1177fe53cc17be602c3",
+      "currentHash": "1554f89a3c9fc2fe67c70d37758d8275fb329b160661237d215de5c071750732",
+      "reason": "Added manual hold/release methods matching existing automatic melody voicing. All prior rendering methods, notes, synth parameters and prepared audio unchanged."
     }
   ]
 }

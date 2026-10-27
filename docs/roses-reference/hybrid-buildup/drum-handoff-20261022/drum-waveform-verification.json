@@ -1,0 +1,113 @@
+{
+  "renderer": "Actual Tone.js/native offline two-bus output; browser/device listening unavailable",
+  "reports": [
+    {
+      "name": "bar29",
+      "offset": 0,
+      "settings": {
+        "hwmVolume": 1,
+        "rosesVolume": 1,
+        "balance": 0.5
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 2
+      },
+      "maxError": 0.0000040531158447265625,
+      "earlyGrooveError": 0.0000013113021850585938,
+      "bar36DrumPowerBeforeSnap": 5.225419117509552e-19,
+      "finalGapPeak": 0,
+      "peakDb": -5.094897731694475
+    },
+    {
+      "name": "bar33",
+      "offset": 9.6,
+      "settings": {
+        "hwmVolume": 1,
+        "rosesVolume": 1,
+        "balance": 0.5
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 2
+      },
+      "maxError": 0.0000025033950805664062,
+      "earlyGrooveError": 0,
+      "bar36DrumPowerBeforeSnap": 1.682915062104889e-19,
+      "finalGapPeak": 0,
+      "peakDb": -5.094888424065457
+    },
+    {
+      "name": "bar36",
+      "offset": 16.8,
+      "settings": {
+        "hwmVolume": 1,
+        "rosesVolume": 1,
+        "balance": 0.5
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 1
+      },
+      "maxError": 5.066394805908203e-7,
+      "earlyGrooveError": 0,
+      "bar36DrumPowerBeforeSnap": 0,
+      "finalGapPeak": 0,
+      "peakDb": -5.094875393401588
+    },
+    {
+      "name": "favor-hwm",
+      "offset": 0,
+      "settings": {
+        "hwmVolume": 1,
+        "rosesVolume": 1,
+        "balance": 0
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 2
+      },
+      "maxError": 0.0000040531158447265625,
+      "earlyGrooveError": 0,
+      "bar36DrumPowerBeforeSnap": 5.225419117509552e-19,
+      "finalGapPeak": 0,
+      "peakDb": -5.094897731694475
+    },
+    {
+      "name": "favor-roses",
+      "offset": 0,
+      "settings": {
+        "hwmVolume": 1,
+        "rosesVolume": 1,
+        "balance": 1
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 2
+      },
+      "maxError": 0.0000040531158447265625,
+      "earlyGrooveError": 0,
+      "bar36DrumPowerBeforeSnap": 5.225419117509552e-19,
+      "finalGapPeak": 0,
+      "peakDb": -5.094897731694475
+    },
+    {
+      "name": "muted",
+      "offset": 0,
+      "settings": {
+        "hwmVolume": 0,
+        "rosesVolume": 0,
+        "balance": 0.5
+      },
+      "counts": {
+        "oscillators": 0,
+        "bufferSources": 2
+      },
+      "maxError": 0,
+      "earlyGrooveError": 0,
+      "bar36DrumPowerBeforeSnap": 0,
+      "finalGapPeak": 0,
+      "peakDb": null
+    }
+  ]
+}

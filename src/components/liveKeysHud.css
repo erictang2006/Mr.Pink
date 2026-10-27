@@ -1,0 +1,14 @@
+.stage-status-stack {display:flex;flex-direction:column;align-items:flex-end;gap:12px;min-width:0;}
+.live-keys-hud {display:flex;align-items:center;gap:12px;min-height:38px;color:#b6cadd;font:13px "DM Mono",monospace;letter-spacing:.09em;opacity:.7;pointer-events:none;}
+.live-keys-label {white-space:nowrap;}
+.live-keys-history {display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:222px;min-height:38px;}
+.live-key-pill {display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:38px;padding:0 8px;box-sizing:border-box;border:1px solid #a8d5f94d;border-radius:7px;background:#13243caa;color:#e2f3ff;font:500 20px "DM Mono",monospace;letter-spacing:0;animation:live-key-fade var(--key-lifetime) linear both;}
+.live-keys-hud.is-reveal {opacity:1;color:#d3e6f7;font-size:14px;}
+.is-reveal .live-key-pill {border-color:#b9deff80;box-shadow:0 0 8px #9bcfff28;}
+.live-keys-hud.is-reduced {opacity:.45;}
+@keyframes live-key-fade {0%,35%{opacity:1}70%{opacity:.65}100%{opacity:0}}
+@media(max-width:550px){.live-keys-hud{gap:6px;min-height:28px;font-size:10px}.live-keys-history{min-width:0;min-height:28px;gap:4px}.live-key-pill{min-width:26px;height:28px;padding:0 4px}.live-keys-hud.is-reveal{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.live-key-pill{animation:none}}
+
+.live-key-binding {font:500 20px "DM Mono",monospace;color:#e2f3ff;}
+@media(max-width:550px){.live-key-binding{font-size:15px}}

@@ -1,0 +1,23 @@
+{
+  "file": "public/roses/drop/roses_punchy_Gsharp_subtle_echo_8bars_100bpm.wav",
+  "zipSource": "/Users/etang1/Downloads/Roses_Existing_Drop_Replacement_Codex_Pack (1).zip",
+  "zipMember": "Roses_Existing_Drop_Replacement_Codex_Pack/previews/roses_punchy_Gsharp_subtle_echo_8bars_100bpm.wav",
+  "sha256": "a0867b153a72ac813fc9e6951561f1968bc549ca4f647329f90be17ed4c1f600",
+  "channels": 2,
+  "bitsPerSample": 24,
+  "sampleRate": 44100,
+  "frames": 846720,
+  "seconds": 19.2,
+  "bpm": 100,
+  "startBeat": 144,
+  "endBeat": 176,
+  "startSeconds": 86.4,
+  "endSeconds": 105.6,
+  "playbackRate": 1,
+  "peak": 0.9099999666213989,
+  "lastFrame": [
+    0.0,
+    0.0
+  ],
+  "final10msPeak": 0.00965428352355957
+}

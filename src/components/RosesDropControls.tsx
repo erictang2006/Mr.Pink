@@ -15,7 +15,7 @@ const controls = [
 
 export default function RosesDropControls({ value, onChange, onCompare }: Props) {
   return <details className="sandbox-details">
-    <summary>Keys 1–8 · Roses drop synth</summary>
+    <summary>Roses chord sound · individual notes + shortcuts</summary>
     <div className="sandbox-control-line">
       <label>Chord instrument <select aria-label="Chord instrument" value={value.mode} onChange={event => onChange({ ...value, mode: event.target.value === "drop" ? "drop" : "bonk" })}>
         <option value="bonk">Bonk + Future Bass</option>
@@ -32,7 +32,7 @@ export default function RosesDropControls({ value, onChange, onCompare }: Props)
         <input aria-label="Closer chord release" type="range" min=".05" max=".4" step=".01" value={value.closerRelease} onChange={event => onChange({ ...value, closerRelease: Number(event.target.value) })} />
       </label>}
     </div>
-    <p>Recorded Loud Stabs uses the finished chord WAVs on keys 1–3. Short taps end shortly after keyup; long holds keep the recorded body looping until release. Keys 4–8 retain the chord instrument selected above.</p>
+    <p>Recorded Loud Stabs uses the finished chord WAVs on keys 1–3. Short taps end shortly after keyup; long holds keep the recorded body looping until release. Keys 4/5 and individual notes 6–8 and Q–P use the chord instrument selected above. Play E+T+U+P for C♯ minor, W+R+Y+O for B major, or Q+E+T+I for A major.</p>
     {value.closerMode === "loud" && <small>Brightness also controls Recorded Loud Stabs and its drop-lead option. 2800 Hz keeps the original recorded tone; lower values soften it and higher values brighten it. The Body, Bonk, Space and Decay sliders affect the synth instrument.</small>}
     {onCompare && <div className="sandbox-control-line" aria-label="Loud Stabs A/B comparison">
       <strong>Loud Stabs source / finished hit</strong>
@@ -47,6 +47,6 @@ export default function RosesDropControls({ value, onChange, onCompare }: Props)
       </label>)}</div>
       <label><input type="checkbox" checked={value.duck} onChange={event => onChange({ ...value, duck: event.target.checked })} /> Duck on manual Z kick in Practice/Performance</label>
     </fieldset>
-    <p>Bonk plays once per chord and keeps its recorded decay. Chord release and physical note trails remain independent. Settings are saved locally.</p>
+    <p>Bonk plays once per individual note or chord shortcut and keeps its recorded decay. Chord release and physical note trails remain independent. Settings are saved locally.</p>
   </details>;
 }

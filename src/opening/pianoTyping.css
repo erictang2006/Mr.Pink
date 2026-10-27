@@ -1,0 +1,16 @@
+.piano-typing-reveal {position:absolute;z-index:10;top:44%;left:50%;width:min(74vw,1120px);transform:translate(-50%,-50%);pointer-events:none;color:#eee9dc;}
+.piano-typing-message {position:relative;outline:none;text-align:center;font:500 clamp(30px,4.05vw,76px)/1.38 Inter,system-ui,sans-serif;letter-spacing:.045em;white-space:pre-wrap;overflow-wrap:anywhere;text-shadow:0 2px 18px #03071199;}
+.piano-typing-word {display:inline-block;white-space:pre;}
+.piano-typing-caret {display:inline-block;width:2px;height:.95em;margin-left:.1em;vertical-align:-.08em;background:#eee9dc;border-radius:1px;animation:piano-text-caret 1.1s steps(1) infinite;}
+.piano-typed-character.is-fresh {animation:piano-character-light var(--piano-text-pulse) ease-out both;}
+.piano-typing-reveal.is-complete .piano-typing-caret {display:none;}
+.piano-typing-reveal.is-complete .piano-typing-letters {animation:piano-sentence-glow var(--piano-text-hold) ease-in-out var(--piano-text-offset) forwards,piano-sentence-dissolve var(--piano-text-dissolve) ease-out var(--piano-text-dissolve-at) forwards;}
+.piano-typing-stardust {position:absolute;inset:0;pointer-events:none;}
+.piano-typing-stardust i {position:absolute;display:block;opacity:0;border-radius:50%;background:#f1f8ff;box-shadow:0 0 5px #aed8ff;animation:piano-text-dust calc(var(--piano-text-dissolve) - var(--dust-delay)) ease-out calc(var(--piano-text-dissolve-at) + var(--dust-delay)) both;}
+@keyframes piano-text-caret {0%,49%{opacity:.9}50%,100%{opacity:0}}
+@keyframes piano-character-light {0%{color:#fff;text-shadow:0 0 12px var(--typed-note-color),0 0 22px var(--typed-note-color)}100%{color:inherit;text-shadow:inherit}}
+@keyframes piano-sentence-glow {0%{text-shadow:0 0 6px #c3dfff30}60%{text-shadow:0 0 13px #c3dfff66}100%{text-shadow:0 0 11px #c3dfff44}}
+@keyframes piano-sentence-dissolve {0%{opacity:1}100%{opacity:0}}
+@keyframes piano-text-dust {0%{opacity:0;transform:translate(0,0) scale(.7)}15%{opacity:.8}100%{opacity:0;transform:translate(var(--dust-x),var(--dust-y)) scale(.3)}}
+@media(max-aspect-ratio:1/1){.piano-typing-reveal{width:86vw;top:46%}.piano-typing-message{font-size:clamp(27px,5vw,46px)}}
+@media(prefers-reduced-motion:reduce){.piano-typing-caret{animation:none}.piano-typed-character.is-fresh{animation:none}.piano-typing-stardust{display:none}}

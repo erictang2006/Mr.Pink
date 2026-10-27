@@ -1,0 +1,17 @@
+{
+  "mask": {
+    "file": "logo-mask.png",
+    "source": "CSA logo white copy.png",
+    "width": 798,
+    "height": 824,
+    "sha256": "62644045aa6250ea2da71c5eee6daa53fe1b40ed00b5e099f60ddb29dadfa2eb",
+    "processing": "Original supplied file, copied byte-for-byte; its alpha channel is used as the logo mask."
+  },
+  "brandColor": "#8d1e25",
+  "brandColorSource": "Dominant red pixels sampled from the supplied falu-red JPEG",
+  "originalReference": {
+    "file": "original-falu-red.jpg",
+    "source": "Copy of falu red csa logo.jpg",
+    "sha256": "5dbd31e8188a007cc1f9fef252bca55f08b163179aaa7c091b65d114ad485230"
+  }
+}

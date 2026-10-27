@@ -13,6 +13,14 @@ Open the local URL printed by Vite. Use `npm test` for input and geometry checks
 
 This project is developed and run locally on the MacBook. It has no hosting configuration or Git remote.
 
+## Camo camera
+
+Keep your iPhone feed running in Camo Studio, open **Performance settings**, turn on **Enable Camera**, and select **Camo Camera**. Drag or resize the overlay; **Show overlay** in settings hides/shows it while capture stays live across songs. Camera capture is optional and video-only. See [Camo camera setup](docs/CAMO-CAMERA.md).
+
+## Settings across laptops
+
+While running `npm run dev`, preferences save automatically to `public/shared-settings.json`. Open **Performance settings → Save now**, then commit and push that file. Pull, restart the dev server, and reload on the other laptop to load the same setup. The first run captures this laptop’s existing browser settings. Camera device selection, hardware calibration, and browser-imported audio remain local. See [Shared settings](docs/SHARED-SETTINGS.md).
+
 ## Playing
 
 - Click **Open Practice Studio** for the imported Interstellar score. Enable audio, then play the highlighted computer keys. Step mode waits for the full chord; Timed mode follows the score clock without playing notes for you.

@@ -1,0 +1,175 @@
+# Mr Pink — Finalize Hybrid Buildup Drum Transition (Bars 29–36)
+
+I compared my existing **Hybrid — Here With Me + Roses Drum Build** against **Here With Me — Drop Backing**.
+
+The Hybrid has the better pre-drop sweep and near-silent final measure, but it loses too much rhythmic energy earlier because the Here With Me drum groove appears to be absent or reduced.
+
+**I want to keep the Here With Me drums initially, then gradually hand off to the Roses accelerating drums, followed by the existing bar-36 break and sweep.**
+
+Do not redesign the entire arrangement.
+
+## 1. Inspect both existing playback modes
+
+Inspect:
+- Hybrid — Here With Me + Roses Drum Build
+- Here With Me — Drop Backing
+
+Identify which exact drum samples, MIDI patterns and audio buses are active in each.
+
+Determine why the Hybrid loses the steady drum groove.
+
+Check whether its backing selector currently disables the Here With Me percussion bus.
+
+Reuse existing engines, samples and transport scheduling.
+
+Do not generate a new generic drum pattern.
+
+## 2. Bars 29–32 — Keep the full Here With Me groove
+
+For Hybrid mode, play the existing Here With Me drum pattern from the current Here With Me backing implementation.
+
+Keep:
+- Here With Me vocals
+- Transposed E-major harmony
+- Here With Me bass
+- Here With Me chord backing
+- Original Here With Me drum/percussion groove
+
+Do not play the Roses Vox Synth or original Roses harmonic backing.
+
+Keep the Roses accelerating snare build out of this first section.
+
+I want these measures to have the same rhythmic momentum as the original Here With Me backing option.
+
+## 3. Bars 33–34 — Transition into Roses drums
+
+Gradually introduce the existing Roses buildup percussion.
+
+Specifically:
+- Spacy Drum
+- Original Roses buildup snare pattern
+
+Do not immediately remove every Here With Me drum.
+
+Instead, perform a controlled rhythmic crossfade:
+
+Bar 33:
+- Here With Me drums remain prominent.
+- Roses buildup drums enter quietly.
+
+Bar 34:
+- Here With Me drum level decreases.
+- Roses buildup drums become more prominent.
+
+Ensure percussion hits align to the existing 100 BPM transport.
+
+Do not stack identical kicks at full volume or create clipping.
+
+Prefer gain automation over abruptly stopping and starting drum buses.
+
+## 4. Bar 35 — Full Roses drum acceleration
+
+By bar 35, the Roses buildup percussion should be dominant.
+
+Use the original Roses buildup pattern:
+- Repeated Spacy Drum eighth-note activity.
+- Additional snare roll accelerating to sixteenth notes.
+
+The Here With Me regular drum groove should now be substantially reduced or absent.
+
+Preserve Here With Me harmonic backing and vocals, but gradually thin out the supporting instruments as the final break approaches.
+
+Use existing source patterns and samples.
+
+Do not change pitch or harmony.
+
+## 5. Bar 36 — Preserve the existing Hybrid break and sweep
+
+**This is the part of the Hybrid I already like.**
+
+Do not replace or remove the existing sweep.
+
+At the beginning of bar 36:
+- Cut/fade regular Here With Me drums.
+- Stop Roses Spacy Drum and snare roll.
+- Remove most of the bass and chord backing.
+- Create a dramatic near-silent musical space.
+
+Keep important vocal tails if necessary, but don't leave sustained backing instruments playing across the entire measure.
+
+Reuse the existing Hybrid riser/sweep sound and timing.
+
+The sweep should rise through the measure, with the final snap near beat 4 where already configured.
+
+Leave a brief moment of space before the drop.
+
+Do not introduce a new riser unless the current effect is malfunctioning.
+
+Preserve existing riser volume and intensity sliders.
+
+## 6. Bar 37 — Existing Here With Me drop
+
+The full Here With Me drop must begin at measure 37 exactly as it currently does.
+
+Do not change:
+- Four-layer lead
+- Drop bass
+- Drop chords
+- Drop drums
+- Vocal alignment
+- Existing E-major transposition
+- Drop mixer settings
+
+All buildup-only drum sequences must stop before the drop.
+
+## 7. Improve the Hybrid mixer
+
+If necessary, add simple controls in Roses Sandbox for:
+
+- Here With Me Drums Volume
+- Roses Buildup Drums Volume
+- Drum Transition Balance
+
+Provide sensible default levels for the transition.
+
+The drum transition should run automatically once playback is started. I do not want to manually move sliders during my live performance.
+
+Preserve the existing riser controls.
+
+## 8. Preserve all other options
+
+Keep the backing dropdown options:
+
+- Original Roses Buildup
+- Here With Me — Buildup
+- Here With Me — Drop Backing
+- Hybrid — Here With Me + Roses Drum Build
+
+Modify ONLY the Hybrid implementation.
+
+Do not overwrite the existing Here With Me Drop Backing version.
+
+Reuse the existing Start Bar 25 + Backing + Lead button.
+
+Preserve all physical keybindings, piano visualizations, and other songs.
+
+## 9. Verify
+
+Test with the actual browser audio output.
+
+Check:
+1. Hybrid bars 29–32 now retain the Here With Me drum groove.
+2. Roses percussion gradually replaces Here With Me drums during bars 33–35.
+3. The original Roses snare acceleration is preserved.
+4. Bar 36 still contains the dramatic break and existing sweep.
+5. The sweep and snap resolve cleanly before bar 37.
+6. Here With Me drop begins with full impact.
+7. No doubled kick or snare samples.
+8. No stuck playback or clipping.
+9. All other backing options remain unchanged.
+
+Test starting from bars 25, 29, 33 and 36.
+
+Run the build and TypeScript checks.
+
+Keep everything local. Do not deploy, publish, or push.

@@ -1,7 +1,7 @@
 import { interstellarRobloxMap, robloxShiftCharacter } from './interstellarRoblox';
 import score from './interstellar.song.json';
 import { pianoGeometry } from './geometry';
-import { getPitch, type KeyboardMap } from './noteMapping';
+import { getPitch, midiToName, type KeyboardMap } from './noteMapping';
 import { stageKeyGuide } from './performancePresentation';
 import type { InterstellarSection } from './interstellarPerformance';
 
@@ -45,5 +45,20 @@ export function interstellarDisplayPressedKeys(pressed: readonly {code:string;mi
   return pressed.map(key => {
     const reference=interstellarRobloxMap.bindings.find(binding => binding.midi+transpose===key.midi || binding.shiftedMidi!==undefined && binding.shiftedMidi+transpose===key.midi);
     return {code:reference?.code ?? key.code,midi:key.midi};
+  });
+}
+
+/** HUD follows the same sounding pitch/reference labels as the visible piano, not the typed character. */
+export function interstellarPianoNoteLabel(midi:number,transpose=0){
+  const reference=interstellarRobloxMap.bindings.find(binding=>binding.midi+transpose===midi||binding.shiftedMidi!==undefined&&binding.shiftedMidi+transpose===midi);
+  const keyLabel=reference?(reference.midi+transpose===midi?reference.label:robloxShiftCharacter(reference.label)):null;
+  return {note:midiToName(midi),keyLabel};
+}
+
+/** One live gesture can light several piano keys, including its assisted and octave voices. */
+export function interstellarSoundingKeys(pitches:readonly number[],code:string,at:number,transpose=0){
+  return [...new Set(pitches)].flatMap(midi=>{
+    const {keyLabel}=interstellarPianoNoteLabel(midi,transpose);
+    return keyLabel?[{code,label:keyLabel,midi,at}]:[];
   });
 }

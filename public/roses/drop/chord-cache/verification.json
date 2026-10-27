@@ -2606,7 +2606,7 @@
       "finite": true,
       "sourceHashes": {
         "src/piano/rosesDropArrangement.json": "7763b2b06caa9d62c53f456165b79a1da40e93b628ac46f257736529908e06df",
-        "src/piano/rosesFutureBassLayers.ts": "efc157b3753881b54ee68bf19c438e45d3e5c1787a741c8d4f03ee3ca13887f4",
+        "src/piano/rosesFutureBassLayers.ts": "0255653ff97b0c6eecbbe10e4115fe6c2e118ebd8898d0a2fe7c4a29529ae4ae",
         "public/roses/chords/future-house-bonk.wav": "c48db7ccb2b15f968b5f96bb7b86e7cbae181619c6a4eef8ba469d395dc5a36e",
         "src/piano/rosesDropSettings.ts": "1e110841d0dd2ade970561a51ad58f82afacaca63f6a76e01d711a7777079cf2",
         "src/piano/noteMapping.ts": "c002368d092d0e1642d11ea66e3727f6733f73a73676857582f85f27bd89e8fa",
@@ -3960,7 +3960,7 @@
       "finite": true,
       "sourceHashes": {
         "src/piano/rosesDropArrangement.json": "7763b2b06caa9d62c53f456165b79a1da40e93b628ac46f257736529908e06df",
-        "src/piano/rosesFutureBassLayers.ts": "efc157b3753881b54ee68bf19c438e45d3e5c1787a741c8d4f03ee3ca13887f4",
+        "src/piano/rosesFutureBassLayers.ts": "0255653ff97b0c6eecbbe10e4115fe6c2e118ebd8898d0a2fe7c4a29529ae4ae",
         "public/roses/chords/future-house-bonk.wav": "c48db7ccb2b15f968b5f96bb7b86e7cbae181619c6a4eef8ba469d395dc5a36e",
         "src/piano/rosesDropSettings.ts": "1e110841d0dd2ade970561a51ad58f82afacaca63f6a76e01d711a7777079cf2",
         "src/piano/noteMapping.ts": "c002368d092d0e1642d11ea66e3727f6733f73a73676857582f85f27bd89e8fa",
@@ -8214,6 +8214,15 @@
         }
       ],
       "audioSha256": "2f85cc72e367deca3bb2c7e7ab5d26790c329bb5bee8df6a8a14e9c1b25e2371"
+    }
+  ],
+  "runtimeOnlyAmendments": [
+    {
+      "date": "2026-10-23",
+      "source": "src/piano/rosesFutureBassLayers.ts",
+      "previousHash": "efc157b3753881b54ee68bf19c438e45d3e5c1787a741c8d4f03ee3ca13887f4",
+      "currentHash": "0255653ff97b0c6eecbbe10e4115fe6c2e118ebd8898d0a2fe7c4a29529ae4ae",
+      "reason": "Optional individual-note impact tuning only; existing 3-argument chord calls and all oscillator/filter/envelope rendering are unchanged. Prepared audio retained."
     }
   ]
 }

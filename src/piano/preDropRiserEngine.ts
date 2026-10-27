@@ -1,20 +1,24 @@
+import { readObjectPreference, writeObjectPreference } from '../settings/objectPreference';
+import { riserPreferenceKey } from './mixerPreferences';
 import * as Tone from 'tone';
-import {defaultRiserSettings,validRiserSettings,riserUrls,type RiserSettings,hybridRiserEndBeat} from './hybridBacking';
+import {validRiserSettings,riserUrls,type RiserSettings,hybridRiserEndBeat} from './hybridBacking';
 
 /** Prepared stereo sweeps: two buffer voices, no live noise/oscillator/filter work. */
 export class PreDropRiserEngine {
- private settings={...defaultRiserSettings};
+ private settings=readObjectPreference(riserPreferenceKey,validRiserSettings);
  private output:Tone.Gain;
- private blends={soft:new Tone.Gain(.35),strong:new Tone.Gain(.65)};
+ private blends={soft:new Tone.Gain(1-this.settings.intensity),strong:new Tone.Gain(this.settings.intensity)};
  private buffers={soft:new Tone.ToneAudioBuffer(),strong:new Tone.ToneAudioBuffer()};
  private sources=new Set<Tone.ToneBufferSource>();
  private offlineEnded=new Set<Tone.ToneBufferSource>();
  private disposed=false;
- constructor(destination:Tone.InputNode){this.output=new Tone.Gain(this.settings.volume).connect(destination);this.blends.soft.connect(this.output);this.blends.strong.connect(this.output);}
+ constructor(destination:Tone.InputNode){this.output=new Tone.Gain(this.settings.enabled?this.settings.volume:0).connect(destination);this.blends.soft.connect(this.output);this.blends.strong.connect(this.output);}
  async load():Promise<void>{await Promise.all((['soft','strong'] as const).map(async side=>{await this.buffers[side].load(riserUrls[side]);if(this.disposed)this.buffers[side].dispose();}));}
+ route(destination:Tone.InputNode):void {this.output.disconnect();this.output.connect(destination);}
  snapshot():RiserSettings{return {...this.settings};}
  configure(patch:Partial<RiserSettings>):void {
   this.settings=validRiserSettings(patch,this.settings);
+  writeObjectPreference(riserPreferenceKey,this.settings);
   this.output.gain.rampTo(this.settings.enabled?this.settings.volume:0,.025);
   this.blends.soft.gain.rampTo(1-this.settings.intensity,.025);this.blends.strong.gain.rampTo(this.settings.intensity,.025);
  }

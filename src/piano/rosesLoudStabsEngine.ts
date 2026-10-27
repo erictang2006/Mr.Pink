@@ -41,7 +41,11 @@ export class RosesLoudStabsEngine {
 
   constructor() { this.hitGain.connect(this.output); this.output.connect(this.tone); }
   connect(destination: Tone.InputNode): void { this.tone.connect(destination); }
-  setBrightness(value: number): void { this.tone.gain.rampTo(loudStabBrightnessDb(value), .025); }
+  setBrightness(value: number): void {
+    // Filter gain is signed dB (convert:false). Tone's generic rampTo chooses
+    // exponential interpolation for dB, which produces NaN when crossing zero.
+    this.tone.gain.linearRampTo(loudStabBrightnessDb(value), .025);
+  }
   isReady(): boolean {
     return !this.disposed && this.reference.loaded &&
       Object.values(this.hits).every(buffer => buffer.loaded) &&

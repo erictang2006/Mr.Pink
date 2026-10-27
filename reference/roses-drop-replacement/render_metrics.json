@@ -1,0 +1,14 @@
+{
+  "roses_punchy_Gsharp_subtle_echo": {
+    "length_seconds": 19.2,
+    "rms_dbfs": -12.65,
+    "true_sample_peak": 0.91,
+    "wet_multiplier": 1.0
+  },
+  "roses_punchy_Gsharp_more_echo": {
+    "length_seconds": 19.2,
+    "rms_dbfs": -12.63,
+    "true_sample_peak": 0.91,
+    "wet_multiplier": 1.55
+  }
+}

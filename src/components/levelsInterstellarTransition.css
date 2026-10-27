@@ -1,0 +1,9 @@
+.levels-warp-running.stage-levels>.stage-header {animation:levels-warp-title-out var(--levels-warp-duration,5000ms) linear both;}
+.levels-warp-running.stage-interstellar>.stage-header {animation:levels-warp-title-in var(--levels-warp-duration,5000ms) linear both;}
+.levels-warp-running>.performance-piano {animation:levels-warp-piano var(--levels-warp-duration,5000ms) linear both;}
+.levels-warp-keyboard-ghost {position:absolute;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;animation:levels-warp-keys var(--levels-warp-duration,5000ms) linear both;}
+@keyframes levels-warp-title-out {0%{opacity:1}20%{opacity:.4}34%,100%{opacity:0}}
+@keyframes levels-warp-title-in {0%,72%{opacity:0}94%,100%{opacity:1}}
+@keyframes levels-warp-piano {0%,35%{opacity:1}55%,72%{opacity:.82}94%,100%{opacity:1}}
+@keyframes levels-warp-keys {0%,72%{opacity:1}94%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.levels-warp-running>.performance-piano{animation:none}}
