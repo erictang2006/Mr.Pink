@@ -1,3 +1,4 @@
+import {showColor} from '../theme/mrPinkShow';
 /** Fine detail is baked into the bounded backdrop once. Only the sparse foreground moves. */
 export const observatorySettings = { dust: 1800, clouds: 72, responses: 8, meteorPeriod: 14500, meteorLife: 1050 } as const;
 const tau = Math.PI * 2;
@@ -22,7 +23,7 @@ export function drawObservatoryBackdrop(ctx: CanvasRenderingContext2D, width: nu
     const prominence = .35 + .65 * x;
     cloud(ctx, x * width, (y + (seeded(i + 9) - .5) * .13) * height,
       width * (.035 + seeded(i + 21) * .055),
-      `rgba(${i % 5 === 0 ? '97,91,161' : '46,116,173'},${(.05 + seeded(i + 12) * .08) * prominence})`, .38);
+      `rgba(${i % 5 === 0 ? showColor('97,91,161','113,89,153') : '46,116,173'},${(.05 + seeded(i + 12) * .08) * prominence})`, .38);
   }
   for (let i = 0; i < dust.length; i++) {
     const p = dust[i], x = p.x * width, y = (bandY(p.x) + p.spread * .24) * height;

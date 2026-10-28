@@ -67,3 +67,5 @@ Browser/device listening was not performed. Everything stays local.
 Checkpoint and logs: `/private/tmp/mr-pink-manual-buildup-lead`.
 
 The A–W phrase ending is silent in Automatic mode. A previously fell through to the original Roses synth; both ending keys now use the same gesture lifetime as the rest of the phrase. W keeps its existing B3 MIDI pitch and remains audible only when explicitly selecting Manual lead mode. No recorded melody or automatic note data was changed.
+
+The silent gesture pitches now follow the actual recorded melody: J=C♯5 (73), H=B4 (71), F=G♯4 (68), D=F♯4 (66), S=E4 (64), A=D♯4 (63), W=B3 (59). During bars 29–35, both physical key highlights/trails and piano labels use these pitches instead of falling back to the older keyboard octave. A regression compares `jhhffdsjhhffdsaw` directly to every MIDI pitch in `voxMelody.json` and checks that playing both phrases issues no audio calls. Outside this section the existing mappings remain intact.

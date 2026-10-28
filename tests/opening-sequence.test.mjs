@@ -344,7 +344,7 @@ test('simultaneous notes, repeated keydowns, rapid sequences, focus loss and res
 
 const {IntroTypingTest,introTypingConfig,typingMetrics,TypingTestScreen}=api;
 const introToMessage=introTypingConfig.completionHold+introTypingConfig.crashDuration;
-const introduction="Hi, my name is Eric. I'm a junior and I represent CSA. I made this entire program for you guys, so I hope you enjoy the show";
+const introduction="Hi, my name is Eric, and I can type relatively fast. I'm a junior and I represent CSA. I made this entire program for you guys, so I hope you enjoy the show";
 const physicalKey=value=>({...key(value,({' ':"Space",'.':'Period','!':'Digit1',',':'Comma',"'":'Quote'})[value]??`Key${value.toUpperCase()}`),shiftKey:/[A-Z!]/.test(value)});
 function physicalType(sequence,value){for(const character of value){const event=physicalKey(character);sequence.keyDown(event);sequence.keyUp(event);}}
 test('the exact configurable passage is fully visible, dim and waiting before any physical typing',()=>{

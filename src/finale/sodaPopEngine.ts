@@ -57,10 +57,12 @@ export class SodaPopEngine {
   if(music<finish){
    const start=time+Math.max(0,musicAt-position)/rate,reveal=time+Math.max(0,settings.transition-position)/rate;
    this.songOutput!.gain.cancelScheduledValues(time);
-   const currentGain=music>=length?Math.max(0,1-(music-length)/settings.fadeSeconds):position>=settings.transition?1:.25;
+   const fadeIn=Math.min(settings.fadeInSeconds,length);
+   const currentGain=music>=length?Math.max(0,1-(music-length)/settings.fadeSeconds):fadeIn>0?Math.min(1,music/fadeIn):settings.firstBeat===0||position>=settings.transition?1:.25;
    this.songOutput!.gain.setValueAtTime(currentGain,start);
    if(music<length){
-    if(position<settings.transition)this.songOutput!.gain.linearRampToValueAtTime(1,reveal);
+    if(music<fadeIn)this.songOutput!.gain.linearRampToValueAtTime(1,start+(fadeIn-music)/rate);
+    else if(fadeIn===0&&position<settings.transition)this.songOutput!.gain.linearRampToValueAtTime(1,reveal);
     this.songOutput!.gain.setValueAtTime(1,start+(length-music)/rate);
    }
    this.songOutput!.gain.linearRampToValueAtTime(0,start+(finish-music)/rate);

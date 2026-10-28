@@ -8,6 +8,7 @@ import type { LiveNotes } from '../piano/liveNotes';
 import { padNoteLevel, physicalKeyLabel, type PerformancePad } from '../piano/performancePads';
 import './performanceWorkstation.css';
 import { observeOutput } from '../piano/outputObserver';
+import {stageSourceCode} from '../piano/performancePresentation';
 
 function InstrumentGlyph({group}:{group:PerformancePad['group']}) {
   const paths:Record<PerformancePad['group'],string>={
@@ -51,7 +52,7 @@ export function OutputSignal({level,waveform}:{level:MutableRefObject<number>;wa
 
 type Props={vinylTimeline?:HwmVinylTimeline;reveal?:OrbReveal;audience?:boolean;pads:PerformancePad[];snapshot:InputSnapshot;notes:LiveNotes;mappingName:string;activity?:StageActivity;stageLevel?:MutableRefObject<number>;introLoop?:ReactNode};
 export default function PerformanceWorkstation({vinylTimeline,reveal,pads:allPads,snapshot,notes,mappingName,activity={},stageLevel,audience=false,introLoop}:Props) {
-  const pads = audience ? allPads.filter(pad => pad.kind === 'live') : allPads;
+  const pads = audience ? allPads.filter(pad => pad.kind === 'live'&&!pad.audienceHidden) : allPads;
   const root=useRef<HTMLDivElement>(null);
   const audioLevel=useRef(0),localStageLevel=useRef(0),waveform=useRef<Float32Array|undefined>(undefined);
   const values=useRef({pads,snapshot,notes});values.current={pads,snapshot,notes};
@@ -59,7 +60,7 @@ export default function PerformanceWorkstation({vinylTimeline,reveal,pads:allPad
     let frame=0,last=0;
     let cachedPads: PerformancePad[] | undefined;
     let elements: { element: HTMLElement; pad: PerformancePad }[] = [];
-    const flashes=new Map<string,{pressed:boolean;pulse?:string;at:number;strike:number;glow?:number}>();
+    const flashes=new Map<string,{pressed:boolean;pulse?:string;at:number;strike:number;glow?:number;noteId?:number}>();
     const draw=(now:number)=>{
       frame=requestAnimationFrame(draw);
       if(document.hidden||now-last<33)return;last=now;
@@ -72,12 +73,15 @@ export default function PerformanceWorkstation({vinylTimeline,reveal,pads:allPad
         });
         for (const id of flashes.keys()) if (!byId.has(id)) flashes.delete(id);
       }
+      const latestNote=new Map<string,number>();
+      for(const note of live){const code=stageSourceCode(note.code);latestNote.set(code,Math.max(latestNote.get(code)??0,note.id));}
       elements.forEach(({element,pad})=>{
         const pressed=!!pad.code&&current.snapshot.detected.includes(pad.code)&&pad.available!==false;
         const prior=flashes.get(pad.id)??{pressed:false,pulse:pad.pulse,at:-Infinity,strike:0};
-        const hit=(pressed&&!prior.pressed)||(pad.pulse!==undefined&&prior.pulse!==pad.pulse);
+        const noteId=pad.code?latestNote.get(pad.code)??0:0;
+        const hit=(pressed&&!prior.pressed)||(pad.pulse!==undefined&&prior.pulse!==pad.pulse)||noteId>(prior.noteId??0);
         if(hit){prior.at=now;prior.strike++;element.dataset.strike=prior.strike%2?'a':'b';}
-        prior.pressed=pressed;prior.pulse=pad.pulse;flashes.set(pad.id,prior);
+        prior.pressed=pressed;prior.pulse=pad.pulse;prior.noteId=noteId;flashes.set(pad.id,prior);
         const inputGlow=pad.available===false?0:Math.max(pressed?1:0,Math.max(0,1-(now-prior.at)/360));
         // A sample can finish after its trigger window closes; keep its tail visible.
         const glow=Math.max(inputGlow,pad.active ? .6 : 0,pad.playing?.() ? .85 : 0,padNoteLevel(pad.code,live,now));
@@ -92,7 +96,9 @@ export default function PerformanceWorkstation({vinylTimeline,reveal,pads:allPad
   },[]);
   const concealed=!!reveal?.state.enabled&&reveal.state.revealedAt===null;
   const groups=[...new Set(pads.map(pad=>pad.group))];
-  const loopAnchorIndex = Math.max(0, groups.flatMap(group => pads.filter(pad => pad.group === group)).findIndex(pad => pad.id === 'chord:Digit2'));
+  const orderedPads=groups.flatMap(group=>pads.filter(pad=>pad.group===group));
+  const loopAnchor=orderedPads.find(pad=>audience?pad.id.startsWith('intro:'):pad.id==='chord:Digit2')??orderedPads[0];
+  const loopAnchorIndex = Math.max(0, orderedPads.findIndex(pad=>pad===loopAnchor));
   const loopPlacement = Object.fromEntries([2, 3, 4, 6].flatMap(columns => [
     [`--loop-column-${columns}`, Math.min(loopAnchorIndex % columns + 1, columns - 1)],
     [`--loop-row-${columns}`, Math.floor(loopAnchorIndex / columns) + 2],
@@ -106,6 +112,6 @@ export default function PerformanceWorkstation({vinylTimeline,reveal,pads:allPad
     <OutputSignal level={audioLevel} waveform={waveform} />
     {groups.length>0&&<section className="workstation-instrument-field" aria-label="Performance instruments"><div className="workstation-field-heading"><span>{audience?'LIVE INSTRUMENTS':'INSTRUMENTS'}</span>{!audience && <small><i/>LIVE KEYS<i/>SEQUENCE / AUTO</small>}</div><div className="workstation-instruments" aria-label={audience?'Live instrument key bindings':'Instrument key bindings'}>{groups.map(group=><section className="workstation-group" key={group} aria-label={`${group} pads`}><h2>{group}{!audience && <small>{group==='Backing'?'AUTOMATED':'PHYSICAL KEYS'}</small>}</h2><div className="workstation-pad-grid">{pads.filter(pad=>pad.group===group).map(pad=><div key={pad.id} data-pad-id={pad.id} data-instrument={pad.group} className={`instrument-pad ${pad.kind==='auto'?'is-automatic':''} ${pad.available===false?'is-unavailable':''}`} title={audience ? pad.label : `${pad.label} · ${pad.key??'automatic backing'}${pad.detail?` · ${pad.detail}`:''}`}>
       {audience ? <div><InstrumentGlyph group={pad.group}/>{pad.key&&<kbd>{pad.key}</kbd>}</div> : <div>{pad.key?<kbd>{pad.key}</kbd>:<span className="pad-auto">AUTO</span>}<small className="pad-kind"><InstrumentGlyph group={pad.group}/>{pad.group} · {pad.queued?'QUEUED':pad.kind==='auto'?'BACKING':pad.kind==='cue'?'CUE':'LIVE'}</small></div>}<strong>{audience&&pad.group==='Chords'?'Chord':pad.label}</strong>{!audience&&pad.detail&&<span>{pad.detail}</span>}
-    </div>)}</div></section>)}{introLoop&&<div className="workstation-intro-loop" data-anchor-pad="chord:Digit2" style={loopPlacement}>{introLoop}</div>}</div></section>}
+    </div>)}</div></section>)}{introLoop&&<div className="workstation-intro-loop" data-anchor-pad={loopAnchor?.id} style={loopPlacement}>{introLoop}</div>}</div></section>}
   </div>;
 }

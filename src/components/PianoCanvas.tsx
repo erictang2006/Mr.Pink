@@ -10,6 +10,7 @@ import {
 import { PianoGeometryCache } from '../piano/pianoGeometryCache';
 import type { StageKeyGuide, StagePresentation } from "../piano/performancePresentation";
 import { drawPerformancePiano } from "./performancePiano";
+import {pianoBlush} from '../theme/mrPinkShow';
 
 type Props = {
   active: number[];
@@ -33,6 +34,7 @@ type Props = {
   prominentPitches?: Set<number>;
   pressedKeys?: { code: string; midi: number }[];
   starlightNotes?: LiveNotes;
+  blush?:boolean;
 };
 
 function PianoCanvas({
@@ -57,6 +59,7 @@ function PianoCanvas({
   prominentPitches,
   pressedKeys,
   starlightNotes,
+  blush=false,
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   const hoverStart = useRef(0);
@@ -94,13 +97,13 @@ function PianoCanvas({
         const now = performance.now();
         const lights = starlightKeys.current.update(activeSet, new Set(starlightNotes?.soundingPitches() ?? []), now, reducedMotion);
         const depths = new Map([...lights].map(([midi, light]) => [midi, light.depth]));
-        drawInterstellarPiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), depths, hovered, hoverProgress, prominentPitches, pressedKeys, lights);
+        drawInterstellarPiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), depths, hovered, hoverProgress, prominentPitches, pressedKeys, lights,blush);
         if (starlightKeys.current.needsFrame || (hovered !== undefined && hoverProgress < 1)) hoverFrame = requestAnimationFrame(draw);
         return;
       }
       if (presentation) {
         // `active` comes only from currently held physical input, never audio sustain.
-        drawPerformancePiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), presentation, hovered, new Set(expected), new Set(wrong), coolLighting, hoverProgress, showKeyLabels, cinematicLighting);
+        drawPerformancePiano(ctx, width, height, { whites, whiteWidth, blackWidth, keys }, keyGuide, activeSet, new Set(pressedCodes), presentation, hovered, new Set(expected), new Set(wrong), coolLighting, hoverProgress, showKeyLabels, cinematicLighting,blush);
         automaticMarkers();
         if (hovered !== undefined && hoverProgress < 1) hoverFrame = requestAnimationFrame(draw);
         return;
@@ -115,7 +118,7 @@ function PianoCanvas({
         if (activeSet.has(midi)) return practicePalette ? ["#d7a3ff", "#8a54c7"] : ["#7de7df", black ? "#1e8b91" : "#3aa8a5"];
         if (completedSet.has(midi)) return ["#a0e9ba", "#48a773"];
         if (expectedSet.has(midi)) return ["#9bf4ff", "#3aafc0"];
-        return black ? ["#323b49", "#0b111b"] : ["#f5f4f0", "#c9d0d4"];
+        return blush ? black?[pianoBlush.blackTop,pianoBlush.blackBottom]:[pianoBlush.whiteTop,pianoBlush.whiteDepth] : black ? ["#323b49", "#0b111b"] : ["#f5f4f0", "#c9d0d4"];
       };
 
       ctx.clearRect(0, 0, width, height);
@@ -127,12 +130,17 @@ function PianoCanvas({
         const pressed = activeSet.has(midi);
         const [top, bottom] = keyColors(midi, false);
         const fill = ctx.createLinearGradient(0, 0, 0, height);
-        fill.addColorStop(0, top);
-        fill.addColorStop(1, bottom);
+        if(blush&&!wrongSet.has(midi)&&!expectedSet.has(midi)&&!completedSet.has(midi)){
+          fill.addColorStop(0,pianoBlush.whiteTop);
+          fill.addColorStop(.5,pressed?pianoBlush.pressHighlight:pianoBlush.whiteBody);
+          fill.addColorStop(1,pianoBlush.whiteDepth);
+        }else{fill.addColorStop(0,top);fill.addColorStop(1,bottom);}
         ctx.fillStyle = fill;
         ctx.beginPath();
         ctx.roundRect(x + 1, 2, whiteWidth - 2, height - 5, [3, 3, 7, 7]);
+        if(blush&&pressed){ctx.shadowColor=pianoBlush.pressGlow;ctx.shadowBlur=12;}
         ctx.fill();
+        ctx.shadowBlur=0;
         ctx.strokeStyle = pressed ? "#c5ffff" : "#85919b";
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -219,7 +227,7 @@ function PianoCanvas({
     observer.observe(canvas);
     scheduleDraw();
     return () => { observer.disconnect(); cancelAnimationFrame(hoverFrame); };
-  }, [active, automatic, expected, wrong, completed, map, transpose, showLabels, showKeyLabels, labelMode, practicePalette, preferredLabels, rangeOverride, presentation, keyGuide, pressedCodes, hovered, coolLighting, cinematicLighting, prominentPitches, pressedKeys, starlightNotes]);
+  }, [active, automatic, expected, wrong, completed, map, transpose, showLabels, showKeyLabels, labelMode, practicePalette, preferredLabels, rangeOverride, presentation, keyGuide, pressedCodes, hovered, coolLighting, cinematicLighting, prominentPitches, pressedKeys, starlightNotes,blush]);
 
   return (
     <canvas

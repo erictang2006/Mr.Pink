@@ -19,7 +19,7 @@ const songs=()=>audio.sources.filter(source=>source.options.url.url.endsWith('.m
 
 test('cut and cue settings are finite, ordered, bounded and restore from storage',()=>{
  const bad=validSodaPopSettings({start:Infinity,end:NaN,transition:-1,bpm:999,scratch:.4,glitch:.3,can:.55},151);
- assert.equal(bad.start,41);assert.equal(bad.end,82);assert.equal(bad.transition,1.2);assert.equal(bad.bpm,200);assert.ok(bad.scratch<bad.glitch&&bad.glitch<bad.can&&bad.can<1);
+ assert.equal(bad.start,39);assert.equal(bad.end,82);assert.equal(bad.transition,1.2);assert.equal(bad.bpm,200);assert.ok(bad.scratch<bad.glitch&&bad.glitch<bad.can&&bad.can<1);
  const truncated=validSodaPopSettings({start:200,end:10},151);assert.equal(truncated.start,150.75);assert.equal(truncated.end,151);
  const saved=globalThis.localStorage,values=new Map();globalThis.localStorage={getItem:key=>values.get(key),setItem:(key,value)=>values.set(key,value)};
  try{const first=setup().engine;first.configure({start:46.23,end:70.4,transition:1.9});first.dispose();const second=setup().engine;assert.equal(second.snapshot().settings.start,46.23);assert.equal(second.snapshot().settings.end,70.4);assert.equal(second.snapshot().settings.transition,1.9);second.dispose();}finally{if(saved===undefined)delete globalThis.localStorage;else globalThis.localStorage=saved;}
@@ -89,10 +89,10 @@ test('editing timestamps while preload is pending cannot clamp the cut to an emp
  resolve();await pending;assert.equal(engine.snapshot().settings.start,47.12);assert.equal(engine.snapshot().settings.end,71.32);engine.dispose();audio.wait=null;
 });
 
-test('new finale starts at 41 seconds after exactly four audio-clocked metronome beats',async()=>{
- const {engine}=setup(false);assert.equal(engine.snapshot().settings.start,41);assert.equal(engine.snapshot().settings.end,82);assert.equal(engine.snapshot().settings.countIn,true);
+test('new finale starts at 39 seconds after exactly four audio-clocked metronome beats',async()=>{
+ const {engine}=setup(false);assert.equal(engine.snapshot().settings.start,39);assert.equal(engine.snapshot().settings.end,82);assert.equal(engine.snapshot().settings.countIn,true);
  await engine.launch();const song=songs()[0],clicks=audio.sources.filter(source=>source.options.url.url.endsWith('/click.wav'));
- assert.equal(song.offset,41);near(song.duration,46.988);assert.equal(clicks.length,4);near(song.at,10.03+240/128);
+ assert.equal(song.offset,39);near(song.duration,48.988);assert.equal(clicks.length,4);near(song.at,10.03+240/128);
  clicks.forEach((click,i)=>near(click.at,10.03+i*60/128));
  audio.now=clicks[0].at+.01;assert.equal(engine.frame().countBeat,1);
  audio.now=clicks[3].at+.01;assert.equal(engine.frame().countBeat,4);
@@ -104,9 +104,9 @@ test('the song stays full through 01:22, fades for six seconds, and resumes at t
  const {engine}=setup(false);await engine.launch();const song=songs()[0],gain=song.target.gain;
  near(song.offset+song.duration+.012,88);
  const ramps=gain.events.filter(event=>event[0]==='ramp');
- near(ramps.at(-1)[1],0);near(ramps.at(-1)[2],song.at+47);
- near(gain.events.find(event=>event[0]==='set'&&event[1]===1&&event[2]>song.at)[2],song.at+41);
- engine.seek(engine.snapshot().settings.transition+44);
+ near(ramps.at(-1)[1],0);near(ramps.at(-1)[2],song.at+49);
+ near(gain.events.find(event=>event[0]==='set'&&event[1]===1&&event[2]>song.at)[2],song.at+43);
+ engine.seek(engine.snapshot().settings.transition+46);
  const resumed=songs().at(-1);near(resumed.offset,85);near(resumed.target.gain.events.at(-2)[1],.5);
  near(resumed.target.gain.events.at(-1)[2],resumed.at+3);
  engine.dispose();
@@ -117,22 +117,22 @@ test('metronome resumes remaining beats only and can be disabled without changin
  const clicks=audio.sources.filter(source=>!source.disposed&&source.options.url.url.endsWith('/click.wav'));
  assert.equal(clicks.length,2);near(clicks[0].at,50.015+(120/128-.7));near(clicks[1].at-clicks[0].at,60/128);
  engine.stop();engine.configure({countIn:false,transition:1.6});await engine.launch();
- assert.equal(audio.sources.filter(source=>!source.disposed&&source.options.url.url.endsWith('/click.wav')).length,0);assert.equal(songs().at(-1).offset,41);engine.dispose();
+ assert.equal(audio.sources.filter(source=>!source.disposed&&source.options.url.url.endsWith('/click.wav')).length,0);assert.equal(songs().at(-1).offset,39);engine.dispose();
 });
 
 test('half speed doubles transition and excerpt duration while all four clicks follow the same slowed clock',async()=>{
  const {engine}=setup(false);engine.configure({speed:.5});await engine.launch();
  const song=songs()[0],clicks=audio.sources.filter(source=>source.options.url.url.endsWith('/click.wav'));
- assert.equal(song.options.playbackRate,.5);assert.equal(song.offset,41);near(song.duration,93.988);
+ assert.equal(song.options.playbackRate,.5);assert.equal(song.offset,39);near(song.duration,97.988);
  near(song.at,10.03+2*240/128);assert.equal(clicks.length,4);
  clicks.forEach((click,i)=>{near(click.at,10.03+i*120/128);assert.equal(click.options.playbackRate,undefined,'clicks retain their crisp normal pitch');});
  audio.now=song.at+.02;assert.equal(engine.frame().phase,'playing');near(engine.frame().music,.01);
  audio.now=song.at+10;engine.pause();near(engine.frame().music,5);
- audio.now=100;engine.resume();const resumed=songs().at(-1);assert.equal(resumed.options.playbackRate,.5);near(resumed.offset,46);near(resumed.duration,83.988);
- engine.seek(engine.snapshot().settings.transition+20);near(songs().at(-1).offset,61);near(songs().at(-1).duration,53.988);
- engine.seek(engine.snapshot().settings.transition+47);const count=songs().length;
+ audio.now=100;engine.resume();const resumed=songs().at(-1);assert.equal(resumed.options.playbackRate,.5);near(resumed.offset,44);near(resumed.duration,87.988);
+ engine.seek(engine.snapshot().settings.transition+20);near(songs().at(-1).offset,59);near(songs().at(-1).duration,57.988);
+ engine.seek(engine.snapshot().settings.transition+49);const count=songs().length;
  audio.now+=1.4;engine.update();assert.equal(engine.snapshot().status,'finished');assert.equal(songs().length,count,'the slowed excerpt cannot run beyond 01:28');
- engine.stop();engine.configure({speed:1});await engine.launch();assert.equal(songs().at(-1).options.playbackRate,undefined);near(songs().at(-1).duration,46.988);engine.dispose();
+ engine.stop();engine.configure({speed:1});await engine.launch();assert.equal(songs().at(-1).options.playbackRate,undefined);near(songs().at(-1).duration,48.988);engine.dispose();
 });
 
 test('practice speed restores from storage and unsupported values fall back to normal speed',()=>{
@@ -153,4 +153,27 @@ test('Soda Pop stays manual-only even with an older saved automatic setting; the
   assert.equal(engine.automatic(20),false);assert.equal(state.before(),0);assert.equal(songs().length,0);
   await engine.launch();assert.equal(state.before(),1);assert.equal(songs().length,1);
  }finally{engine.dispose();if(saved===undefined)delete globalThis.localStorage;else globalThis.localStorage=saved;}
+});
+
+
+test('earlier Soda Pop cut fades in on the source clock, including pause, seek, half speed and legacy settings',async()=>{
+ assert.equal(validSodaPopSettings({start:41}).start,39);
+ assert.equal(validSodaPopSettings({start:40}).start,40,'preserve a custom cut');
+ assert.equal(validSodaPopSettings({start:41,fadeInSeconds:1}).start,41,'preserve deliberate edits after migration');
+ const {engine}=setup(false);
+ try{
+  await engine.launch();const song=songs()[0],gain=song.target.gain;
+  assert.ok(gain.events.some(event=>event[0]==='set'&&event[1]===0&&event[2]===song.at));
+  assert.ok(gain.events.some(event=>event[0]==='ramp'&&event[1]===1&&Math.abs(event[2]-song.at-2)<1e-8));
+  audio.now=song.at+.75;engine.pause();audio.now=100;engine.resume();
+  const resumed=songs().at(-1),events=resumed.target.gain.events;
+  near(events.findLast(event=>event[0]==='set'&&event[2]===resumed.at)[1],.375);
+  assert.ok(events.some(event=>event[0]==='ramp'&&event[1]===1&&Math.abs(event[2]-resumed.at-1.25)<1e-8));
+  engine.seek(engine.snapshot().settings.transition+1);const sought=songs().at(-1);
+  near(sought.target.gain.events.findLast(event=>event[0]==='set'&&event[2]===sought.at)[1],.5);
+  engine.stop();engine.configure({speed:.5});await engine.launch();const slow=songs().at(-1);
+  assert.ok(slow.target.gain.events.some(event=>event[0]==='ramp'&&event[1]===1&&Math.abs(event[2]-slow.at-4)<1e-8));
+  engine.stop();engine.configure({fadeInSeconds:0});await engine.launch();const dry=songs().at(-1);
+  near(dry.target.gain.events.findLast(event=>event[0]==='set'&&event[2]===dry.at)[1],1);
+ }finally{engine.dispose();}
 });

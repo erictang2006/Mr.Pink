@@ -1,6 +1,7 @@
 import { burstEnvelope, traceOrb, type LevelsOrb } from "./levelsOrb";
 import { drawCosmicGalaxy } from "./cosmicGalaxy";
 import { drawObservatoryBackdrop, drawObservatoryMotion, type CosmicResponseFrame } from './cosmicObservatory';
+import {showColor} from '../theme/mrPinkShow';
 
 const stars = Array.from({ length: 110 }, (_, i) => ({
   x: ((Math.sin(i * 127.1 + 3) * 43758.5453) % 1 + 1) % 1,
@@ -21,7 +22,7 @@ function drawCosmicBackdrop(ctx:CanvasRenderingContext2D,width:number,height:num
   ctx.globalAlpha=.65;
   glow(ctx,width*.58,height*.34,width*.46,'#172c5148');
   glow(ctx,width*.25,height*.64,width*.31,'#153f552a');
-  glow(ctx,width*.82,height*.5,width*.3,'#34354e28');
+  glow(ctx,width*.82,height*.5,width*.3,showColor('#34354e28','#43334f28'));
   ctx.globalAlpha=1;
   drawObservatoryBackdrop(ctx,width,height);
 }
@@ -53,7 +54,7 @@ export function drawCosmicScene(ctx: CanvasRenderingContext2D, width: number, he
     ctx.save(); ctx.globalAlpha = .65*opacity;
     glow(ctx, width * .58, height * .34, width * .46, "#172c5148");
     glow(ctx, width * .25, height * .64, width * .31, "#153f552a");
-    glow(ctx, width * .82, height * .5, width * .3, "#34354e28");
+    glow(ctx, width * .82, height * .5, width * .3, showColor('#34354e28','#43334f28'));
     ctx.restore();
   }
   ctx.save(); ctx.globalAlpha = Math.min(1,.9+(response?.light??0)*.12)*opacity;
@@ -92,7 +93,7 @@ export function drawLevelsScene(ctx: CanvasRenderingContext2D, width: number, he
   const time = reducedMotion ? 0 : now * .001;
   if(grid>.001){
     glow(ctx, x - radius * .8, y, radius * 3.1, `rgba(33,137,177,${(.09 + energy * .045)*grid})`);
-    glow(ctx, x + radius, y, radius * 3, `rgba(139,40,168,${(.1 + energy * .05)*grid})`);
+    glow(ctx, x + radius, y, radius * 3, `rgba(${showColor('139,40,168','151,48,141')},${(.1 + energy * .05)*grid})`);
   }
   ctx.save();
   ctx.globalAlpha=grid;
@@ -126,7 +127,7 @@ export function drawLevelsScene(ctx: CanvasRenderingContext2D, width: number, he
   }
   ctx.globalAlpha = (1)*opacity;
   const rim = ctx.createLinearGradient(x - radius, y - radius, x + radius, y + radius);
-  rim.addColorStop(0, "#62ffff"); rim.addColorStop(.48, "#9199ff"); rim.addColorStop(1, "#f276e0");
+  rim.addColorStop(0, "#62ffff"); rim.addColorStop(.48, "#9199ff"); rim.addColorStop(1, showColor('#f276e0','#f28dce'));
   const fill = ctx.createRadialGradient(x - radius * .3, y - radius * .3, radius * .05, x, y, radius);
   fill.addColorStop(0, "#3479973d"); fill.addColorStop(.65, "#202a5b4a"); fill.addColorStop(.9, "#474e9f40"); fill.addColorStop(1, "#b487ef57");
   ctx.fillStyle = fill; ctx.strokeStyle = rim; ctx.lineWidth = 2;

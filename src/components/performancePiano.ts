@@ -1,5 +1,6 @@
 import { pianoGeometry } from "../piano/geometry";
 import type { StageKeyGuide, StageKeyLabel, StagePresentation } from "../piano/performancePresentation";
+import {pianoBlush} from '../theme/mrPinkShow';
 
 const accent = (entry: StageKeyLabel | undefined, presentation: StagePresentation) => presentation === "interstellar" ? "#b5eaff" : presentation === "roses" ? "#e9a2dc" : entry?.hand === "left" ? "#52edf0" : "#d397ff";
 
@@ -7,26 +8,35 @@ export function drawPerformancePiano(
   ctx: CanvasRenderingContext2D, width: number, height: number,
   geometry: ReturnType<typeof pianoGeometry>, guide: StageKeyGuide,
   active: Set<number>, pressedCodes: Set<string>, presentation: StagePresentation,
-  hovered?: number, expected = new Set<number>(), wrong = new Set<number>(), coolLighting = false, hoverProgress = 1, showKeyLabels = true, cinematicLighting = false,
+  hovered?: number, expected = new Set<number>(), wrong = new Set<number>(), coolLighting = false, hoverProgress = 1, showKeyLabels = true, cinematicLighting = false,blush=false,
 ) {
   const blackHeight = height * .62;
   const roses = presentation === 'roses' && cinematicLighting;
+  const whiteFace=[roses?'#edf0ff':'#f4f3ef',roses?'#dfe5f0':'#e7e8e5','#c2c8cc','#8e9aa5'];
+  const blackFace=blush?[pianoBlush.blackTop,pianoBlush.blackBottom,'#17202d','#060b12']:[roses?'#3c3d59':'#303947','#080d16','#17202d','#060b12'];
   if (roses) ctx.clearRect(0, 0, width, height);
   else { ctx.fillStyle = "#040a12"; ctx.fillRect(0, 0, width, height); }
   const drawKey = (midi: number, black: boolean) => {
     const key = geometry.keys.get(midi)!;
     const labels = guide[midi] ?? [];
     const mapped = labels.length > 0, sounding = active.has(midi);
-    const color = wrong.has(midi) ? "#ff7a91" : expected.has(midi) ? "#65e8ff" : coolLighting ? (midi < 62 ? "#65e5f5" : "#a6abff") : accent(labels[0], presentation);
+    const color = wrong.has(midi) ? "#ff7a91" : expected.has(midi) ? "#65e8ff" : blush&&!black&&sounding?pianoBlush.pressGlow:coolLighting ? (midi < 62 ? "#65e5f5" : "#a6abff") : accent(labels[0], presentation);
     const cue = expected.has(midi) || wrong.has(midi);
     const over = midi === hovered;
     const x = key.x + (black ? 0 : 1), w = key.width - (black ? 0 : 2);
     const h = (black ? blackHeight : height - 3) - (sounding ? 2 : 0);
     const fill = ctx.createLinearGradient(0, 0, 0, h);
-    fill.addColorStop(0, sounding || cue ? color : black ? roses ? "#3c3d59" : "#303947" : roses ? "#edf0ff" : "#f4f3ef");
-    fill.addColorStop(.72, sounding ? color : black ? "#080d16" : roses ? "#dfe5f0" : "#e7e8e5");
-    fill.addColorStop(.96, sounding ? "#e8fcff" : black ? "#17202d" : "#c2c8cc");
-    fill.addColorStop(1, sounding ? color : black ? "#060b12" : "#8e9aa5");
+    const surface=black?blackFace:whiteFace;
+    if(blush&&!black&&!cue){
+      fill.addColorStop(0,pianoBlush.whiteTop);
+      fill.addColorStop(.5,sounding?pianoBlush.pressHighlight:pianoBlush.whiteBody);
+      fill.addColorStop(1,pianoBlush.whiteDepth);
+    }else{
+      fill.addColorStop(0,sounding||cue?color:surface[0]);
+      fill.addColorStop(.72,sounding?color:surface[1]);
+      fill.addColorStop(.96,sounding?'#e8fcff':surface[2]);
+      fill.addColorStop(1,sounding?color:surface[3]);
+    }
     ctx.save();
     if (black) {
       ctx.shadowColor = "#000000bb"; ctx.shadowBlur = 6; ctx.shadowOffsetY = 4;
@@ -49,7 +59,7 @@ export function drawPerformancePiano(
       ctx.fillRect(x + 1, h - 5, Math.max(1, w - 2), 2);
     }
     if (mapped || sounding) {
-      ctx.fillStyle = sounding ? "#f2fcff" : `${color}99`;
+      ctx.fillStyle = sounding ? blush&&!black?pianoBlush.pressHighlight:"#f2fcff" : `${color}99`;
       ctx.shadowColor = color; ctx.shadowBlur = sounding ? roses ? 22 : 15 : 0;
       ctx.fillRect(x + 1, 1, Math.max(1, w - 2), sounding ? 4 : 2);
       ctx.shadowBlur = 0;

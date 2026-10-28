@@ -3,6 +3,8 @@ import { usePreference } from './settings/usePreference';
 import {LevelsWarpController,levelsWarpSettings} from './piano/levelsInterstellarTransition';
 import {cosmicGalaxyGeometry} from './piano/cosmicGeometry';
 import {TransitionSounds,isMessageTap} from './opening/transitionSounds';
+import {mrPinkShowEnabled} from './theme/mrPinkShow';
+import './theme/mrPinkShow.css';
 import PianoSceneGhost,{capturePianoFrame} from './components/PianoSceneGhost';
 import './components/levelsInterstellarTransition.css';
 import GalaxyVinylTransition from './components/GalaxyVinylTransition';
@@ -30,7 +32,7 @@ import OpeningReveal, { csaLogoMask, openingStyle } from './opening/OpeningRevea
 import { OpeningSequence, type OpeningStart } from './opening/sequence';
 import { interstellarThemeShortcut, interstellarRobloxMap } from './piano/interstellarRoblox';
 import { interstellarKeyGuide, interstellarDisplayPressedKeys, interstellarProminentPitches, interstellarSoundingKeys } from './piano/interstellarPresentation';
-import { rosesKeyGuide } from './piano/rosesPresentation';
+import { rosesKeyGuide,rosesAudiencePianoGuide } from './piano/rosesPresentation';
 import {backingFrame} from "./piano/backingVisuals";
 import {defaultBackingMode} from "./piano/rosesBacking";
 import {finalizedRosesBuildup, finalizedRosesDrop} from "./piano/rosesAudioSelection";
@@ -876,10 +878,11 @@ export default function App() {
   const stageChords = songId === "levels" && !levelsRealRef.current ? levelsSection === "main" ? levelsChords : levelsSection === "transition" ? levelsTransitionChords : levelsRosesChords : undefined;
   const performanceGuide = useMemo(() => {
     if (songId === "levels" && activeProfile.id === levelsEMajor.id) return levelsIndividualGuide(activeTranspose);
-    const guide = songId === "roses" ? rosesKeyGuide(activeProfile, activeTranspose, rosesVocalKey, (rosesIntroSnapshot?.bassPlaybackMode === "manual" || silentAutomaticBassActive(rosesIntroSnapshot)), rosesIntroSnapshot?.manualBuildupLeadActive) : stageKeyGuide(activeProfile, activeTranspose, stageChords);
+    const guide = songId === "roses" ? rosesKeyGuide(activeProfile, activeTranspose, rosesVocalKey, (rosesIntroSnapshot?.bassPlaybackMode === "manual" || silentAutomaticBassActive(rosesIntroSnapshot)), rosesIntroSnapshot?.manualBuildupLeadActive, rosesIntro.current?.isSilentBuildupLeadGesture('KeyJ')??false) : stageKeyGuide(activeProfile, activeTranspose, stageChords);
     if (songId === "interstellar") return interstellarKeyGuide(interstellarRobloxMap, activeTranspose, 1, false);
     return guide;
-  }, [activeProfile, activeTranspose, stageChords, songId, performanceSection, interstellarMix.octaveEnabled, rosesVocalKey, rosesIntroSnapshot?.bassPlaybackMode, rosesIntroSnapshot?.status, rosesIntroSnapshot?.measure, rosesIntroSnapshot?.bassActive, rosesIntroSnapshot?.manualBuildupLeadActive]);
+  }, [activeProfile, activeTranspose, stageChords, songId, performanceSection, interstellarMix.octaveEnabled, rosesVocalKey, rosesIntroSnapshot?.bassPlaybackMode, rosesIntroSnapshot?.status, rosesIntroSnapshot?.measure, rosesIntroSnapshot?.bassActive, rosesIntroSnapshot?.manualBuildupLeadActive, rosesIntroSnapshot?.buildup?.mode]);
+  const audiencePianoGuide=useMemo(()=>songId==='roses'&&audiencePerformance?rosesAudiencePianoGuide(performanceGuide):performanceGuide,[songId,audiencePerformance,performanceGuide]);
   useEffect(() => {
     keyboard.current?.setMap(activeProfile, songId === "levels" || (songId === "interstellar" && view === "performance"));
   }, [songId, levelsSection, levelsChords, profileId, profiles, view, performanceSection, levelsPlayingMode, levelsPerformanceMode]);
@@ -1444,7 +1447,7 @@ export default function App() {
       <main
         ref={stage}
         style={levelsWarpState.active?{'--levels-warp-duration':`${levelsWarpSettings.duration}ms`} as CSSProperties:openingSequence.capturing?openingStyle(openingSnapshot):galaxyBridge?{'--galaxy-duration':`${rosesRevealSettings.transition}ms`} as CSSProperties:undefined}
-        className={`performance-stage ${levelsWarpState.active?"levels-warp-running":""} ${galaxyBridge?"galaxy-vinyl-running":""} ${songId==='roses'&&rosesRevealState.enabled?(rosesRevealState.revealedAt===null?"roses-identity-hidden":"roses-identity-reveal"):""} ${cinematicPerformance ? "workstation-stage" : ""} ${audiencePerformance ? "audience-stage" : ""} ${openingSequence.capturing?`csa-reveal-stage opening-pending ${openingRunning?"opening-running":""}`:""} ${songId==="roses"&&rosesHwmScene&&rosesBeat>=144&&rosesBeat<176?"hwm-drop-scene":""} ${rosesHwmScene&&songId==="roses"?"hwm-scene":""} theme-${stageTheme} ${stagePresentation ? `stage-presentation stage-${stagePresentation}` : ""} ${cursorHidden ? "cursor-hidden" : ""}`}
+        className={`performance-stage ${mrPinkShowEnabled?"mr-pink-show":""} ${levelsWarpState.active?"levels-warp-running":""} ${galaxyBridge?"galaxy-vinyl-running":""} ${songId==='roses'&&rosesRevealState.enabled?(rosesRevealState.revealedAt===null?"roses-identity-hidden":"roses-identity-reveal"):""} ${cinematicPerformance ? "workstation-stage" : ""} ${audiencePerformance ? "audience-stage" : ""} ${openingSequence.capturing?`csa-reveal-stage opening-pending ${openingRunning?"opening-running":""}`:""} ${songId==="roses"&&rosesHwmScene&&rosesBeat>=144&&rosesBeat<176?"hwm-drop-scene":""} ${rosesHwmScene&&songId==="roses"?"hwm-scene":""} theme-${stageTheme} ${stagePresentation ? `stage-presentation stage-${stagePresentation}` : ""} ${cursorHidden ? "cursor-hidden" : ""}`}
       >
         {finaleActive&&<SodaPopFinale level={stageVisualLevel} />}
         {galaxyBridge&&<OpeningGuard key={`galaxy-${galaxyBridge.at}`} onFailure={finishGalaxyVinylTransition}><GalaxyVinylTransition origin={galaxyBridge.origin} startedAt={galaxyBridge.at} level={stageVisualLevel} onComplete={finishGalaxyVinylTransition}/></OpeningGuard>}
@@ -1515,7 +1518,8 @@ export default function App() {
             showLabels={true}
             showKeyLabels={true}
             presentation={stagePresentation}
-            keyGuide={performanceGuide}
+            keyGuide={audiencePianoGuide}
+            blush={mrPinkShowEnabled}
             prominentPitches={songId === "interstellar" ? interstellarProminentPitches(performanceSection, interstellarMix.octaveEnabled, activeTranspose) : undefined}
             coolLighting={songId === "roses" && rosesHwmScene}
             cinematicLighting={cinematicPerformance}

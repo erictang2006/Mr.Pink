@@ -1,3 +1,4 @@
+import {showColor} from '../theme/mrPinkShow';
 /** Full-viewport procedural atmosphere with a fixed dust budget; no filters or audio graph work. */
 const dust=Array.from({length:38},(_,i)=>({x:((i*97.13)%101)/101,y:((i*53.71)%97)/97,r:i%9===0?1.2:.65}));
 function haze(ctx:CanvasRenderingContext2D,x:number,y:number,r:number,color:string,squash=1){
@@ -33,12 +34,12 @@ export class CosmicStageCache {
 export function drawCosmicStage(ctx:CanvasRenderingContext2D,width:number,height:number,now:number,intensity:number,reduced:boolean){
   const level=Math.max(0,Math.min(1,intensity)),time=reduced?0:now;
   const sky=ctx.createLinearGradient(0,0,width,height);
-  sky.addColorStop(0,'#060b1e');sky.addColorStop(.52,'#100c26');sky.addColorStop(1,'#0a152b');
+  sky.addColorStop(0,'#060b1e');sky.addColorStop(.52,showColor('#100c26','#160e29'));sky.addColorStop(1,'#0a152b');
   ctx.fillStyle=sky;ctx.fillRect(0,0,width,height);
   const drift=Math.sin(time*.00004)*width*.008;
   haze(ctx,width*.24+drift,height*.43,width*.43,`rgba(23,133,186,${.2+level*.1})`,.8);
   haze(ctx,width*.4-drift,height*.32,width*.38,`rgba(114,47,183,${.22+level*.085})`,.85);
-  haze(ctx,width*.57,height*.79,width*.52,`rgba(173,43,146,${.12+level*.075})`,.48);
+  haze(ctx,width*.57,height*.79,width*.52,`rgba(${showColor('173,43,146','182,55,145')},${.12+level*.075})`,.48);
   haze(ctx,width*.84-drift,height*.65,width*.39,`rgba(49,112,161,${.1+level*.06})`,.8);
   // Several low-opacity cloud bands move at different depths; no texture decoding or blur filters.
   for(let i=0;i<4;i++){

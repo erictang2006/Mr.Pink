@@ -4,7 +4,7 @@ import {build} from 'esbuild';
 import {writeFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 
-const bundle=await build({stdin:{contents:`export {OutputSignal,default as Workstation} from './src/components/PerformanceWorkstation';export {effects} from 'react';export {observed} from 'tone';`,resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false,loader:{'.css':'empty'},plugins:[{name:'frame-runtime',setup(builder){
+const bundle=await build({stdin:{contents:`export {OutputSignal,default as Workstation} from './src/components/PerformanceWorkstation';export {LiveNotes} from './src/piano/liveNotes';export {effects} from 'react';export {observed} from 'tone';`,resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false,loader:{'.css':'empty'},plugins:[{name:'frame-runtime',setup(builder){
  builder.onResolve({filter:/^(react|react\/jsx-runtime|tone)$/},args=>({path:args.path,namespace:'frame-test'}));
  builder.onLoad({filter:/.*/,namespace:'frame-test'},args=>({loader:'js',contents:args.path==='react'?`export const effects=[];export const useState=value=>[typeof value==='function'?value():value,()=>{}];export const useEffect=fn=>effects.push(fn);export const useRef=value=>({current:value===null?globalThis.__padRoot:value});`:args.path==='react/jsx-runtime'?`export const jsx=(type,props)=>({type,props});export const jsxs=jsx;`:`
  export const observed={created:0,disposed:0,reads:0,connected:[],disconnected:[],samples:new Float32Array(256).fill(.125)};
@@ -14,7 +14,7 @@ const bundle=await build({stdin:{contents:`export {OutputSignal,default as Works
  `}));
 }}]});
 const output='/private/tmp/mr-pink-performance-load-test.mjs';writeFileSync(output,bundle.outputFiles[0].text);
-const {OutputSignal,Workstation,effects,observed}=await import(pathToFileURL(output).href);
+const {OutputSignal,Workstation,LiveNotes,effects,observed}=await import(pathToFileURL(output).href);
 
 function runtime(run){
  const saved=Object.fromEntries(['window','document','requestAnimationFrame','cancelAnimationFrame','__padRoot'].map(key=>[key,globalThis[key]]));
@@ -35,6 +35,17 @@ test('output analysis preserves the exact waveform and RMS without drawing a hid
  document.hidden=true;tick(200);assert.equal(observed.reads,2);
  cleanup();assert.equal(observed.created,1);assert.equal(observed.disposed,1);
  assert.deepEqual(observed.disconnected,observed.connected);assert.equal(frames.size,0);assert.equal(level.current,0);assert.equal(waveform.current,undefined);
+}));
+
+test('rapid instrument retriggers remain audience-visible when release and repress fall between pad frames',()=>runtime((tick,frames)=>{
+ const pad={dataset:{padId:'intro:KeyL'},style:{setProperty(){}},classList:{toggle(){}}};
+ globalThis.__padRoot={querySelectorAll:()=>[pad]};
+ const notes=new LiveNotes(),snapshot={pressed:[],detected:['KeyL'],shift:false};
+ Workstation({pads:[{id:'intro:KeyL',code:'KeyL',key:'L',label:'Intro synth',group:'Synth',kind:'live'}],snapshot,notes,mappingName:'Roses',audience:true});
+ const cleanup=effects.shift()();notes.on('roses-intro:KeyL:64',64,80);tick(100);assert.equal(pad.dataset.strike,'a');
+ notes.off('roses-intro:KeyL:64',110);notes.on('roses-intro:KeyL:64',64,120);tick(140);assert.equal(pad.dataset.strike,'b');
+ tick(180);assert.equal(pad.dataset.strike,'b','the same held attack does not pulse repeatedly');
+ cleanup();assert.equal(frames.size,0);
 }));
 
 test('idle instrument pads avoid repeated DOM scans and writes while live hits and fades still update',()=>runtime((tick,frames)=>{

@@ -1,4 +1,5 @@
 import { rosesXUsesSpacy } from "./rosesDrumInput";
+import {rosesHiddenAudienceChordPads} from './rosesPresentation';
 import { rosesIntroKeys } from './rosesIntroKeys';
 import {manualBuildupLeadKeys} from './rosesManualBuildupLead';
 import { drumCodeToLayer } from './levels';
@@ -18,6 +19,7 @@ export type PerformancePad = {
   kind: 'live' | 'cue' | 'auto'; active?: boolean; queued?: boolean;
   playing?: () => boolean;
   available?: boolean; detail?: string; pulse?: string;
+  audienceHidden?:boolean;
 };
 export function physicalKeyLabel(code: string): string {
   return ({Comma:',',Period:'.',Slash:'/',Semicolon:';',Quote:"'",BracketLeft:'[',BracketRight:']',Backslash:'\\',Backquote:'`',Minus:'-',Equal:'=',Space:'SPACE'} as Record<string,string>)[code] ?? code.replace(/^(Key|Digit)/, '');
@@ -68,7 +70,7 @@ export function performancePads({song, real, measure, guide, drums, roses, vocal
     item.pitches.push(Number(pitch)); byCode.set(entry.code,item);
   }
   if (song === 'levels' || song === 'roses') for (const [code,item] of byCode) {
-    if (item.pitches.length > 1 && !pads.some(pad => pad.code===code)) pads.push({id:`chord:${code}`,label:item.pitches.map(midiToName).join(' · '),code,key:physicalKeyLabel(code),group:'Chords',kind:'live',detail:song==='roses'&&/^Digit[1-5]$/.test(code)?'Visual only':undefined});
+    if (item.pitches.length > 1 && !pads.some(pad => pad.code===code)) pads.push({id:`chord:${code}`,label:item.pitches.map(midiToName).join(' · '),code,key:physicalKeyLabel(code),group:'Chords',kind:'live',audienceHidden:song==='roses'&&rosesHiddenAudienceChordPads.has(code),detail:song==='roses'&&/^Digit[1-5]$/.test(code)?'Visual only':undefined});
   }
   return pads;
 }

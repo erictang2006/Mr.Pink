@@ -1,0 +1,58 @@
+/* Optional Mr Pink show skin. Remove the root class/switch to restore the prior palette. */
+.performance-stage.mr-pink-show { --stage-accent:#dba7d4; --workstation-purple:#c8a0d6; }
+.performance-stage.mr-pink-show .stage-wordmark { color:#edd4e4; }
+.performance-stage.mr-pink-show .stage-mark i { background:#e8a5ca; }
+.performance-stage.mr-pink-show .stage-title-line { background:linear-gradient(90deg,#e3afd7,#a9c8ee66,transparent); }
+.performance-stage.mr-pink-show.stage-interstellar .stage-identity h1 { color:#c9d6ee; text-shadow:0 0 22px #d39bc51c; }
+.performance-stage.mr-pink-show.stage-roses .stage-identity h1 { color:#f0d8e9; }
+.performance-stage.mr-pink-show .performance-piano { border-top-color:#d7b7df9c; }
+.performance-stage.mr-pink-show.workstation-stage.stage-roses .performance-piano { border-top-color:#dec0e2a8; }
+.performance-stage.mr-pink-show .live-key-pill { border-color:#d3b0db66; background:#272038aa; }
+.performance-stage.mr-pink-show .live-key-binding { color:#f0e7f5; }
+.performance-stage.mr-pink-show .workstation-field-heading>span { color:#d9c4df; }
+.performance-stage.mr-pink-show .workstation-live kbd { border-color:#d0a8cb66; }
+.performance-stage.mr-pink-show .instrument-pad[data-instrument=Synth] { --pad-color:174,187,239; }
+.performance-stage.mr-pink-show .instrument-pad[data-instrument=Chords],
+.performance-stage.mr-pink-show .instrument-pad[data-instrument=Vocal] { --pad-color:210,151,210; }
+.performance-stage.mr-pink-show .stage-arm-start,
+.performance-stage.mr-pink-show .galaxy-transition-trigger { border-color:#d5a7d080; }
+.performance-stage.mr-pink-show .galaxy-transition-trigger { color:#e5d6ee; }
+.performance-stage.mr-pink-show .setlist-transition { --bridge-secondary:#c7a0cf; }
+/* Preserve the recognizable gray typing test and the authentic white offline page. */
+.mr-pink-show .intro-test-brand { color:#e0ced8; }
+.mr-pink-show .intro-metrics>div:not(.intro-accuracy) output { color:#e4c0d2; }
+.mr-pink-show .intro-character.is-upcoming { color:#a99ca3; }
+.mr-pink-show .intro-character.is-correct { color:#f08abc; }
+/* Amber plus underline keeps errors distinct from correctly typed pink letters. */
+.mr-pink-show .intro-character.is-incorrect { color:#ffd39b; text-decoration-color:#f4a96b; }
+.mr-pink-show .intro-character.is-space.is-incorrect { background:#985b354d; }
+.mr-pink-show .intro-typing-caret { background:#e9c5d8; }
+.mr-pink-show .csa-message { color:#ff9dce; text-shadow:0 0 20px #ff92c52e; }
+.mr-pink-show .csa-opening.is-sequence .csa-message-text { animation-name:mr-pink-message-charge,csa-message-destabilize; }
+.mr-pink-show .csa-message-aura { background:radial-gradient(ellipse,#ad729a17 0,#83659c09 44%,transparent 72%); }
+.mr-pink-show .csa-caret { background:#ffb8dc; box-shadow:0 0 7px #ff9bcb40; }
+.mr-pink-show .piano-typing-reveal { color:#ffb9dd; }
+.mr-pink-show .piano-typing-message { text-shadow:0 2px 3px #030711e6,0 0 12px #efa1ce24; }
+.mr-pink-show .piano-typed-character.is-fresh { animation-name:mr-pink-character-light; }
+.mr-pink-show .piano-typing-reveal.is-complete .piano-typing-letters { animation-name:mr-pink-sentence-glow,piano-sentence-dissolve; }
+.mr-pink-show .piano-typing-caret { background:#ff9bcb; }
+.mr-pink-show .piano-typing-stardust i { background:#f4e8f4; box-shadow:0 0 5px #d4b4e3; }
+@keyframes mr-pink-message-charge {
+  0%,38%,70%,100% { color:#ffb1d7; text-shadow:0 0 20px #ff92c538; }
+  14%,48%,80% { color:#ffdaee; text-shadow:-.04em 0 #92dbe077,.04em 0 #ff639e99,0 0 20px #ee99cc44; }
+}
+@keyframes mr-pink-character-light {
+  0% { color:#ffe1ef; text-shadow:0 0 9px #ff94c9; }
+  100% { color:inherit; text-shadow:inherit; }
+}
+@keyframes mr-pink-sentence-glow {
+  0% { text-shadow:0 2px 3px #030711e6,0 0 6px #ff9bd030; }
+  60% { text-shadow:0 2px 3px #030711e6,0 0 12px #ff9bd066; }
+  100% { text-shadow:0 2px 3px #030711e6,0 0 10px #ff9bd044; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .mr-pink-show .piano-typed-character.is-fresh,.mr-pink-show .csa-opening.is-sequence .csa-message-text { animation:none; }
+}
+/* These accents live inside the finale's existing fade; black stays black at the ending. */
+.mr-pink-show .soda-pop-kicker { color:#edc0db; }
+.mr-pink-show .soda-transport button { border-color:#c9a3cf66; }

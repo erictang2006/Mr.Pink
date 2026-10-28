@@ -78,3 +78,7 @@ ignore pointer events; instrument panels and piano labels remain unobstructed.
 `tests/stage-energy.test.mjs` checks idle breathing, reduced motion, pitch bias,
 chord response, authoritative beat deduplication, drop contrast, decay, geometric
 bounds under rapid playing/stalls, and the atmosphere's sparse particle budget.
+
+## October 28 Roses audience refinement
+
+The earlier all-pad/all-key audience presentation is superseded for Roses: audience view hides chord pads 1–5 and I/O/P and filters the piano to the selected performance phrases. F10 retains full operator controls/labels. Retained audience pads are larger with stronger press feedback, including rapid retriggers between display frames. Intro Loop anchors beneath a retained intro-synth pad rather than the removed 2 pad. See [Roses audience view](ROSES-AUDIENCE-VIEW.md). Audio and input mappings are unchanged.

@@ -1,6 +1,26 @@
 # Mr Pink — current handoff
 
-Last inspected: **2026-10-20**. This snapshot was checked against current source. Read `AGENTS.md` for standing instructions; recheck runtime files before using the values below in a future change.
+Latest focused update: **2026-10-28**, Roses audience presentation. The original arrangement snapshot below dates to October 20 and contains superseded details; current source and newer feature docs take precedence. Read `AGENTS.md` for standing instructions. The current worktree includes unrelated local changes; preserve them.
+
+Opening passage update: the first sentence is now “Hi, my name is Eric, and I can type relatively fast.” The existing remainder (“I'm a junior and I represent CSA…” through “…enjoy the show”) is preserved. Completion still follows the full configured passage.
+
+## Current visual experiment — subtle Mr Pink show palette
+
+User-requested, October 28: slightly warmer rose branding, HUD/keycap borders, selected instrument accents, opening caret/glow and small existing canvas palette shifts. Levels remains cyan/plasma; Interstellar remains mainly blue/cosmic; Roses retains its record presentation. No extra effects, loops, buffers, layout, audio, mapping or saved-setting changes. Chrome offline white, CSA logo red, note colors and the finale fade-to-black remain intact.
+
+Typing follow-up (softened after screenshot review): initial-test upcoming letters are subdued gray-blush and correctly typed letters now use a stronger, deeper pink (`#f08abc`) per the latest feedback; errors use amber/underline for clear distinction. “I LOVE CSA” and the piano-text reveal use brighter pink with pink charge/fresh-character glows and dark edging over the animated background. Existing typing/caret/glitch/dissolve timings and reduced-motion behavior remain. Calculated solid-color contrast on the gray test background is 4.74:1 upcoming / 5.39:1 correct. Theme switch reversal also restores previous typing colors.
+
+Keyboard follow-up: the first 4–11% CSS overlay was too subtle in the user's screenshot and is superseded. Performance white keys now each own a vertical gradient: #FFF9FC top, #FCE6F0 at 50%, #F3A7C8 bottom. White-key presses use a brighter pink glow/subtle highlight on existing press envelopes; shortcut labels, geometry, borders and existing black-key styling stay intact. Practice defaults remain unchanged. No extra drawing passes, filters, animations, event handling or audio changes; the same theme switch restores the original palette. Build/type checks and 26 focused piano/physical-release tests pass for the exact gradient update; no graphical browser verification.
+
+Easy reversal: set `mrPinkShowEnabled=false` in `src/theme/mrPinkShow.ts` and reload. Both scoped CSS and canvas colors return to their previous palettes; no Git reset/revert or settings deletion is needed. See `docs/MR-PINK-SHOW-THEME.md`. Build/type checks and 45 focused renderer/transition tests pass; browser appearance still needs review.
+
+## Current Roses audience polish — October 28
+
+- Audience **LIVE INSTRUMENTS** hides chord pads 1–5 and I/O/P; F10 operator setup and backend physical mappings retain them. Remaining pads have larger keycaps/labels and stronger localized press feedback. Live note IDs catch retriggers between the existing 30 Hz display frames; no new audio dispatch or per-frame React work.
+- Audience piano labels show L/;/' · J/H/F/D/S/A (A is the existing phrase ending) · Q/W/E/R/T/Y/U/I/O/P · =/−/0/9 · comma/period/slash. Other labels/shift duplicates are hidden; the continuous piano and all playable notes remain. Labels keep current phase-dependent MIDI positions. F10 restores the full guide. Practice, Sandbox, Levels and Interstellar are unchanged.
+- Intro Loop now anchors under a retained intro synth pad in audience view. See `docs/ROSES-AUDIENCE-VIEW.md` and `docs/PERFORMANCE-WORKSTATION.md`.
+- Press visibility follow-up: audience pads have 2px borders, a bright inner edge while lit, and a bounded 420ms local flash so short taps remain visible. Border response is 60ms; reduced motion disables pop/flash animation. Audio/input behavior is unchanged.
+- Build/TypeScript and 30 relevant tests pass. Browser connection unavailable; fullscreen audience appearance has not been visually verified. No audio/sample/arrangement/preferences changes; local only.
 
 ## Project
 
@@ -65,4 +85,4 @@ Known documentation debt: older 28-bar ending descriptions, older Closer vocal t
 
 ## Soda Pop ending (2026-10-27)
 
-Soda Pop now plays at full level through source 01:22, then fades audio and visuals for six source seconds to black at 01:28. There is no end screen. The fade start remains editable; saved 80-second default cuts migrate to 82 seconds. Pause, seek, and half-speed playback keep the fade on the audio clock. See `docs/SODA-POP-FINALE.md`.
+Soda Pop is manual-only. Its default source cut starts at 00:39 with an adjustable two-second audio fade-in, reaching full level at 00:41. It stays full through source 01:22, then fades audio and visuals for six source seconds to black at 01:28. There is no end screen. The fade start remains editable; saved 80-second default cuts migrate to 82 seconds. Pause, seek, and half-speed playback keep both fades on the audio clock. Old 00:41 starts migrate once to 00:39 when adding the fade-in setting; custom cuts are preserved. See `docs/SODA-POP-FINALE.md`.

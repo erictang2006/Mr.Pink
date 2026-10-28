@@ -280,6 +280,45 @@
 .record-orb[data-renderer=fallback] .record-hwm-source { position:absolute; width:150%; max-width:none; height:150%; left:-22.5%; top:-26.25%; }
 .record-orb.is-concealed .record-hwm-fallback { visibility:hidden; }
 .record-artwork-warning { position:absolute; bottom:9%; left:0; right:0; color:#a6b8ca; text-align:center; font-size:10px; }
+/* Final Roses audience pass: fewer pads, larger keycaps and readable physical strikes. */
+.stage-roses .is-audience .workstation-field-heading>span { font-size:12px; color:#c6d9ee; }
+.stage-roses .is-audience .workstation-instruments { grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:minmax(80px,auto); gap:10px; padding:8px 5px 12px; }
+.stage-roses .is-audience .workstation-intro-loop { grid-column:var(--loop-column-4) / span 2; grid-row:var(--loop-row-4); }
+.stage-roses .is-audience .instrument-pad { min-height:80px; padding:12px 7px; border-width:2px; border-color:rgba(var(--pad-color),.58); transition:border-color 60ms linear; }
+.stage-roses .is-audience .instrument-pad kbd { font-size:clamp(19px,1.55vw,30px); font-weight:600; color:#f0f7ff; }
+.stage-roses .is-audience .instrument-pad .pad-glyph { width:21px; height:21px; stroke-width:1.5; }
+.stage-roses .is-audience .instrument-pad strong { font-size:clamp(11px,.9vw,16px); color:#d0e2f4; margin-top:10px; }
+.stage-roses .is-audience .instrument-pad::after { background:linear-gradient(135deg,rgba(var(--pad-color),.72),rgba(var(--pad-color),.22)); box-shadow:inset 0 0 16px rgba(var(--pad-color),.36); }
+.stage-roses .is-audience .instrument-pad.is-lit { border-color:#f1fcff; box-shadow:inset 0 0 0 1px #e7f9ff99,inset 0 0 14px rgba(var(--pad-color),.28),0 0 18px rgba(var(--pad-color),.4); }
+.stage-roses .is-audience .instrument-pad.is-lit kbd { color:#fff; text-shadow:0 0 9px rgba(var(--pad-color),.8); }
+.stage-roses .is-audience .instrument-pad.is-lit strong { color:#fff; }
+.stage-roses .is-audience .instrument-pad[data-strike=a] { animation:roses-pad-strike-a 360ms ease-out; }
+.stage-roses .is-audience .instrument-pad[data-strike=b] { animation:roses-pad-strike-b 360ms ease-out; }
+.stage-roses .is-audience .instrument-pad[data-strike=a]::after { animation:roses-pad-flash-a 420ms ease-out; }
+.stage-roses .is-audience .instrument-pad[data-strike=b]::after { animation:roses-pad-flash-b 420ms ease-out; }
+@keyframes roses-pad-strike-a { 0%{transform:translateY(-3px) scale(1.045)}100%{transform:translateY(0) scale(1)} }
+@keyframes roses-pad-strike-b { 0%{transform:translateY(-3px) scale(1.045)}100%{transform:translateY(0) scale(1)} }
+@keyframes roses-pad-flash-a { 0%,18%{opacity:.95}100%{opacity:var(--pad-level)} }
+@keyframes roses-pad-flash-b { 0%,18%{opacity:.95}100%{opacity:var(--pad-level)} }
+@media(min-width:1900px) {
+ .stage-roses .is-audience .workstation-instruments { grid-auto-rows:minmax(96px,auto); gap:12px; }
+ .stage-roses .is-audience .instrument-pad { min-height:96px; padding:15px 9px; }
+}
+@media(max-width:1099px) {
+ .stage-roses .is-audience .workstation-instruments { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .stage-roses .is-audience .workstation-intro-loop { grid-column:var(--loop-column-3) / span 2; grid-row:var(--loop-row-3); }
+}
+@media(max-width:600px) {
+ .stage-roses .is-audience .workstation-instruments { grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:minmax(68px,auto); gap:7px; }
+ .stage-roses .is-audience .workstation-intro-loop { grid-column:var(--loop-column-2) / span 2; grid-row:var(--loop-row-2); }
+ .stage-roses .is-audience .instrument-pad { min-height:68px; padding:8px 4px; }
+ .stage-roses .is-audience .instrument-pad kbd { font-size:18px; }
+ .stage-roses .is-audience .instrument-pad .pad-glyph { width:16px; height:16px; }
+ .stage-roses .is-audience .instrument-pad strong { font-size:10px; margin-top:7px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .stage-roses .is-audience .instrument-pad[data-strike],.stage-roses .is-audience .instrument-pad[data-strike]::after { animation:none; }
+}
 .vinyl-song-caption,.stage-song-morph { display:grid; }
 .vinyl-song-caption>span,.stage-song-morph>span { grid-area:1 / 1; }
 .stage-song-morph { min-width:0; }

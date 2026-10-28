@@ -1,4 +1,5 @@
 import { cosmicGalaxyGeometry } from '../piano/cosmicGeometry';
+import {showColor} from '../theme/mrPinkShow';
 // A face-on texture rotates inside the tilted projection. Detail is baked once per size.
 let cached: { size: number; canvas: HTMLCanvasElement } | undefined;
 let failedSize = 0;
@@ -24,7 +25,7 @@ function galaxySprite(size: number): HTMLCanvasElement {
       const r = .08 + i / 130 * .82;
       const angle = arm * Math.PI * 2 / 3 + r * 7.3;
       const x = Math.cos(angle) * r, y = Math.sin(angle) * r;
-      cloud(x, y, .025 + r * .065, arm === 1 ? "#8b78c62e" : "#69b7e738");
+      cloud(x, y, .025 + r * .065, arm === 1 ? showColor('#8b78c62e','#a07fbd2e') : "#69b7e738");
       if(i%3===0)cloud(x, y, .009 + r * .019, '#a9deff32');
     }
   }
@@ -36,7 +37,7 @@ function galaxySprite(size: number): HTMLCanvasElement {
     const spread = (random(i * 3 + 19) - .5) * .08;
     const x = Math.cos(angle) * (r + spread), y = Math.sin(angle) * (r + spread);
     ctx.globalAlpha = (.2 + random(i * 13) * .65) * (1 - r * .55);
-    ctx.fillStyle = r < .22 ? "#eaf6ff" : i % 5 === 0 ? "#b8abea" : "#b0e1ff";
+    ctx.fillStyle = r < .22 ? "#eaf6ff" : i % 5 === 0 ? showColor('#b8abea','#c5aedf') : "#b0e1ff";
     ctx.beginPath(); ctx.arc(x, y, .0008 + random(i * 17) ** 5 * .004, 0, Math.PI * 2); ctx.fill();
   }
   ctx.globalAlpha = 1;

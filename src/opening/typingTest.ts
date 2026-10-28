@@ -1,6 +1,6 @@
 /** Edit the passage here; the interaction and scene controller do not depend on its wording. */
 export const introTypingConfig = {
-  passage:"Hi, my name is Eric. I'm a junior and I represent CSA. I made this entire program for you guys, so I hope you enjoy the show",
+  passage:"Hi, my name is Eric, and I can type relatively fast. I'm a junior and I represent CSA. I made this entire program for you guys, so I hope you enjoy the show",
   completionHold:400,
   offlineHold:1800,
   offlineGlitch:450,

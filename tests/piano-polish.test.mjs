@@ -12,6 +12,7 @@ export * from './src/piano/rosesChords';export * from './src/piano/rosesIndividu
 export * from './src/piano/visualDropChords';
 export * from './src/piano/backingVisuals';
 export * from './src/components/performancePiano';
+export * from './src/components/interstellarPiano';export {pianoBlush} from './src/theme/mrPinkShow';
 export {samePianoFrame} from './src/components/PianoCanvas';
 export {PianoGeometryCache} from './src/piano/pianoGeometryCache';
 export {interstellarPianoGeometry} from './src/piano/interstellarPresentation';
@@ -114,5 +115,49 @@ test('cached key geometry is reused and exactly matches the existing layout acro
   const shifted=cache.get(rosesMap,width+10,1,range,presentation);assert.notEqual(shifted,resized);
   const expanded=cache.get(rosesMap,width+10,1,{low:40,high:96},presentation);assert.notEqual(expanded,shifted);
   assert.notEqual(cache.get({...rosesMap},width+10,1,{low:40,high:96},presentation),expanded);
+ }
+});
+
+test('visible blush is painted into both performance keyboard surfaces beneath unchanged labels and press response',()=>{
+ const map={id:'blush-check',bindings:[{code:'KeyL',label:'L',midi:60},{code:'KeyQ',label:'Q',midi:61}]};
+ const geometry=pianoGeometry(1366,0,48,72),guide=stageKeyGuide(map,0);
+ function render(interstellar,blush){
+  const stops=[],shapes=[],labels=[];let gradients=0,operations=0;
+  const ctx=new Proxy({fillStyle:'',createLinearGradient(){gradients++;return {addColorStop:(at,color)=>stops.push([at,color])};},createRadialGradient(){gradients++;return {addColorStop:(at,color)=>stops.push([at,color])};},roundRect:(...args)=>shapes.push(args),fillText(text){labels.push([text,this.fillStyle]);}},
+   {get:(t,k)=>k in t?t[k]:()=>{operations++;}});
+  if(interstellar)api.drawInterstellarPiano(ctx,1366,250,geometry,guide,new Set([60]),new Set(['KeyL']),new Map(),undefined,1,new Set([60,64]),undefined,undefined,blush);
+  else drawPerformancePiano(ctx,1366,250,geometry,guide,new Set([60]),new Set(['KeyL']),'roses',undefined,new Set(),new Set(),false,1,true,true,blush);
+  return {stops,shapes,labels,gradients,operations};
+ }
+ for(const interstellar of [false,true]){
+  const original=render(interstellar,false),pink=render(interstellar,true);
+  assert.ok(pink.stops.some(([,color])=>color===api.pianoBlush.whiteTop));assert.ok(pink.stops.some(([,color])=>color===api.pianoBlush.whiteDepth));
+  assert.ok(!original.stops.some(([,color])=>color===api.pianoBlush.whiteTop),'default/practice renderer keeps the preceding palette');
+  assert.deepEqual(pink.labels,original.labels,'label contrast and physical press styling are not tinted by an overlay');
+  assert.deepEqual(pink.shapes,original.shapes);assert.equal(pink.gradients,original.gradients);assert.equal(pink.operations,original.operations,'tint adds no drawing passes');
+ }
+});
+
+test('each white performance key uses the requested three-stop vertical gradient and pink press light without changing black faces',()=>{
+ const geometry=pianoGeometry(900,0,60,62),guide=stageKeyGuide({id:'gradient',bindings:[{code:'KeyL',label:'L',midi:60},{code:'KeyQ',label:'Q',midi:61}]},0);
+ function render(presentation,pressed){
+  const gradients=[],shadows=[];
+  const ctx=new Proxy({fillStyle:'',createLinearGradient(...args){const g={args,stops:[],addColorStop(at,color){this.stops.push([at,color]);}};gradients.push(g);return g;},createRadialGradient(){return {addColorStop(){}};}},
+   {get:(t,k)=>k in t?t[k]:()=>{},set(t,k,v){if(k==='shadowColor')shadows.push(v);t[k]=v;return true;}});
+  const active=new Set(pressed?[60]:[]);
+  if(presentation==='interstellar')api.drawInterstellarPiano(ctx,900,220,geometry,guide,active,new Set(pressed?['KeyL']:[]),new Map(),undefined,1,undefined,undefined,undefined,true);
+  else drawPerformancePiano(ctx,900,220,geometry,guide,active,new Set(pressed?['KeyL']:[]),presentation,undefined,new Set(),new Set(),false,1,true,presentation==='roses',true);
+  return {gradients,shadows};
+ }
+ const expected=[[0,'#FFF9FC'],[.5,'#FCE6F0'],[1,'#F3A7C8']];
+ for(const presentation of ['interstellar','levels','roses']){
+  const idle=render(presentation,false),faces=idle.gradients.filter(g=>JSON.stringify(g.stops)===JSON.stringify(expected));
+  assert.equal(faces.length,geometry.whites.length,'a separate gradient is created for each white key');assert.notEqual(faces[0],faces[1]);
+  assert.ok(faces.every(g=>g.args[0]===g.args[2]&&g.args[3]>g.args[1]),'gradient runs vertically');
+  const black=presentation==='interstellar'?[[0,'#302638'],[1,'#120f1b']]:[[0,'#302638'],[.72,'#120f1b'],[.96,'#17202d'],[1,'#060b12']];
+  assert.ok(idle.gradients.some(g=>JSON.stringify(g.stops)===JSON.stringify(black)),'existing black-key styling stays intact');
+  const pressed=render(presentation,true);assert.ok(pressed.shadows.includes('#FF91C7'),'physical white-key press has a pink glow');
+  assert.ok(pressed.gradients.some(g=>g.stops.some(([,c])=>c.startsWith('#FFE2F0'))),'press adds a subtle pink highlight');
+  assert.equal(render(presentation,false).gradients.filter(g=>JSON.stringify(g.stops)===JSON.stringify(expected)).length,geometry.whites.length);
  }
 });

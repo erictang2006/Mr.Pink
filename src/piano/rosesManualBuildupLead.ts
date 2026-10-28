@@ -1,4 +1,8 @@
 export type BuildupLeadPlaybackMode = 'auto' | 'manual';
+/** JHHFFDS / JHHFFDSAW: the existing Vox melody's actual MIDI pitches. */
+export const buildupLeadGesturePitches: Readonly<Record<string,number>> = {
+  KeyJ:73, KeyH:71, KeyF:68, KeyD:66, KeyS:64, KeyA:63, KeyW:59,
+};
 export const manualBuildupLeadKeys = [
   {code:'KeyW',label:'W',midi:59,name:'B3'}, {code:'KeyR',label:'R',midi:63,name:'D♯4'},
   {code:'KeyT',label:'T',midi:64,name:'E4'}, {code:'KeyY',label:'Y',midi:66,name:'F♯4'},

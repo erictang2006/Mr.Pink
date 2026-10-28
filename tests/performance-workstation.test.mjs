@@ -179,22 +179,24 @@ test('Roses audience view shows playable pads and live keystrokes without arming
  for(const code of ['Equal','Minus','Digit0','Digit9'])assert.ok(audience.includes(`data-pad-id="chord:${code}"`),`${code} chord pad visible`);
  assert.match(audience,/data-pad-id="roses:accent"/);assert.match(audience,/<kbd>C<\/kbd>/);
  assert.match(audience,/data-pad-id="intro:KeyL"/);
+ for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5','KeyI','KeyO','KeyP'])assert.ok(!audience.includes(`data-pad-id="chord:${code}"`),`${code} omitted from audience pads`);
  assert.doesNotMatch(audience,/PHYSICAL INPUT|SEQUENCE \/ AUTO|QUEUED|Internal Roses mapping|Arm \/ stop|data-pad-id="(?:auto:|roses:synth|roses:vocal|roses:stop)/);
  assert.doesNotMatch(audience,/title="[^"]*(?:automatic|Arm|hold|release)/);
  const setup=renderToStaticMarkup(createElement(api.Workstation,{...props,audience:false}));
  assert.match(setup,/<kbd>=<\/kbd>/);assert.match(setup,/PHYSICAL INPUT/);assert.match(setup,/data-pad-id="chord:Equal"/);
+ for(const code of ['Digit1','Digit2','Digit3','Digit4','Digit5','KeyI','KeyO','KeyP'])assert.ok(setup.includes(`data-pad-id="chord:${code}"`),`${code} retained in operator setup`);
  assert.ok(pads.some(pad=>pad.id==='chord:Equal'),'audience filtering does not mutate the input configuration');
 });
 
-test('Intro Loop occupies the grid row directly below the 2 chord pad, including responsive layouts',()=>{
+test('audience Intro Loop anchors beneath a retained intro synth pad after the retired chord pads are hidden',()=>{
  const guide=api.rosesKeyGuide(api.rosesMap,0,'KeyG',true);
  const pads=api.performancePads({...base,song:'roses',guide,vocalKey:'KeyG',roses:{status:'running',measure:13,bassPlaybackMode:'manual',synthActive:true}});
  const props={pads,audience:true,snapshot:{pressed:[],detected:[],shift:false},notes:new api.LiveNotes(),mappingName:'Roses'};
  const html=renderToStaticMarkup(createElement(api.Workstation,{...props,introLoop:createElement(api.IntroLoopDeck,{engine:null,clock:{status:'running',measure:13,synthActive:true}})}));
- assert.match(html,/class="workstation-intro-loop" data-anchor-pad="chord:Digit2"/);
- const visible=pads.filter(pad=>pad.kind==='live');
+ assert.match(html,/class="workstation-intro-loop" data-anchor-pad="intro:KeyL"/);
+ const visible=pads.filter(pad=>pad.kind==='live'&&!pad.audienceHidden);
  const groups=[...new Set(visible.map(pad=>pad.group))];
- const anchor=groups.flatMap(group=>visible.filter(pad=>pad.group===group)).findIndex(pad=>pad.id==='chord:Digit2');
+ const anchor=groups.flatMap(group=>visible.filter(pad=>pad.group===group)).findIndex(pad=>pad.id==='intro:KeyL');
  for(const columns of [2,3,4,6]){
   assert.ok(html.includes(`--loop-column-${columns}:${Math.min(anchor%columns+1,columns-1)}`));
   assert.ok(html.includes(`--loop-row-${columns}:${Math.floor(anchor/columns)+2}`));
@@ -202,4 +204,19 @@ test('Intro Loop occupies the grid row directly below the 2 chord pad, including
  assert.match(html,/aria-label="Intro loop"/);
  const inactive=renderToStaticMarkup(createElement(api.Workstation,props));
  assert.doesNotMatch(inactive,/workstation-intro-loop/,'no empty loop row before its entrance');
+});
+
+test('Roses audience piano retains only the performance phrases without changing input data or phase-specific pitches',()=>{
+ const mappings=JSON.stringify([api.rosesMap,api.rosesLiveChordShortcuts]);
+ for(const gestures of [false,true]){
+  const guide=api.rosesKeyGuide(api.rosesMap,0,'KeyG',true,false,gestures),before=JSON.stringify(guide);
+  const clean=api.rosesAudiencePianoGuide(guide),entries=Object.values(clean).flat(),codes=new Set(entries.map(entry=>entry.code));
+  for(const code of ['KeyL','Semicolon','Quote','KeyJ','KeyH','KeyF','KeyD','KeyS','KeyA','KeyQ','KeyW','KeyE','KeyR','KeyT','KeyY','KeyU','KeyI','KeyO','KeyP','Equal','Minus','Digit0','Digit9','Comma','Period','Slash'])assert.ok(codes.has(code),`${code} remains visible`);
+  assert.equal(codes.size,26);assert.ok(entries.every(entry=>!entry.label.startsWith('⇧')));
+  assert.ok(!codes.has('Digit2'));assert.ok(!codes.has('Digit6'));assert.ok(!codes.has('KeyZ'));
+  for(const [pitch,labels] of Object.entries(clean))for(const entry of labels)assert.ok(guide[pitch].includes(entry),'every label stays at its original current-route pitch');
+  if(gestures)for(const [code,pitch] of Object.entries({KeyJ:73,KeyH:71,KeyF:68,KeyD:66,KeyS:64,KeyA:63,KeyW:59}))assert.ok(clean[pitch].some(entry=>entry.code===code));
+  assert.equal(JSON.stringify(guide),before);
+ }
+ assert.equal(JSON.stringify([api.rosesMap,api.rosesLiveChordShortcuts]),mappings);
 });

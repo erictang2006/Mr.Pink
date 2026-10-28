@@ -4,7 +4,7 @@ import { build } from 'esbuild';
 import { readFileSync } from 'node:fs';
 
 const bundle = await build({
-  stdin: { contents: `export * from './src/piano/visualDropChords';export {rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey} from './src/piano/rosesIntroKeys';export {silentBuildupLeadGesture} from './src/piano/rosesManualBuildupLead';export { impactSources } from 'tone';export { hereWithMeChords, hereWithMeChordShortcuts } from './src/piano/hereWithMeChords';
+  stdin: { contents: `export * from './src/piano/visualDropChords';export {rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey} from './src/piano/rosesIntroKeys';export {silentBuildupLeadGesture,buildupLeadGesturePitches} from './src/piano/rosesManualBuildupLead';export { impactSources } from 'tone';export { hereWithMeChords, hereWithMeChordShortcuts } from './src/piano/hereWithMeChords';
     export { HereWithMeLeadEngine } from './src/piano/hereWithMeLeadEngine';
     export { KeyboardInputManager } from './src/piano/keyboardInput';
     export { SynthEngine } from './src/piano/synthEngine';
@@ -28,7 +28,7 @@ const bundle = await build({
     ` }));
   } }],
 });
-const { pressVisualDropChord, releaseVisualDropChord, visualDropChords, visualDropChordShortcuts, rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey, silentBuildupLeadGesture, hereWithMeChords, hereWithMeChordShortcuts, HereWithMeLeadEngine, KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesLiveChordShortcuts, rosesChordEngineCode, rosesChordBindings, rosesIndividualChordPitch, rosesIndividualChordNotes, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot, RosesFutureBassLayers, impactSources } =
+const { buildupLeadGesturePitches, pressVisualDropChord, releaseVisualDropChord, visualDropChords, visualDropChordShortcuts, rosesIntroKeys, rosesIntroKeyPitch, normalizeRosesVocalKey, silentBuildupLeadGesture, hereWithMeChords, hereWithMeChordShortcuts, HereWithMeLeadEngine, KeyboardInputManager, SynthEngine, RosesChordStabEngine, LiveNotes, rosesChordShortcuts, rosesLiveChordShortcuts, rosesChordEngineCode, rosesChordBindings, rosesIndividualChordPitch, rosesIndividualChordNotes, rosesChordSource, rosesMap, validRosesDropSettings, bonkPitchForRoot, RosesFutureBassLayers, impactSources } =
   await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].text).toString('base64')}`);
 
 class Target {
@@ -558,13 +558,14 @@ test('both HWM gesture phrases including A–W depress keys and draw trails with
  globalThis.window=new Target();window.setInterval=setInterval;window.clearInterval=clearInterval;globalThis.document=new Target();document.hidden=false;
  let snapshot;const notes=new LiveNotes(),sounds=[],owners=new Set();let mode='auto',measure=29;
  const input=new KeyboardInputManager(rosesMap,{
+  pitchForKey:event=>silentBuildupLeadGesture(mode,'running',measure,'roses',event.code)?buildupLeadGesturePitches[event.code]:undefined,
   noteOn(midi,code,at){if(silentBuildupLeadGesture(mode,'running',measure,'roses',code)){owners.add(code);notes.on(`roses-gesture:${code}:${midi}`,midi,at);}else sounds.push(['on',code,midi]);},
   noteOff(midi,code,at){if(owners.delete(code))notes.off(`roses-gesture:${code}:${midi}`,at,false);else sounds.push(['off',code,midi]);},change:value=>{snapshot=value;},
  });input.setEnabled(true);
  const key=(type,code)=>window.dispatch(type,{code,target:null,repeat:false,shiftKey:false,preventDefault(){}});
  try{
   for(const letter of 'jhhffdsjhhffdsaw'){
-   const code=`Key${letter.toUpperCase()}`;key('keydown',code);assert.equal(snapshot.pressed.length,1);assert.equal(snapshot.pressed[0].code,code);assert.equal(notes.soundingNotes().length,1);
+   const code=`Key${letter.toUpperCase()}`;key('keydown',code);assert.equal(snapshot.pressed.length,1);assert.equal(snapshot.pressed[0].code,code);assert.equal(snapshot.pressed[0].midi,buildupLeadGesturePitches[code]);assert.equal(notes.soundingNotes().length,1);
    key('keyup',code);assert.equal(snapshot.pressed.length,0);assert.equal(notes.soundingNotes().length,0);
   }
   assert.deepEqual(sounds,[],'gestures create neither synth attacks nor releases');assert.equal(notes.visible(performance.now(),4400).length,16,'both complete phrases, including A–W, leave silent trails');
@@ -659,4 +660,10 @@ test('Roses number keys 1–5 draw and release chord gestures without allocating
   assert.equal(state.stabs.held.size,0);assert.equal(state.synth.held.size,0);
   state.key('keydown','Digit2');window.dispatch('blur');assert.equal(state.notes.soundingNotes().length,0);
  }finally{state.input.dispose();}
+});
+
+test('JHHFFDS / JHHFFDSAW gesture pitches match every note in the recorded Vox melody',()=>{
+ const actual=[...'jhhffdsjhhffdsaw'].map(key=>buildupLeadGesturePitches['Key'+key.toUpperCase()]);
+ const expected=JSON.parse(readFileSync('src/piano/voxMelody.json')).notes.map(note=>note.midi);
+ assert.deepEqual(actual,expected);
 });

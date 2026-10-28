@@ -1,10 +1,12 @@
 export const sodaPopAsset='/audio/soda-pop/soda-pop.mp3';
 export const sodaPopSettingsKey='stage-piano-soda-pop-v1';
 export const sodaPopFadeSeconds=6;
-export type SodaPopSettings={automatic:boolean;countIn:boolean;speed:0.5|1;start:number;end:number;fadeSeconds:number;transition:number;firstBeat:number;bpm:number;scratch:number;glitch:number;can:number};
+export type SodaPopSettings={automatic:boolean;countIn:boolean;speed:0.5|1;start:number;end:number;fadeSeconds:number;fadeInSeconds:number;transition:number;firstBeat:number;bpm:number;scratch:number;glitch:number;can:number};
 // End marks the start of the fade; retain editable timestamps for musical fine-tuning.
-export const defaultSodaPopSettings:SodaPopSettings={automatic:false,countIn:true,speed:1,start:41,end:82,fadeSeconds:sodaPopFadeSeconds,transition:1.875,firstBeat:0,bpm:128,scratch:.22,glitch:.43,can:.68};
+export const defaultSodaPopSettings:SodaPopSettings={automatic:false,countIn:true,speed:1,start:39,end:82,fadeSeconds:sodaPopFadeSeconds,fadeInSeconds:2,transition:1.875,firstBeat:0,bpm:128,scratch:.22,glitch:.43,can:.68};
 export function validSodaPopSettings(value:Partial<SodaPopSettings>={},duration=Infinity):SodaPopSettings {
+ // Move only the old default cut; retain deliberately edited source timestamps.
+ if(value.fadeInSeconds===undefined&&value.start===41)value={...value,start:39};
  const bound=(key:keyof SodaPopSettings,min:number,max:number)=>{const n=value[key];return typeof n==='number'&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):defaultSodaPopSettings[key] as number;};
  const start=Math.min(bound('start',0,3600),Math.max(0,duration-.25));
  const scratch=bound('scratch',.12,.4),glitch=Math.max(scratch+.08,bound('glitch',.3,.6)),can=Math.max(glitch+.12,bound('can',.55,.88));
@@ -15,7 +17,7 @@ export function validSodaPopSettings(value:Partial<SodaPopSettings>={},duration=
  const firstBeat=Math.min(bound('firstBeat',0,.5),end-start-.05);
  const transition=Math.max(bound('transition',1,4.5),countIn?240/bpm+firstBeat:0);
  // Keep the legacy field for saved-profile compatibility; the finale is manual-only.
- return {automatic:false,countIn,speed:value.speed===.5?.5:1,start,end,fadeSeconds:sodaPopFadeSeconds,transition,firstBeat:Math.min(firstBeat,transition*(1-can)-.02),bpm,scratch,glitch,can};
+ return {automatic:false,countIn,speed:value.speed===.5?.5:1,start,end,fadeSeconds:sodaPopFadeSeconds,fadeInSeconds:Math.min(bound('fadeInSeconds',0,5),end-start),transition,firstBeat:Math.min(firstBeat,transition*(1-can)-.02),bpm,scratch,glitch,can};
 }
 export function sodaPopFrame(elapsed:number,settings:SodaPopSettings){
  const musicStart=settings.transition-settings.firstBeat,music=Math.max(0,elapsed-musicStart),length=settings.end-settings.start;

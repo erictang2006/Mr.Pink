@@ -30,3 +30,11 @@ test('rapid intro notes keep exact pitches and releases even when UI frames are 
   for(const fn of [...frames.values()])fn();frames.clear();assert.deepEqual(changes.at(-1).pressed,[]);
  }finally{input.dispose();for(const [name,value] of Object.entries(saved))if(value===undefined)delete globalThis[name];else globalThis[name]=value;}
 });
+
+test('HWM gesture pitches override the old octave and chord map only during their silent section',()=>{
+ const pitches={KeyJ:73,KeyH:71,KeyF:68,KeyD:66,KeyS:64,KeyA:63,KeyW:59};
+ const engine={...roses,isSilentBuildupLeadGesture:code=>code in pitches};
+ for(const shiftKey of [false,true])for(const transpose of [-4,0,4])for(const [code,midi] of Object.entries(pitches))
+  assert.equal(performanceKeyPitch({code,shiftKey},transpose,'roses',false,transpose+4,'KeyG',engine),midi);
+ assert.equal(performanceKeyPitch({code:'KeyA',shiftKey:false},0,'roses',false,4,'KeyG',roses),undefined,'outside the section existing pitch fallback is unchanged');
+});

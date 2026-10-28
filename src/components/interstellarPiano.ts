@@ -1,6 +1,7 @@
 import { starlightColor, type KeyLight } from './starlight';
 import type { pianoGeometry } from '../piano/geometry';
 import type { StageKeyGuide } from '../piano/performancePresentation';
+import {pianoBlush} from '../theme/mrPinkShow';
 
 /** Interstellar-only surface; physical input owns every press and release. */
 export function drawInterstellarPiano(
@@ -8,20 +9,24 @@ export function drawInterstellarPiano(
   geometry: ReturnType<typeof pianoGeometry>, guide: StageKeyGuide,
   active: Set<number>, pressedCodes: Set<string>, _depths: Map<number, number>,
   hovered?: number, hoverProgress = 1, prominentPitches?: Set<number>, pressedKeys?: {code: string; midi: number}[],
-  lights?: Map<number, KeyLight>,
+  lights?: Map<number, KeyLight>,blush=false,
 ) {
   const blackHeight = height * .63;
   const gap = Math.max(1, Math.min(1.7, geometry.whiteWidth * .035));
   ctx.fillStyle = '#020711';
   ctx.fillRect(0, 0, width, height);
   const energy = Math.min(1, [...(lights?.values() ?? [])].reduce((sum, light) => sum + light.level, 0) / 7);
+  const whiteFace=['#e1e9ed','#d4dfe5'];
+  const mutedFace=['#bcc8d2','#afbecb'];
+  const blackFace=blush?[pianoBlush.blackTop,pianoBlush.blackBottom]:['#192438','#0c1422'];
 
   const draw = (midi: number, black: boolean) => {
     const key = geometry.keys.get(midi)!;
     const labels = guide[midi] ?? [];
     const pressed = active.has(midi);
     const illumination = lights?.get(midi)?.level ?? (pressed ? 1 : 0);
-    const color = starlightColor(midi);
+    const pinkWhite=blush&&!black;
+    const color = pinkWhite?pianoBlush.pressGlow:starlightColor(midi);
     const prominent = midi < 84 || !prominentPitches || prominentPitches.has(midi);
     const x = key.x + (black ? 0 : gap / 2);
     const w = key.width - (black ? 0 : gap);
@@ -29,10 +34,12 @@ export function drawInterstellarPiano(
     const h = black ? blackHeight : height - 3;
     ctx.save();
 
-    // Flat, quiet key faces; depth comes from the light above the piano.
+    // Each white key owns its vertical gradient; labels and press envelopes stay independent.
     const face = ctx.createLinearGradient(0,y,0,h);
-    face.addColorStop(0,black?'#192438':prominent?'#e1e9ed':'#bcc8d2');
-    face.addColorStop(1,black?'#0c1422':prominent?'#d4dfe5':'#afbecb');
+    const surface=black?blackFace:prominent?whiteFace:mutedFace;
+    if(pinkWhite){
+      face.addColorStop(0,pianoBlush.whiteTop);face.addColorStop(.5,pianoBlush.whiteBody);face.addColorStop(1,pianoBlush.whiteDepth);
+    }else{face.addColorStop(0,surface[0]);face.addColorStop(1,surface[1]);}
     ctx.fillStyle = face;
     ctx.beginPath();
     ctx.roundRect(x, y, w, h - 1, [0, 0, 2, 2]);
@@ -40,10 +47,10 @@ export function drawInterstellarPiano(
     if (illumination > .001) {
       ctx.save(); ctx.globalAlpha = illumination;
       const internal = ctx.createLinearGradient(0, y, 0, h);
-      internal.addColorStop(0, `${color}ed`);
-      internal.addColorStop(.24, `${color}b0`);
-      internal.addColorStop(.82, `${color}48`);
-      internal.addColorStop(1, `${color}a8`);
+      internal.addColorStop(0, pinkWhite?`${pianoBlush.pressHighlight}70`:`${color}ed`);
+      internal.addColorStop(.24, `${color}${pinkWhite?'4d':'b0'}`);
+      internal.addColorStop(.82, `${color}${pinkWhite?'14':'48'}`);
+      internal.addColorStop(1, `${color}${pinkWhite?'55':'a8'}`);
       ctx.fillStyle = internal; ctx.fill();
       ctx.restore();
     }
@@ -94,7 +101,7 @@ export function drawInterstellarPiano(
   for (const [midi, light] of lights ?? []) {
     if (light.level < .001) continue;
     const key=geometry.keys.get(midi); if(!key)continue;
-    const x=key.x+key.width/2,r=geometry.whiteWidth*.95,color=starlightColor(midi);
+    const x=key.x+key.width/2,r=geometry.whiteWidth*.95,color=blush&&!key.black?pianoBlush.pressGlow:starlightColor(midi);
     ctx.save(); ctx.globalAlpha=light.level*.17;
     const spill=ctx.createRadialGradient(x,5,0,x,5,r);
     spill.addColorStop(0,`${color}cc`);spill.addColorStop(1,`${color}00`);

@@ -6,7 +6,7 @@ Start from setup: select Interstellar, enable audio, click Start opening typing 
 
 The exact default passage is configured in src/opening/typingTest.ts:
 
-"Hi, my name is Eric. I'm a junior at Boston University. I coded this entire program from scratch. I hope you enjoy the performance."
+"Hi, my name is Eric, and I can type relatively fast. I'm a junior and I represent CSA. I made this entire program for you guys, so I hope you enjoy the show"
 
 Changing introTypingConfig.passage changes both the model and screen. The controller also accepts a passage in its constructor for focused rehearsals/tests. The logic does not depend on particular words or a fixed character count.
 
@@ -14,7 +14,7 @@ Input is routed through the existing KeyboardInputManager before normal note dis
 
 The timer starts on the first printable character, including an incorrect one, rather than page entry or Shift. Empty Backspace does not start it. Net WPM = (currently correct characters / 5) / elapsed minutes. This counts spaces and punctuation, includes pauses, and returns zero while elapsed time is zero. Accuracy = correct printable attempts / all accepted printable attempts × 100. Backspace does not erase earlier mistakes from accuracy. The screen refreshes elapsed metrics at 100 ms intervals; the passage is memoized so clock updates do not rebuild its character nodes. The caret updates on input and viewport changes using a lightweight ResizeObserver.
 
-Only input exactly equal to the configured passage completes the test. With the default passage, the final period triggers completion only if every earlier character is also correct. Incorrect full-length input must be corrected with Backspace. Both metrics freeze using the completion timestamp.
+Only input exactly equal to the configured passage completes the test. With the current passage, the final character triggers completion only if every earlier character is also correct. Incorrect full-length input must be corrected with Backspace. Both metrics freeze using the completion timestamp.
 
 The same OpeningSequence controller owns:
 

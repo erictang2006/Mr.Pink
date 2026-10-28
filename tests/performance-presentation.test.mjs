@@ -126,3 +126,11 @@ test('Roses and HWM stage labels follow fixed physical chord bindings and omit t
  assert.ok(labels.some(label=>label.code==='Equal'&&label.label==='='));assert.ok(labels.some(label=>label.code==='Minus'&&label.label==='-'));
  assert.equal(stageSourceCode('roses-chord:Equal:61'),'Equal');assert.equal(stageSourceCode('roses-chord:Minus:59'),'Minus');
 });
+
+test('HWM silent gesture key labels use the same exact pitches as the recorded lead',()=>{
+ const pitches={KeyJ:73,KeyH:71,KeyF:68,KeyD:66,KeyS:64,KeyA:63,KeyW:59};
+ for(const transpose of [-4,0,4]){
+  const guide=rosesKeyGuide(rosesMap,transpose,'KeyG',false,false,true);
+  for(const [code,midi] of Object.entries(pitches))assert.deepEqual(Object.entries(guide).filter(([,labels])=>labels.some(label=>label.code===code)).map(([pitch])=>Number(pitch)),[midi]);
+ }
+});
